@@ -1,98 +1,99 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { CoordinateIntro } from "@/components/coordinate-intro";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Hero } from "@/components/hero";
 import { HeritageCard } from "@/components/heritage-card";
 import { IllustratedMap } from "@/components/illustrated-map";
-import { PortraitTile } from "@/components/portrait-wall";
 import { Reveal } from "@/components/reveal";
 import { CityScene } from "@/components/scenes/city-scene";
-import { SectionHeading, Stat } from "@/components/section-heading";
+import { SectionHeading } from "@/components/section-heading";
 import { PujoCountdown } from "@/components/pujo-countdown";
-import { Wordmark } from "@/components/ambient";
 import { TastePlate } from "@/components/taste-plate";
-import { CITY_COORDS_DISPLAY, heritageSites, people } from "@/lib/kolkata";
+import { heritageSites } from "@/lib/kolkata";
+import type { PhotoId } from "@/lib/kolkata/photos";
 
 const shell = "mx-auto w-full max-w-[88rem] px-5 sm:px-8";
 
-const HOME_PEOPLE = [
-  "raja-ram-mohan-roy",
-  "rabindranath-tagore",
-  "jagadish-chandra-bose",
-  "subhas-chandra-bose",
-  "satyajit-ray",
+/** The ways in, by what you feel like doing rather than by district. */
+const VIBES: { label: string; line: string; href: string; photo: PhotoId }[] = [
+  { label: "Eat everything", line: "Rolls, phuchka, biryani and mishti", href: "/food", photo: "kathi-roll" },
+  { label: "Pandal-hopping", line: "Five days, zero sleep", href: "/durga-puja", photo: "pandal-night" },
+  { label: "Hidden gems", line: "Spots most people walk right past", href: "/hidden", photo: "north-kolkata-lane" },
+  { label: "Sunset by the river", line: "Ghats, ferries and golden hour", href: "/river", photo: "hooghly-sunset" },
+  { label: "Adda & coffee", line: "Where the city talks for hours", href: "/adda", photo: "coffee-house" },
+  { label: "Ride the tram", line: "Slow, rattly and completely worth it", href: "/tram", photo: "tram-esplanade" },
+  { label: "Match day", line: "Mohun Bagan, East Bengal and a lot of noise", href: "/football", photo: "salt-lake-stadium" },
+  { label: "Night out", line: "Park Street after dark", href: "/neighbourhoods/park-street", photo: "park-street-night" },
+];
+
+const PLANS = [
+  { emoji: "🗓️", title: "Build my day", line: "Tell it your hours and interests, get a route.", href: "/build-my-day" },
+  { emoji: "🎭", title: "Kolkata by mood", line: "Rainy, bookish, hungry or up all night.", href: "/mood" },
+  { emoji: "🧠", title: "How Kolkata are you?", line: "A quick quiz. No pressure. Some pressure.", href: "/how-kolkata-are-you" },
+  { emoji: "🎉", title: "What's on", line: "Festivals, fairs and match days, all year.", href: "/events" },
 ];
 
 export default function Home() {
   return (
     <>
-      <CoordinateIntro />
       <Hero />
 
-      {/* Everything below scrolls up over the hero. */}
       <main className="relative z-10 bg-background">
-        {/* The approach. */}
-        <section className="border-b border-border">
-          <div
-            className={`${shell} grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.4fr_1fr] lg:gap-20`}
-          >
-            <Reveal>
-              <p className="font-mono text-[0.62rem] tracking-[0.3em] text-primary uppercase">
-                {CITY_COORDS_DISPLAY} — you have arrived
-              </p>
-              <Wordmark className="mt-6 text-terracotta" />
-              <h2 className="mt-8 font-display text-[clamp(1.9rem,5vw,3.6rem)] leading-[1.04] font-semibold tracking-tight text-balance">
-                It was three villages on a bend in the river, and then it was
-                the second city of an empire.
-              </h2>
-              <p className="mt-7 max-w-2xl text-[1rem] leading-relaxed text-muted-foreground">
-                A city that argues with itself about its trams, its river, and
-                which Park Street restaurant does the better kebab. This is a
-                guide to the arguments as much as to the buildings.
-              </p>
-            </Reveal>
-
-            <Reveal
-              delay={120}
-              className="grid grid-cols-3 gap-x-6 gap-y-8 self-start lg:grid-cols-1"
-            >
-              <Stat
-                value="1690"
-                label="The first trading post"
-                note="At Sutanuti, on the east bank"
-              />
-              <Stat
-                value="15m"
-                label="In the metropolitan area"
-                note="Third largest in India"
-              />
-              <Stat
-                value="2"
-                label="National anthems"
-                note="India and Bangladesh, one author"
-              />
-            </Reveal>
-          </div>
-        </section>
-
-        {/* Heritage. */}
-        <section className="border-b border-border bg-secondary/40">
+        {/* Pick a vibe. */}
+        <section className="border-y border-border bg-secondary/60">
           <div className={`${shell} py-20 sm:py-28`}>
             <Reveal>
               <SectionHeading
-                eyebrow="Heritage"
-                title="What was built, and who paid for it"
+                eyebrow="Pick your vibe"
+                title="Searching is easier by mood"
+                lede="Start with what you feel like doing. We'll point you at the right corner of the city."
+              />
+            </Reveal>
+            <ul className="mt-12 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+              {VIBES.map((v, i) => (
+                <Reveal as="li" key={v.href} delay={i * 60} className="h-full">
+                  <Link
+                    href={v.href}
+                    className="group relative block aspect-4/5 overflow-hidden rounded-3xl bg-muted"
+                  >
+                    <CityScene
+                      photo={v.photo}
+                      detail="card"
+                      className="absolute inset-0 h-full w-full transition-transform duration-1200 ease-out group-hover:scale-[1.07]"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-ink/85 via-ink/20 to-transparent" />
+                    <span className="absolute top-3 right-3 grid size-9 place-items-center rounded-full bg-card/90 text-foreground opacity-0 shadow transition-opacity group-hover:opacity-100 sm:top-4 sm:right-4">
+                      <ArrowUpRight className="size-4" />
+                    </span>
+                    <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                      <p className="font-display text-[clamp(1.05rem,2.2vw,1.45rem)] leading-tight font-bold text-cream">
+                        {v.label}
+                      </p>
+                      <p className="mt-1 text-[0.78rem] leading-snug text-cream/75 sm:text-[0.86rem]">
+                        {v.line}
+                      </p>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Landmarks. */}
+        <section className="border-b border-border">
+          <div className={`${shell} py-20 sm:py-28`}>
+            <Reveal>
+              <SectionHeading
+                eyebrow="Must-see"
+                title="Landmarks worth the trip"
+                lede="The big sights everyone should tick off at least once."
                 href="/heritage"
+                hrefLabel="All landmarks"
               />
             </Reveal>
             <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {heritageSites.slice(0, 3).map((site, i) => (
-                <Reveal
-                  as="li"
-                  key={site.slug}
-                  delay={i * 110}
-                  className="h-full"
-                >
+                <Reveal as="li" key={site.slug} delay={i * 110} className="h-full">
                   <HeritageCard site={site} index={i} />
                 </Reveal>
               ))}
@@ -101,7 +102,7 @@ export default function Home() {
         </section>
 
         {/* Taste Kolkata. */}
-        <section className="border-b border-border">
+        <section className="border-b border-border bg-secondary/60">
           <div className={`${shell} py-20 sm:py-28`}>
             <Reveal>
               <SectionHeading
@@ -119,7 +120,7 @@ export default function Home() {
         </section>
 
         {/* The illustrated map. */}
-        <section className="border-b border-border bg-secondary/40">
+        <section className="border-b border-border">
           <div className={`${shell} py-20 sm:py-28`}>
             <Reveal>
               <SectionHeading
@@ -139,54 +140,63 @@ export default function Home() {
         <section className="relative overflow-hidden border-b border-border">
           <CityScene name="pujo" className="absolute inset-0 h-full w-full" />
           <div className="scrim-full absolute inset-0" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_50%_at_50%_54%,oklch(0.1_0.015_50/0.76),transparent_74%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_50%_at_50%_54%,oklch(0.12_0.02_265/0.72),transparent_74%)]" />
           <div className="film-grain absolute inset-0" />
           <div className={`${shell} relative py-24 sm:py-32`}>
             <Reveal>
-              <p className="text-center font-mono text-[0.62rem] tracking-[0.32em] text-cream/55 uppercase">
+              <p className="text-center font-mono text-[0.62rem] tracking-[0.32em] text-cream/60 uppercase">
                 Kolkata during Puja
               </p>
-              <h2 className="mx-auto mt-5 max-w-3xl text-center font-display text-[clamp(1.9rem,5.5vw,3.8rem)] leading-[0.98] font-semibold text-cream text-balance">
+              <h2 className="mx-auto mt-5 max-w-3xl text-center font-display text-[clamp(1.9rem,5.5vw,3.8rem)] leading-[0.98] font-extrabold tracking-tight text-cream text-balance">
                 For five days, the city stops being a city.
               </h2>
               <PujoCountdown className="mt-12" />
               <div className="mt-12 text-center">
                 <Link
                   href="/durga-puja"
-                  className="group inline-flex items-center gap-3 border-b border-marigold/40 pb-1.5 font-mono text-[0.7rem] tracking-[0.24em] text-marigold uppercase transition-colors hover:border-marigold"
+                  className="group inline-flex items-center gap-2 rounded-full bg-marigold px-6 py-3 text-[0.92rem] font-semibold text-ink transition-transform hover:-translate-y-0.5"
                 >
                   Enter the Puja
-                  <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1.5" />
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
             </Reveal>
           </div>
         </section>
 
-        {/* People. */}
+        {/* Make a plan. */}
         <section className="border-b border-border">
           <div className={`${shell} py-20 sm:py-28`}>
             <Reveal>
               <SectionHeading
-                eyebrow="People who made Kolkata"
-                title="Twenty-five lives, on one wall"
-                href="/people"
-                hrefLabel="The portrait wall"
+                eyebrow="Make a plan"
+                title="Not sure where to start?"
+                lede="Let the city pick for you."
               />
             </Reveal>
-            <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-              {people
-                .filter((p) => HOME_PEOPLE.includes(p.slug))
-                .map((person, i) => (
-                  <Reveal
-                    as="li"
-                    key={person.slug}
-                    delay={i * 70}
-                    className="h-full"
+            <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {PLANS.map((p, i) => (
+                <Reveal as="li" key={p.href} delay={i * 80} className="h-full">
+                  <Link
+                    href={p.href}
+                    className="group flex h-full flex-col rounded-3xl border border-border bg-card p-6 transition-[translate,border-color,box-shadow] hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_24px_50px_-30px_oklch(0.25_0.04_265/0.5)]"
                   >
-                    <PortraitTile person={person} />
-                  </Reveal>
-                ))}
+                    <span aria-hidden className="grid size-12 place-items-center rounded-2xl bg-accent text-2xl">
+                      {p.emoji}
+                    </span>
+                    <p className="mt-6 font-display text-xl font-bold tracking-tight">
+                      {p.title}
+                    </p>
+                    <p className="mt-2 flex-1 text-[0.92rem] leading-relaxed text-muted-foreground">
+                      {p.line}
+                    </p>
+                    <span className="mt-6 inline-flex items-center gap-1.5 text-[0.86rem] font-semibold text-primary">
+                      Let&apos;s go
+                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                </Reveal>
+              ))}
             </ul>
           </div>
         </section>
@@ -198,19 +208,19 @@ export default function Home() {
           <div className="film-grain absolute inset-0" />
           <div className={`${shell} relative py-28 sm:py-40`}>
             <Reveal className="max-w-2xl">
-              <p className="font-mono text-[0.62rem] tracking-[0.3em] text-marigold/80 uppercase">
+              <p className="font-mono text-[0.62rem] tracking-[0.3em] text-marigold uppercase">
                 One more thing
               </p>
-              <h2 className="mt-6 font-display text-[clamp(1.8rem,5vw,3.4rem)] leading-[1.06] font-semibold text-cream text-balance">
+              <h2 className="mt-6 font-display text-[clamp(1.8rem,5vw,3.4rem)] leading-[1.06] font-extrabold tracking-tight text-cream text-balance">
                 Come between November and February, and get up for the flower
                 market at five.
               </h2>
               <Link
                 href="/plan"
-                className="group mt-9 inline-flex items-center gap-3 border-b border-marigold/40 pb-1.5 font-mono text-[0.7rem] tracking-[0.24em] text-marigold uppercase transition-colors hover:border-marigold"
+                className="group mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[0.92rem] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
               >
                 Plan the trip
-                <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1.5" />
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Reveal>
           </div>

@@ -34,8 +34,6 @@ export interface HeritageSite {
   overlooked: string;
   scene: SceneName;
   photo?: PhotoId;
-  /** For sites whose story is best told as a sequence of dates. */
-  stages?: { year: string; title: string; body: string; scene: SceneName; photo?: PhotoId }[];
 }
 
 export type FoodCategory =
@@ -61,53 +59,6 @@ export interface Dish {
   scene: SceneName;
   photo?: PhotoId;
 }
-
-export type PersonGroup =
-  | "literature"
-  | "science"
-  | "cinema"
-  | "freedom"
-  | "reform"
-  | "spirituality"
-  | "culture";
-
-export interface Person {
-  slug: string;
-  name: string;
-  bengali?: string;
-  /** A portrait, where a freely licensed one exists. */
-  photo?: PhotoId;
-  born: number;
-  died?: number;
-  field: string;
-  group: PersonGroup;
-  address: string;
-  coords?: Coords;
-  summary: string;
-  body: string[];
-  quote?: { text: string; source: string };
-  works: { title: string; year: string; note: string }[];
-  /** Born where, and how they got here. */
-  bornAt?: string;
-  /** The specific tie to this city. */
-  kolkataConnection?: string;
-  /** One sentence on what they are actually for. */
-  contribution?: string;
-  /** Addresses you can stand outside. */
-  locations?: { name: string; note: string; coords?: Coords; href?: string }[];
-  /** A personal timeline, shown on the portrait page. */
-  life?: { year: string; what: string }[];
-}
-
-export const personGroups: { id: PersonGroup; label: string; line: string }[] = [
-  { id: "literature", label: "Literature", line: "Two national anthems, the first modern Bengali novel, and blank verse." },
-  { id: "science", label: "Science", line: "Radio before Marconi, the first Indian pharmaceutical works, and half of Bose–Einstein." },
-  { id: "cinema", label: "Cinema", line: "Three directors, three arguments, ten miles apart." },
-  { id: "freedom", label: "Freedom movement", line: "A hanged eighteen-year-old, a schoolmaster who took an armoury, and a man who raised an army abroad." },
-  { id: "reform", label: "Social reform", line: "Sati, widow remarriage, and the education of girls." },
-  { id: "spirituality", label: "Spirituality", line: "A temple priest at Dakshineswar, and the student who took him to Chicago." },
-  { id: "culture", label: "Culture & sport", line: "The Mahanayak, the recluse, and a captain who changed how India played." },
-];
 
 export interface Neighbourhood {
   slug: string;
@@ -138,7 +89,6 @@ export interface Neighbourhood {
   /** Specific photographs for the same plates, in order. */
   photos?: PhotoId[];
   walk: { stop: string; minutes: number; note: string }[];
-  sounds: string[];
   scene: SceneName;
   photo?: PhotoId;
 }
@@ -154,16 +104,6 @@ export interface Story {
   scene: SceneName;
   photo?: PhotoId;
   body: { kind: "para" | "quote" | "heading"; text: string }[];
-}
-
-export interface TimelineEntry {
-  year: number;
-  displayYear?: string;
-  title: string;
-  era: Era;
-  body: string;
-  /** Marks the handful of moments the city genuinely turns on. */
-  pivotal?: boolean;
 }
 
 export interface CityEvent {
@@ -294,41 +234,6 @@ export const zones: ZoneMeta[] = [
     tone: "var(--alta)",
   },
 ];
-
-/* ------------------------------------------------------------------ */
-/* Through Time                                                        */
-/* ------------------------------------------------------------------ */
-
-export type EraId =
-  | "1690"
-  | "1772"
-  | "1900"
-  | "1940"
-  | "1960"
-  | "1980"
-  | "1990"
-  | "today";
-
-/**
- * One stop on the year slider. `mood` drives a palette shift applied to
- * the whole document, so the site itself changes as the year does.
- */
-export interface EraStop {
-  id: EraId;
-  year: number;
-  label: string;
-  headline: string;
-  standfirst: string;
-  /** What the city looks like in this year. */
-  sees: { title: string; body: string }[];
-  /** Pulled into the era view from the rest of the site. */
-  scene: SceneName;
-  photo?: PhotoId;
-  soundtrack: string;
-  population: string;
-  getAround: string;
-  mood: "founding" | "company" | "sepia" | "wartime" | "newwave" | "para" | "liberal" | "now";
-}
 
 /* ------------------------------------------------------------------ */
 /* Famous For                                                          */

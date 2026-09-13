@@ -151,7 +151,7 @@ export const addaTopics: AddaTopic[] = [
       },
     ],
     venues: ["Any tea shop", "The Jadavpur 8B bus stand", "A rowak in the north, after dark"],
-    seeAlso: { label: "The timeline", href: "/timeline" },
+    seeAlso: { label: "Hidden Kolkata", href: "/hidden" },
   },
   {
     id: "food",

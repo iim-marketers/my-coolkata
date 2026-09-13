@@ -13,7 +13,6 @@ export interface Mood {
   when: string;
   /** A sequence you could actually follow. */
   plan: { time: string; what: string; where: string; href?: string }[];
-  soundId?: string;
   read?: { label: string; href: string };
 }
 
@@ -34,7 +33,6 @@ export const moods: Mood[] = [
       { time: "17:00", what: "Marble Palace, lit only by daylight through a courtyard", where: "Chorbagan", href: "/heritage/marble-palace" },
       { time: "19:00", what: "Khichuri and ilish bhaja. Non-negotiable", where: "Home, or anywhere", href: "/food" },
     ],
-    soundId: "rain",
     read: { label: "Sodium light", href: "/stories/sodium-light" },
   },
   {
@@ -66,10 +64,9 @@ export const moods: Mood[] = [
       { time: "10:00", what: "Kochuri at Putiram, before it runs out", where: "Surya Sen Street", href: "/college-street" },
       { time: "11:00", what: "The stalls. Describe something obscure and watch what happens", where: "Boi Para", href: "/college-street" },
       { time: "14:00", what: "Infusion coffee and a mutton afghani cutlet, first floor", where: "Indian Coffee House", href: "/adda" },
-      { time: "16:00", what: "Presidency's Baker Laboratory, where J. C. Bose and P. C. Ray worked", where: "College Street", href: "/people/jagadish-chandra-bose" },
+      { time: "16:00", what: "Presidency's Baker Laboratory, where J. C. Bose and P. C. Ray worked", where: "College Street" },
       { time: "17:00", what: "Telebhaja at Kalika, which students have kept alive since 1962", where: "Surya Sen Street", href: "/food/telebhaja" },
     ],
-    soundId: "coffee-house",
     read: { label: "The City of Words", href: "/literature" },
   },
   {
@@ -138,7 +135,6 @@ export const moods: Mood[] = [
       { time: "16:00", what: "Salt Lake Stadium, two hours before kick-off, for the approach", where: "Salt Lake", href: "/football" },
       { time: "19:00", what: "The derby", where: "Salt Lake Stadium", href: "/football" },
     ],
-    soundId: "stadium",
     read: { label: "The city that argues about football", href: "/football" },
   },
   {
@@ -156,7 +152,6 @@ export const moods: Mood[] = [
       { time: "23:30", what: "A lane in the north that has not been converted to LED yet", where: "Chitpur", href: "/stories/sodium-light" },
       { time: "01:00", what: "Balwant Singh's, which is open and will be until dawn", where: "Bhowanipore", href: "/food" },
     ],
-    soundId: "taxi-horn",
     read: { label: "Sodium light", href: "/stories/sodium-light" },
   },
   {
@@ -175,7 +170,6 @@ export const moods: Mood[] = [
       { time: "23:00", what: "Maddox Square. Not the pandal, the field around it", where: "Ballygunge", href: "/neighbourhoods/ballygunge" },
       { time: "Dashami", what: "Immersion at Babughat, from mid-afternoon into the night", where: "The river", href: "/durga-puja#the-immersion" },
     ],
-    soundId: "dhaak",
     read: { label: "Kolkata during Puja", href: "/durga-puja" },
   },
   {
@@ -194,7 +188,6 @@ export const moods: Mood[] = [
       { time: "16:00", what: "Adda. If a decision gets made you are doing it wrong", where: "Wherever you are sitting", href: "/adda" },
       { time: "18:00", what: "Ahiritola Ghat, which has the light and none of the crowd", where: "North Kolkata", href: "/hidden" },
     ],
-    soundId: "hooghly",
     read: { label: "Adda", href: "/adda" },
   },
 ];

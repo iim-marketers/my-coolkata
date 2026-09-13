@@ -58,10 +58,10 @@ export const famousFor: FamousStrand[] = [
     title: "Cinema",
     line: "Three filmmakers, within ten miles of each other, made three completely different arguments about what a film could be.",
     items: [
-      { name: "Satyajit Ray", note: "Pather Panchali, 1955, shot on weekends over two and a half years.", href: "/people/satyajit-ray" },
-      { name: "Ritwik Ghatak", note: "Eight features, mostly about Partition, mostly commercial failures.", href: "/people/ritwik-ghatak" },
+      { name: "Satyajit Ray", note: "Pather Panchali, 1955, shot on weekends over two and a half years." },
+      { name: "Ritwik Ghatak", note: "Eight features, mostly about Partition, mostly commercial failures." },
       { name: "Mrinal Sen", note: "Broke the fourth wall in Interview and Calcutta 71, and never apologised." },
-      { name: "Uttam Kumar & Suchitra Sen", note: "Thirty films, and the shared memory of a generation.", href: "/people/suchitra-sen" },
+      { name: "Uttam Kumar & Suchitra Sen", note: "Thirty films, and the shared memory of a generation." },
       { name: "Tollywood", note: "Named for Tollygunge, where New Theatres established the industry in the 1930s.", href: "/neighbourhoods/tollygunge" },
       { name: "Nandan", note: "The state film centre, designed with Ray's involvement, and the festival's home." },
     ],

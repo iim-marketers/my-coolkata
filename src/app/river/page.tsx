@@ -54,6 +54,7 @@ export default function RiverPage() {
                   <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border">
                     <CityScene
                       name={chapter.scene} photo={chapter.photo}
+                      sizes="(min-width: 1024px) min(50vw, 640px), 100vw"
                       className="h-full w-full"
                     />
                     <div className="scrim-bottom absolute inset-0" />

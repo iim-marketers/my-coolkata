@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
@@ -85,14 +84,6 @@ export default function TramPage() {
               announced it would retain a single heritage route, and the case is
               in the High Court.
             </p>
-          </Reveal>
-          <Reveal className="mt-10">
-            <Link
-              href="/sounds"
-              className="font-mono text-[0.64rem] tracking-[0.2em] text-terracotta uppercase hover:underline"
-            >
-              Hear the bell →
-            </Link>
           </Reveal>
         </div>
       </section>

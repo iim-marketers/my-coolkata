@@ -43,7 +43,7 @@ export function Quiz({ className }: { className?: string }) {
         ? "Close enough to order confidently on Zakaria Street."
         : score >= quizQuestions.length / 2
           ? "A working knowledge. Go north and fill the gaps."
-          : "Start with the timeline and come back.";
+          : "Start with the food page and come back.";
 
   return (
     <div className={cn("rounded-lg border border-border bg-card p-5 sm:p-7", className)}>

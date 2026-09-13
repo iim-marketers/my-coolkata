@@ -62,36 +62,6 @@ const core: HeritageSite[] = [
       "The sound-and-light show is skippable. The Kolkata gallery on the ground floor is not, and it is where you should spend the hour instead.",
     scene: "victoria",
     photo: "victoria-memorial",
-    stages: [
-      {
-        year: "1890",
-        title: "Open ground and a jail",
-        body: "The site is the southern Maidan. The Presidency Jail stands where the memorial will go, and the ground around it is grazing, parade and cricket. Victoria is on the throne and has never visited India.",
-        scene: "victoria",
-        photo: "maidan",
-      },
-      {
-        year: "1906",
-        title: "The foundation stone",
-        body: "Victoria dies in 1901; Curzon proposes the memorial within days and raises much of the money by public subscription across India. The Prince of Wales lays the stone in January 1906. The jail is demolished and the Makrana marble begins arriving from Rajasthan.",
-        scene: "rooftops",
-        photo: "victoria-memorial-old",
-      },
-      {
-        year: "1921",
-        title: "Opened, fifteen years late",
-        body: "The Prince of Wales opens it in December 1921. The capital moved to Delhi a decade earlier, the First World War has happened, and the confidence the building was designed to express has largely evaporated. The bronze Angel of Victory turns on ball bearings in a strong wind.",
-        scene: "victoria",
-        photo: "victoria-memorial-angel",
-      },
-      {
-        year: "Today",
-        title: "Twenty-five galleries and sixty-four acres",
-        body: "A museum with a Kolkata gallery better than visitors expect, holding city plans, Kalighat pat paintings and Company School watercolours. The grounds are the real institution: joggers at dawn, couples under umbrellas, and horse carriages waiting along Queens Way.",
-        scene: "victoria",
-        photo: "victoria-memorial-night",
-      },
-    ],
   },
   {
     slug: "marble-palace",

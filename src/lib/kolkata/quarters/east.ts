@@ -50,11 +50,6 @@ export const east: Neighbourhood[] = [
       { stop: "Kim Ling or Beijing", minutes: 45, note: "Lunch." },
       { stop: "Chinese Kali Temple", minutes: 55, note: "Noodles as prasad." },
     ],
-    sounds: [
-      "Hakka and Bengali in the same sentence",
-      "Woks over high gas",
-      "Firecrackers, for about four days in February",
-    ],
     scene: "rooftops",
     photo: "tangra",
   },
@@ -104,11 +99,6 @@ export const east: Neighbourhood[] = [
       { stop: "Salt Lake Stadium", minutes: 15, note: "Match day only, really." },
       { stop: "East Kolkata Wetlands", minutes: 30, note: "Ask for the bheris. Best at dawn, with a guide." },
       { stop: "Eco Park, New Town", minutes: 50, note: "Boating, and a large amount of grass." },
-    ],
-    sounds: [
-      "Almost nothing, which is the point",
-      "Fish being netted at dawn in the bheris",
-      "Traffic moving, uninterrupted, which happens nowhere else",
     ],
     scene: "river",
     photo: "new-town",

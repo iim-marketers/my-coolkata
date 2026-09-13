@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { TaxiPass } from "@/components/ambient";
 import { DerbyBoard } from "@/components/derby-board";
 import { PageHeader, pageShell } from "@/components/page-header";
@@ -155,12 +154,6 @@ export default function FootballPage() {
                 </li>
               ))}
             </ul>
-            <Link
-              href="/sounds"
-              className="mt-8 inline-block font-mono text-[0.62rem] tracking-[0.18em] text-terracotta uppercase hover:underline"
-            >
-              Hear the stadium →
-            </Link>
           </Reveal>
         </div>
       </section>

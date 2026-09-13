@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { AudioPlayer } from "@/components/audio-player";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { PhotoGallery } from "@/components/photo-gallery";
 import { Quiz } from "@/components/quiz";
@@ -68,9 +67,6 @@ export default function CulturePage() {
 
           <aside className="space-y-6 self-start lg:sticky lg:top-24">
             <Reveal>
-              <AudioPlayer />
-            </Reveal>
-            <Reveal delay={100}>
               <Quiz />
             </Reveal>
           </aside>

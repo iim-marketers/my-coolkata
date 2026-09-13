@@ -151,6 +151,7 @@ export function DayClock({ className }: { className?: string }) {
             >
               <CityScene
                 name={moment.scene} photo={moment.photo}
+                sizes="(min-width: 1024px) min(50vw, 640px), 100vw"
                 className="h-full w-full"
               />
             </div>

@@ -26,7 +26,6 @@ export const literature: LitEntry[] = [
     work: "Gitanjali",
     bengali: "গীতাঞ্জলি",
     author: "Rabindranath Tagore",
-    authorHref: "/people/rabindranath-tagore",
     year: "1910",
     era: "Bengal Renaissance",
     excerpt: {
@@ -48,7 +47,6 @@ export const literature: LitEntry[] = [
     work: "Anandamath",
     bengali: "আনন্দমঠ",
     author: "Bankim Chandra Chattopadhyay",
-    authorHref: "/people/bankim-chandra-chattopadhyay",
     year: "1882",
     era: "Bengal Renaissance",
     excerpt: {
@@ -70,7 +68,6 @@ export const literature: LitEntry[] = [
     work: "Meghnad Badh Kavya",
     bengali: "মেঘনাদবধ কাব্য",
     author: "Michael Madhusudan Dutt",
-    authorHref: "/people/michael-madhusudan-dutt",
     year: "1861",
     era: "Bengal Renaissance",
     excerpt: {
@@ -91,7 +88,6 @@ export const literature: LitEntry[] = [
     work: "Devdas",
     bengali: "দেবদাস",
     author: "Sarat Chandra Chattopadhyay",
-    authorHref: "/people/sarat-chandra-chattopadhyay",
     year: "1917",
     era: "Early twentieth century",
     excerpt: {
@@ -112,7 +108,6 @@ export const literature: LitEntry[] = [
     work: "Banalata Sen",
     bengali: "বনলতা সেন",
     author: "Jibanananda Das",
-    authorHref: "/people/jibanananda-das",
     year: "1942",
     era: "Bengali modernism",
     excerpt: {
@@ -133,7 +128,6 @@ export const literature: LitEntry[] = [
     slug: "sultanas-dream",
     work: "Sultana's Dream",
     author: "Begum Rokeya",
-    authorHref: "/people/begum-rokeya",
     year: "1905",
     era: "Reform",
     excerpt: {
@@ -145,7 +139,6 @@ export const literature: LitEntry[] = [
       name: "Sakhawat Memorial Girls' School",
       coords: { lat: 22.5405, lng: 88.3663 },
       note: "The school she moved to Calcutta in 1911 and ran for twenty years.",
-      href: "/people/begum-rokeya",
     },
     publicDomain: true,
   },
@@ -154,7 +147,6 @@ export const literature: LitEntry[] = [
     work: "Rupasi Bangla",
     bengali: "রূপসী বাংলা",
     author: "Jibanananda Das",
-    authorHref: "/people/jibanananda-das",
     year: "Written 1934, published 1957",
     era: "Bengali modernism",
     excerpt: {
@@ -176,7 +168,6 @@ export const literature: LitEntry[] = [
     work: "Pather Dabi",
     bengali: "পথের দাবী",
     author: "Sarat Chandra Chattopadhyay",
-    authorHref: "/people/sarat-chandra-chattopadhyay",
     year: "1926",
     era: "Nationalist period",
     context:

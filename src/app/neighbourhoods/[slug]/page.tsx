@@ -87,15 +87,7 @@ export default async function NeighbourhoodPage({
             </p>
           </Reveal>
 
-          <Facet n="01" title="History">
-            <div className="max-w-2xl space-y-5 text-[1.02rem] leading-[1.75] text-foreground/85">
-              {area.body.map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
-            </div>
-          </Facet>
-
-          <Facet n="02" title="Photographs">
+          <Facet n="01" title="Photographs">
             <p className="mb-5 max-w-2xl text-[0.9rem] leading-relaxed text-muted-foreground">
               Photographs of the quarter. Open one to see it full size.
             </p>
@@ -105,7 +97,7 @@ export default async function NeighbourhoodPage({
             />
           </Facet>
 
-          <Facet n="03" title="Important buildings">
+          <Facet n="02" title="Must-see buildings">
             <ul className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
               {area.buildings.map((b) => (
                 <li key={b.name} className="border-t border-border pt-3.5">
@@ -129,7 +121,7 @@ export default async function NeighbourhoodPage({
             </ul>
           </Facet>
 
-          <Facet n="04" title="Food">
+          <Facet n="03" title="Where to eat">
             <ul className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
               {area.eats.map((e) => (
                 <li key={e.name} className="border-t border-border pt-3.5">
@@ -147,31 +139,7 @@ export default async function NeighbourhoodPage({
             </ul>
           </Facet>
 
-          <Facet n="05" title="Famous people">
-            <ul className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
-              {area.figures.map((f) => (
-                <li key={f.name} className="border-t border-border pt-3.5">
-                  {f.href ? (
-                    <Link
-                      href={f.href}
-                      className="font-display text-[1.05rem] font-semibold transition-colors hover:text-terracotta"
-                    >
-                      {f.name} →
-                    </Link>
-                  ) : (
-                    <p className="font-display text-[1.05rem] font-semibold">
-                      {f.name}
-                    </p>
-                  )}
-                  <p className="mt-1.5 text-[0.86rem] leading-relaxed text-muted-foreground">
-                    {f.note}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </Facet>
-
-          <Facet n="06" title="Things to see">
+          <Facet n="04" title="Things to see">
             <ol className="space-y-5">
               {area.thingsToSee.map((t, i) => (
                 <li key={t.name} className="flex gap-5 border-t border-border pt-3.5">
@@ -192,7 +160,7 @@ export default async function NeighbourhoodPage({
           </Facet>
 
           {stories.length > 0 ? (
-            <Facet n="07" title="Stories">
+            <Facet n="05" title="Stories">
               <ul className="grid gap-5">
                 {stories.map((s) => (
                   <li key={s.slug}>
@@ -226,24 +194,6 @@ export default async function NeighbourhoodPage({
                   </li>
                 ))}
               </ol>
-            </div>
-          </Reveal>
-
-          <Reveal delay={90}>
-            <div className="rounded-lg border border-border bg-card p-6">
-              <p className="font-mono text-[0.58rem] tracking-[0.24em] text-muted-foreground uppercase">
-                What it sounds like
-              </p>
-              <ul className="mt-4 space-y-3">
-                {area.sounds.map((s) => (
-                  <li
-                    key={s}
-                    className="border-t border-border pt-3 text-[0.88rem] leading-relaxed text-foreground/80"
-                  >
-                    {s}
-                  </li>
-                ))}
-              </ul>
             </div>
           </Reveal>
         </aside>

@@ -112,19 +112,6 @@ export function MoodPicker({ className }: { className?: string }) {
                 </p>
                 <p className="mt-1.5 text-[0.9rem]">{mood.when}</p>
               </div>
-              {mood.soundId ? (
-                <div className="border-t border-border pt-4">
-                  <p className="font-mono text-[0.54rem] tracking-[0.18em] text-muted-foreground/70 uppercase">
-                    What it sounds like
-                  </p>
-                  <Link
-                    href="/sounds"
-                    className="mt-1.5 inline-block text-[0.9rem] text-terracotta hover:underline"
-                  >
-                    Play it on the sound board →
-                  </Link>
-                </div>
-              ) : null}
               {mood.read ? (
                 <div className="border-t border-border pt-4">
                   <p className="font-mono text-[0.54rem] tracking-[0.18em] text-muted-foreground/70 uppercase">

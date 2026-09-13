@@ -5,7 +5,6 @@ import { HeritageCard } from "@/components/heritage-card";
 import { InteractiveMap } from "@/components/interactive-map";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
-import { Transformation } from "@/components/transformation";
 import { getHeritageSite, heritageSites } from "@/lib/kolkata";
 
 export function generateStaticParams() {
@@ -68,18 +67,6 @@ export default async function HeritageSitePage({
               ))}
             </div>
           </Reveal>
-
-          {site.stages ? (
-            <Reveal className="mt-14">
-              <h2 className="font-display text-[clamp(1.4rem,3.2vw,2rem)] font-semibold">
-                {site.name}, over time
-              </h2>
-              <p className="mt-2 max-w-2xl text-[0.9rem] text-muted-foreground">
-                Step through the dates. The frame changes with them.
-              </p>
-              <Transformation stages={site.stages} className="mt-8" />
-            </Reveal>
-          ) : null}
 
           <Reveal className="mt-14 max-w-2xl rounded-lg border border-terracotta/30 bg-terracotta/5 p-6">
             <p className="font-mono text-[0.6rem] tracking-[0.24em] text-terracotta uppercase">
