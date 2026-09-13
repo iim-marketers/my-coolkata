@@ -18,7 +18,6 @@ import {
   famousFor,
   foodPlaces,
   heritageSites,
-  itineraries,
   neighbourhoods,
   pujoChapters,
   stories,
@@ -86,16 +85,10 @@ export const searchIndex: SearchRecord[] = [
     record(`c-${c.slug}`, c.name, "Culture", `/culture#${c.slug}`, c.summary, [c.bengali]),
   ),
   ...cityEvents.map((e) =>
-    record(`e-${e.slug}`, e.name, "Event", `/events#${e.slug}`, e.summary, [
+    record(`e-${e.slug}`, e.name, "Event", "/today", e.summary, [
       e.bengali,
       e.when,
       e.where,
-    ]),
-  ),
-  ...itineraries.map((i) =>
-    record(`i-${i.slug}`, i.title, "Plan", `/plan#${i.slug}`, i.summary, [
-      i.length,
-      ...i.stops.map((s) => s.place),
     ]),
   ),
   ...foodPlaces.map((p) =>

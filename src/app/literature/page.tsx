@@ -68,7 +68,7 @@ export default function LiteraturePage() {
             <ul className="mt-8 space-y-10">
               {group.items.map((l, i) => (
                 <Reveal as="li" key={l.slug} delay={(i % 3) * 70}>
-                  <article className="grid gap-8 border-t border-border pt-7 lg:grid-cols-[1.4fr_1fr]">
+                  <article className="sticky-split grid gap-8 border-t border-border pt-7 lg:grid-cols-[1.4fr_1fr]">
                     <div>
                       <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                         <h2 className="font-display text-[clamp(1.3rem,3.2vw,1.9rem)] font-semibold">

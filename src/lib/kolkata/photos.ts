@@ -102,6 +102,7 @@ import pRajBhavan from "@/assets/photos/heritage/raj-bhavan.jpg";
 import pRosogolla from "@/assets/photos/food/rosogolla.jpg";
 import pSaltLakeStadium from "@/assets/photos/landmarks/salt-lake-stadium.jpg";
 import pShaheedMinar from "@/assets/photos/heritage/shaheed-minar.jpg";
+import pShorsheIlish from "@/assets/photos/food/shorshe-ilish.jpg";
 import pShyambazar from "@/assets/photos/neighbourhoods/shyambazar.jpg";
 import pSindoorKhela from "@/assets/photos/durga-puja/sindoor-khela.jpg";
 import pSouthParkStreetCemetery from "@/assets/photos/heritage/south-park-street-cemetery.jpg";
@@ -169,8 +170,8 @@ export const photos = {
   },
   "bengali-thali": {
     image: pBengaliThali,
-    alt: "Bengali Thali",
-    credit: { title: "Traditional Bengali Thali 7", author: "Pallabbanerjee89", license: "CC0 1.0", licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/", source: "https://commons.wikimedia.org/wiki/File:Traditional_Bengali_Thali_7.jpg" },
+    alt: "A Bengali thali on bell metal: rice in the middle, dal, fish, begun bhaja and doi in bowls around it",
+    credit: { title: "Bengali Non-vegetarian thali", author: "Marajozkee", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Bengali_Non-vegetarian_thali.jpg" },
   },
   "beth-el-synagogue": {
     image: pBethElSynagogue,
@@ -219,13 +220,13 @@ export const photos = {
   },
   "cha-bhaar": {
     image: pChaBhaar,
-    alt: "Cha Bhaar",
-    credit: { title: "WTKVI - Tea served in clay pot", author: "Indrajit Das", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/", source: "https://commons.wikimedia.org/wiki/File:WTKVI_-_Tea_served_in_clay_pot.jpg" },
+    alt: "Milky tea in an unglazed clay bhaar",
+    credit: { title: "Tea served in Kulhar in India", author: "Ravi Dwivedi", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Tea_served_in_Kulhar_in_India.jpg" },
   },
   "chelo-kebab": {
     image: pCheloKebab,
-    alt: "Chelo Kebab",
-    credit: { title: "Chelo Kabab Soltani Berlin Kourosh", author: "Benreis", license: "CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0/", source: "https://commons.wikimedia.org/wiki/File:Chelo_Kabab_Soltani_Berlin_Kourosh.jpg" },
+    alt: "Chelo kebab at Peter Cat: buttered rice, a fried egg, a seekh and a chicken kebab",
+    credit: { title: "Chelow Kabab, Peter Cat, Park Street, Kolkata, West Bengal, IMG 20210410 131018800", author: "Boby Ortain", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Chelow_Kabab,_Peter_Cat,_Park_Street,_Kolkata,_West_Bengal,_IMG_20210410_131018800.jpg" },
   },
   "chitpur-road": {
     image: pChitpurRoad,
@@ -418,8 +419,8 @@ export const photos = {
   },
   "jhalmuri": {
     image: pJhalmuri,
-    alt: "Jhalmuri",
-    credit: { title: "Bangladeshi Jhalmuri 20220331", author: "MdsShakil", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Bangladeshi_Jhalmuri_20220331.jpg" },
+    alt: "Jhalmuri in a paper cone",
+    credit: { title: "Jhaal Muri From Kolkata", author: "Sumit Surai", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Jhaal_Muri_From_Kolkata.jpg" },
   },
   "jorasanko-thakurbari": {
     image: pJorasankoThakurbari,
@@ -438,8 +439,8 @@ export const photos = {
   },
   "kathi-roll": {
     image: pKathiRoll,
-    alt: "Kathi Roll",
-    credit: { title: "Paneer kathi roll homemade", author: "Shafana jasmine", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Paneer_kathi_roll_homemade.jpg" },
+    alt: "Kolkata rolls wrapped in paratha",
+    credit: { title: "Kolkata Rolls", author: "Satyajit Dhawale (Satyajit888)", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Kolkata_Rolls.jpg" },
   },
   "kidderpore-docks": {
     image: pKidderporeDocks,
@@ -473,8 +474,8 @@ export const photos = {
   },
   "kosha-mangsho": {
     image: pKoshaMangsho,
-    alt: "Kosha Mangsho",
-    credit: { title: "Mutton Curry (44786)", author: "Gaurav Dhwaj Khadka", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/", source: "https://commons.wikimedia.org/wiki/File:Mutton_Curry_(44786).jpg" },
+    alt: "Kosha mangsho, glossy and nearly black, on a white plate",
+    credit: { title: "Kosha Mangsho", author: "Sumit Surai", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/", source: "https://commons.wikimedia.org/wiki/File:Kosha_Mangsho.jpg" },
   },
   "kumartuli-artisan": {
     image: pKumartuliArtisan,
@@ -508,8 +509,8 @@ export const photos = {
   },
   "luchi-alur-dom": {
     image: pLuchiAlurDom,
-    alt: "Luchi Alur Dom",
-    credit: { title: "Luchi Alur Dam", author: "SaranikaC", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Luchi_Alur_Dam.jpg" },
+    alt: "Luchi arranged around a bowl of alur dom",
+    credit: { title: "Alur dom & luchi", author: "Rocky Masum", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Alur_dom_%26_luchi.jpg" },
   },
   "maidan": {
     image: pMaidan,
@@ -533,8 +534,8 @@ export const photos = {
   },
   "mishti-doi": {
     image: pMishtiDoi,
-    alt: "Mishti Doi",
-    credit: { title: "Mishti doi (Mitha Dahi)", author: "Sirsendu.mohanta", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Mishti_doi_(Mitha_Dahi).jpg" },
+    alt: "Mishti doi in a clay bowl, with a spoonful already taken",
+    credit: { title: "মাটির পাত্রে মিষ্টি দই", author: "Billjones94", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:%E0%A6%AE%E0%A6%BE%E0%A6%9F%E0%A6%BF%E0%A6%B0_%E0%A6%AA%E0%A6%BE%E0%A6%A4%E0%A7%8D%E0%A6%B0%E0%A7%87_%E0%A6%AE%E0%A6%BF%E0%A6%B7%E0%A7%8D%E0%A6%9F%E0%A6%BF_%E0%A6%A6%E0%A6%87.jpg" },
   },
   "mullick-ghat-flower-market": {
     image: pMullickGhatFlowerMarket,
@@ -563,8 +564,8 @@ export const photos = {
   },
   "nolen-gur": {
     image: pNolenGur,
-    alt: "Nolen Gur",
-    credit: { title: "Nolen gur, known as new jaggery or Palm sugar, from Kakdwip, West Bengal, India", author: "Billjones94", license: "CC0 1.0", licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/", source: "https://commons.wikimedia.org/wiki/File:Nolen_gur,_known_as_new_jaggery_or_Palm_sugar,_from_Kakdwip,_West_Bengal,_India.jpg" },
+    alt: "Moulded gur sandesh on a banana leaf",
+    credit: { title: "Gur er Sandesh", author: "Daliadasgupta2022", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Gur_er_Sandesh.jpg" },
   },
   "north-kolkata-lane": {
     image: pNorthKolkataLane,
@@ -603,8 +604,8 @@ export const photos = {
   },
   "phuchka": {
     image: pPhuchka,
-    alt: "Phuchka",
-    credit: { title: "Phuchka, Kolkata - West Bengal - DSC 0058", author: "TAPAS KUMAR HALDER", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Phuchka,_Kolkata_-_West_Bengal_-_DSC_0058.jpg" },
+    alt: "A phuchka held over a sal-leaf bowl",
+    credit: { title: "Puchka or Panipuri", author: "Am.ananya", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Puchka_or_Panipuri.jpg" },
   },
   "pontoon-bridge-old": {
     image: pPontoonBridgeOld,
@@ -645,6 +646,11 @@ export const photos = {
     image: pShaheedMinar,
     alt: "Shaheed Minar",
     credit: { title: "Shaheed Minar Kolkata Full View Another Angle", author: "Prady9", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Shaheed_Minar_Kolkata_Full_View_Another_Angle.jpg" },
+  },
+  "shorshe-ilish": {
+    image: pShorsheIlish,
+    alt: "Two hilsa steaks in a mustard gravy",
+    credit: { title: "A photo of popular Bengali dish Sorshe Ilish served traditionally", author: "Billjones94", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:A_photo_of_popular_Bengali_dish_Sorshe_Ilish_served_traditionally.jpg" },
   },
   "shyambazar": {
     image: pShyambazar,
@@ -698,8 +704,8 @@ export const photos = {
   },
   "telebhaja": {
     image: pTelebhaja,
-    alt: "Telebhaja",
-    credit: { title: "Tele-bhaja", author: "Aritra gupta1989", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Tele-bhaja.jpg" },
+    alt: "Telebhaja on a heap of muri, with a green chilli",
+    credit: { title: "Puffed rice with Telebhaja (Bengali fritters) Kolkata - West Bengal - DSC 0045", author: "TAPAS KUMAR HALDER", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Puffed_rice_with_Telebhaja_(Bengali_fritters)_Kolkata_-_West_Bengal_-_DSC_0045.jpg" },
   },
   "town-hall": {
     image: pTownHall,
@@ -773,8 +779,8 @@ export const photos = {
   },
   "yellow-taxi": {
     image: pYellowTaxi,
-    alt: "Yellow Taxi",
-    credit: { title: "Yellow taxi of Kolkata", author: "Shivendujha", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Yellow_taxi_of_Kolkata.jpg" },
+    alt: "A yellow Ambassador taxi with a blue stripe and hand-painted decorations, Kolkata",
+    credit: { title: "HindustanAmbassador gobeirne", author: "Greg O'Beirne", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/", source: "https://commons.wikimedia.org/wiki/File:HindustanAmbassador_gobeirne.jpg" },
   },
   "yellow-taxis-traffic": {
     image: pYellowTaxisTraffic,

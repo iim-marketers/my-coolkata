@@ -1,11 +1,12 @@
 import Link from "next/link";
 import {
-  CalendarDays,
+  Camera,
   Coffee,
   MapPin,
   Sparkles,
   UtensilsCrossed,
 } from "lucide-react";
+import { HeroBackdrop, Squiggle } from "@/components/hero-backdrop";
 import { HeroSearch } from "@/components/hero-search";
 import { CityScene } from "@/components/scenes/city-scene";
 import { dishes, hiddenPlaces, neighbourhoods } from "@/lib/kolkata";
@@ -17,7 +18,7 @@ const HIGHLIGHTS = [
   { label: "Durga Puja", href: "/durga-puja", icon: Sparkles },
   { label: "Hidden gems", href: "/hidden", icon: MapPin },
   { label: "Adda spots", href: "/adda", icon: Coffee },
-  { label: "What's on", href: "/events", icon: CalendarDays },
+  { label: "Creator contest", href: "/events", icon: Camera },
 ];
 
 /**
@@ -32,21 +33,11 @@ export function Hero() {
   ];
 
   return (
-    // Clip sideways only, and sit above the next section, so the search
-    // dropdown can hang past the hero's bottom edge instead of being cut off.
-    <section className="relative isolate z-20 overflow-x-clip bg-background pt-22 pb-22 sm:pt-26 lg:pt-30 lg:pb-30">
-      <Backdrop />
+    <section className="relative isolate z-20 overflow-x-clip bg-background pt-22 pb-36 sm:pt-26 sm:pb-44 lg:pt-30 lg:pb-44">
+      <HeroBackdrop />
 
       <div className="mx-auto grid w-full max-w-352 items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1fr_1.05fr] lg:gap-10">
         <div className="relative z-10">
-          {/* <p className="hero-rise inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3.5 py-1.5 text-[0.8rem] font-medium text-muted-foreground shadow-sm backdrop-blur">
-            <span className="relative flex size-2">
-              <span className="absolute inset-0 animate-ping rounded-full bg-primary/60 motion-reduce:hidden" />
-              <span className="relative size-2 rounded-full bg-primary" />
-            </span>
-            Your cheat sheet to the City of Joy
-          </p> */}
-
           <h1
             className="hero-rise mt-0 md:mt-6 font-display text-[clamp(2.7rem,6.6vw,5.6rem)] leading-[0.98] font-extrabold tracking-[-0.04em] text-balance"
             style={{ animationDelay: "80ms" }}
@@ -93,28 +84,10 @@ export function Hero() {
               </Link>
             ))}
           </div>
-
-          <dl
-            className="hero-rise mt-11 flex flex-wrap gap-x-10 gap-y-5"
-            style={{ animationDelay: "400ms" }}
-          >
-            {stats.map((s) => (
-              <div key={s.label} className="flex flex-col-reverse">
-                <dt className="text-[0.82rem] text-muted-foreground">
-                  {s.label}
-                </dt>
-                <dd className="font-display text-[2rem] leading-none font-extrabold tracking-tight">
-                  {s.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
-        {/* The collage. Each frame arrives from a different direction. */}
-        {/* `isolate` keeps the collage's layers to itself: on phones it sits
-            below the search, and the badge must not cover the dropdown. */}
-        <div className="relative isolate mx-auto w-full max-w-xl lg:max-w-none lg:pl-6">
+        {/* On phones the collage comes first and the pitch follows it. */}
+        <div className="relative isolate order-first mx-auto w-full max-w-xl lg:order-0 lg:max-w-none lg:pl-6">
           <div
             aria-hidden
             className="absolute top-1/2 left-1/2 -z-10 aspect-square w-[85%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-marigold/30 blur-3xl"
@@ -135,6 +108,9 @@ export function Hero() {
                   className="-top-3 -left-2 sm:-top-5 sm:-left-8"
                   delay={750}
                 />
+                {/* Centred on the gap junction between all three photos: the
+                    taxi's bottom-right corner, pushed out by half the grid gap. */}
+                <SpinBadge className="top-[calc(100%+0.375rem)] -right-1.5 translate-x-1/2 -translate-y-1/2 sm:top-[calc(100%+0.625rem)] sm:-right-2.5" />
               </div>
               <div className="relative">
                 <Frame
@@ -169,8 +145,6 @@ export function Hero() {
               </div>
             </div>
           </div>
-
-          <SpinBadge className="-top-5 -right-1 sm:-top-8 sm:-right-4" />
         </div>
       </div>
     </section>
@@ -287,85 +261,5 @@ function SpinBadge({ className }: { className?: string }) {
         </span>
       </div>
     </div>
-  );
-}
-
-/** A marker-pen underline that draws itself in. */
-function Squiggle({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 200 20"
-      preserveAspectRatio="none"
-      aria-hidden
-      className={className}
-    >
-      <path
-        d="M3 13C30 4 55 18 82 10s53-7 78 1 30 3 37-4"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="7"
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-        pathLength={1}
-        className="hero-draw"
-      />
-    </svg>
-  );
-}
-
-function Backdrop() {
-  return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-      <div className="hero-dots absolute inset-0" />
-      <div className="absolute -top-48 -left-40 size-144 rounded-full bg-primary/10 blur-3xl" />
-      <div className="absolute top-24 -right-48 size-128 rounded-full bg-marigold/20 blur-3xl" />
-      <Skyline className="absolute inset-x-0 bottom-0 h-24 w-full text-foreground/[0.07] sm:h-32" />
-    </div>
-  );
-}
-
-/** Howrah Bridge, Shaheed Minar, Victoria Memorial and a tram, in one line. */
-function Skyline({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 1440 140"
-      preserveAspectRatio="xMidYMax slice"
-      className={className}
-      fill="currentColor"
-    >
-      <rect x="0" y="128" width="1440" height="12" />
-      <rect x="0" y="100" width="36" height="28" />
-      <rect x="40" y="86" width="30" height="42" />
-      <g
-        stroke="currentColor"
-        strokeWidth="5"
-        fill="none"
-        strokeLinejoin="round"
-      >
-        <path d="M80 100 185 40l45 60M185 40v60M425 40l-55 60M425 40l95 60M185 40q120 55 240 0" />
-      </g>
-      <rect x="80" y="98" width="440" height="7" />
-      <rect x="180" y="38" width="10" height="90" />
-      <rect x="420" y="38" width="10" height="90" />
-      <rect x="540" y="92" width="34" height="36" />
-      <path d="M596 128V54l5-14 5 14v74Z" />
-      <circle cx="601" cy="38" r="4" />
-      <rect x="624" y="104" width="46" height="24" />
-      <rect x="700" y="96" width="280" height="32" />
-      <rect x="790" y="76" width="100" height="20" />
-      <path d="M800 77q40-58 80 0Z" />
-      <rect x="836" y="16" width="8" height="16" />
-      <circle cx="840" cy="12" r="4" />
-      <path d="M708 97q17-24 34 0ZM938 97q17-24 34 0Z" />
-      <rect x="1000" y="108" width="24" height="20" />
-      <path d="M990 68h450" stroke="currentColor" strokeWidth="2" />
-      <path d="M1098 96l20-28" stroke="currentColor" strokeWidth="3" />
-      <rect x="1040" y="94" width="140" height="28" rx="7" />
-      <rect x="1200" y="80" width="40" height="48" />
-      <rect x="1248" y="96" width="30" height="32" />
-      <rect x="1286" y="70" width="46" height="58" />
-      <rect x="1340" y="92" width="36" height="36" />
-      <rect x="1384" y="84" width="56" height="44" />
-    </svg>
   );
 }

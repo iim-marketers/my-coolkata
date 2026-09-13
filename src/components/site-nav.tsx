@@ -26,8 +26,6 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close the index when the route changes. Adjusting state during render
-  // is React's recommended alternative to a route-watching effect.
   const [lastPath, setLastPath] = useState(pathname);
   if (pathname !== lastPath) {
     setLastPath(pathname);
@@ -50,8 +48,6 @@ export function SiteNav() {
     };
   }, [menu]);
 
-  // The home hero is light, so the bar can sit on it clear until the page
-  // scrolls. Every other page opens on a photograph and needs it solid.
   const clear = pathname === "/" && !scrolled && !menu;
 
   return (
@@ -71,7 +67,7 @@ export function SiteNav() {
           </Link>
 
           <ul className="ml-auto hidden items-center gap-1 xl:flex">
-            {PRIMARY.map((s) => {
+            {PRIMARY.slice(0, 5).map((s) => {
               const active = pathname.startsWith(s.href);
               return (
                 <li key={s.href}>
@@ -94,12 +90,6 @@ export function SiteNav() {
 
           <div className="ml-auto flex items-center gap-2 xl:ml-0">
             <ExploreButton className="hidden border-border bg-card text-muted-foreground hover:border-foreground/30 hover:text-foreground sm:inline-flex" />
-            <Link
-              href="/build-my-day"
-              className="hidden rounded-full bg-primary px-4 py-1.5 text-[0.86rem] font-semibold text-primary-foreground transition-colors hover:bg-primary/90 md:inline-flex"
-            >
-              Build my day
-            </Link>
             <button
               type="button"
               aria-label={menu ? "Close menu" : "Open menu"}
@@ -112,7 +102,7 @@ export function SiteNav() {
             </button>
           </div>
         </nav>
-        {/* One tram crosses the bar every couple of minutes. */}
+
         <NavTram tone="var(--muted-foreground)" />
       </header>
 
@@ -165,12 +155,6 @@ export function SiteNav() {
               shortcut={false}
               className="w-full justify-center border-border bg-card text-muted-foreground"
             />
-            <Link
-              href="/build-my-day"
-              className="rounded-full bg-primary px-4 py-2 text-center text-[0.9rem] font-semibold text-primary-foreground"
-            >
-              Build my day
-            </Link>
           </div>
         </div>
       </div>

@@ -18,9 +18,9 @@ const CATEGORIES = [
     id: "places",
     label: "Places",
     href: "/neighbourhoods",
-    prefixes: ["/neighbourhoods", "/heritage", "/hidden", "/river", "/tram", "/map", "/college-street", "/kumartuli"],
+    prefixes: ["/neighbourhoods", "/heritage", "/river", "/tram", "/map", "/college-street", "/kumartuli"],
   },
-  { id: "events", label: "Events & Puja", href: "/events", prefixes: ["/events", "/durga-puja", "/today", "/plan"] },
+  { id: "events", label: "Events & Puja", href: "/events", prefixes: ["/events", "/durga-puja", "/today"] },
   {
     id: "culture",
     label: "Culture",

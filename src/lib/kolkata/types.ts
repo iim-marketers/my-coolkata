@@ -1,3 +1,4 @@
+import type { CutoutId } from "./cutouts";
 import type { PhotoId } from "./photos";
 /**
  * Shared shapes for every collection in the city.
@@ -58,6 +59,8 @@ export interface Dish {
   eatItAt: { place: string; where: string; note: string }[];
   scene: SceneName;
   photo?: PhotoId;
+  /** The dish with its background lifted off, for plates and cards. */
+  cutout?: CutoutId;
 }
 
 export interface Neighbourhood {
@@ -126,21 +129,6 @@ export interface MapPoint {
   kind: "heritage" | "food" | "neighbourhood" | "river" | "station";
   href?: string;
   note: string;
-}
-
-export interface Itinerary {
-  slug: string;
-  title: string;
-  length: string;
-  pace: string;
-  bestSeason: string;
-  summary: string;
-  stops: {
-    time: string;
-    place: string;
-    what: string;
-    travel?: string;
-  }[];
 }
 
 export interface CultureStrand {

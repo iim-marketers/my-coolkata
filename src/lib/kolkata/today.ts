@@ -59,7 +59,7 @@ export const todayEntries: TodayEntry[] = [
     where: "Kalighat, Dakshineswar, and street pandals",
     body: "Night-long worship on the new moon, and a lighting culture distinct from the rest of India. Chandannagar, ninety minutes north, does the installations better than anywhere.",
     checkWith: "Falls on the Kartik amavasya. Fixed relative to Durga Puja, roughly three weeks later.",
-    href: "/events#kali-puja",
+    href: "/neighbourhoods/kalighat",
   },
   {
     id: "book-fair",
@@ -199,7 +199,6 @@ export const todayEntries: TodayEntry[] = [
     where: "Everywhere",
     body: "Thirty-five to forty degrees with high humidity. Nothing outdoors between eleven and four is a good idea, and every itinerary that ignores this collapses on the second day.",
     checkWith: "Plan indoor hours. The Indian Museum and Marble Palace are both cooler than the street.",
-    href: "/plan",
   },
   {
     id: "gallery-season",

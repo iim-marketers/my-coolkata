@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Compass, SearchIcon, X } from "lucide-react";
+import { currentSeason } from "@/lib/kolkata/contest";
 import { smartExamples, smartSearch } from "@/lib/smart-search";
 import { cn } from "@/lib/utils";
 
@@ -16,7 +17,6 @@ const INTENTS = [
     links: [
       { label: "Neighbourhoods", href: "/neighbourhoods" },
       { label: "Heritage", href: "/heritage" },
-      { label: "Hidden Kolkata", href: "/hidden" },
       { label: "The Hooghly", href: "/river" },
     ],
   },
@@ -53,11 +53,13 @@ const INTENTS = [
   },
   {
     id: "do",
-    icon: "🧭",
-    label: "Plan a visit",
+    icon: "📅",
+    label: "Events",
     links: [
-      { label: "Plan the trip", href: "/plan" },
-      { label: "Events", href: "/events" },
+      {
+        label: currentSeason.status === "soon" ? "Photo contest · soon" : "Photo contest",
+        href: "/events",
+      },
       { label: "Durga Puja", href: "/durga-puja" },
     ],
   },

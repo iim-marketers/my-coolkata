@@ -14,6 +14,7 @@
   --font-heading: var(--font-display);
   --font-display: var(--font-display);
   --font-bengali: var(--font-bengali);
+  --font-bangla-display: var(--font-galada), var(--font-bengali), serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -56,6 +57,12 @@
   /* Aliases for the palette as it is named in the brief. */
   --color-ivory: var(--cream);
   --color-charcoal: var(--ink);
+  /* A Bengali kitchen: bell metal, banana leaf, mustard and homespun cloth. */
+  --color-kansa: var(--kansa);
+  --color-kansa-deep: var(--kansa-deep);
+  --color-kolapata: var(--kolapata);
+  --color-shorshe: var(--shorshe);
+  --color-khadi: var(--khadi);
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -78,6 +85,11 @@
   --ink: oklch(0.2 0.025 265);
   --verdigris: oklch(0.64 0.11 172);
   --indigo: oklch(0.5 0.15 270);
+  --kansa: oklch(0.78 0.11 80);
+  --kansa-deep: oklch(0.5 0.08 62);
+  --kolapata: oklch(0.52 0.11 150);
+  --shorshe: oklch(0.83 0.15 95);
+  --khadi: oklch(0.972 0.022 86);
 
   /* Daylight: warm white, deep ink, and a red that means "go". */
   --background: oklch(0.988 0.005 95);
@@ -140,6 +152,17 @@
 }
 
 @layer utilities {
+  /* Two columns of unequal height, side by side. Both columns are sticky, so
+     whichever is shorter holds its place under the nav while the other
+     scrolls past it; once the longer one runs out, both leave together.
+     The taller column fills the row, so its stickiness never moves it. */
+  @media (min-width: 64rem) {
+    .sticky-split > * {
+      position: sticky;
+      top: 6rem;
+      align-self: start;
+    }
+  }
   /* Letterspaced small caps used for section eyebrows. */
   .tracking-widest-xs {
     letter-spacing: 0.32em;
@@ -227,6 +250,12 @@
   .hero-spin {
     animation: hero-spin 18s linear infinite;
   }
+  /* The skyline strip holds eight identical copies, enough to cover a wide
+     screen at banner height; moving it an eighth of its width lands exactly
+     on the next copy, so the loop has no seam. */
+  .skyline-marquee {
+    animation: skyline-marquee 80s linear infinite;
+  }
   .hero-draw {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
@@ -272,7 +301,132 @@
   font-variant-ligatures: none;
 }
 
+/* ---- A Bengali kitchen ------------------------------------------------ */
+
+/* Kantha: the running stitch of a quilted Bengali cloth, as a border
+   10px inside the edge. */
+.kantha {
+  --stitch: oklch(0.56 0.22 22 / 0.5);
+  background-image:
+    repeating-linear-gradient(90deg, var(--stitch) 0 9px, transparent 9px 16px),
+    repeating-linear-gradient(90deg, var(--stitch) 0 9px, transparent 9px 16px),
+    repeating-linear-gradient(180deg, var(--stitch) 0 9px, transparent 9px 16px),
+    repeating-linear-gradient(180deg, var(--stitch) 0 9px, transparent 9px 16px);
+  background-size:
+    calc(100% - 20px) 1.5px,
+    calc(100% - 20px) 1.5px,
+    1.5px calc(100% - 20px),
+    1.5px calc(100% - 20px);
+  background-position:
+    10px 10px,
+    10px calc(100% - 10px),
+    10px 10px,
+    calc(100% - 10px) 10px;
+  background-repeat: no-repeat;
+}
+
+/* Kolapata: a banana leaf, the plate at every Bengali feast. */
+.kolapata {
+  background-color: var(--kolapata);
+  background-image:
+    repeating-linear-gradient(97deg, oklch(1 0 0 / 0.05) 0 1px, transparent 1px 26px),
+    linear-gradient(180deg, oklch(0.58 0.12 148), oklch(0.42 0.1 152));
+}
+
+/* Keeps a cutout sitting on its surface rather than pasted over it. */
+.cutout-shadow {
+  filter: drop-shadow(0 16px 14px oklch(0.25 0.05 45 / 0.3))
+    drop-shadow(0 3px 3px oklch(0.25 0.05 45 / 0.22));
+}
+
+/* ---- Frame Kolkata ---------------------------------------------------- */
+
+/* Sprocket holes along the edge of a strip of film. */
+.sprockets {
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 7px,
+    oklch(0.97 0.02 86 / 0.85) 7px 19px,
+    transparent 19px 26px
+  );
+}
+
+/* The diagonal bars of a clapperboard. */
+.clapper-stripes {
+  background: repeating-linear-gradient(-45deg, var(--khadi) 0 16px, var(--ink) 16px 32px);
+}
+
+/* A viewfinder's rule-of-thirds grid. */
+.viewfinder-thirds {
+  --line: oklch(1 0 0 / 0.14);
+  background-image:
+    linear-gradient(
+      to right,
+      transparent calc(33.333% - 0.5px),
+      var(--line) calc(33.333% - 0.5px) calc(33.333% + 0.5px),
+      transparent calc(33.333% + 0.5px) calc(66.666% - 0.5px),
+      var(--line) calc(66.666% - 0.5px) calc(66.666% + 0.5px),
+      transparent calc(66.666% + 0.5px)
+    ),
+    linear-gradient(
+      to bottom,
+      transparent calc(33.333% - 0.5px),
+      var(--line) calc(33.333% - 0.5px) calc(33.333% + 0.5px),
+      transparent calc(33.333% + 0.5px) calc(66.666% - 0.5px),
+      var(--line) calc(66.666% - 0.5px) calc(66.666% + 0.5px),
+      transparent calc(66.666% + 0.5px)
+    );
+}
+
+/* The barcode on the crew pass. */
+.barcode {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ink) 0 2px,
+    transparent 2px 4px,
+    var(--ink) 4px 5px,
+    transparent 5px 8px,
+    var(--ink) 8px 11px,
+    transparent 11px 12px,
+    var(--ink) 12px 13px,
+    transparent 13px 16px
+  );
+}
+
+/* A camera's recording light. */
+.rec-dot {
+  animation: rec-blink 1.4s ease-in-out infinite;
+}
+
+/* A grease-pencil ring round a frame on a contact sheet: drawn in on hover,
+   and left in place on the frame that has been picked. */
+.grease-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 650ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.group:hover .grease-draw,
+[data-picked="true"] .grease-draw {
+  stroke-dashoffset: 0;
+}
+
+/* A dish arriving in the middle of the plate. */
+.thali-serve {
+  animation: thali-serve 650ms cubic-bezier(0.34, 1.45, 0.64, 1) both;
+}
+
 /* ---- Motion -------------------------------------------------------- */
+
+@keyframes rec-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+@keyframes thali-serve {
+  from { opacity: 0; transform: scale(0.55) rotate(-24deg); }
+  to { opacity: 1; transform: none; }
+}
 
 @keyframes grain-shift {
   0% { transform: translate(0, 0); }
@@ -327,6 +481,10 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes skyline-marquee {
+  to { transform: translateX(-12.5%); }
+}
+
 @keyframes hero-draw {
   to { stroke-dashoffset: 0; }
 }
@@ -343,14 +501,6 @@
 @keyframes taxi-pass {
   from { transform: translateX(-30%); }
   to { transform: translateX(130%); }
-}
-
-/* Headlamps sweeping a night street. */
-@keyframes headlight-sweep {
-  0%, 100% { opacity: 0; transform: translateX(-10%); }
-  8% { opacity: 0.5; }
-  40% { opacity: 0.22; }
-  60% { opacity: 0; transform: translateX(110%); }
 }
 
 @keyframes rain-fall {

@@ -5,7 +5,7 @@ import { sectionGroups } from "@/lib/kolkata/section-groups";
 export function SiteFooter() {
   return (
     <footer className="relative z-10 border-t border-border bg-secondary/60">
-      <div className="mx-auto w-full max-w-352 px-5 py-12 sm:px-8 sm:py-16">
+      <div className="mx-auto w-full max-w-352 px-5 pt-12 pb-8 sm:px-8 sm:pt-16 sm:pb-8">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_2.8fr] lg:gap-16">
           <div>
             <Link href="/" aria-label="Cool-kata home" className="inline-block">

@@ -66,37 +66,3 @@ export function SectionHeading({
     </div>
   );
 }
-
-/** A hairline with a pigment dot, used between major blocks. */
-export function Rule({ className }: { className?: string }) {
-  return (
-    <div className={cn("flex items-center gap-3", className)}>
-      <span className="size-1 rounded-full bg-terracotta" />
-      <span className="h-px flex-1 bg-border" />
-    </div>
-  );
-}
-
-export function Stat({
-  value,
-  label,
-  note,
-}: {
-  value: string;
-  label: string;
-  note?: string;
-}) {
-  return (
-    <div className="border-t border-border pt-4">
-      <p className="font-display text-[clamp(1.6rem,4vw,2.4rem)] leading-none font-semibold text-terracotta">
-        {value}
-      </p>
-      <p className="mt-2 text-sm font-medium">{label}</p>
-      {note ? (
-        <p className="mt-1 text-[0.8rem] leading-snug text-muted-foreground">
-          {note}
-        </p>
-      ) : null}
-    </div>
-  );
-}

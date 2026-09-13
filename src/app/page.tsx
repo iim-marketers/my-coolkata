@@ -9,6 +9,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { PujoCountdown } from "@/components/pujo-countdown";
 import { TastePlate } from "@/components/taste-plate";
 import { heritageSites } from "@/lib/kolkata";
+import { currentSeason } from "@/lib/kolkata/contest";
 import type { PhotoId } from "@/lib/kolkata/photos";
 
 const shell = "mx-auto w-full max-w-[88rem] px-5 sm:px-8";
@@ -26,10 +27,17 @@ const VIBES: { label: string; line: string; href: string; photo: PhotoId }[] = [
 ];
 
 const PLANS = [
-  { emoji: "🗓️", title: "Build my day", line: "Tell it your hours and interests, get a route.", href: "/build-my-day" },
   { emoji: "🎭", title: "Kolkata by mood", line: "Rainy, bookish, hungry or up all night.", href: "/mood" },
   { emoji: "🧠", title: "How Kolkata are you?", line: "A quick quiz. No pressure. Some pressure.", href: "/how-kolkata-are-you" },
-  { emoji: "🎉", title: "What's on", line: "Festivals, fairs and match days, all year.", href: "/events" },
+  {
+    emoji: "📸",
+    title: "Frame Kolkata",
+    line:
+      currentSeason.status === "soon"
+        ? "Coming soon: a photo and video contest. The best join the crew."
+        : "Shoot the city. The best join the Cool-kata crew.",
+    href: "/events",
+  },
 ];
 
 export default function Home() {
@@ -174,7 +182,7 @@ export default function Home() {
                 lede="Let the city pick for you."
               />
             </Reveal>
-            <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {PLANS.map((p, i) => (
                 <Reveal as="li" key={p.href} delay={i * 80} className="h-full">
                   <Link
@@ -216,10 +224,10 @@ export default function Home() {
                 market at five.
               </h2>
               <Link
-                href="/plan"
+                href="/neighbourhoods/howrah-bridge-strand"
                 className="group mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[0.92rem] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
               >
-                Plan the trip
+                See the flower market
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Reveal>

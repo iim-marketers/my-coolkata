@@ -131,29 +131,6 @@ export function Rain({
   );
 }
 
-/** Headlamps sweeping past, used only in Night Kolkata. */
-export function Headlights({ className }: { className?: string }) {
-  return (
-    <div
-      aria-hidden
-      className={cn(
-        "pointer-events-none absolute inset-0 overflow-hidden motion-reduce:hidden",
-        className,
-      )}
-    >
-      {[0, 1, 2].map((i) => (
-        <span
-          key={i}
-          className="absolute inset-y-0 w-40 bg-gradient-to-r from-transparent via-marigold/12 to-transparent blur-xl"
-          style={{
-            animation: `headlight-sweep ${16 + i * 9}s linear ${i * 6}s infinite`,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
 /**
  * কলকাতা over KOLKATA. The pairing the brief asks for, used wherever a
  * section wants the city's name in both scripts.

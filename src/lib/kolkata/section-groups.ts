@@ -13,7 +13,7 @@ const GROUPS: { label: string; blurb: string; hrefs: string[] }[] = [
   {
     label: "Places",
     blurb: "Quarters, buildings, the river and the streets between them.",
-    hrefs: ["/neighbourhoods", "/heritage", "/river", "/tram", "/hidden"],
+    hrefs: ["/neighbourhoods", "/heritage", "/river", "/tram"],
   },
   {
     label: "Culture",
@@ -28,9 +28,9 @@ const GROUPS: { label: string; blurb: string; hrefs: string[] }[] = [
     ],
   },
   {
-    label: "Plan a visit",
-    blurb: "Itineraries and the calendar.",
-    hrefs: ["/plan", "/events"],
+    label: "Join in",
+    blurb: "Contests for photographers and videographers.",
+    hrefs: ["/events"],
   },
 ];
 
