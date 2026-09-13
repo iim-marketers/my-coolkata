@@ -1,0 +1,298 @@
+import type { Dish } from "./types";
+
+export const dishes: Dish[] = [
+  {
+    slug: "kathi-roll",
+    name: "Kathi Roll",
+    bengali: "কাঠি রোল",
+    category: "street",
+    origin: "Nizam's, New Market",
+    originYear: 1932,
+    bestIn: "Central Kolkata",
+    price: "₹60–160",
+    summary:
+      "Kebab pulled off the skewer into an egg-washed paratha. The original portable meal, invented so office workers would stop getting grease on their sleeves.",
+    body: [
+      "The story starts at Nizam's near New Market in the 1930s. Kebabs came off a skewer, the kathi, and were eaten with paratha; the innovation was to wrap one inside the other so a clerk could eat it walking and hand back nothing.",
+      "The egg came later and is now non-negotiable for most people. A paratha goes on the tawa, an egg is broken over it and spread thin, the whole thing is flipped so the egg cooks into the bread, then it takes the meat, raw onion, green chilli and a squeeze of lime.",
+      "Order it by construction, not by name: single egg double mutton, double egg chicken, and so on. Anywhere that asks whether you want it wrapped in paper is doing it right.",
+      "It has travelled badly. What is sold as a kathi roll elsewhere in India is usually a wrap with a Kolkata name on it.",
+    ],
+    eatItAt: [
+      { place: "Nizam's", where: "Hogg Street, New Market", note: "The claimed origin. Go for the history and the mutton." },
+      { place: "Kusum Rolls", where: "Park Street", note: "The consensus best in the city. Long queue after 6pm." },
+      { place: "Hot Kati Roll", where: "Park Street", note: "Kusum's neighbour and rival. Pick a side." },
+      { place: "Badshah", where: "New Market", note: "Cheaper, faster, no seating." },
+    ],
+    scene: "streetfood",
+  },
+  {
+    slug: "phuchka",
+    name: "Phuchka",
+    bengali: "ফুচকা",
+    category: "street",
+    origin: "Bengal, disputed",
+    bestIn: "Everywhere; Vivekananda Park and Russell Street especially",
+    price: "₹20–50 for six",
+    summary:
+      "The Bengali argument against the pani puri: mashed potato with black salt and tamarind, sour rather than sweet, and never negotiable on the chilli.",
+    body: [
+      "Do not call it pani puri in Kolkata. The filling here is potato mashed with black salt, roasted cumin, green chilli and sometimes chickpea, and the water is tamarind-sour with mint and no sugar in it at all. The Delhi version tastes like dessert by comparison.",
+      "The transaction has a rhythm. The phuchkawala cracks a shell with his thumb, fills it, dips it, and puts it directly into the leaf bowl in your hand, and you eat it whole and immediately while he makes the next one. Stopping to talk ruins it.",
+      "The last one is the fauchka: a shell filled with just the water, given free, to finish. Ask for it and you will be treated as a local.",
+      "Six is a serving. Nobody eats six.",
+    ],
+    eatItAt: [
+      { place: "Vivekananda Park", where: "Southern Avenue", note: "Evening crowd, high turnover, therefore fresh." },
+      { place: "Dilkhusha Cabin corner", where: "Near Russell Street", note: "Office-hours rush." },
+      { place: "Maddox Square", where: "Ballygunge", note: "During Puja this becomes a small city of its own." },
+    ],
+    scene: "streetfood",
+  },
+  {
+    slug: "kolkata-biryani",
+    name: "Kolkata Biryani",
+    bengali: "কলকাতা বিরিয়ানি",
+    category: "meal",
+    origin: "Metiabruz, with the exiled court of Awadh",
+    originYear: 1856,
+    bestIn: "Metiabruz, Park Circus, Chitpur",
+    price: "₹180–400",
+    summary:
+      "Lighter than Hyderabadi, gently perfumed, and containing a whole potato that people outside Bengal find inexplicable.",
+    body: [
+      "In 1856 the British deposed Wajid Ali Shah, the last Nawab of Awadh, and moved him to Metiabruz on the southwestern edge of Calcutta. He brought his court, his musicians, his kite-flyers and his kitchen.",
+      "The pension was large but not limitless. The standard account is that the cooks stretched the meat with potato, then a novelty vegetable in Bengal and expensive in its own right. Whatever the economics, the potato stayed and became the defining feature.",
+      "The seasoning is restrained: rose water, kewra, mace, a little saffron, and nothing that fights the rice. There is no fried-onion assault and no chilli heat. It is a perfumed dish rather than a spicy one, and people expecting Hyderabad are usually confused for the first three mouthfuls.",
+      "The egg is optional and modern. The potato is not optional and never was.",
+    ],
+    eatItAt: [
+      { place: "Aminia", where: "New Market and branches", note: "Since 1929. The reliable benchmark." },
+      { place: "Shiraz Golden Restaurant", where: "Park Circus", note: "Since 1941. Many people's default answer." },
+      { place: "Royal India Hotel", where: "Chitpur, near Nakhoda Masjid", note: "Since 1905. Mutton only, and worth it." },
+      { place: "Dada Boudi", where: "Barrackpore", note: "Out of town, enormous portions, cult following." },
+    ],
+    scene: "streetfood",
+  },
+  {
+    slug: "rosogolla",
+    name: "Rosogolla",
+    bengali: "রসগোল্লা",
+    category: "sweet",
+    origin: "Nobin Chandra Das, Bagbazar",
+    originYear: 1868,
+    bestIn: "North Kolkata",
+    price: "₹15–30 each",
+    summary:
+      "Chhena kneaded, rolled, and boiled in thin syrup until it is more sponge than sweet. Bengal fought a legal case over it and won.",
+    body: [
+      "Nobin Chandra Das opened a shop in Bagbazar and in 1868 worked out how to boil chhena balls in syrup so they held together instead of disintegrating. The trick is in the kneading, and in the syrup being thin enough to enter the sphere rather than coat it.",
+      "Odisha claims an older Puri temple lineage, and the dispute went formal. In 2017 India's Geographical Indication registry granted Bengal the tag for Banglar Rosogolla; Odisha received a separate tag for Odisha Rasagola in 2019. Both sides declared victory, which is the correct outcome.",
+      "A good one is white, faintly warm, and collapses under a spoon without resistance. It should not be sweet enough to notice as sweetness. If it squeaks, the chhena was over-kneaded.",
+      "In winter it is made with nolen gur, and the caramel version is better than the original.",
+    ],
+    eatItAt: [
+      { place: "K.C. Das", where: "Esplanade", note: "Nobin Chandra's descendants. Also invented the tinned version." },
+      { place: "Balaram Mullick & Radharaman Mullick", where: "Bhowanipore", note: "Since 1885. The nolen gur one in winter." },
+      { place: "Nobin Chandra Das", where: "Bagbazar", note: "The original address." },
+    ],
+    scene: "streetfood",
+  },
+  {
+    slug: "mishti-doi",
+    name: "Mishti Doi",
+    bengali: "মিষ্টি দই",
+    category: "sweet",
+    origin: "Bengal, medieval",
+    bestIn: "Anywhere with a clay pot",
+    price: "₹40–90",
+    summary:
+      "Yoghurt set with caramelised sugar in an unglazed clay pot that pulls water out through its walls as it sets.",
+    body: [
+      "Milk is reduced, sugar is caramelised into it until the whole thing goes the colour of weak tea, and it is set overnight in a bhaar, a rough clay pot. The clay is the technology: it is porous, so moisture leaves slowly through the wall and the curd thickens without any thickener.",
+      "It should be firm enough to hold a spoon upright and should smell faintly of the pot. A plastic tub version is a different food.",
+      "The winter version uses nolen gur instead of caramel and is pale, smoky and considerably better.",
+      "Eat it at the end of a heavy meal, or instead of one in May.",
+    ],
+    eatItAt: [
+      { place: "Balaram Mullick", where: "Bhowanipore and branches", note: "The baked variant is a modern classic." },
+      { place: "Nakur Nandy", where: "Hatibagan", note: "Since 1844, and mostly famous for sandesh." },
+      { place: "Any para sweet shop", where: "Your nearest lane", note: "Genuinely the best route." },
+    ],
+    scene: "streetfood",
+  },
+  {
+    slug: "kosha-mangsho",
+    name: "Kosha Mangsho",
+    bengali: "কষা মাংস",
+    category: "meal",
+    origin: "Bengali home kitchens",
+    bestIn: "Sunday lunch, anywhere",
+    price: "₹250–500",
+    summary:
+      "Mutton cooked down with onion and mustard oil until the gravy stops being a gravy and becomes a coating. The verb is the dish.",
+    body: [
+      "Kosha means to fry-and-stir slowly over low heat, working the masala until the oil separates and comes back and the whole thing darkens. Applied to goat meat on the bone, over roughly two hours, it produces something closer to a lacquer than a curry.",
+      "Mustard oil, whole garam masala, a large quantity of onion, ginger and garlic paste, a little sugar caramelised at the start for colour. No tomato in the orthodox version, no cream in any version.",
+      "It is Sunday food. In a Bengali household this is what the man of the house traditionally cooked, badly and at length, while everyone waited.",
+      "Eat it with luchi in the morning or with plain rice at two in the afternoon, then sleep.",
+    ],
+    eatItAt: [
+      { place: "Golbari", where: "Shyambazar five-point crossing", note: "The famous near-black version. Since the 1920s." },
+      { place: "Bhojohori Manna", where: "Multiple branches", note: "Consistent, unromantic, good." },
+      { place: "6 Ballygunge Place", where: "Ballygunge", note: "The sit-down version with a tablecloth." },
+    ],
+    scene: "streetfood",
+  },
+  {
+    slug: "telebhaja",
+    name: "Telebhaja",
+    bengali: "তেলেভাজা",
+    category: "street",
+    origin: "Bengal",
+    bestIn: "Any lane at 5pm, especially in the rain",
+    price: "₹8–25 a piece",
+    summary:
+      "Things fried in besan: aubergine, onion, chilli, lentil paste. The monsoon has a smell and this is most of it.",
+    body: [
+      "Beguni is aubergine sliced thin. Piyaji is onion and lentil. Aloor chop is spiced mashed potato. Mochar chop is banana flower. Fuluri is pure besan batter. All of them go into the same wide karai of mustard oil at the front of the same small shop.",
+      "The oil is dark and has been working all day, and this is the point rather than a problem. A fresh karai makes worse telebhaja.",
+      "It arrives in a twist of newspaper with a raw green chilli, which you are supposed to bite between pieces. Muri, puffed rice, is the usual accompaniment.",
+      "Kolkata eats roughly ten times more of this when it rains, and every shop knows it.",
+    ],
+    eatItAt: [
+      { place: "Kalika Mukhorochak", where: "Surya Sen Street, College Street", note: "Students have kept it going since 1962." },
+      { place: "Laxmi Narayan Shaw", where: "Tala", note: "Beguni. That is the whole recommendation." },
+      { place: "Your nearest corner", where: "After 4:30pm", note: "This food does not travel or keep." },
+    ],
+    scene: "collegestreet",
+  },
+  {
+    slug: "cha-in-bhaar",
+    name: "Cha in a Bhaar",
+    bengali: "ভাঁড়ের চা",
+    category: "drink",
+    origin: "Everywhere",
+    bestIn: "The pavement outside wherever you are standing",
+    price: "₹7–15",
+    summary:
+      "Tea in an unglazed clay cup you smash when you're done. Costs less than anything else in this list and matters more.",
+    body: [
+      "The bhaar is thrown on a wheel, fired once, never glazed, used once. It adds a wet-earth note to the tea that no ceramic reproduces, and then it goes back into the ground.",
+      "Standard is strong, boiled with milk and a great deal of sugar. Ask for liquor cha if you want it black with lemon, which is the College Street default.",
+      "The tea shop, the cha-er dokan, is civic infrastructure. It is where the adda happens, and adda, the long unproductive argumentative conversation, is close to the city's actual religion.",
+      "Do not take the cup with you. Drop it. It is meant to break.",
+    ],
+    eatItAt: [
+      { place: "Indian Coffee House", where: "Bankim Chatterjee Street", note: "Coffee, not tea, but the same institution at scale." },
+      { place: "Any stall on College Street", where: "North Kolkata", note: "Liquor cha and a Wills." },
+      { place: "Balwant Singh's Eating House", where: "Bhowanipore", note: "Open all night. Doodh cola for the brave." },
+    ],
+    scene: "collegestreet",
+  },
+  {
+    slug: "luchi-alur-dom",
+    name: "Luchi–Alur Dom",
+    bengali: "লুচি আলুর দম",
+    category: "breakfast",
+    origin: "Bengali households",
+    bestIn: "Sunday morning",
+    price: "₹60–150",
+    summary:
+      "White flour puris fried until they balloon, with a dark, sweet-sour potato curry. Breakfast as an event.",
+    body: [
+      "Luchi is maida, not atta, which is why it is pale and puffs into a sphere rather than browning. It is rolled small, slipped into hot oil, and pressed once with a slotted spoon so it inflates.",
+      "Alur dom is baby potatoes cooked in a tomato-ginger gravy with a hit of sugar and a hit of tamarind, finished with ghee. In the Kashmiri-influenced version there is yoghurt; in the standard Bengali one there is not.",
+      "It appears at breakfast on holidays, at weddings, and on the morning of Ashtami when nobody is going to work anyway.",
+      "Eaten with the hand, with a piece of luchi torn and used as the tool.",
+    ],
+    eatItAt: [
+      { place: "Putiram", where: "College Street", note: "Since 1868. Get there before 10am." },
+      { place: "Tewari Brothers", where: "Multiple", note: "Kochuri rather than luchi, and excellent." },
+      { place: "Sharma Tea House", where: "Bowbazar", note: "Kochuri and cholar dal at dawn." },
+    ],
+    scene: "collegestreet",
+  },
+  {
+    slug: "chelo-kebab",
+    name: "Chelo Kebab",
+    bengali: "চেলো কাবাব",
+    category: "meal",
+    origin: "Peter Cat, Park Street",
+    originYear: 1975,
+    bestIn: "Park Street",
+    price: "₹450–600",
+    summary:
+      "Buttered rice, a raw egg yolk stirred through it while hot, two kebabs on top. Iranian in name, entirely Kolkata in fact.",
+    body: [
+      "Chelow kabab is an Iranian dish and this is not really it. Peter Cat opened on Park Street in 1975 and put out a version with buttered saffron rice, a fried egg or a raw yolk to be beaten into the rice at the table, a grilled tomato, and one mutton seekh and one chicken shami kebab.",
+      "It became the single most ordered plate in the city and has not changed since. The waiters still wear the red turbans and cummerbunds.",
+      "There is no reservation system. There is a queue on the pavement, and on a Saturday evening it is forty minutes.",
+      "Order a Sizzler if you want the other thing Park Street does. Do not order both.",
+    ],
+    eatItAt: [
+      { place: "Peter Cat", where: "18 Park Street", note: "The original and still the reference." },
+      { place: "Mocambo", where: "Park Street", note: "Next door, older, and the rivalry is real." },
+    ],
+    scene: "streetfood",
+  },
+  {
+    slug: "nolen-gur",
+    name: "Nolen Gur",
+    bengali: "নলেন গুড়",
+    category: "sweet",
+    origin: "Date palm sap, rural Bengal",
+    bestIn: "Kolkata sweet shops",
+    season: "Mid-December to mid-February only",
+    price: "Priced into whatever it is in",
+    summary:
+      "Date-palm jaggery, tapped in winter, smoky and floral. It has a season of about eight weeks and the entire city reorganises around it.",
+    body: [
+      "The sap of the khejur, the date palm, is tapped at night in the cold months by shiuli, tappers who cut the crown and hang a clay pot. It is boiled down the same morning. Left liquid it is jhola gur; set hard it is patali.",
+      "It only works when the nights are genuinely cold, which in Bengal means roughly mid-December to mid-February. Outside that window what is sold as nolen gur is cane jaggery with a flavouring.",
+      "Every sweet in the city gets a winter version: nolen gur sandesh, nolen gur rosogolla, nolen gur mishti doi, nolen gur ice cream. The rosogolla in particular goes from good to remarkable.",
+      "The trade is shrinking. There are fewer tappers each year, and the skill does not transfer easily.",
+    ],
+    eatItAt: [
+      { place: "Balaram Mullick", where: "Bhowanipore", note: "The winter counter is a different shop from the summer one." },
+      { place: "Nakur Nandy", where: "Hatibagan", note: "Jolbhora sandesh with gur inside." },
+      { place: "Mithai", where: "Multiple", note: "Reliable and less of a scrum." },
+    ],
+    scene: "streetfood",
+  },
+  {
+    slug: "jhalmuri",
+    name: "Jhalmuri",
+    bengali: "ঝালমুড়ি",
+    category: "street",
+    origin: "Bengal",
+    bestIn: "Trains, the Maidan, the ferry",
+    price: "₹15–40",
+    summary:
+      "Puffed rice shaken in a tin with mustard oil, chilli, coconut slivers and whatever else is in the box. Assembled in front of you in ninety seconds.",
+    body: [
+      "Muri is puffed rice. Everything else is negotiable: chopped onion, green chilli, tomato, cucumber, boiled chickpea, roasted peanut, thin slices of fresh coconut, chanachur, a fistful of coriander, a squeeze of lime, and raw mustard oil poured from a bottle that has never had a label.",
+      "The maker shakes it all in a tin can. That shake is the whole craft, and a good jhalmuriwala does it without looking.",
+      "It is served in a paper cone rolled from a page of exam-question papers or an old ledger, and reading your cone is part of it.",
+      "It costs almost nothing and is the single most eaten thing in this list.",
+    ],
+    eatItAt: [
+      { place: "Maidan", where: "Around Victoria Memorial", note: "Late afternoon, walking." },
+      { place: "The Hooghly ferry", where: "Any crossing", note: "Sold on board." },
+      { place: "Outside any school at 3pm", where: "Anywhere", note: "Peak demand." },
+    ],
+    scene: "streetfood",
+  },
+];
+
+export function getDish(slug: string) {
+  return dishes.find((d) => d.slug === slug);
+}
+
+export const foodCategories = [
+  { id: "street", label: "Street" },
+  { id: "sweet", label: "Sweet" },
+  { id: "meal", label: "A whole meal" },
+  { id: "breakfast", label: "Breakfast" },
+  { id: "drink", label: "Drink" },
+] as const;

@@ -1,0 +1,168 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { KolkataMap } from "@/components/kolkata-map";
+import { pageShell } from "@/components/page-header";
+import { Reveal } from "@/components/reveal";
+import { CityScene } from "@/components/scenes/city-scene";
+import { SectionHeading } from "@/components/section-heading";
+import { Wordmark } from "@/components/ambient";
+import { project } from "@/lib/kolkata";
+import { riverChapters } from "@/lib/kolkata/river";
+
+export const metadata: Metadata = {
+  title: "The River That Watches Kolkata",
+  description:
+    "The Hooghly: why the city is here, Howrah Bridge, Prinsep Ghat, the ghats, immersion, trade, silt and what is in the water now.",
+};
+
+export default function RiverPage() {
+  const pins = riverChapters.filter((c) => c.coords);
+
+  return (
+    <main className="relative z-10 bg-background">
+      {/* Full-width river. */}
+      <header className="relative flex min-h-[82svh] items-end overflow-hidden">
+        <CityScene name="river" instance="river-hero" className="absolute inset-0 h-full w-full" />
+        <div className="scrim-full absolute inset-0" />
+        <div className="scrim-bottom absolute inset-x-0 bottom-0 h-3/4" />
+        <div className="film-grain absolute inset-0" />
+        <div className={`${pageShell} relative pt-28 pb-14 sm:pb-20`}>
+          <p className="font-mono text-[0.62rem] tracking-[0.3em] text-marigold/85 uppercase">
+            22°34′N 88°22′E
+          </p>
+          <Wordmark bn="হুগলি নদী" en="THE HOOGHLY" className="mt-5 text-cream" />
+          <p className="mt-6 max-w-2xl font-display text-[clamp(1.2rem,3.4vw,2rem)] leading-snug text-cream/85 italic">
+            The river that watches Kolkata, and has been trying to leave it for
+            two hundred years.
+          </p>
+        </div>
+      </header>
+
+      {riverChapters.map((chapter, i) => {
+        const flip = i % 2 === 1;
+        return (
+          <section
+            key={chapter.slug}
+            id={chapter.slug}
+            className={`scroll-mt-20 border-t border-border ${i % 2 ? "bg-secondary/40" : ""}`}
+          >
+            <div className={`${pageShell} py-16 sm:py-24`}>
+              <div
+                className={`grid gap-10 lg:grid-cols-2 lg:gap-16 ${flip ? "lg:[&>*:first-child]:order-2" : ""}`}
+              >
+                <Reveal>
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border">
+                    <CityScene
+                      name={chapter.scene}
+                      instance={`river-${chapter.slug}`}
+                      className="h-full w-full"
+                    />
+                    <div className="scrim-bottom absolute inset-0" />
+                    <p className="absolute bottom-4 left-5 font-display text-4xl font-semibold text-cream/70">
+                      {chapter.numeral}
+                    </p>
+                  </div>
+                </Reveal>
+
+                <Reveal delay={90}>
+                  <p className="font-mono text-[0.58rem] tracking-[0.26em] text-terracotta uppercase">
+                    Chapter {chapter.numeral}
+                  </p>
+                  <h2 className="mt-3 font-display text-[clamp(1.7rem,4.2vw,2.6rem)] leading-tight font-semibold">
+                    {chapter.title}
+                  </h2>
+                  {chapter.bengali ? (
+                    <p className="mt-1 text-base text-muted-foreground" lang="bn">
+                      {chapter.bengali}
+                    </p>
+                  ) : null}
+                  <p className="mt-4 max-w-xl font-display text-[1.1rem] leading-snug text-foreground/85 italic">
+                    {chapter.standfirst}
+                  </p>
+                  <div className="mt-5 max-w-xl space-y-4 text-[0.96rem] leading-[1.75] text-muted-foreground">
+                    {chapter.body.map((p, n) => (
+                      <p key={n}>{p}</p>
+                    ))}
+                  </div>
+                  {chapter.detail ? (
+                    <dl className="mt-7 grid grid-cols-2 gap-4 border-t border-border pt-5 sm:grid-cols-3">
+                      {chapter.detail.map((d) => (
+                        <div key={d.label}>
+                          <dt className="font-mono text-[0.52rem] tracking-[0.16em] text-muted-foreground/70 uppercase">
+                            {d.label}
+                          </dt>
+                          <dd className="mt-1 text-[0.84rem]">{d.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  ) : null}
+                  {chapter.href ? (
+                    <Link
+                      href={chapter.href}
+                      className="mt-6 inline-block font-mono text-[0.6rem] tracking-[0.18em] text-terracotta uppercase hover:underline"
+                    >
+                      More →
+                    </Link>
+                  ) : null}
+                </Reveal>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+
+      {/* The river, mapped. */}
+      <section className="border-t border-border bg-secondary/40">
+        <div className={`${pageShell} grid gap-12 py-16 sm:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16`}>
+          <Reveal>
+            <SectionHeading
+              eyebrow="Along the water"
+              title="Ghats, bridges and docks"
+              lede="Everything on this bank arrived by water first, and the city spent two centuries keeping its back to it."
+              href="/neighbourhoods/hooghly-river"
+              hrefLabel="The riverside quarters"
+            />
+            <ul className="mt-8 space-y-3">
+              {[
+                ["Mullick Ghat Flower Market", "Two thousand traders, from four in the morning", "/neighbourhoods/howrah-bridge-strand"],
+                ["Babughat", "Ferries, the bus terminus, and the main immersion point", "/neighbourhoods/babughat"],
+                ["Prinsep Ghat", "1841 Palladian portico, and the city's sunset", "/neighbourhoods/prinsep-ghat"],
+                ["Millennium Park", "The first serious attempt to face the river", "/neighbourhoods/millennium-park"],
+                ["Kidderpore Docks", "1780s, and still working", "/neighbourhoods/kidderpore"],
+                ["Dakshineswar and Belur", "Twenty minutes apart by ferry", "/heritage/dakshineswar-kali-temple"],
+              ].map(([name, note, href]) => (
+                <li key={name} className="border-t border-border pt-3">
+                  <Link href={href} className="text-[0.92rem] font-medium hover:text-terracotta">
+                    {name} →
+                  </Link>
+                  <p className="mt-0.5 text-[0.84rem] text-muted-foreground">{note}</p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal delay={100} className="lg:sticky lg:top-24 lg:self-start">
+            <div className="relative aspect-square overflow-hidden rounded-lg border border-border bg-background">
+              <KolkataMap id="river-map" />
+              {pins.map((c) => (
+                <span
+                  key={c.slug}
+                  title={c.title}
+                  style={{
+                    left: `${project(c.coords!).x}%`,
+                    top: `${project(c.coords!).y}%`,
+                  }}
+                  className="absolute size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo ring-2 ring-background"
+                />
+              ))}
+            </div>
+            <p className="mt-4 text-[0.84rem] leading-relaxed text-muted-foreground">
+              The Hooghly runs down the western edge of the plate. Everything
+              this page describes is within a few hundred metres of it.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+    </main>
+  );
+}

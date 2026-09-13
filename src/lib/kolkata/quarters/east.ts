@@ -1,0 +1,112 @@
+import type { Neighbourhood } from "../types";
+
+export const east: Neighbourhood[] = [
+  {
+    slug: "chinatown-tangra",
+    name: "Tangra",
+    bengali: "ট্যাংরা",
+    alsoKnownAs: "Chinatown",
+    zone: "east",
+    tagline: "The last working Chinatown in India, built on tanneries.",
+    knownFor: "Hakka Chinese community, Indian Chinese food",
+    coords: { lat: 22.556, lng: 88.396 },
+    bestHour: "Sunday morning, or Chinese New Year",
+    summary:
+      "A tannery district that became India's only surviving Chinatown, and the birthplace of a cuisine that has conquered the country.",
+    body: [
+      "Chinese settlement in Calcutta goes back to the 1780s, when Tong Achew set up a sugar mill south of the city. The community concentrated first at Tiretta Bazar in the centre, then moved east to Tangra in the twentieth century to run tanneries, which needed space and did not need neighbours.",
+      "At its height the population was around twenty thousand, mostly Hakka. It is now a few thousand. The 1962 India–China war was the break: hundreds were interned at Deoli in Rajasthan, businesses were seized, and emigration to Toronto and Sydney followed and never stopped.",
+      "The tanneries were ordered out by court in the 1990s on pollution grounds. What remains is restaurants, a handful of clubs, two churches, and a Chinese-language newspaper that printed by hand until recently.",
+      "Indian Chinese food was invented here: chilli chicken, hakka noodles, gobi manchurian, the whole vocabulary. It is not a corruption of Chinese food, it is a genuine hybrid cuisine with its own hundred-year history.",
+      "Territi Bazar, back in the centre, still runs a Chinese breakfast market from about six in the morning. Get there by seven or it is over.",
+    ],
+    buildings: [
+      { name: "Chinese Kali Temple", note: "Kali worshipped with noodles as prasad. Exactly as described." },
+      { name: "Sea Ip Church", note: "In the old quarter at Tiretta Bazar. One of the surviving temples." },
+      { name: "Toong On Church", note: "Above what was, for years, the Nanking restaurant." },
+      { name: "The Tangra restaurant strip", note: "Matheswartala Road. Former tannery buildings, converted." },
+    ],
+    eats: [
+      { name: "Kim Ling", where: "Tangra", note: "Chilli garlic prawn, and the sweetcorn chicken soup." },
+      { name: "Beijing", where: "Tangra", note: "One of the older survivors. Hakka noodles." },
+      { name: "Territi Bazar breakfast", where: "Central Kolkata, 6–7:30am", note: "Pork buns, fish ball soup, momos." },
+      { name: "Golden Joy", where: "Tangra", note: "The chimney soup, if there are enough of you." },
+    ],
+    figures: [
+      { name: "Tong Achew", note: "The first recorded Chinese settler in Bengal, in the 1780s." },
+      { name: "The Deoli internees", note: "Hundreds from this community were interned in Rajasthan after 1962." },
+    ],
+    thingsToSee: [
+      { name: "Chinese New Year", note: "February. Dragon dances through the Tangra streets, and four days of firecrackers." },
+      { name: "The Chinese Kali Temple", note: "Noodles as prasad, and a Hakka congregation." },
+      { name: "Territi Bazar at six", note: "Twenty minutes of trade on the pavement, then nothing." },
+    ],
+    plates: ["rooftops", "streetfood", "collegestreet"],
+    walk: [
+      { stop: "Territi Bazar", minutes: 0, note: "Central Kolkata, 6–8am only." },
+      { stop: "Sea Ip Church", minutes: 10, note: "One of the surviving temples in the old quarter." },
+      { stop: "Tangra, Matheswartala Road", minutes: 40, note: "Take a cab east. The restaurant strip." },
+      { stop: "Kim Ling or Beijing", minutes: 45, note: "Lunch." },
+      { stop: "Chinese Kali Temple", minutes: 55, note: "Noodles as prasad." },
+    ],
+    sounds: [
+      "Hakka and Bengali in the same sentence",
+      "Woks over high gas",
+      "Firecrackers, for about four days in February",
+    ],
+    scene: "rooftops",
+  },
+  {
+    slug: "new-town-salt-lake",
+    name: "Salt Lake & New Town",
+    bengali: "সল্ট লেক ও নিউ টাউন",
+    zone: "east",
+    tagline: "Two attempts at a rational Kolkata, built on drained marsh.",
+    knownFor: "The planned city, the wetlands, the stadium",
+    coords: { lat: 22.58, lng: 88.42 },
+    bestHour: "Any time; it is built for cars",
+    summary:
+      "Bidhannagar and New Town: numbered sectors and wide roads east of the old city, and between them the wetlands that treat its sewage for nothing.",
+    body: [
+      "Bidhannagar, universally called Salt Lake, was reclaimed from the saline marshes in the 1960s and laid out in numbered sectors and blocks. It was meant to relieve the density of the old city and it did, for the people who could afford it.",
+      "New Town, further east, is the newer version: wide roads, an IT sector, planned housing, and the eco-park. It is orderly, green, and to visitors from the old city it feels like a different country.",
+      "The cost is the East Kolkata Wetlands, which sit between the two. This is a Ramsar site and one of the largest natural sewage-treatment systems anywhere: the city's wastewater is fed into shallow ponds where sunlight and algae clean it, and the ponds then produce roughly ten thousand tonnes of fish a year.",
+      "It works for nothing, treats a substantial share of the city's sewage, and is being eaten by land development from both sides. The argument over it is the most consequential planning fight in the region.",
+      "Salt Lake Stadium, the Vivekananda Yuba Bharati Krirangan, once held over a hundred thousand people and is still among the largest in the world by capacity.",
+    ],
+    buildings: [
+      { name: "Salt Lake Stadium", note: "1984. Once over 100,000 capacity; still among the largest anywhere." },
+      { name: "East Kolkata Wetlands", note: "A Ramsar site. Treats the city's sewage and produces 10,000 tonnes of fish a year." },
+      { name: "Eco Park, New Town", note: "480 acres, with a lake and a set of replica monuments." },
+      { name: "Central Park ground", note: "Where the Kolkata Book Fair has been held since it moved." },
+    ],
+    eats: [
+      { name: "Bhojohori Manna", where: "Salt Lake", note: "The dependable Bengali lunch, in a sector you will need a map for." },
+      { name: "Sector V food courts", where: "The IT district", note: "Weekday lunch for fifty thousand people." },
+      { name: "Wetland fish", where: "Any Kolkata market", note: "Much of the city's freshwater fish is grown in the bheris." },
+    ],
+    figures: [
+      { name: "Bidhan Chandra Roy", note: "The chief minister the planned city is named for." },
+      { name: "Dhrubajyoti Ghosh", note: "The engineer who documented the wetlands and got them Ramsar protection." },
+    ],
+    thingsToSee: [
+      { name: "The bheris at dawn", note: "Shallow ponds, nets, and a sewage system that works by sunlight. Go with a guide." },
+      { name: "A derby at Salt Lake Stadium", note: "Mohun Bagan against East Bengal. Enormous." },
+      { name: "The Book Fair in late January", note: "Two million visitors over twelve days." },
+    ],
+    storySlugs: ["a-city-that-reads-at-midnight"],
+    plates: ["river", "rooftops", "collegestreet"],
+    walk: [
+      { stop: "Karunamoyee", minutes: 0, note: "Salt Lake's centre, such as it is." },
+      { stop: "Salt Lake Stadium", minutes: 15, note: "Match day only, really." },
+      { stop: "East Kolkata Wetlands", minutes: 30, note: "Ask for the bheris. Best at dawn, with a guide." },
+      { stop: "Eco Park, New Town", minutes: 50, note: "Boating, and a large amount of grass." },
+    ],
+    sounds: [
+      "Almost nothing, which is the point",
+      "Fish being netted at dawn in the bheris",
+      "Traffic moving, uninterrupted, which happens nowhere else",
+    ],
+    scene: "river",
+  },
+];

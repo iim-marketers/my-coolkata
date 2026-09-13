@@ -1,0 +1,679 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-display);
+  --font-display: var(--font-display);
+  --font-bengali: var(--font-bengali);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Kolkata pigments — fixed hues that do not flip with the theme. */
+  --color-terracotta: var(--terracotta);
+  --color-marigold: var(--marigold);
+  --color-alta: var(--alta);
+  --color-hooghly: var(--hooghly);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-verdigris: var(--verdigris);
+  --color-indigo: var(--indigo);
+  /* Aliases for the palette as it is named in the brief. */
+  --color-ivory: var(--cream);
+  --color-charcoal: var(--ink);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Pigments. Named after where the colour comes from in the city. */
+  --terracotta: oklch(0.58 0.14 42);
+  --marigold: oklch(0.79 0.16 72);
+  --alta: oklch(0.53 0.2 26);
+  --hooghly: oklch(0.44 0.04 190);
+  --cream: oklch(0.95 0.02 85);
+  --ink: oklch(0.15 0.012 50);
+  --verdigris: oklch(0.62 0.07 175);
+  --indigo: oklch(0.47 0.15 268);
+
+  /* Daylight: lime-washed wall, sepia ink. */
+  --background: oklch(0.971 0.012 82);
+  --foreground: oklch(0.22 0.022 50);
+  --card: oklch(0.986 0.008 85);
+  --card-foreground: oklch(0.22 0.022 50);
+  --popover: oklch(0.986 0.008 85);
+  --popover-foreground: oklch(0.22 0.022 50);
+  --primary: oklch(0.52 0.16 36);
+  --primary-foreground: oklch(0.98 0.012 85);
+  --secondary: oklch(0.932 0.019 80);
+  --secondary-foreground: oklch(0.26 0.03 48);
+  --muted: oklch(0.941 0.015 80);
+  --muted-foreground: oklch(0.485 0.028 56);
+  --accent: oklch(0.9 0.06 78);
+  --accent-foreground: oklch(0.26 0.04 48);
+  --destructive: oklch(0.55 0.2 27);
+  --border: oklch(0.882 0.021 76);
+  --input: oklch(0.882 0.021 76);
+  --ring: oklch(0.62 0.14 44);
+  --chart-1: oklch(0.79 0.16 72);
+  --chart-2: oklch(0.58 0.14 42);
+  --chart-3: oklch(0.44 0.04 190);
+  --chart-4: oklch(0.53 0.2 26);
+  --chart-5: oklch(0.62 0.07 175);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.955 0.015 82);
+  --sidebar-foreground: oklch(0.22 0.022 50);
+  --sidebar-primary: oklch(0.52 0.16 36);
+  --sidebar-primary-foreground: oklch(0.98 0.012 85);
+  --sidebar-accent: oklch(0.9 0.06 78);
+  --sidebar-accent-foreground: oklch(0.26 0.04 48);
+  --sidebar-border: oklch(0.882 0.021 76);
+  --sidebar-ring: oklch(0.62 0.14 44);
+}
+
+.dark {
+  --indigo: oklch(0.66 0.15 268);
+  /* Night: the city under sodium lamps. */
+  --background: oklch(0.152 0.012 50);
+  --foreground: oklch(0.93 0.015 80);
+  --card: oklch(0.202 0.016 50);
+  --card-foreground: oklch(0.93 0.015 80);
+  --popover: oklch(0.192 0.016 50);
+  --popover-foreground: oklch(0.93 0.015 80);
+  --primary: oklch(0.72 0.15 52);
+  --primary-foreground: oklch(0.17 0.02 50);
+  --secondary: oklch(0.262 0.018 50);
+  --secondary-foreground: oklch(0.93 0.015 80);
+  --muted: oklch(0.248 0.016 50);
+  --muted-foreground: oklch(0.712 0.022 70);
+  --accent: oklch(0.3 0.04 60);
+  --accent-foreground: oklch(0.93 0.02 80);
+  --destructive: oklch(0.68 0.19 24);
+  --border: oklch(1 0 0 / 11%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.7 0.14 50);
+  --chart-1: oklch(0.82 0.16 74);
+  --chart-2: oklch(0.68 0.15 44);
+  --chart-3: oklch(0.6 0.06 190);
+  --chart-4: oklch(0.65 0.19 26);
+  --chart-5: oklch(0.7 0.08 175);
+  --sidebar: oklch(0.182 0.014 50);
+  --sidebar-foreground: oklch(0.93 0.015 80);
+  --sidebar-primary: oklch(0.72 0.15 52);
+  --sidebar-primary-foreground: oklch(0.17 0.02 50);
+  --sidebar-accent: oklch(0.28 0.03 55);
+  --sidebar-accent-foreground: oklch(0.93 0.015 80);
+  --sidebar-border: oklch(1 0 0 / 11%);
+  --sidebar-ring: oklch(0.7 0.14 50);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  /* Bengali needs a face with the conjuncts, and a little more line. */
+  :lang(bn),
+  [lang="bn"] {
+    font-family: var(--font-bengali), var(--font-sans), serif;
+    line-height: 1.55;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  ::selection {
+    background: var(--marigold);
+    color: oklch(0.18 0.03 50);
+  }
+}
+
+@layer utilities {
+  /* Letterspaced small caps used for section eyebrows and coordinates. */
+  .tracking-widest-xs {
+    letter-spacing: 0.32em;
+  }
+  .text-pigment-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--marigold),
+      var(--terracotta) 55%,
+      var(--alta)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* 16mm-ish film grain. Pure CSS so it costs no request. */
+  .film-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.16;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain-shift 900ms steps(3) infinite;
+  }
+  /* Vertical light falloff so text always clears the artwork behind it. */
+  .scrim-bottom {
+    background: linear-gradient(
+      to top,
+      oklch(0.11 0.015 50 / 0.92) 0%,
+      oklch(0.11 0.015 50 / 0.62) 32%,
+      oklch(0.11 0.015 50 / 0.15) 66%,
+      transparent 100%
+    );
+  }
+  /* Enough to hold text, not so much that the drawing disappears. */
+  .scrim-full {
+    background: radial-gradient(
+        135% 100% at 50% 62%,
+        transparent 44%,
+        oklch(0.09 0.015 50 / 0.48) 100%
+      ),
+      linear-gradient(
+        to top,
+        oklch(0.09 0.015 50 / 0.84) 0%,
+        oklch(0.09 0.015 50 / 0.16) 46%,
+        oklch(0.09 0.015 50 / 0.4) 100%
+      );
+  }
+}
+
+/* ---- Through Time --------------------------------------------------- */
+
+/*
+ * `data-era` on <html> shifts the whole document. Lightness values stay
+ * inside the range the base palette uses, so contrast holds; only hue and
+ * chroma move. The scenes are graded with a filter on the SVG alone,
+ * which keeps the effect off the text.
+ */
+
+/* 1690 — river, jungle, before the city. */
+[data-era="founding"] {
+  --terracotta: oklch(0.5 0.07 168);
+  --marigold: oklch(0.7 0.09 148);
+  --alta: oklch(0.48 0.08 196);
+  --verdigris: oklch(0.58 0.07 176);
+  --hooghly: oklch(0.44 0.05 200);
+  --background: oklch(0.955 0.014 162);
+  --foreground: oklch(0.22 0.022 172);
+  --card: oklch(0.976 0.01 164);
+  --popover: oklch(0.976 0.01 164);
+  --secondary: oklch(0.922 0.02 166);
+  --muted: oklch(0.93 0.016 166);
+  --muted-foreground: oklch(0.47 0.028 176);
+  --border: oklch(0.874 0.022 168);
+  --primary: oklch(0.42 0.07 172);
+  --accent: oklch(0.89 0.05 166);
+}
+.dark[data-era="founding"] {
+  --background: oklch(0.148 0.014 190);
+  --card: oklch(0.198 0.018 188);
+  --popover: oklch(0.19 0.018 188);
+  --secondary: oklch(0.256 0.02 186);
+  --muted: oklch(0.244 0.018 186);
+  --primary: oklch(0.68 0.1 168);
+  --accent: oklch(0.3 0.035 180);
+}
+
+/* 1772 — stucco, ink, the City of Palaces. */
+[data-era="company"] {
+  --terracotta: oklch(0.52 0.09 56);
+  --marigold: oklch(0.76 0.1 84);
+  --alta: oklch(0.48 0.12 36);
+  --verdigris: oklch(0.56 0.05 152);
+  --hooghly: oklch(0.46 0.04 220);
+  --background: oklch(0.966 0.019 90);
+  --foreground: oklch(0.23 0.024 62);
+  --card: oklch(0.982 0.013 90);
+  --secondary: oklch(0.928 0.024 88);
+  --muted: oklch(0.936 0.02 88);
+  --border: oklch(0.876 0.026 84);
+  --primary: oklch(0.44 0.08 56);
+}
+.dark[data-era="company"] {
+  --background: oklch(0.16 0.013 62);
+  --card: oklch(0.208 0.016 62);
+  --primary: oklch(0.72 0.1 62);
+}
+
+/* 1900 — the photographic record is sepia, so the city is too. */
+[data-era="sepia"] {
+  --terracotta: oklch(0.48 0.07 62);
+  --marigold: oklch(0.7 0.08 74);
+  --alta: oklch(0.44 0.08 50);
+  --verdigris: oklch(0.52 0.035 78);
+  --hooghly: oklch(0.46 0.035 70);
+  --background: oklch(0.932 0.032 80);
+  --foreground: oklch(0.25 0.036 58);
+  --card: oklch(0.955 0.026 80);
+  --popover: oklch(0.955 0.026 80);
+  --secondary: oklch(0.892 0.036 78);
+  --muted: oklch(0.9 0.032 78);
+  --muted-foreground: oklch(0.47 0.04 62);
+  --border: oklch(0.836 0.04 76);
+  --primary: oklch(0.4 0.07 58);
+  --accent: oklch(0.86 0.06 76);
+  --chart-1: oklch(0.7 0.08 74);
+  --chart-2: oklch(0.55 0.07 64);
+  --chart-3: oklch(0.44 0.04 70);
+  --chart-4: oklch(0.6 0.06 56);
+  --chart-5: oklch(0.34 0.04 62);
+}
+.dark[data-era="sepia"] {
+  --background: oklch(0.162 0.022 60);
+  --card: oklch(0.214 0.026 60);
+  --popover: oklch(0.204 0.026 60);
+  --secondary: oklch(0.272 0.028 60);
+  --muted: oklch(0.258 0.026 60);
+  --primary: oklch(0.72 0.09 68);
+  --accent: oklch(0.31 0.04 64);
+}
+
+/* 1940s — war. Cold, desaturated, and the colour drains out. */
+[data-era="wartime"] {
+  --terracotta: oklch(0.52 0.05 42);
+  --marigold: oklch(0.68 0.05 82);
+  --alta: oklch(0.5 0.13 26);
+  --verdigris: oklch(0.52 0.03 210);
+  --hooghly: oklch(0.44 0.04 236);
+  --background: oklch(0.94 0.009 230);
+  --foreground: oklch(0.21 0.016 240);
+  --card: oklch(0.962 0.007 230);
+  --secondary: oklch(0.9 0.011 232);
+  --muted: oklch(0.908 0.01 232);
+  --muted-foreground: oklch(0.46 0.017 238);
+  --border: oklch(0.85 0.013 232);
+  --primary: oklch(0.38 0.05 244);
+  --accent: oklch(0.87 0.02 232);
+}
+.dark[data-era="wartime"] {
+  --background: oklch(0.145 0.013 240);
+  --card: oklch(0.195 0.016 240);
+  --secondary: oklch(0.252 0.018 240);
+  --muted: oklch(0.24 0.016 240);
+  --primary: oklch(0.7 0.07 240);
+  --accent: oklch(0.29 0.028 240);
+}
+
+/* 1960s — high-contrast film stock, warm neutral. */
+[data-era="newwave"] {
+  --terracotta: oklch(0.48 0.05 52);
+  --marigold: oklch(0.74 0.06 86);
+  --alta: oklch(0.46 0.1 28);
+  --verdigris: oklch(0.54 0.035 160);
+  --hooghly: oklch(0.42 0.03 240);
+  --background: oklch(0.968 0.005 90);
+  --foreground: oklch(0.15 0.009 60);
+  --card: oklch(0.99 0.004 90);
+  --secondary: oklch(0.925 0.007 88);
+  --muted: oklch(0.932 0.006 88);
+  --muted-foreground: oklch(0.42 0.012 66);
+  --border: oklch(0.855 0.008 84);
+  --primary: oklch(0.2 0.02 56);
+}
+.dark[data-era="newwave"] {
+  --background: oklch(0.118 0.007 60);
+  --foreground: oklch(0.955 0.006 88);
+  --card: oklch(0.172 0.009 60);
+  --secondary: oklch(0.238 0.01 60);
+  --muted: oklch(0.226 0.009 60);
+  --primary: oklch(0.9 0.03 82);
+  --accent: oklch(0.27 0.02 62);
+}
+
+/* 1980s — poster colour, saturated and warm. */
+[data-era="para"] {
+  --terracotta: oklch(0.58 0.17 38);
+  --marigold: oklch(0.8 0.18 78);
+  --alta: oklch(0.55 0.22 26);
+  --verdigris: oklch(0.62 0.13 168);
+  --hooghly: oklch(0.5 0.11 242);
+  --background: oklch(0.968 0.024 88);
+  --foreground: oklch(0.22 0.03 48);
+  --card: oklch(0.985 0.016 88);
+  --secondary: oklch(0.925 0.03 84);
+  --muted: oklch(0.934 0.026 84);
+  --border: oklch(0.874 0.032 82);
+  --primary: oklch(0.5 0.17 34);
+  --accent: oklch(0.88 0.09 80);
+}
+.dark[data-era="para"] {
+  --background: oklch(0.158 0.02 42);
+  --card: oklch(0.208 0.024 42);
+  --secondary: oklch(0.268 0.028 42);
+  --muted: oklch(0.254 0.024 42);
+  --primary: oklch(0.74 0.16 48);
+  --accent: oklch(0.31 0.05 52);
+}
+
+/* 1990s — brighter, cooler, a little plasticky. */
+[data-era="liberal"] {
+  --terracotta: oklch(0.56 0.13 32);
+  --marigold: oklch(0.8 0.14 88);
+  --alta: oklch(0.54 0.18 24);
+  --verdigris: oklch(0.64 0.1 190);
+  --hooghly: oklch(0.5 0.1 254);
+  --background: oklch(0.976 0.007 240);
+  --foreground: oklch(0.2 0.017 250);
+  --card: oklch(0.992 0.004 240);
+  --secondary: oklch(0.934 0.009 240);
+  --muted: oklch(0.94 0.008 240);
+  --border: oklch(0.884 0.011 240);
+  --primary: oklch(0.5 0.13 30);
+}
+.dark[data-era="liberal"] {
+  --background: oklch(0.155 0.013 250);
+  --card: oklch(0.203 0.016 250);
+  --secondary: oklch(0.262 0.018 250);
+  --muted: oklch(0.248 0.016 250);
+  --primary: oklch(0.72 0.13 40);
+}
+
+/* The scenes are graded, not recoloured, so text over them is untouched. */
+[data-era="founding"] .scene-frame svg { filter: saturate(0.72) hue-rotate(-24deg); }
+[data-era="company"] .scene-frame svg { filter: sepia(0.28) saturate(0.9); }
+[data-era="sepia"] .scene-frame svg { filter: sepia(0.62) saturate(0.62) contrast(1.06); }
+[data-era="wartime"] .scene-frame svg { filter: saturate(0.34) contrast(1.12) brightness(0.92); }
+[data-era="newwave"] .scene-frame svg { filter: grayscale(0.82) contrast(1.2); }
+[data-era="para"] .scene-frame svg { filter: saturate(1.28) contrast(1.04); }
+[data-era="liberal"] .scene-frame svg { filter: saturate(1.08) brightness(1.04); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .scene-frame svg,
+  body {
+    transition: filter 700ms ease, background-color 700ms ease, color 700ms ease;
+  }
+}
+
+/* ---- Night Kolkata --------------------------------------------------- */
+
+/*
+ * A third axis, alongside theme and era. Night forces the ground tones
+ * dark whatever the theme is, pushes the accents towards sodium, and
+ * turns on the lamp and taxi animations. Era pigments still apply on top.
+ */
+[data-night="on"] {
+  color-scheme: dark;
+  --background: oklch(0.118 0.014 58);
+  --foreground: oklch(0.93 0.02 78);
+  --card: oklch(0.168 0.018 58);
+  --popover: oklch(0.158 0.018 58);
+  --card-foreground: oklch(0.93 0.02 78);
+  --popover-foreground: oklch(0.93 0.02 78);
+  --secondary: oklch(0.222 0.022 58);
+  --secondary-foreground: oklch(0.93 0.02 78);
+  --muted: oklch(0.208 0.02 58);
+  --muted-foreground: oklch(0.7 0.03 74);
+  --accent: oklch(0.27 0.045 62);
+  --accent-foreground: oklch(0.94 0.03 80);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.76 0.14 72);
+  --primary: oklch(0.8 0.15 72);
+  --primary-foreground: oklch(0.14 0.02 58);
+  --sidebar: oklch(0.148 0.016 58);
+  --sidebar-foreground: oklch(0.93 0.02 78);
+  --sidebar-border: oklch(1 0 0 / 12%);
+}
+
+/* Sodium light does not render colour, so the scenes lose most of theirs. */
+[data-night="on"] .scene-frame svg {
+  filter: saturate(0.78) brightness(0.86) contrast(1.1)
+    sepia(0.18) hue-rotate(-6deg);
+}
+
+[data-night="on"] body {
+  background-image: radial-gradient(
+      120% 80% at 12% -10%,
+      oklch(0.8 0.15 72 / 0.09),
+      transparent 60%
+    ),
+    radial-gradient(
+      100% 70% at 92% 4%,
+      oklch(0.66 0.14 48 / 0.07),
+      transparent 62%
+    );
+  background-attachment: fixed;
+}
+
+/* ---- Old paper ------------------------------------------------------- */
+
+/*
+ * Used only on historical material. Modern sections stay clean, and the
+ * contrast between the two is the point.
+ */
+.paper {
+  position: relative;
+  background-color: oklch(0.955 0.026 84);
+  color: oklch(0.24 0.032 56);
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 30px,
+      oklch(0.4 0.04 60 / 0.05) 30px 31px
+    ),
+    radial-gradient(
+      120% 90% at 8% 4%,
+      oklch(0.62 0.09 62 / 0.14),
+      transparent 55%
+    ),
+    radial-gradient(
+      100% 80% at 96% 96%,
+      oklch(0.55 0.08 52 / 0.12),
+      transparent 60%
+    );
+}
+.dark .paper,
+[data-night="on"] .paper {
+  background-color: oklch(0.215 0.024 66);
+  color: oklch(0.9 0.024 82);
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 30px,
+      oklch(0.9 0.03 80 / 0.05) 30px 31px
+    ),
+    radial-gradient(
+      120% 90% at 8% 4%,
+      oklch(0.5 0.06 60 / 0.2),
+      transparent 55%
+    );
+}
+
+/* A fibrous grain, so the paper is not a flat wash. */
+.paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6 0.04' numOctaves='4'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)' opacity='0.5'/%3E%3C/svg%3E");
+}
+.dark .paper::before,
+[data-night="on"] .paper::before {
+  mix-blend-mode: screen;
+  opacity: 0.16;
+}
+
+/* Typewriter register, for archival captions. */
+.typewriter {
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  font-variant-ligatures: none;
+}
+
+/* ---- Scene framing -------------------------------------------------- */
+
+/*
+ * Scenes are drawn in a 16:9 space and cropped with `slice`, which in a
+ * portrait frame would show a narrow vertical band through the middle of
+ * the artwork. Instead, the drawing scales down and sits along the bottom
+ * of the frame while the sky gradient fills the space above it, which is
+ * how a wide composition is meant to be cropped tall.
+ *
+ * The query is on the scene's own box rather than the viewport, so a 4:3
+ * card on a desktop gets the same treatment as the hero on a phone.
+ */
+.scene-frame {
+  container-type: size;
+}
+
+.scene-body {
+  transform-box: view-box;
+  transform-origin: 50% 100%;
+}
+
+@container (max-aspect-ratio: 13 / 10) {
+  .scene-body { transform: scale(0.92); }
+}
+@container (max-aspect-ratio: 1 / 1) {
+  .scene-body { transform: scale(0.84); }
+}
+@container (max-aspect-ratio: 3 / 4) {
+  .scene-body { transform: scale(0.72); }
+}
+@container (max-aspect-ratio: 9 / 16) {
+  .scene-body { transform: scale(0.6); }
+}
+
+/* ---- Motion -------------------------------------------------------- */
+
+@keyframes grain-shift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-3%, 2%); }
+  50% { transform: translate(2%, -3%); }
+  75% { transform: translate(-2%, -2%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Slow push-in on whichever frame is currently on screen. */
+@keyframes ken-burns {
+  from { transform: scale(1.04) translate3d(0, 0, 0); }
+  to { transform: scale(1.16) translate3d(-1.2%, -1.6%, 0); }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(1.6rem); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* The cursor after the coordinates. */
+@keyframes caret-blink {
+  0%, 45% { opacity: 1; }
+  55%, 100% { opacity: 0; }
+}
+
+/* Sodium lamps and pandal bulbs never burn perfectly steady. */
+@keyframes lamp-flicker {
+  0%, 100% { opacity: 0.9; }
+  42% { opacity: 0.72; }
+  46% { opacity: 1; }
+  58% { opacity: 0.8; }
+}
+
+@keyframes drift-up {
+  from { transform: translateY(0); opacity: 0; }
+  15% { opacity: 0.7; }
+  to { transform: translateY(-140px); opacity: 0; }
+}
+
+@keyframes river-shimmer {
+  from { transform: translateX(-4%); }
+  to { transform: translateX(4%); }
+}
+
+@keyframes tram-roll {
+  from { transform: translateX(-30%); }
+  to { transform: translateX(130%); }
+}
+
+/* A tram crossing the navigation bar, very occasionally. */
+@keyframes tram-cross {
+  0%, 88% { transform: translateX(-8rem); opacity: 0; }
+  90% { opacity: 0.5; }
+  98% { opacity: 0.5; }
+  100% { transform: translateX(102vw); opacity: 0; }
+}
+
+/* A taxi passing behind a heading. */
+@keyframes taxi-pass {
+  from { transform: translateX(-30%); }
+  to { transform: translateX(130%); }
+}
+
+/* Headlamps sweeping a night street. */
+@keyframes headlight-sweep {
+  0%, 100% { opacity: 0; transform: translateX(-10%); }
+  8% { opacity: 0.5; }
+  40% { opacity: 0.22; }
+  60% { opacity: 0; transform: translateX(110%); }
+}
+
+@keyframes rain-fall {
+  from { transform: translateY(-20%); }
+  to { transform: translateY(120%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .film-grain::after { animation: none; }
+}
