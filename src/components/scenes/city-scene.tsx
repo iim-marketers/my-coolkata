@@ -23,9 +23,12 @@ export function CityScene({
   detail = "full",
   preload = false,
   focus = "center",
+  imgClassName,
   ...source
 }: Source & {
   className?: string;
+  /** Extra classes for the image itself, e.g. a per-breakpoint object position. */
+  imgClassName?: string;
   /**
    * `card` tells the browser the frame is a thumbnail in a grid, so it picks
    * a smaller file. Leave it as `full` for anything that spans the viewport.
@@ -50,7 +53,11 @@ export function CityScene({
             ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             : "100vw"
         }
-        className={cn("object-cover", focus === "top" && "object-[50%_22%]")}
+        className={cn(
+          "object-cover",
+          focus === "top" && "object-[50%_22%]",
+          imgClassName,
+        )}
       />
     </div>
   );

@@ -125,16 +125,12 @@ export function project({ lat, lng }: Coords) {
 /** 22°34′N 88°22′E — the line the homepage types out. */
 export const CITY_COORDS_DISPLAY = "22°34′N 88°22′E";
 
+/** The pages in the menu and footer. The first six sit in the top bar. */
 export const sections = [
   {
     href: "/neighbourhoods",
     label: "Neighbourhoods",
     blurb: "Twenty-seven quarters, on an illustrated map",
-  },
-  {
-    href: "/through-time",
-    label: "Through Time",
-    blurb: "Drag a year and the whole site changes",
   },
   {
     href: "/heritage",
@@ -147,42 +143,15 @@ export const sections = [
     label: "Durga Puja",
     blurb: "Five days when the city stops being a city",
   },
-  {
-    href: "/kumartuli",
-    label: "Kumartuli",
-    blurb: "Bamboo to goddess, in six stages",
-  },
   { href: "/people", label: "People", blurb: "Twenty-five lives, on one wall" },
+  { href: "/plan", label: "Plan", blurb: "Itineraries that work" },
   { href: "/hidden", label: "Hidden Kolkata", blurb: "Forty things you didn't know existed" },
-  { href: "/sounds", label: "Sounds", blurb: "Close your eyes. Listen." },
-  {
-    href: "/a-day-in-kolkata",
-    label: "A Day in Kolkata",
-    blurb: "Half past five to two in the morning",
-  },
-  { href: "/adda", label: "Adda", blurb: "The argument that settles nothing" },
-  { href: "/college-street", label: "College Street", blurb: "Books, students, ideas" },
-  { href: "/architecture", label: "Architecture", blurb: "Seven styles, and a guessing game" },
-  { href: "/then-and-now", label: "Then & Now", blurb: "Drag between the plate and the present" },
   { href: "/cinema", label: "Cinema", blurb: "Ray, Ghatak, Sen, and the locations" },
   { href: "/literature", label: "The City of Words", blurb: "Literary Kolkata, mapped" },
   { href: "/football", label: "Football", blurb: "Three clubs, one field, one argument" },
   { href: "/tram", label: "The Tram", blurb: "Esplanade to Shyambazar, seven stops" },
   { href: "/river", label: "The Hooghly", blurb: "The river that watches Kolkata" },
-  { href: "/gallery", label: "Faces of Kolkata", blurb: "Twenty-seven plates, each with a story" },
-  { href: "/mood", label: "By Mood", blurb: "How do you want the day to feel?" },
-  { href: "/build-my-day", label: "Build My Day", blurb: "Time available, then interests" },
-  { href: "/how-kolkata-are-you", label: "The Quiz", blurb: "How Kolkata are you?" },
-  { href: "/today", label: "Kolkata Today", blurb: "What is on, month by month" },
-  {
-    href: "/famous-for",
-    label: "Famous For",
-    blurb: "Food, books, football, cinema, art",
-  },
-  { href: "/culture", label: "Culture", blurb: "Adda, song, pandal, jatra" },
   { href: "/stories", label: "Stories", blurb: "Longer reads" },
   { href: "/timeline", label: "Timeline", blurb: "1495 to now" },
-  { href: "/map", label: "Map", blurb: "Everything, plotted" },
   { href: "/events", label: "Events", blurb: "The calendar" },
-  { href: "/plan", label: "Plan", blurb: "Itineraries that work" },
 ] as const;

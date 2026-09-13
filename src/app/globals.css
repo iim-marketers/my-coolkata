@@ -187,11 +187,17 @@
     background-clip: text;
     color: transparent;
   }
-  /* 16mm-ish film grain. Pure CSS so it costs no request. */
+  /* 16mm-ish film grain. Pure CSS so it costs no request.
+     The texture is oversized and clipped: grain-shift jitters it by a few
+     percent, and at the element's own size that uncovered a flickering
+     strip along the right and bottom edges. */
+  .film-grain {
+    overflow: hidden;
+  }
   .film-grain::after {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -10%;
     pointer-events: none;
     opacity: 0.16;
     mix-blend-mode: overlay;
@@ -557,12 +563,6 @@
   50% { transform: translate(2%, -3%); }
   75% { transform: translate(-2%, -2%); }
   100% { transform: translate(0, 0); }
-}
-
-/* Slow push-in on whichever frame is currently on screen. */
-@keyframes ken-burns {
-  from { transform: scale(1.04) translate3d(0, 0, 0); }
-  to { transform: scale(1.16) translate3d(-1.2%, -1.6%, 0); }
 }
 
 @keyframes rise-in {

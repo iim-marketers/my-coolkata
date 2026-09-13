@@ -367,10 +367,9 @@ export const photos = {
   },
   "hero-howrah": {
     image: pHeroHowrah,
-    alt: "Howrah Bridge lit up at night over the Hooghly",
-    credit: { title: "Sunrise 251", author: "Pradip paswan", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Sunrise_251.jpg" },
-  },
-  "hero-kumartuli": {
+    alt: "Howrah Bridge lit purple at night, above the light trails and street lamps of Bankim Setu",
+    credit: { title: "Howrah bridge betwixt Lights", author: "Shubhankar.sengupta19", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/", source: "https://commons.wikimedia.org/wiki/File:Howrah_bridge_betwixt_Lights.jpg" },
+  },  "hero-kumartuli": {
     image: pHeroKumartuli,
     alt: "An artisan painting a Durga idol in Kumartuli",
     credit: { title: "Chokkhudaan – Giving the Eyes", author: "DebanjanDutta 96", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Chokkhudaan_%E2%80%93_Giving_the_Eyes.jpg" },

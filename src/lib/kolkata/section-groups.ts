@@ -8,22 +8,12 @@ export interface SectionGroup {
   items: Section[];
 }
 
-/** The index, grouped so thirty-odd pages read as four short lists. */
+/** The index, grouped so fifteen pages read as four short lists. */
 const GROUPS: { label: string; blurb: string; hrefs: string[] }[] = [
   {
     label: "Places",
     blurb: "Quarters, buildings, the river and the streets between them.",
-    hrefs: [
-      "/neighbourhoods",
-      "/heritage",
-      "/architecture",
-      "/river",
-      "/tram",
-      "/college-street",
-      "/kumartuli",
-      "/hidden",
-      "/map",
-    ],
+    hrefs: ["/neighbourhoods", "/heritage", "/river", "/tram", "/hidden"],
   },
   {
     label: "Culture",
@@ -31,33 +21,21 @@ const GROUPS: { label: string; blurb: string; hrefs: string[] }[] = [
     hrefs: [
       "/food",
       "/durga-puja",
-      "/culture",
       "/people",
-      "/adda",
       "/cinema",
       "/literature",
       "/football",
-      "/sounds",
-      "/famous-for",
     ],
   },
   {
     label: "History",
-    blurb: "Pick a year, read a longer story, set then against now.",
-    hrefs: ["/through-time", "/timeline", "/then-and-now", "/gallery", "/stories"],
+    blurb: "The years the city turns on, and longer reads.",
+    hrefs: ["/timeline", "/stories"],
   },
   {
     label: "Plan a visit",
-    blurb: "Itineraries, moods, the calendar, and a quiz for the road.",
-    hrefs: [
-      "/plan",
-      "/build-my-day",
-      "/a-day-in-kolkata",
-      "/mood",
-      "/today",
-      "/events",
-      "/how-kolkata-are-you",
-    ],
+    blurb: "Itineraries and the calendar.",
+    hrefs: ["/plan", "/events"],
   },
 ];
 
