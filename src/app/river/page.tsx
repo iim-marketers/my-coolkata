@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { KolkataMap } from "@/components/kolkata-map";
-import { pageShell } from "@/components/page-header";
+import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { CityScene } from "@/components/scenes/city-scene";
 import { SectionHeading } from "@/components/section-heading";
-import { Wordmark } from "@/components/ambient";
 import { project } from "@/lib/kolkata";
 import { riverChapters } from "@/lib/kolkata/river";
 
@@ -20,23 +19,12 @@ export default function RiverPage() {
 
   return (
     <main className="relative z-10 bg-background">
-      {/* Full-width river. */}
-      <header className="relative flex min-h-[82svh] items-end overflow-hidden">
-        <CityScene name="river" className="absolute inset-0 h-full w-full" />
-        <div className="scrim-full absolute inset-0" />
-        <div className="scrim-bottom absolute inset-x-0 bottom-0 h-3/4" />
-        <div className="film-grain absolute inset-0" />
-        <div className={`${pageShell} relative pt-28 pb-14 sm:pb-20`}>
-          <p className="font-mono text-[0.62rem] tracking-[0.3em] text-marigold/85 uppercase">
-            22°34′N 88°22′E
-          </p>
-          <Wordmark bn="হুগলি নদী" en="THE HOOGHLY" className="mt-5 text-cream" />
-          <p className="mt-6 max-w-2xl font-display text-[clamp(1.2rem,3.4vw,2rem)] leading-snug text-cream/85 italic">
-            The river that watches Kolkata, and has been trying to leave it for
-            two hundred years.
-          </p>
-        </div>
-      </header>
+      <PageHeader
+        eyebrow="হুগলি নদী"
+        title="The Hooghly"
+        lede="The river that watches Kolkata, and has been trying to leave it for two hundred years."
+        scene="river"
+      />
 
       {riverChapters.map((chapter, i) => {
         const flip = i % 2 === 1;
@@ -48,12 +36,13 @@ export default function RiverPage() {
           >
             <div className={`${pageShell} py-16 sm:py-24`}>
               <div
-                className={`grid gap-10 lg:grid-cols-2 lg:gap-16 ${flip ? "lg:[&>*:first-child]:order-2" : ""}`}
+                className={`sticky-split grid gap-10 lg:grid-cols-2 lg:gap-16 ${flip ? "lg:[&>*:first-child]:order-2" : ""}`}
               >
                 <Reveal>
                   <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border">
                     <CityScene
-                      name={chapter.scene} photo={chapter.photo}
+                      name={chapter.scene}
+                      photo={chapter.photo}
                       sizes="(min-width: 1024px) min(50vw, 640px), 100vw"
                       className="h-full w-full"
                     />
@@ -72,7 +61,10 @@ export default function RiverPage() {
                     {chapter.title}
                   </h2>
                   {chapter.bengali ? (
-                    <p className="mt-1 text-base text-muted-foreground" lang="bn">
+                    <p
+                      className="mt-1 text-base text-muted-foreground"
+                      lang="bn"
+                    >
                       {chapter.bengali}
                     </p>
                   ) : null}
@@ -113,7 +105,9 @@ export default function RiverPage() {
 
       {/* The river, mapped. */}
       <section className="border-t border-border bg-secondary/40">
-        <div className={`${pageShell} grid gap-12 py-16 sm:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16`}>
+        <div
+          className={`${pageShell} grid gap-12 py-16 sm:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16`}
+        >
           <Reveal>
             <SectionHeading
               eyebrow="Along the water"
@@ -124,18 +118,47 @@ export default function RiverPage() {
             />
             <ul className="mt-8 space-y-3">
               {[
-                ["Mullick Ghat Flower Market", "Two thousand traders, from four in the morning", "/neighbourhoods/howrah-bridge-strand"],
-                ["Babughat", "Ferries, the bus terminus, and the main immersion point", "/neighbourhoods/babughat"],
-                ["Prinsep Ghat", "1841 Palladian portico, and the city's sunset", "/neighbourhoods/prinsep-ghat"],
-                ["Millennium Park", "The first serious attempt to face the river", "/neighbourhoods/millennium-park"],
-                ["Kidderpore Docks", "1780s, and still working", "/neighbourhoods/kidderpore"],
-                ["Dakshineswar and Belur", "Twenty minutes apart by ferry", "/heritage/dakshineswar-kali-temple"],
+                [
+                  "Mullick Ghat Flower Market",
+                  "Two thousand traders, from four in the morning",
+                  "/neighbourhoods/howrah-bridge-strand",
+                ],
+                [
+                  "Babughat",
+                  "Ferries, the bus terminus, and the main immersion point",
+                  "/neighbourhoods/babughat",
+                ],
+                [
+                  "Prinsep Ghat",
+                  "1841 Palladian portico, and the city's sunset",
+                  "/neighbourhoods/prinsep-ghat",
+                ],
+                [
+                  "Millennium Park",
+                  "The first serious attempt to face the river",
+                  "/neighbourhoods/millennium-park",
+                ],
+                [
+                  "Kidderpore Docks",
+                  "1780s, and still working",
+                  "/neighbourhoods/kidderpore",
+                ],
+                [
+                  "Dakshineswar and Belur",
+                  "Twenty minutes apart by ferry",
+                  "/heritage/dakshineswar-kali-temple",
+                ],
               ].map(([name, note, href]) => (
                 <li key={name} className="border-t border-border pt-3">
-                  <Link href={href} className="text-[0.92rem] font-medium hover:text-terracotta">
+                  <Link
+                    href={href}
+                    className="text-[0.92rem] font-medium hover:text-terracotta"
+                  >
                     {name} →
                   </Link>
-                  <p className="mt-0.5 text-[0.84rem] text-muted-foreground">{note}</p>
+                  <p className="mt-0.5 text-[0.84rem] text-muted-foreground">
+                    {note}
+                  </p>
                 </li>
               ))}
             </ul>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { pageShell } from "@/components/page-header";
+import { PageHeader, pageShell } from "@/components/page-header";
 import { PhotoGallery } from "@/components/photo-gallery";
 import { PujoCountdown } from "@/components/pujo-countdown";
 import { Reveal } from "@/components/reveal";
@@ -18,32 +18,14 @@ export default function DurgaPujaPage() {
   return (
     <main className="relative z-10 bg-background">
       {/* Countdown hero. */}
-      <header className="relative flex min-h-[86svh] items-center overflow-hidden">
-        <CityScene
-          name="pujo"
-          className="absolute inset-0 h-full w-full"
-        />
-        <div className="scrim-full absolute inset-0" />
-          {/* The countdown sits over the brightest part of the frame, so it
-              needs its own pool of shade. */}
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_46%_at_50%_52%,oklch(0.1_0.015_50/0.78),transparent_72%)]" />
-        <div className="film-grain absolute inset-0" />
-
-        <div className={`${pageShell} relative py-28`}>
-          <p className="text-center font-mono text-[0.62rem] tracking-[0.32em] text-cream/55 uppercase">
-            Kolkata during Puja
-          </p>
-          <h1 className="mx-auto mt-6 max-w-4xl text-center font-display text-[clamp(2.4rem,8vw,5.5rem)] leading-[0.95] font-semibold tracking-[-0.02em] text-cream text-balance">
-            For five days, the city stops being a city.
-          </h1>
-          <PujoCountdown className="mt-14" />
-          <p className="mx-auto mt-10 max-w-xl text-center text-[0.95rem] leading-relaxed text-cream/65">
-            UNESCO inscribed Durga Puja on the Representative List of the
-            Intangible Cultural Heritage of Humanity in December 2021, the first
-            festival in India to be listed.
-          </p>
-        </div>
-      </header>
+      <PageHeader
+        eyebrow="Kolkata during Puja"
+        title="For five days, the city stops being a city."
+        lede="UNESCO inscribed Durga Puja on the Representative List of the Intangible Cultural Heritage of Humanity in December 2021, the first festival in India to be listed."
+        scene="pujo"
+      >
+        <PujoCountdown tone="light" />
+      </PageHeader>
 
       {/* The seven chapters. */}
       {pujoChapters.map((chapter, i) => {
@@ -56,7 +38,7 @@ export default function DurgaPujaPage() {
           >
             <div className={`${pageShell} py-16 sm:py-24`}>
               <div
-                className={`grid gap-10 lg:grid-cols-2 lg:gap-16 ${flip ? "lg:[&>*:first-child]:order-2" : ""}`}
+                className={`sticky-split grid gap-10 lg:grid-cols-2 lg:gap-16 ${flip ? "lg:[&>*:first-child]:order-2" : ""}`}
               >
                 <Reveal>
                   <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border">

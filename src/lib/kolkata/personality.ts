@@ -112,7 +112,6 @@ export const pResults: Record<Trait, PResult> = {
     share: "I'm The Kolkata Foodie. Biryani without the potato is not biryani.",
     goNext: [
       { label: "Taste Kolkata", href: "/food" },
-      { label: "Build my day", href: "/build-my-day" },
       { label: "Kolkata by mood", href: "/mood" },
     ],
   },

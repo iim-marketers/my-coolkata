@@ -30,7 +30,7 @@ export default function AddaPage() {
 
       {/* What it is. */}
       <section className={`${pageShell} py-16 sm:py-24`}>
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
+        <div className="sticky-split grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
           <Reveal>
             <SectionHeading
               eyebrow="Definition"

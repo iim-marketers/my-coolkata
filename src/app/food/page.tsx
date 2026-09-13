@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { FoodCard } from "@/components/food-card";
 import { FoodMap } from "@/components/food-map";
 import { FoodQuiz } from "@/components/food-quiz";
-import { FoodHero } from "@/components/food/food-hero";
-import { pageShell } from "@/components/page-header";
+import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { dishes } from "@/lib/kolkata";
@@ -97,13 +96,33 @@ function KitchenHeading({
 export default function FoodPage() {
   return (
     <main className="relative z-10 bg-background">
-      <FoodHero
+      <PageHeader
+        eyebrow="Taste Kolkata · খাই খাই"
+        title="Bitter first, sweet last, fish in between"
+        lede="Mustard oil, river fish, fresh chhena, and a relationship with sugar that the rest of India finds excessive. Here is what the city is famous for, and where to eat it."
+        scene="streetfood"
+        photo="bengali-thali"
         meta={[
+          { label: "Cheapest", value: "Cha in a clay cup, ₹7" },
           { label: "Dishes", value: String(dishes.length) },
           { label: "Places mapped", value: String(foodPlaces.length) },
-          { label: "Cheapest", value: "Cha in a clay cup, ₹7" },
         ]}
-      />
+      >
+        <div className="flex flex-wrap gap-2.5">
+          <a
+            href="#famous"
+            className="inline-flex items-center rounded-full bg-primary px-4 py-2 text-[0.88rem] font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            What Kolkata is famous for
+          </a>
+          <a
+            href="#map"
+            className="inline-flex items-center rounded-full border border-border bg-card px-4 py-2 text-[0.88rem] font-medium transition-[translate,border-color,color] hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+          >
+            Where to eat
+          </a>
+        </div>
+      </PageHeader>
 
       {/* What the city is famous for, and where to find it. */}
       <section id="famous" className="paper scroll-mt-16">
@@ -173,7 +192,7 @@ export default function FoodPage() {
 
       {/* The quiz. */}
       <section className="paper border-t border-border">
-        <div className={`${pageShell} relative grid gap-12 py-16 sm:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16`}>
+        <div className={`${pageShell} sticky-split relative grid gap-12 py-16 sm:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16`}>
           <Reveal>
             <SectionHeading
               eyebrow="Four questions"

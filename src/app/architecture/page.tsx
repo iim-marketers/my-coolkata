@@ -44,7 +44,7 @@ export default function ArchitecturePage() {
         >
           <div className={`${pageShell} py-14 sm:py-20`}>
             <Reveal>
-              <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+              <div className="sticky-split grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
                 <div>
                   <div className="flex items-baseline gap-4">
                     <span

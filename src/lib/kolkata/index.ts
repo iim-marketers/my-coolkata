@@ -24,11 +24,9 @@ export * from "./football";
 export * from "./tram";
 export * from "./river";
 export * from "./moods";
-export * from "./planner";
 export * from "./personality";
 export * from "./gallery";
 export * from "./today";
-export * from "./plan";
 
 /** Points the stylised map draws that are not heritage sites or quarters. */
 const riverAndRail: MapPoint[] = [
@@ -132,19 +130,45 @@ export const sections = [
     label: "Landmarks",
     blurb: "The big sights, worth the trip",
   },
-  { href: "/food", label: "Taste Kolkata", blurb: "A plate, a map and a food trail" },
+  {
+    href: "/food",
+    label: "Taste Kolkata",
+    blurb: "A plate, a map and a food trail",
+  },
   {
     href: "/durga-puja",
     label: "Durga Puja",
     blurb: "Five days when the city stops being a city",
   },
-  { href: "/plan", label: "Plan", blurb: "Itineraries that work" },
-  { href: "/hidden", label: "Hidden Kolkata", blurb: "Forty things you didn't know existed" },
-  { href: "/cinema", label: "Cinema", blurb: "Ray, Ghatak, Sen, and the locations" },
-  { href: "/literature", label: "The City of Words", blurb: "Literary Kolkata, mapped" },
-  { href: "/football", label: "Football", blurb: "Three clubs, one field, one argument" },
-  { href: "/tram", label: "The Tram", blurb: "Esplanade to Shyambazar, seven stops" },
-  { href: "/river", label: "The Hooghly", blurb: "The river that watches Kolkata" },
+  {
+    href: "/events",
+    label: "Events",
+    blurb: "Photo and video contests for creators",
+  },
+  {
+    href: "/cinema",
+    label: "Cinema",
+    blurb: "Ray, Ghatak, Sen, and the locations",
+  },
+  {
+    href: "/literature",
+    label: "The City of Words",
+    blurb: "Literary Kolkata, mapped",
+  },
+  {
+    href: "/football",
+    label: "Football",
+    blurb: "Three clubs, one field, one argument",
+  },
+  {
+    href: "/tram",
+    label: "The Tram",
+    blurb: "Esplanade to Shyambazar, seven stops",
+  },
+  {
+    href: "/river",
+    label: "The Hooghly",
+    blurb: "The river that watches Kolkata",
+  },
   { href: "/stories", label: "Stories", blurb: "Longer reads" },
-  { href: "/events", label: "Events", blurb: "The calendar" },
 ] as const;

@@ -126,14 +126,6 @@ export function MoodPicker({ className }: { className?: string }) {
                   </Link>
                 </div>
               ) : null}
-              <div className="border-t border-border pt-4">
-                <Link
-                  href="/build-my-day"
-                  className="font-mono text-[0.58rem] tracking-[0.16em] text-muted-foreground uppercase hover:text-foreground"
-                >
-                  Or build your own day →
-                </Link>
-              </div>
             </aside>
           </div>
         </article>

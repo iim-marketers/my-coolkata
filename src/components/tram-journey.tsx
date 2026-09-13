@@ -160,7 +160,7 @@ export function TramJourney({ className }: { className?: string }) {
       </div>
 
       {/* This stop. */}
-      <div key={stop.name} className="mt-10 grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:gap-12">
+      <div key={stop.name} className="sticky-split mt-10 grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:gap-12">
         <div style={{ animation: "rise-in 500ms ease both" }}>
           <p className="max-w-2xl text-[1rem] leading-[1.75] text-muted-foreground">
             {stop.body}

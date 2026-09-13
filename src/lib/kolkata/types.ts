@@ -131,21 +131,6 @@ export interface MapPoint {
   note: string;
 }
 
-export interface Itinerary {
-  slug: string;
-  title: string;
-  length: string;
-  pace: string;
-  bestSeason: string;
-  summary: string;
-  stops: {
-    time: string;
-    place: string;
-    what: string;
-    travel?: string;
-  }[];
-}
-
 export interface CultureStrand {
   slug: string;
   name: string;

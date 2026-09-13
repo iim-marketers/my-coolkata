@@ -89,7 +89,7 @@ export default function CinemaPage() {
         <ul className="mt-12 space-y-12">
           {films.map((f, i) => (
             <Reveal as="li" key={f.slug} delay={(i % 3) * 60} id={f.slug} className="scroll-mt-24">
-              <article className="grid gap-6 border-t border-border pt-8 lg:grid-cols-[10rem_1fr]">
+              <article className="sticky-split grid gap-6 border-t border-border pt-8 lg:grid-cols-[10rem_1fr]">
                 <div>
                   <p className="font-display text-3xl font-semibold tabular-nums text-terracotta">
                     {f.year}

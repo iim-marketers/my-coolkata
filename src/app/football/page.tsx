@@ -125,7 +125,7 @@ export default function FootballPage() {
 
       {/* The Maidan and fan culture. */}
       <section className="border-t border-border bg-secondary/40">
-        <div className={`${pageShell} grid gap-12 py-16 sm:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16`}>
+        <div className={`${pageShell} sticky-split grid gap-12 py-16 sm:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16`}>
           <Reveal>
             <SectionHeading
               eyebrow="The Maidan"

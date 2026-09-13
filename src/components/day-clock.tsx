@@ -138,7 +138,7 @@ export function DayClock({ className }: { className?: string }) {
       ) : null}
 
       {/* The hour. */}
-      <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:gap-14">
+      <div className="sticky-split mt-8 grid gap-8 lg:grid-cols-2 lg:gap-14">
         <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border">
           {dayMoments.map((moment, n) => (
             <div

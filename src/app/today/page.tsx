@@ -161,8 +161,6 @@ export default function TodayPage() {
               eyebrow="Evergreen"
               title="The rest of the site does not move"
               lede="Everything outside this page is written to stay true: the buildings, the history, the food and the quarters. Only this calendar changes with the year."
-              href="/plan"
-              hrefLabel="Plan a trip"
             />
           </Reveal>
         </div>

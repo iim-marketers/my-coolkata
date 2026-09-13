@@ -779,8 +779,8 @@ export const photos = {
   },
   "yellow-taxi": {
     image: pYellowTaxi,
-    alt: "Yellow Taxi",
-    credit: { title: "Yellow taxi of Kolkata", author: "Shivendujha", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/", source: "https://commons.wikimedia.org/wiki/File:Yellow_taxi_of_Kolkata.jpg" },
+    alt: "A yellow Ambassador taxi with a blue stripe and hand-painted decorations, Kolkata",
+    credit: { title: "HindustanAmbassador gobeirne", author: "Greg O'Beirne", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/", source: "https://commons.wikimedia.org/wiki/File:HindustanAmbassador_gobeirne.jpg" },
   },
   "yellow-taxis-traffic": {
     image: pYellowTaxisTraffic,
