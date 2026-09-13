@@ -18,6 +18,7 @@ export default function GalleryPage() {
         title="Every frame has a story behind it"
         lede="Ten categories, and each plate opens to what is actually going on in it. Everything here is drawn rather than photographed, which is a limitation the site is honest about."
         scene="streetfood"
+        photo="mullick-ghat-flower-market"
         meta={[
           { label: "Plates", value: String(plates.length) },
           { label: "Categories", value: String(plateCategories.length) },

@@ -39,6 +39,7 @@ export const north: Neighbourhood[] = [
     ],
     storySlugs: ["nine-days-in-kumartuli"],
     plates: ["kumartuli", "pujo", "rooftops"],
+    photos: ["kumartuli-artisan", "kumartuli-clay", "chokkhu-daan"],
     walk: [
       { stop: "Sovabazar Sutanuti metro", minutes: 0, note: "Start here. Exit and walk west towards the river." },
       { stop: "Banamali Sarkar Street", minutes: 8, note: "The first of the workshop lanes." },
@@ -53,6 +54,7 @@ export const north: Neighbourhood[] = [
       "A radio playing Mahalaya at four in the morning",
     ],
     scene: "kumartuli",
+    photo: "kumartuli-lane",
   },
   {
     slug: "jorasanko",
@@ -97,6 +99,7 @@ export const north: Neighbourhood[] = [
     ],
     storySlugs: ["the-coffee-house-table"],
     plates: ["rooftops", "collegestreet", "kumartuli"],
+    photos: ["marble-palace", "old-door", "chitpur-road"],
     walk: [
       { stop: "Girish Park metro", minutes: 0, note: "Come up and walk north-west." },
       { stop: "Jorasanko Thakurbari", minutes: 7, note: "Two hours minimum. Closed Mondays." },
@@ -111,6 +114,7 @@ export const north: Neighbourhood[] = [
       "Trams on Rabindra Sarani, when there were trams",
     ],
     scene: "rooftops",
+    photo: "jorasanko-thakurbari",
   },
   {
     slug: "bagbazar",
@@ -150,6 +154,7 @@ export const north: Neighbourhood[] = [
       { name: "Nivedita's house", note: "Small, restored, and almost empty of visitors." },
     ],
     plates: ["kumartuli", "river", "rooftops"],
+    photos: ["hooghly-ferry", "immersion", "north-kolkata-lane"],
     walk: [
       { stop: "Shyambazar metro", minutes: 0, note: "Come up at the five-point crossing." },
       { stop: "Bagbazar Street", minutes: 10, note: "Presses, sweet shops, and the old theatre addresses." },
@@ -164,6 +169,7 @@ export const north: Neighbourhood[] = [
       "A rehearsal running late at Girish Mancha",
     ],
     scene: "river",
+    photo: "bagbazar-ghat",
   },
   {
     slug: "sovabazar",
@@ -201,6 +207,7 @@ export const north: Neighbourhood[] = [
       { name: "Dhunuchi naach on Ashtami", note: "The incense-burner dance, in a courtyard rather than a street." },
     ],
     plates: ["pujo", "rooftops", "kumartuli"],
+    photos: ["hero-pujo", "dhunuchi-naach", "sovabazar-rajbari"],
     walk: [
       { stop: "Sovabazar Sutanuti metro", minutes: 0, note: "The heritage display is inside the station." },
       { stop: "Sovabazar Rajbari", minutes: 6, note: "The courtyard. Ask before photographing." },
@@ -213,6 +220,7 @@ export const north: Neighbourhood[] = [
       "Pigeons in the roof of the thakur dalan",
     ],
     scene: "pujo",
+    photo: "sovabazar-rajbari",
   },
   {
     slug: "shyambazar",
@@ -251,6 +259,7 @@ export const north: Neighbourhood[] = [
       { name: "Hatibagan market", note: "Ten minutes south. Everything north Kolkata buys." },
     ],
     plates: ["tram", "streetfood", "rooftops"],
+    photos: ["tram-shyambazar", "yellow-taxi", "hand-rickshaw"],
     walk: [
       { stop: "Shyambazar metro", minutes: 0, note: "Come up into the crossing." },
       { stop: "Golbari", minutes: 3, note: "Kosha mangsho. Standing." },
@@ -264,6 +273,7 @@ export const north: Neighbourhood[] = [
       "A theatre bell at Star, ten minutes before curtain",
     ],
     scene: "tram",
+    photo: "shyambazar",
   },
   {
     slug: "hatibagan",
@@ -302,6 +312,7 @@ export const north: Neighbourhood[] = [
       { name: "Nakur Nandy's counter", note: "Standing room only. Order the jolbhora." },
     ],
     plates: ["streetfood", "rooftops", "collegestreet"],
+    photos: ["telebhaja", "north-kolkata-lane", "puja-crowd"],
     walk: [
       { stop: "Shyambazar metro", minutes: 0, note: "South down Bidhan Sarani." },
       { stop: "Star Theatre", minutes: 6, note: "The 1883 building." },
@@ -315,6 +326,7 @@ export const north: Neighbourhood[] = [
       "Sweet boxes being tied with string",
     ],
     scene: "streetfood",
+    photo: "hatibagan",
   },
   {
     slug: "college-street",
@@ -362,6 +374,7 @@ export const north: Neighbourhood[] = [
     ],
     storySlugs: ["the-coffee-house-table", "a-city-that-reads-at-midnight"],
     plates: ["collegestreet", "streetfood", "rooftops"],
+    photos: ["hero-collegestreet", "coffee-house", "tram-college-street"],
     walk: [
       { stop: "Mahatma Gandhi Road metro", minutes: 0, note: "Come up and turn south." },
       { stop: "The stalls at Colootola crossing", minutes: 5, note: "Textbooks and exam guides. Keep going." },
@@ -377,6 +390,7 @@ export const north: Neighbourhood[] = [
       "A cycle-van of paper being pushed uphill",
     ],
     scene: "collegestreet",
+    photo: "college-street",
   },
   {
     slug: "chitpur",
@@ -417,6 +431,7 @@ export const north: Neighbourhood[] = [
       { name: "Zakaria Street at iftar", note: "The best month to eat in this city, by some distance." },
     ],
     plates: ["rooftops", "streetfood", "collegestreet"],
+    photos: ["nakhoda-masjid", "north-kolkata-lane", "burrabazar"],
     walk: [
       { stop: "Nakhoda Masjid", minutes: 0, note: "Start at the mosque, on Rabindra Sarani." },
       { stop: "Zakaria Street", minutes: 5, note: "Food. Especially in Ramadan." },
@@ -430,5 +445,6 @@ export const north: Neighbourhood[] = [
       "Azaan from Nakhoda, over traffic",
     ],
     scene: "rooftops",
+    photo: "chitpur-road",
   },
 ];

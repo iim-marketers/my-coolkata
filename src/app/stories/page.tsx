@@ -20,6 +20,7 @@ export default function StoriesPage() {
         title="Longer reads"
         lede="Six essays on the things the city is currently losing, keeping, or arguing about."
         scene="tram"
+        photo="sovabazar-rajbari"
         meta={[
           { label: "Essays", value: String(stories.length) },
           {

@@ -21,6 +21,7 @@ export default function FamousForPage() {
         title="Kolkata is famous for…"
         lede="Eight strands, and the specific things inside each one. Almost every item here has a page of its own somewhere on this site."
         scene="streetfood"
+        photo="rosogolla"
         meta={[
           { label: "Strands", value: String(famousFor.length) },
           { label: "Things", value: String(total) },

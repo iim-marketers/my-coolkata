@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CityScene } from "@/components/scenes/city-scene";
+import type { PhotoId } from "@/lib/kolkata/photos";
 import type { SceneName } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
 
@@ -9,6 +10,7 @@ export function PageHeader({
   title,
   lede,
   scene,
+  photo,
   meta,
   back,
   tall = false,
@@ -17,6 +19,8 @@ export function PageHeader({
   title: string;
   lede?: string;
   scene: SceneName;
+  /** The page's own photograph; `scene` is the fallback. */
+  photo?: PhotoId;
   meta?: { label: string; value: string }[];
   back?: { href: string; label: string };
   tall?: boolean;
@@ -30,7 +34,7 @@ export function PageHeader({
     >
       <CityScene
         name={scene}
-        instance="page-header"
+        photo={photo}
         className="absolute inset-0 h-full w-full"
       />
       <div className="scrim-full absolute inset-0" />

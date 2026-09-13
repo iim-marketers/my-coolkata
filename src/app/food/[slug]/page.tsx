@@ -33,7 +33,7 @@ export default async function DishPage({ params }: PageProps<"/food/[slug]">) {
         eyebrow={`${dish.category} · ${dish.bestIn}`}
         title={dish.name}
         lede={dish.summary}
-        scene={dish.scene}
+        scene={dish.scene} photo={dish.photo}
         back={{ href: "/food", label: "Food" }}
         tall
         meta={[

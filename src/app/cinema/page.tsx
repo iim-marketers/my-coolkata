@@ -27,6 +27,7 @@ export default function CinemaPage() {
         title="Walk through Kolkata like a filmmaker"
         lede="Three directors made three completely different arguments about what a film could be, within about ten miles of each other, and most of it was shot on these streets."
         scene="collegestreet"
+        photo="nandan"
         meta={[
           { label: "Films", value: String(films.length) },
           { label: "Directors", value: String(directors.length) },

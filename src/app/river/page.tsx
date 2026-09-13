@@ -22,7 +22,7 @@ export default function RiverPage() {
     <main className="relative z-10 bg-background">
       {/* Full-width river. */}
       <header className="relative flex min-h-[82svh] items-end overflow-hidden">
-        <CityScene name="river" instance="river-hero" className="absolute inset-0 h-full w-full" />
+        <CityScene name="river" className="absolute inset-0 h-full w-full" />
         <div className="scrim-full absolute inset-0" />
         <div className="scrim-bottom absolute inset-x-0 bottom-0 h-3/4" />
         <div className="film-grain absolute inset-0" />
@@ -53,8 +53,7 @@ export default function RiverPage() {
                 <Reveal>
                   <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border">
                     <CityScene
-                      name={chapter.scene}
-                      instance={`river-${chapter.slug}`}
+                      name={chapter.scene} photo={chapter.photo}
                       className="h-full w-full"
                     />
                     <div className="scrim-bottom absolute inset-0" />

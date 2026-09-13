@@ -53,8 +53,14 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-border pt-5">
           <p className="text-[0.74rem] leading-relaxed text-muted-foreground/70">
-            Every image here is vector art drawn in code. No photographs, no
-            third-party requests.
+            Photographs from Wikimedia Commons, used under Creative Commons
+            licences.{" "}
+            <Link
+              href="/credits"
+              className="underline underline-offset-2 transition-colors hover:text-foreground"
+            >
+              Photo credits
+            </Link>
           </p>
           <a
             href="#"

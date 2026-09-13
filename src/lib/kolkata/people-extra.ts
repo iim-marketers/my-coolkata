@@ -4,6 +4,7 @@ import type { Person } from "./types";
 export const peopleExtra: Person[] = [
   {
     slug: "bankim-chandra-chattopadhyay",
+    photo: "person-bankim-chandra-chattopadhyay",
     name: "Bankim Chandra Chattopadhyay",
     bengali: "বঙ্কিমচন্দ্র চট্টোপাধ্যায়",
     born: 1838,
@@ -50,6 +51,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "sarat-chandra-chattopadhyay",
+    photo: "person-sarat-chandra-chattopadhyay",
     name: "Sarat Chandra Chattopadhyay",
     bengali: "শরৎচন্দ্র চট্টোপাধ্যায়",
     born: 1876,
@@ -93,6 +95,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "michael-madhusudan-dutt",
+    photo: "person-michael-madhusudan-dutt",
     name: "Michael Madhusudan Dutt",
     bengali: "মাইকেল মধুসূদন দত্ত",
     born: 1824,
@@ -140,6 +143,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "prafulla-chandra-ray",
+    photo: "person-prafulla-chandra-ray",
     name: "Prafulla Chandra Ray",
     bengali: "প্রফুল্ল চন্দ্র রায়",
     born: 1861,
@@ -187,6 +191,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "satyendra-nath-bose",
+    photo: "person-satyendra-nath-bose",
     name: "Satyendra Nath Bose",
     bengali: "সত্যেন্দ্রনাথ বসু",
     born: 1894,
@@ -234,6 +239,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "mrinal-sen",
+    photo: "person-mrinal-sen",
     name: "Mrinal Sen",
     bengali: "মৃণাল সেন",
     born: 1923,
@@ -281,6 +287,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "subhas-chandra-bose",
+    photo: "person-subhas-chandra-bose",
     name: "Subhas Chandra Bose",
     bengali: "সুভাষচন্দ্র বসু",
     born: 1897,
@@ -330,6 +337,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "khudiram-bose",
+    photo: "person-khudiram-bose",
     name: "Khudiram Bose",
     bengali: "ক্ষুদিরাম বসু",
     born: 1889,
@@ -370,6 +378,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "surya-sen",
+    photo: "person-surya-sen",
     name: "Surya Sen",
     bengali: "সূর্য সেন",
     born: 1894,
@@ -412,6 +421,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "raja-ram-mohan-roy",
+    photo: "person-raja-ram-mohan-roy",
     name: "Raja Ram Mohan Roy",
     bengali: "রাজা রামমোহন রায়",
     born: 1772,
@@ -459,6 +469,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "ishwar-chandra-vidyasagar",
+    photo: "person-ishwar-chandra-vidyasagar",
     name: "Ishwar Chandra Vidyasagar",
     bengali: "ঈশ্বরচন্দ্র বিদ্যাসাগর",
     born: 1820,
@@ -507,6 +518,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "ramakrishna-paramahamsa",
+    photo: "person-ramakrishna-paramahamsa",
     name: "Ramakrishna Paramahamsa",
     bengali: "রামকৃষ্ণ পরমহংস",
     born: 1836,
@@ -554,6 +566,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "uttam-kumar",
+    photo: "person-uttam-kumar",
     name: "Uttam Kumar",
     bengali: "উত্তম কুমার",
     born: 1926,
@@ -597,6 +610,7 @@ export const peopleExtra: Person[] = [
   },
   {
     slug: "sourav-ganguly",
+    photo: "person-sourav-ganguly",
     name: "Sourav Ganguly",
     bengali: "সৌরভ গঙ্গোপাধ্যায়",
     born: 1972,

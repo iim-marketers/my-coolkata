@@ -20,6 +20,7 @@ export default function ArchitecturePage() {
         title="Seven ways this city was built"
         lede="There is almost no building stone in the delta, so everything here is brick, stucco, terracotta or imported marble. What changes is what the brick is pretending to be."
         scene="victoria"
+        photo="writers-building"
         meta={[
           { label: "Styles", value: String(archStyles.length) },
           { label: "Span", value: "Pre-1700 to now" },

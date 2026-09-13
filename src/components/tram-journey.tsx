@@ -52,7 +52,7 @@ export function TramJourney({ className }: { className?: string }) {
               transition: "opacity 1100ms cubic-bezier(0.4, 0, 0.2, 1)",
             }}
           >
-            <CityScene name={s.scene} instance={`tram-${s.n}`} className="h-full w-full" />
+            <CityScene name={s.scene} photo={s.photo} className="h-full w-full" />
           </div>
         ))}
         <div className="scrim-bottom absolute inset-0" />

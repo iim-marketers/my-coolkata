@@ -101,8 +101,7 @@ export function FacesGallery({ className }: { className?: string }) {
             >
               <div className="h-full w-full" style={{ filter: p.grade }}>
                 <CityScene
-                  name={p.scene}
-                  instance={`fg-${p.id}`}
+                  name={p.scene} photo={p.photo}
                   detail={i % 7 === 0 ? "full" : "card"}
                   className="h-full w-full transition-transform duration-[1400ms] group-hover:scale-105"
                 />
@@ -159,8 +158,7 @@ export function FacesGallery({ className }: { className?: string }) {
             style={{ filter: current.grade }}
           >
             <CityScene
-              name={current.scene}
-              instance="faces-lightbox"
+              name={current.scene} photo={current.photo}
               className="h-full w-full"
             />
           </div>

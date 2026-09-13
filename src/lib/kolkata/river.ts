@@ -1,3 +1,4 @@
+import type { PhotoId } from "./photos";
 import type { Coords, SceneName } from "./types";
 
 export interface RiverChapter {
@@ -8,6 +9,7 @@ export interface RiverChapter {
   standfirst: string;
   body: string[];
   scene: SceneName;
+  photo?: PhotoId;
   coords?: Coords;
   detail?: { label: string; value: string }[];
   href?: string;
@@ -26,6 +28,7 @@ export const riverChapters: RiverChapter[] = [
       "The city's High Court ruled in 2003 that Job Charnock should no longer be described as the founder. There is a gravestone in the Armenian churchyard dated 1630, sixty years earlier.",
     ],
     scene: "river",
+    photo: "hooghly-sunset",
     coords: { lat: 22.5673, lng: 88.3374 },
     detail: [
       { label: "Founded", value: "August 1690, on the east bank" },
@@ -45,6 +48,7 @@ export const riverChapters: RiverChapter[] = [
       "What it carries is the point. Cars and buses matter less than the river of people who walk it, and the pavement has been worn into shallow troughs.",
     ],
     scene: "howrah",
+    photo: "howrah-bridge",
     coords: { lat: 22.5851, lng: 88.3468 },
     detail: [
       { label: "Opened", value: "February 1943, without ceremony" },
@@ -65,6 +69,7 @@ export const riverChapters: RiverChapter[] = [
       "There are boats from the steps, a food market along the promenade, and the circular railway passing behind at intervals. Go on a weekday if you want the light without the crowd.",
     ],
     scene: "river",
+    photo: "prinsep-ghat",
     coords: { lat: 22.557, lng: 88.332 },
     detail: [
       { label: "Built", value: "1841" },
@@ -86,6 +91,7 @@ export const riverChapters: RiverChapter[] = [
       "Mullick Ghat Flower Market sits under the eastern approach to Howrah Bridge, and from four in the morning two thousand traders sort marigold, tuberose and lotus by torchlight. It is the best hour in the city.",
     ],
     scene: "river",
+    photo: "bagbazar-ghat",
     coords: { lat: 22.5842, lng: 88.3436 },
     detail: [
       { label: "Babughat", value: "1830, built by Rani Rashmoni" },
@@ -106,6 +112,7 @@ export const riverChapters: RiverChapter[] = [
       "Keoratala on the Adi Ganga is the burning ghat. Tagore was cremated there, and so was Vivekananda at Belur across the water.",
     ],
     scene: "pujo",
+    photo: "ghat-bathing",
     coords: { lat: 22.5673, lng: 88.3374 },
     detail: [
       { label: "Tarpan", value: "Mahalaya, at dawn" },
@@ -126,6 +133,7 @@ export const riverChapters: RiverChapter[] = [
       "Kolkata Port moved most of its heavy traffic downriver to Haldia. The Kidderpore docks still work; the large ships no longer come up.",
     ],
     scene: "river",
+    photo: "kolkata-port",
     coords: { lat: 22.538, lng: 88.32 },
     detail: [
       { label: "Farakka barrage", value: "1975, 280 km upstream" },
@@ -146,6 +154,7 @@ export const riverChapters: RiverChapter[] = [
       "Gangetic dolphins still surface here in small and declining numbers. Hilsa run upriver to spawn from June to September, which is the fish the entire Bengali culinary year is organised around, and the catch has fallen sharply.",
     ],
     scene: "river",
+    photo: "kolkata-port",
     coords: { lat: 22.58, lng: 88.42 },
     detail: [
       { label: "Wetlands", value: "A Ramsar site treating the city's sewage" },

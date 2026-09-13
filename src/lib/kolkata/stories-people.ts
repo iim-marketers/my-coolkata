@@ -16,6 +16,7 @@ export const peopleStories: Story[] = [
     readingMinutes: 6,
     tags: ["people", "adda", "north kolkata"],
     scene: "streetfood",
+    photo: "tea-stall",
     body: [
       { kind: "para", text: "The stove is a clay oven with a coal fire in it, and it has been lit at half past four every morning for four decades. The kettle is aluminium and has been replaced twice. The bench outside is the original, and it has been repaired so many times that no part of it is." },
       { kind: "para", text: "The cups come from Kumartuli, or from a potter in Howrah when Kumartuli is busy with the goddess. They are thrown on a wheel, fired once, never glazed. Unglazed clay is porous, which is why the tea tastes faintly of wet earth and why the cup can only be used once." },
@@ -42,6 +43,7 @@ export const peopleStories: Story[] = [
     readingMinutes: 7,
     tags: ["durga puja", "river", "people"],
     scene: "river",
+    photo: "immersion",
     body: [
       { kind: "para", text: "By two in the afternoon the lorries are backed up along Strand Road. Each carries one idol, lashed upright with rope, surrounded by the twenty or thirty people from the committee who have spent a year raising the money for it." },
       { kind: "para", text: "There is a police pass system, a queue, and a crane. There is also a great deal of standing about, which is the part nobody photographs." },
@@ -68,6 +70,7 @@ export const peopleStories: Story[] = [
     readingMinutes: 6,
     tags: ["books", "college street", "people"],
     scene: "collegestreet",
+    photo: "hero-collegestreet",
     body: [
       { kind: "para", text: "The stall is about six feet wide and eleven deep, if you count the part that folds out onto the pavement at eight in the morning and folds back at nine at night. There is no sign. There has never been a sign." },
       { kind: "para", text: "It was opened in 1948 by a man who had crossed from Faridpur the previous year with a trunk and no trade, and who started by selling secondhand school textbooks on a sheet on the ground." },
@@ -93,6 +96,7 @@ export const peopleStories: Story[] = [
     readingMinutes: 6,
     tags: ["trams", "people", "loss"],
     scene: "tram",
+    photo: "tram-driver",
     body: [
       { kind: "para", text: "You sign on at the depot at five. The car has been standing all night and the first thing is the compressor, which takes about four minutes to build enough air for the brakes, and which you listen to rather than watch, because you can hear when it is unhappy." },
       { kind: "para", text: "Then the pole goes up onto the wire, and you check it seats properly, because a pole that comes off at a junction is twenty minutes of your morning and a queue of traffic behind you." },
@@ -119,6 +123,7 @@ export const peopleStories: Story[] = [
     readingMinutes: 6,
     tags: ["food", "people", "north kolkata"],
     scene: "streetfood",
+    photo: "sweet-shop",
     body: [
       { kind: "para", text: "The shop is a counter, a set of steel trays, a marble slab at the back and a room behind that where the actual work happens. There are no tables. There have never been tables. You eat standing up, off a sal leaf, and you leave." },
       { kind: "para", text: "The chhena is made every morning: milk split with whey, drained, and then kneaded on the marble by hand. How long you knead it is the entire craft. Too little and it will not hold; too much and the sweet squeaks when you bite it, which is a fault you will be told about." },
@@ -144,6 +149,7 @@ export const peopleStories: Story[] = [
     readingMinutes: 7,
     tags: ["streets", "history", "language"],
     scene: "rooftops",
+    photo: "chitpur-road",
     body: [
       { kind: "para", text: "Kolkata has two street-name systems running at once. There is the official one, renamed in waves after independence, and there is the one people use, which is older and largely descriptive." },
       { kind: "para", text: "Rabindra Sarani is Chitpur. Mother Teresa Sarani is Park Street. Jawaharlal Nehru Road is Chowringhee. In each case the official name is on the sign and the older one is in the taxi driver's head." },
@@ -171,6 +177,7 @@ export const peopleStories: Story[] = [
     readingMinutes: 7,
     tags: ["kumartuli", "craft", "people"],
     scene: "kumartuli",
+    photo: "kumartuli-artisan",
     body: [
       { kind: "para", text: "There are moulds now. A face can be cast, a torso can be pulled from fibreglass, and a large studio taking forty commissions in a season cannot do it any other way. This workshop takes eleven, and every face is modelled." },
       { kind: "para", text: "The argument for the mould is straightforward: it is faster, it is consistent, and it is what a committee working to a deadline wants. The argument against is that a moulded face is the same face, and it will be the same face next year." },

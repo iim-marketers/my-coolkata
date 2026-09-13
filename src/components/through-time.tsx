@@ -19,8 +19,7 @@ export function ThroughTime() {
       {/* The frame for the selected year. */}
       <div className="relative min-h-[62svh] overflow-hidden">
         <CityScene
-          name={stop.scene}
-          instance="through-time"
+          name={stop.scene} photo={stop.photo}
           className="absolute inset-0 h-full w-full"
         />
         <div className="scrim-full absolute inset-0" />

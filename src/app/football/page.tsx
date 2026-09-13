@@ -21,6 +21,7 @@ export default function FootballPage() {
         title="The city that argues about football"
         lede="Three clubs with their grounds a few hundred metres apart on the same field, and a derby that the fish market prices in advance."
         scene="victoria"
+        photo="salt-lake-stadium"
         meta={[
           { label: "Clubs", value: "Three, all on the Maidan" },
           { label: "Oldest", value: "Mohun Bagan, 1889" },

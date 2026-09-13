@@ -1,3 +1,4 @@
+import type { PhotoId } from "./photos";
 import type { SceneName } from "./types";
 
 export type PlateCategory =
@@ -16,6 +17,7 @@ export interface Plate {
   id: string;
   category: PlateCategory;
   scene: SceneName;
+  photo?: PhotoId;
   title: string;
   caption: string;
   /** The story behind the frame. */
@@ -43,6 +45,7 @@ export const plates: Plate[] = [
     id: "artisan-hands",
     category: "people",
     scene: "kumartuli",
+    photo: "kumartuli-artisan",
     title: "The hands that finish her",
     caption: "An artisan modelling fingers in bele mati, September.",
     story:
@@ -54,6 +57,7 @@ export const plates: Plate[] = [
     id: "tea-forty-years",
     category: "people",
     scene: "streetfood",
+    photo: "tea-stall",
     title: "Forty years at the same stove",
     caption: "A cha-er dokan that opens at five and closes when the last customer leaves.",
     story:
@@ -65,6 +69,7 @@ export const plates: Plate[] = [
     id: "stallholder",
     category: "people",
     scene: "collegestreet",
+    photo: "hero-collegestreet",
     title: "He will find it in eleven minutes",
     caption: "A bookseller going into the stack, College Street.",
     story:
@@ -76,6 +81,7 @@ export const plates: Plate[] = [
     id: "flower-porter",
     category: "people",
     scene: "howrah",
+    photo: "mullick-ghat-flower-market",
     title: "Marigold by the sack",
     caption: "Mullick Ghat, quarter to five in the morning.",
     story:
@@ -87,6 +93,7 @@ export const plates: Plate[] = [
     id: "chitpur-lane",
     category: "streets",
     scene: "rooftops",
+    photo: "chitpur-road",
     title: "The oldest road",
     caption: "Rabindra Sarani, formerly Chitpur Road.",
     story:
@@ -98,6 +105,7 @@ export const plates: Plate[] = [
     id: "five-point",
     category: "streets",
     scene: "tram",
+    photo: "shyambazar",
     title: "Five roads, no signal",
     caption: "Shyambazar Panchmathar Mor at seven in the evening.",
     story:
@@ -109,6 +117,7 @@ export const plates: Plate[] = [
     id: "burrabazar-porter",
     category: "streets",
     scene: "streetfood",
+    photo: "burrabazar",
     title: "Two hundred kilos, on the head",
     caption: "Cotton Street, a weekday morning.",
     story:
@@ -120,6 +129,7 @@ export const plates: Plate[] = [
     id: "victoria-dome",
     category: "architecture",
     scene: "victoria",
+    photo: "victoria-memorial-angel",
     title: "Makrana marble, fifteen years late",
     caption: "The central dome and the Angel of Victory.",
     story:
@@ -132,6 +142,7 @@ export const plates: Plate[] = [
     id: "cantilever",
     category: "architecture",
     scene: "howrah",
+    photo: "howrah-bridge-girders",
     title: "Riveted, not bolted",
     caption: "The cantilever from Mullick Ghat.",
     story:
@@ -143,6 +154,7 @@ export const plates: Plate[] = [
     id: "north-door",
     category: "architecture",
     scene: "rooftops",
+    photo: "old-door",
     title: "A door nobody replaced",
     caption: "Teak, brass and coloured fanlight glass, Jorasanko.",
     story:
@@ -154,6 +166,7 @@ export const plates: Plate[] = [
     id: "karai",
     category: "food",
     scene: "streetfood",
+    photo: "telebhaja",
     title: "The oil has been working all day",
     caption: "A telebhaja karai at five in the afternoon.",
     story:
@@ -165,6 +178,7 @@ export const plates: Plate[] = [
     id: "phuchka-hand",
     category: "food",
     scene: "streetfood",
+    photo: "phuchka",
     title: "He cracks it with his thumb",
     caption: "Phuchka, six at a time, into a leaf bowl.",
     story:
@@ -176,6 +190,7 @@ export const plates: Plate[] = [
     id: "bhaar-stack",
     category: "food",
     scene: "streetfood",
+    photo: "bhaar-cups",
     title: "Fired once, used once",
     caption: "A stack of clay cups waiting behind a tea stall.",
     story:
@@ -187,6 +202,7 @@ export const plates: Plate[] = [
     id: "flooded-lane",
     category: "rain",
     scene: "tram",
+    photo: "kolkata-rain",
     title: "Twenty minutes to flood, an hour to drain",
     caption: "A north Kolkata lane in July.",
     story:
@@ -199,6 +215,7 @@ export const plates: Plate[] = [
     id: "tarpaulin",
     category: "rain",
     scene: "collegestreet",
+    photo: "college-street",
     title: "Blue plastic over everything",
     caption: "The College Street stalls, sheeted, still trading.",
     story:
@@ -211,6 +228,7 @@ export const plates: Plate[] = [
     id: "chokkhu-daan",
     category: "puja",
     scene: "kumartuli",
+    photo: "chokkhu-daan",
     title: "Three strokes, and she is the goddess",
     caption: "Chokkhu daan at dawn on Mahalaya.",
     story:
@@ -222,6 +240,7 @@ export const plates: Plate[] = [
     id: "pandal-queue",
     category: "puja",
     scene: "pujo",
+    photo: "puja-crowd",
     title: "Two hours, moving at walking pace",
     caption: "A barricaded queue for a south Kolkata pandal, Ashtami.",
     story:
@@ -234,6 +253,7 @@ export const plates: Plate[] = [
     id: "immersion",
     category: "puja",
     scene: "river",
+    photo: "immersion",
     title: "The clay goes back",
     caption: "Bisarjan at Babughat, Dashami night.",
     story:
@@ -245,6 +265,7 @@ export const plates: Plate[] = [
     id: "sodium",
     category: "night",
     scene: "tram",
+    photo: "park-street-night",
     title: "589 nanometres",
     caption: "A lane still lit by low-pressure sodium.",
     story:
@@ -256,6 +277,7 @@ export const plates: Plate[] = [
     id: "bridge-lit",
     category: "night",
     scene: "howrah",
+    photo: "howrah-bridge-night",
     title: "The bridge from the lawn",
     caption: "Millennium Park, after dark.",
     story:
@@ -267,6 +289,7 @@ export const plates: Plate[] = [
     id: "ferry-dawn",
     category: "river",
     scene: "river",
+    photo: "hooghly-ferry",
     title: "Five rupees, ten minutes",
     caption: "The Howrah crossing at six in the morning, December.",
     story:
@@ -278,6 +301,7 @@ export const plates: Plate[] = [
     id: "ghat-steps",
     category: "river",
     scene: "river",
+    photo: "bagbazar-ghat",
     title: "Before six",
     caption: "Bagbazar Ghat, with swimmers and laundry.",
     story:
@@ -289,6 +313,7 @@ export const plates: Plate[] = [
     id: "tram-24",
     category: "trams",
     scene: "tram",
+    photo: "tram-grass-track",
     title: "Route 24",
     caption: "Ballygunge to Tollygunge, on a grass median.",
     story:
@@ -300,6 +325,7 @@ export const plates: Plate[] = [
     id: "depot",
     category: "trams",
     scene: "tram",
+    photo: "tram-esplanade",
     title: "What is left of thirty-seven routes",
     caption: "Esplanade depot, and the Tram World museum car.",
     story:
@@ -311,6 +337,7 @@ export const plates: Plate[] = [
     id: "rowak",
     category: "para",
     scene: "rooftops",
+    photo: "sovabazar-rajbari",
     title: "The rowak",
     caption: "A raised front stoop, north Kolkata, early evening.",
     story:
@@ -322,6 +349,7 @@ export const plates: Plate[] = [
     id: "para-club",
     category: "para",
     scene: "pujo",
+    photo: "pandal-construction",
     title: "The committee has been fundraising all year",
     caption: "A para club's pandal going up, three weeks out.",
     story:
@@ -333,6 +361,7 @@ export const plates: Plate[] = [
     id: "terrace-kites",
     category: "para",
     scene: "rooftops",
+    photo: "kolkata-skyline",
     title: "Autumn on the terrace",
     caption: "Kites over the north, September.",
     story:

@@ -51,41 +51,66 @@ export default function Home() {
       <main className="relative z-10 bg-background">
         {/* The approach. */}
         <section className="border-b border-border">
-          <div className={`${shell} grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.25fr_1fr] lg:gap-20`}>
+          <div
+            className={`${shell} grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.25fr_1fr] lg:gap-20`}
+          >
             <Reveal>
               <p className="font-mono text-[0.62rem] tracking-[0.3em] text-primary uppercase">
                 {CITY_COORDS_DISPLAY} — you have arrived
               </p>
               <Wordmark className="mt-6 text-terracotta" />
               <h2 className="mt-8 font-display text-[clamp(1.9rem,5vw,3.6rem)] leading-[1.04] font-semibold tracking-tight text-balance">
-                It was three villages on a bend in the river, and then it was the
-                second city of an empire.
+                It was three villages on a bend in the river, and then it was
+                the second city of an empire.
               </h2>
               <div className="mt-7 max-w-2xl space-y-4 text-[1rem] leading-relaxed text-muted-foreground">
                 <p>
                   Sutanuti sold cotton yarn. Gobindapur fished. Kalikata had a
-                  temple to the goddess the city is probably named after. In 1690
-                  an East India Company agent tied up at the east bank because the
-                  water was deep and the marshes made it hard to attack, and
-                  nothing here has been quiet since.
+                  temple to the goddess the city is probably named after. In
+                  1690 an East India Company agent tied up at the east bank
+                  because the water was deep and the marshes made it hard to
+                  attack, and nothing here has been quiet since.
                 </p>
                 <p>
-                  What grew is a city that argues with itself continuously: about
-                  its trams, its river, its politics, whether the rosogolla is
-                  Bengali, and which of two neighbouring restaurants on Park Street
-                  does the better kebab. This is a guide to the arguments as much
-                  as to the buildings.
+                  What grew is a city that argues with itself continuously:
+                  about its trams, its river, its politics, whether the
+                  rosogolla is Bengali, and which of two neighbouring
+                  restaurants on Park Street does the better kebab. This is a
+                  guide to the arguments as much as to the buildings.
                 </p>
               </div>
             </Reveal>
 
-            <Reveal delay={120} className="grid grid-cols-2 gap-x-8 gap-y-8 self-start">
-              <Stat value="1690" label="The first trading post" note="At Sutanuti, on the east bank" />
-              <Stat value="15m" label="In the metropolitan area" note="Third largest in India" />
-              <Stat value="2" label="National anthems" note="India and Bangladesh, one author" />
-              <Stat value="1984" label="India's first metro" note="Esplanade to Bhowanipore" />
+            <Reveal
+              delay={120}
+              className="grid grid-cols-2 gap-x-8 gap-y-8 self-start"
+            >
+              <Stat
+                value="1690"
+                label="The first trading post"
+                note="At Sutanuti, on the east bank"
+              />
+              <Stat
+                value="15m"
+                label="In the metropolitan area"
+                note="Third largest in India"
+              />
+              <Stat
+                value="2"
+                label="National anthems"
+                note="India and Bangladesh, one author"
+              />
+              <Stat
+                value="1984"
+                label="India's first metro"
+                note="Esplanade to Bhowanipore"
+              />
               <Stat value="151" label="Years of trams" note="1873 to 2024" />
-              <Stat value="1" label="UNESCO-listed festival" note="Durga Puja, inscribed 2021" />
+              <Stat
+                value="1"
+                label="UNESCO-listed festival"
+                note="Durga Puja, inscribed 2021"
+              />
             </Reveal>
           </div>
         </section>
@@ -102,7 +127,12 @@ export default function Home() {
             </Reveal>
             <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {sectionGroups.map((group, i) => (
-                <Reveal as="li" key={group.label} delay={i * 80} className="h-full">
+                <Reveal
+                  as="li"
+                  key={group.label}
+                  delay={i * 80}
+                  className="h-full"
+                >
                   <div className="flex h-full flex-col rounded-lg border border-border bg-card p-5">
                     <div className="flex items-baseline justify-between gap-3">
                       <h3 className="font-display text-xl font-semibold">
@@ -149,7 +179,12 @@ export default function Home() {
             </Reveal>
             <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {heritageSites.slice(0, 3).map((site, i) => (
-                <Reveal as="li" key={site.slug} delay={i * 110} className="h-full">
+                <Reveal
+                  as="li"
+                  key={site.slug}
+                  delay={i * 110}
+                  className="h-full"
+                >
                   <HeritageCard site={site} index={i} />
                 </Reveal>
               ))}
@@ -206,7 +241,12 @@ export default function Home() {
             </Reveal>
             <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {eraStops.map((e, i) => (
-                <Reveal as="li" key={e.id} delay={(i % 4) * 70} className="h-full">
+                <Reveal
+                  as="li"
+                  key={e.id}
+                  delay={(i % 4) * 70}
+                  className="h-full"
+                >
                   <Link
                     href="/through-time"
                     className="flex h-full flex-col rounded-lg border border-border bg-card p-5 transition-colors hover:border-terracotta/60"
@@ -229,7 +269,7 @@ export default function Home() {
 
         {/* Durga Puja. */}
         <section className="relative overflow-hidden border-b border-border">
-          <CityScene name="pujo" instance="home-pujo" className="absolute inset-0 h-full w-full" />
+          <CityScene name="pujo" className="absolute inset-0 h-full w-full" />
           <div className="scrim-full absolute inset-0" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_50%_at_50%_54%,oklch(0.1_0.015_50/0.76),transparent_74%)]" />
           <div className="film-grain absolute inset-0" />
@@ -268,7 +308,12 @@ export default function Home() {
             </Reveal>
             <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {famousFor.map((f, i) => (
-                <Reveal as="li" key={f.slug} delay={(i % 4) * 70} className="h-full">
+                <Reveal
+                  as="li"
+                  key={f.slug}
+                  delay={(i % 4) * 70}
+                  className="h-full"
+                >
                   <Link
                     href={`/famous-for#${f.slug}`}
                     className="flex h-full flex-col items-start rounded-lg border border-border bg-card p-5 transition-colors hover:border-terracotta/60"
@@ -305,7 +350,12 @@ export default function Home() {
             </Reveal>
             <ul className="mt-5 grid gap-5 md:grid-cols-2">
               {stories.slice(1, 3).map((story, i) => (
-                <Reveal as="li" key={story.slug} delay={i * 110} className="h-full">
+                <Reveal
+                  as="li"
+                  key={story.slug}
+                  delay={i * 110}
+                  className="h-full"
+                >
                   <StoryCard story={story} />
                 </Reveal>
               ))}
@@ -315,7 +365,9 @@ export default function Home() {
 
         {/* Timeline and the comparison. */}
         <section className="border-b border-border bg-secondary/40">
-          <div className={`${shell} grid gap-14 py-20 sm:py-28 lg:grid-cols-2 lg:gap-20`}>
+          <div
+            className={`${shell} grid gap-14 py-20 sm:py-28 lg:grid-cols-2 lg:gap-20`}
+          >
             <Reveal>
               <SectionHeading
                 eyebrow="Timeline"
@@ -332,7 +384,9 @@ export default function Home() {
             <Reveal delay={140} className="self-start lg:sticky lg:top-24">
               <BeforeAfter
                 before="tram"
+                beforePhoto="tram-old"
                 after="rooftops"
+                afterPhoto="tram-grass-track"
                 beforeLabel="1902 — 37 routes"
                 afterLabel="2024 — one"
                 caption="Asia's first electric tramway ran for a hundred and fifty-one years. In 2024 the state announced it would keep a single heritage route. The case is still in the High Court."
@@ -365,7 +419,12 @@ export default function Home() {
                   ].includes(p.slug),
                 )
                 .map((person, i) => (
-                  <Reveal as="li" key={person.slug} delay={i * 70} className="h-full">
+                  <Reveal
+                    as="li"
+                    key={person.slug}
+                    delay={i * 70}
+                    className="h-full"
+                  >
                     <PortraitTile person={person} />
                   </Reveal>
                 ))}
@@ -375,7 +434,9 @@ export default function Home() {
 
         {/* Map and sound. */}
         <section className="border-b border-border bg-secondary/40">
-          <div className={`${shell} grid gap-14 py-20 sm:py-28 lg:grid-cols-[1.15fr_1fr] lg:gap-16`}>
+          <div
+            className={`${shell} grid gap-14 py-20 sm:py-28 lg:grid-cols-[1.15fr_1fr] lg:gap-16`}
+          >
             <Reveal>
               <SectionHeading
                 eyebrow="Map"
@@ -386,7 +447,7 @@ export default function Home() {
               <InteractiveMap className="mt-10" />
             </Reveal>
             <Reveal delay={140} className="self-start lg:sticky lg:top-24">
-              <AudioPlayer />
+              {/* <AudioPlayer /> */}
               <div className="mt-5">
                 <Quiz />
               </div>
@@ -395,7 +456,7 @@ export default function Home() {
         </section>
 
         {/* Sounds. */}
-        <section className="border-b border-border">
+        {/* <section className="border-b border-border">
           <div className={`${shell} py-20 sm:py-28`}>
             <Reveal>
               <SectionHeading
@@ -409,7 +470,7 @@ export default function Home() {
               <SoundBoard />
             </Reveal>
           </div>
-        </section>
+        </section> */}
 
         {/* Kumartuli, adda, the day, College Street. */}
         <section className="border-b border-border bg-secondary/40">
@@ -447,7 +508,12 @@ export default function Home() {
                   body: "A mile and a half of secondhand stalls, four universities, and one very loud first floor.",
                 },
               ].map((card, i) => (
-                <Reveal as="li" key={card.href} delay={(i % 4) * 80} className="h-full">
+                <Reveal
+                  as="li"
+                  key={card.href}
+                  delay={(i % 4) * 80}
+                  className="h-full"
+                >
                   <Link
                     href={card.href}
                     className="flex h-full flex-col rounded-lg border border-border bg-card p-6 transition-colors hover:border-terracotta/60"
@@ -545,7 +611,12 @@ export default function Home() {
             </Reveal>
             <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
               {moods.map((m, i) => (
-                <Reveal as="li" key={m.id} delay={(i % 5) * 60} className="h-full">
+                <Reveal
+                  as="li"
+                  key={m.id}
+                  delay={(i % 5) * 60}
+                  className="h-full"
+                >
                   <Link
                     href="/mood"
                     className="flex h-full flex-col rounded-lg border border-border bg-card p-4 transition-colors hover:border-terracotta/60"
@@ -570,23 +641,65 @@ export default function Home() {
         <section className="border-b border-border bg-secondary/40">
           <div className={`${shell} py-20 sm:py-28`}>
             <Reveal>
-              <SectionHeading
-                eyebrow="More rooms"
-                title="Eight more ways in"
-              />
+              <SectionHeading eyebrow="More rooms" title="Eight more ways in" />
             </Reveal>
             <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { href: "/architecture", eyebrow: "Seven styles", title: "Architecture", body: "Indo-Saracenic domes, Deco corners, and a game asking whether you can tell them apart." },
-                { href: "/football", eyebrow: "Three clubs", title: "Football", body: "One field, one derby, and a fish market that prices the result in advance." },
-                { href: "/cinema", eyebrow: "Ten films", title: "Cinema", body: "Ray, Ghatak and Mrinal Sen, and a map of where it was shot." },
-                { href: "/literature", eyebrow: "শব্দের শহর", title: "The City of Words", body: "Eleven works, the places attached to them, and the excerpts we can print." },
-                { href: "/tram", eyebrow: "Seven stops", title: "The Tram", body: "Esplanade to Shyambazar, on a network that has effectively stopped." },
-                { href: "/river", eyebrow: "হুগলি নদী", title: "The Hooghly", body: "Why the city is here, and what is in the water now." },
-                { href: "/gallery", eyebrow: "Twenty-seven plates", title: "Faces of Kolkata", body: "Ten categories, and the story behind every frame." },
-                { href: "/build-my-day", eyebrow: "3 hours to 3 days", title: "Build My Day", body: "Say how long you have and what you are here for." },
+                {
+                  href: "/architecture",
+                  eyebrow: "Seven styles",
+                  title: "Architecture",
+                  body: "Indo-Saracenic domes, Deco corners, and a game asking whether you can tell them apart.",
+                },
+                {
+                  href: "/football",
+                  eyebrow: "Three clubs",
+                  title: "Football",
+                  body: "One field, one derby, and a fish market that prices the result in advance.",
+                },
+                {
+                  href: "/cinema",
+                  eyebrow: "Ten films",
+                  title: "Cinema",
+                  body: "Ray, Ghatak and Mrinal Sen, and a map of where it was shot.",
+                },
+                {
+                  href: "/literature",
+                  eyebrow: "শব্দের শহর",
+                  title: "The City of Words",
+                  body: "Eleven works, the places attached to them, and the excerpts we can print.",
+                },
+                {
+                  href: "/tram",
+                  eyebrow: "Seven stops",
+                  title: "The Tram",
+                  body: "Esplanade to Shyambazar, on a network that has effectively stopped.",
+                },
+                {
+                  href: "/river",
+                  eyebrow: "হুগলি নদী",
+                  title: "The Hooghly",
+                  body: "Why the city is here, and what is in the water now.",
+                },
+                {
+                  href: "/gallery",
+                  eyebrow: "Twenty-seven plates",
+                  title: "Faces of Kolkata",
+                  body: "Ten categories, and the story behind every frame.",
+                },
+                {
+                  href: "/build-my-day",
+                  eyebrow: "3 hours to 3 days",
+                  title: "Build My Day",
+                  body: "Say how long you have and what you are here for.",
+                },
               ].map((card, i) => (
-                <Reveal as="li" key={card.href} delay={(i % 4) * 70} className="h-full">
+                <Reveal
+                  as="li"
+                  key={card.href}
+                  delay={(i % 4) * 70}
+                  className="h-full"
+                >
                   <Link
                     href={card.href}
                     className="flex h-full flex-col rounded-lg border border-border bg-card p-5 transition-colors hover:border-terracotta/60"
@@ -612,7 +725,9 @@ export default function Home() {
 
         {/* The quiz. */}
         <section className="border-b border-border">
-          <div className={`${shell} grid gap-12 py-20 sm:py-28 lg:grid-cols-[1fr_1.15fr] lg:gap-16`}>
+          <div
+            className={`${shell} grid gap-12 py-20 sm:py-28 lg:grid-cols-[1fr_1.15fr] lg:gap-16`}
+          >
             <Reveal>
               <SectionHeading
                 eyebrow="A quiz"
@@ -641,7 +756,12 @@ export default function Home() {
             </Reveal>
             <ul className="mt-12 grid gap-5 md:grid-cols-3">
               {cityEvents.slice(0, 3).map((event, i) => (
-                <Reveal as="li" key={event.slug} delay={i * 100} className="h-full">
+                <Reveal
+                  as="li"
+                  key={event.slug}
+                  delay={i * 100}
+                  className="h-full"
+                >
                   <div className="flex h-full flex-col rounded-lg border border-border bg-card p-5 sm:p-6">
                     <p className="font-mono text-[0.6rem] tracking-[0.22em] text-primary uppercase">
                       {event.when}
@@ -668,7 +788,7 @@ export default function Home() {
 
         {/* Close. */}
         <section className="relative overflow-hidden">
-          <CityScene name="river" instance="outro" className="absolute inset-0 h-full w-full" />
+          <CityScene name="river" photo="mullick-ghat-flower-market" className="absolute inset-0 h-full w-full" />
           <div className="scrim-full absolute inset-0" />
           <div className="film-grain absolute inset-0" />
           <div className={`${shell} relative py-28 sm:py-40`}>
@@ -682,8 +802,8 @@ export default function Home() {
               </h2>
               <p className="mt-6 text-[1rem] leading-relaxed text-cream/70">
                 Two thousand traders work under Howrah Bridge by torchlight from
-                four in the morning, sorting marigold by the sack. It is the best
-                hour in the city and almost nobody sets an alarm for it.
+                four in the morning, sorting marigold by the sack. It is the
+                best hour in the city and almost nobody sets an alarm for it.
               </p>
               <Link
                 href="/plan"

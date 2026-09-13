@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CityScene } from "@/components/scenes/city-scene";
+import type { PhotoId } from "@/lib/kolkata/photos";
 import type { SceneName } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +15,7 @@ export function Transformation({
   stages,
   className,
 }: {
-  stages: { year: string; title: string; body: string; scene: SceneName }[];
+  stages: { year: string; title: string; body: string; scene: SceneName; photo?: PhotoId }[];
   className?: string;
 }) {
   const [i, setI] = useState(stages.length - 1);
@@ -33,8 +34,7 @@ export function Transformation({
             }}
           >
             <CityScene
-              name={s.scene}
-              instance={`stage-${n}`}
+              name={s.scene} photo={s.photo}
               className="h-full w-full"
             />
           </div>

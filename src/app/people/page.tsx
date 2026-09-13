@@ -23,6 +23,7 @@ export default function PeoplePage() {
         title="The portrait wall"
         lede="A poet who wrote two national anthems. A physicist who refused to patent radio. A schoolteacher who took an armoury. A confectioner who worked out how to boil curd."
         scene="rooftops"
+        photo="jorasanko-thakurbari"
         meta={[
           { label: "Lives", value: String(people.length) },
           { label: "Earliest born", value: String(earliest.born) },

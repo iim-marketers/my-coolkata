@@ -1,3 +1,4 @@
+import type { PhotoId } from "./photos";
 import type { SceneName } from "./types";
 
 export interface CraftStage {
@@ -12,6 +13,7 @@ export interface CraftStage {
   takes: string;
   month: string;
   scene: SceneName;
+  photo?: PhotoId;
   /** 0–1, how far along the figure is. Drives the progress rail. */
   progress: number;
 }
@@ -33,6 +35,7 @@ export const craftStages: CraftStage[] = [
     takes: "One to two days",
     month: "June and July",
     scene: "kumartuli",
+    photo: "kumartuli-bamboo",
     progress: 0.08,
   },
   {
@@ -51,6 +54,7 @@ export const craftStages: CraftStage[] = [
     takes: "Two to four days",
     month: "July",
     scene: "kumartuli",
+    photo: "kumartuli-straw",
     progress: 0.24,
   },
   {
@@ -70,6 +74,7 @@ export const craftStages: CraftStage[] = [
     takes: "Two to three weeks, drying included",
     month: "August",
     scene: "kumartuli",
+    photo: "kumartuli-clay",
     progress: 0.5,
   },
   {
@@ -89,6 +94,7 @@ export const craftStages: CraftStage[] = [
     takes: "Four to seven days",
     month: "September",
     scene: "kumartuli",
+    photo: "kumartuli-painting",
     progress: 0.74,
   },
   {
@@ -108,6 +114,7 @@ export const craftStages: CraftStage[] = [
     takes: "Minutes, after a night of preparation",
     month: "Mahalaya, a week before Puja",
     scene: "kumartuli",
+    photo: "chokkhu-daan",
     progress: 0.92,
   },
   {
@@ -126,6 +133,7 @@ export const craftStages: CraftStage[] = [
     takes: "Five days, then the river",
     month: "October",
     scene: "pujo",
+    photo: "durga-face",
     progress: 1,
   },
 ];

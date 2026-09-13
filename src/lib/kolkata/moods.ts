@@ -1,3 +1,4 @@
+import type { PhotoId } from "./photos";
 import type { SceneName } from "./types";
 
 export interface Mood {
@@ -6,6 +7,7 @@ export interface Mood {
   label: string;
   line: string;
   scene: SceneName;
+  photo?: PhotoId;
   /** Applies the same grading machinery the era system uses. */
   grade?: string;
   when: string;
@@ -22,6 +24,7 @@ export const moods: Mood[] = [
     label: "Rainy Kolkata",
     line: "Four hours of it, streets under water within twenty minutes, and the whole city eating fried things.",
     scene: "tram",
+    photo: "kolkata-rain",
     grade: "saturate(0.72) brightness(0.92) contrast(1.06)",
     when: "June to September",
     plan: [
@@ -40,6 +43,7 @@ export const moods: Mood[] = [
     label: "Romantic Kolkata",
     line: "Sunset behind a cable-stayed bridge, a shared umbrella on the Maidan, and one song everyone already knows.",
     scene: "river",
+    photo: "prinsep-ghat",
     grade: "saturate(1.1) brightness(1.04)",
     when: "November to February, late afternoon",
     plan: [
@@ -56,6 +60,7 @@ export const moods: Mood[] = [
     label: "Bookish Kolkata",
     line: "A mile and a half of secondhand stalls, four universities, and a room that sounds like one argument.",
     scene: "collegestreet",
+    photo: "hero-collegestreet",
     when: "Weekday afternoons; late January for the fair",
     plan: [
       { time: "10:00", what: "Kochuri at Putiram, before it runs out", where: "Surya Sen Street", href: "/college-street" },
@@ -73,6 +78,7 @@ export const moods: Mood[] = [
     label: "Foodie Kolkata",
     line: "Mustard oil, freshwater fish, chhena, and a relationship with sugar other cuisines find excessive.",
     scene: "streetfood",
+    photo: "hero-streetfood",
     grade: "saturate(1.18)",
     when: "Any day; December to February for nolen gur",
     plan: [
@@ -90,6 +96,7 @@ export const moods: Mood[] = [
     label: "Heritage Kolkata",
     line: "Twenty-two buildings, five regime changes, and a square you can only read on a Sunday.",
     scene: "victoria",
+    photo: "victoria-memorial",
     grade: "sepia(0.22) saturate(0.9)",
     when: "Sunday mornings, November to February",
     plan: [
@@ -107,6 +114,7 @@ export const moods: Mood[] = [
     label: "Artistic Kolkata",
     line: "A school of painting that started in an alley selling to pilgrims, and a festival that is the largest public art commission on earth.",
     scene: "kumartuli",
+    photo: "hero-kumartuli",
     when: "September and October, or any gallery day",
     plan: [
       { time: "08:00", what: "Kumartuli, before the lanes fill", where: "North Kolkata", href: "/kumartuli" },
@@ -122,6 +130,7 @@ export const moods: Mood[] = [
     label: "Football Kolkata",
     line: "Three clubs on one field, a rivalry that carries Partition inside it, and a fish market that prices the result.",
     scene: "victoria",
+    photo: "salt-lake-stadium",
     when: "Derby weekends, and any morning on the Maidan",
     plan: [
       { time: "07:00", what: "The Maidan club tents, and coaching camps on the grass", where: "Esplanade", href: "/neighbourhoods/esplanade" },
@@ -138,6 +147,7 @@ export const moods: Mood[] = [
     label: "Night Kolkata",
     line: "Sodium light flattening everything to one amber tone, and a paratha at three in the morning.",
     scene: "tram",
+    photo: "park-street-night",
     grade: "brightness(0.85) contrast(1.12) saturate(1.05)",
     when: "After ten, any night",
     plan: [
@@ -155,6 +165,7 @@ export const moods: Mood[] = [
     label: "Puja Kolkata",
     line: "Five days when the city stops being a city and becomes an all-night walking event.",
     scene: "pujo",
+    photo: "pandal-night",
     grade: "saturate(1.25) contrast(1.04)",
     when: "Late September or October",
     plan: [
@@ -173,6 +184,7 @@ export const moods: Mood[] = [
     label: "Slow Kolkata",
     line: "One tea shop, one bench, four hours, and nothing decided.",
     scene: "collegestreet",
+    photo: "hooghly-sunset",
     grade: "saturate(0.92)",
     when: "Any weekday you have nothing to do",
     plan: [

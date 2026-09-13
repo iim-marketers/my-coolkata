@@ -5,6 +5,7 @@ import { KolkataMap } from "@/components/kolkata-map";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { PortraitTile } from "@/components/portrait-wall";
 import { Reveal } from "@/components/reveal";
+import { CityScene } from "@/components/scenes/city-scene";
 import { getPerson, people, project } from "@/lib/kolkata";
 import { personGroups } from "@/lib/kolkata/types";
 
@@ -122,6 +123,21 @@ export default async function PersonPage({ params }: PageProps<"/people/[slug]">
         </article>
 
         <aside className="space-y-8 self-start lg:sticky lg:top-24">
+          {person.photo ? (
+            <Reveal>
+              <figure className="overflow-hidden rounded-lg border border-border bg-card">
+                <CityScene
+                  photo={person.photo}
+                  detail="card"
+                  focus="top"
+                  className="aspect-[4/5] w-full"
+                />
+                <figcaption className="px-5 py-3 font-mono text-[0.56rem] tracking-[0.16em] text-muted-foreground uppercase">
+                  {person.name}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ) : null}
           <Reveal>
             <div className="rounded-lg border border-border bg-card p-6">
               <p className="font-mono text-[0.6rem] tracking-[0.24em] text-muted-foreground uppercase">

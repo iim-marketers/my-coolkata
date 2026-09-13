@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { CityScene, scenePalettes } from "@/components/scenes/city-scene";
+import { CityScene, sceneInfo } from "@/components/scenes/city-scene";
 import { CITY_COORDS_DISPLAY } from "@/lib/kolkata";
 import type { SceneName } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
@@ -15,7 +15,7 @@ const SEQUENCE: SceneName[] = [
   "kumartuli",
   "pujo",
   "victoria",
-  "streetfood",
+  // "streetfood",
   "collegestreet",
 ];
 
@@ -25,11 +25,7 @@ const FADE_MS = 1600;
 export function Hero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  /**
-   * Only the frame on screen and the one after it are in the document to
-   * begin with. Mounting all seven up front costs about 70KB of gzipped
-   * markup that nobody sees for the first five seconds.
-   */
+
   const [mounted, setMounted] = useState<number[]>([0, 1]);
   const indexRef = useRef(0);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -60,45 +56,48 @@ export function Hero() {
   useEffect(() => {
     const el = rootRef.current;
     if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => setPaused(!e.isIntersecting),
-      { threshold: 0.08 },
-    );
+    const io = new IntersectionObserver(([e]) => setPaused(!e.isIntersecting), {
+      threshold: 0.08,
+    });
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
-  const active = scenePalettes[SEQUENCE[index]];
+  const active = sceneInfo[SEQUENCE[index]];
 
   return (
     <section
       ref={rootRef}
-      className="sticky top-0 z-0 h-[100svh] w-full overflow-hidden bg-[oklch(0.1_0.014_50)]"
+      className="sticky top-0 z-0 h-svh w-full overflow-hidden bg-[oklch(0.1_0.014_50)]"
     >
       {/* The sequence. All frames are mounted; only opacity moves. */}
       {SEQUENCE.map((name, i) =>
         !mounted.includes(i) ? null : (
-        <div
-          key={name}
-          className="absolute inset-0"
-          style={{
-            opacity: i === index ? 1 : 0,
-            transition: `opacity ${FADE_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
-          }}
-        >
           <div
-            className="h-full w-full will-change-transform"
-            style={
-              i === index
-                ? {
-                    animation: `ken-burns ${HOLD_MS + FADE_MS}ms linear forwards`,
-                  }
-                : { transform: "scale(1.04)" }
-            }
+            key={name}
+            className="absolute inset-0"
+            style={{
+              opacity: i === index ? 1 : 0,
+              transition: `opacity ${FADE_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
+            }}
           >
-            <CityScene name={name} instance="hero" className="h-full w-full" />
+            <div
+              className="h-full w-full will-change-transform"
+              style={
+                i === index
+                  ? {
+                      animation: `ken-burns ${HOLD_MS + FADE_MS}ms linear forwards`,
+                    }
+                  : { transform: "scale(1.04)" }
+              }
+            >
+              <CityScene
+                name={name}
+                preload={i === 0}
+                className="h-full w-full"
+              />
+            </div>
           </div>
-        </div>
         ),
       )}
 
@@ -113,7 +112,7 @@ export function Hero() {
       {/* What you are actually looking at. */}
       <div
         key={SEQUENCE[index]}
-        className="absolute right-6 bottom-32 max-w-[17rem] text-right sm:right-10 md:bottom-40"
+        className="absolute right-6 bottom-32 max-w-68 text-right sm:right-10 md:bottom-40"
         style={{ animation: "fade-in 1200ms ease both" }}
       >
         <p className="font-mono text-[0.62rem] tracking-[0.28em] text-marigold/80 uppercase">
@@ -148,7 +147,7 @@ export function Hero() {
               key={name}
               type="button"
               onClick={() => advance(i)}
-              aria-label={`Show ${scenePalettes[name].label}`}
+              aria-label={`Show ${sceneInfo[name].label}`}
               aria-current={i === index}
               className="group py-2"
             >

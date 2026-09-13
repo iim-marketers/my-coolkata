@@ -31,6 +31,7 @@ const core: HeritageSite[] = [
     overlooked:
       "Photographing it from the bridge deck is restricted. Everyone shoots it from Mullick Ghat flower market instead, at first light, which is the better frame anyway.",
     scene: "howrah",
+    photo: "howrah-bridge",
   },
   {
     slug: "victoria-memorial",
@@ -60,30 +61,35 @@ const core: HeritageSite[] = [
     overlooked:
       "The sound-and-light show is skippable. The Kolkata gallery on the ground floor is not, and it is where you should spend the hour instead.",
     scene: "victoria",
+    photo: "victoria-memorial",
     stages: [
       {
         year: "1890",
         title: "Open ground and a jail",
         body: "The site is the southern Maidan. The Presidency Jail stands where the memorial will go, and the ground around it is grazing, parade and cricket. Victoria is on the throne and has never visited India.",
         scene: "victoria",
+        photo: "maidan",
       },
       {
         year: "1906",
         title: "The foundation stone",
         body: "Victoria dies in 1901; Curzon proposes the memorial within days and raises much of the money by public subscription across India. The Prince of Wales lays the stone in January 1906. The jail is demolished and the Makrana marble begins arriving from Rajasthan.",
         scene: "rooftops",
+        photo: "victoria-memorial-old",
       },
       {
         year: "1921",
         title: "Opened, fifteen years late",
         body: "The Prince of Wales opens it in December 1921. The capital moved to Delhi a decade earlier, the First World War has happened, and the confidence the building was designed to express has largely evaporated. The bronze Angel of Victory turns on ball bearings in a strong wind.",
         scene: "victoria",
+        photo: "victoria-memorial-angel",
       },
       {
         year: "Today",
         title: "Twenty-five galleries and sixty-four acres",
         body: "A museum with a Kolkata gallery better than visitors expect, holding city plans, Kalighat pat paintings and Company School watercolours. The grounds are the real institution: joggers at dawn, couples under umbrellas, and horse carriages waiting along Queens Way.",
         scene: "victoria",
+        photo: "victoria-memorial-night",
       },
     ],
   },
@@ -114,6 +120,7 @@ const core: HeritageSite[] = [
     overlooked:
       "Get the permit a day ahead. Guides at the gate will offer to sort it for a fee; the office does it for nothing.",
     scene: "rooftops",
+    photo: "marble-palace",
   },
   {
     slug: "indian-museum",
@@ -143,6 +150,7 @@ const core: HeritageSite[] = [
     overlooked:
       "The geology section holds one of the largest meteorite collections in the country. Almost nobody walks up there.",
     scene: "collegestreet",
+    photo: "indian-museum",
   },
   {
     slug: "dakshineswar-kali-temple",
@@ -171,6 +179,7 @@ const core: HeritageSite[] = [
     overlooked:
       "Ramakrishna's room is open and almost always overlooked in the rush to the main shrine. It is about three metres square.",
     scene: "river",
+    photo: "dakshineswar",
   },
   {
     slug: "st-pauls-cathedral",
@@ -199,6 +208,7 @@ const core: HeritageSite[] = [
     overlooked:
       "The grounds hold a small, quiet cemetery. It is the coolest place within a kilometre in high summer.",
     scene: "victoria",
+    photo: "st-pauls-cathedral",
   },
   {
     slug: "writers-building",
@@ -227,6 +237,7 @@ const core: HeritageSite[] = [
     overlooked:
       "Stand at the Lal Dighi tank on the south side. The reflection of the whole range in the water is the shot every photographer misses by standing too close.",
     scene: "rooftops",
+    photo: "writers-building",
   },
   {
     slug: "nakhoda-masjid",
@@ -255,6 +266,7 @@ const core: HeritageSite[] = [
     overlooked:
       "Royal India Hotel is around the corner and has been doing the same mutton biryani since 1905. It is not a hotel.",
     scene: "streetfood",
+    photo: "nakhoda-masjid",
   },
   {
     slug: "belur-math",
@@ -283,6 +295,7 @@ const core: HeritageSite[] = [
     overlooked:
       "The museum near the gate holds Vivekananda's Chicago robe and his letters. Most visitors walk straight past it to the temple.",
     scene: "river",
+    photo: "belur-math",
   },
   {
     slug: "south-park-street-cemetery",
@@ -310,6 +323,7 @@ const core: HeritageSite[] = [
     overlooked:
       "Rose Aylmer died at twenty from cholera after eating too much pineapple. Walter Savage Landor wrote her one of the better short elegies in English, and it is on the stone.",
     scene: "rooftops",
+    photo: "south-park-street-cemetery",
   },
   {
     slug: "kalighat-temple",
@@ -337,6 +351,7 @@ const core: HeritageSite[] = [
     overlooked:
       "The Kalighat pat painters worked in the lanes around this temple through the nineteenth century, inventing a fast, flat, satirical style that later fed straight into modern Indian art. Jamini Roy built a career on it.",
     scene: "kumartuli",
+    photo: "kalighat-temple",
   },
 ];
 

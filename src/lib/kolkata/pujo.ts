@@ -15,6 +15,7 @@ export const pujoChapters: PujoChapter[] = [
       "A mid-sized idol takes four to six weeks and sells for between forty thousand and two lakh rupees. Almost all of the year's income arrives in a two-month window, and the workshops carry the other ten months on credit.",
     ],
     scene: "kumartuli",
+    photo: "hero-kumartuli",
     detail: [
       { label: "Where", value: "Kumartuli, North Kolkata" },
       { label: "Starts", value: "July, with the bamboo" },
@@ -35,6 +36,7 @@ export const pujoChapters: PujoChapter[] = [
       "All of it is dismantled within about ten days, and nothing is kept. The scale of the annual construction-and-demolition cycle is one of the odder facts about the city, and it is the main reason UNESCO listed the festival in 2021.",
     ],
     scene: "pujo",
+    photo: "pandal-night",
     detail: [
       { label: "Pandals", value: "Several thousand across the city" },
       { label: "Built in", value: "Two to three weeks" },
@@ -55,6 +57,7 @@ export const pujoChapters: PujoChapter[] = [
       "Dashami ends with mishti: sandesh and rosogolla handed round after sindoor khela, whether or not anyone wants more sugar.",
     ],
     scene: "streetfood",
+    photo: "puja-food-stall",
     detail: [
       { label: "Biggest meal", value: "Navami, the ninth day" },
       { label: "Bhog", value: "Khichuri and labra, free, on a leaf plate" },
@@ -75,6 +78,7 @@ export const pujoChapters: PujoChapter[] = [
       "The trade is precarious. Dhaakis are paid for five days a year and farm the rest of it, and the number coming into the city has been falling.",
     ],
     scene: "pujo",
+    photo: "dhaki",
     detail: [
       { label: "The drum", value: "Barrel, two heads, shoulder-slung" },
       { label: "Played with", value: "Two thin canes" },
@@ -95,6 +99,7 @@ export const pujoChapters: PujoChapter[] = [
       "Maddox Square in Ballygunge is the exception that proves the rule: the pandal is unremarkable and the field around it becomes an all-night open-air social event where most of south Kolkata under thirty meets everyone they went to school with.",
     ],
     scene: "pujo",
+    photo: "puja-crowd",
     detail: [
       { label: "Busiest night", value: "Ashtami" },
       { label: "Queue for a big pandal", value: "Up to two hours" },
@@ -115,6 +120,7 @@ export const pujoChapters: PujoChapter[] = [
       "Dashami is the departure. Married women mark each other with vermilion in sindoor khela, the idol is given sweets for the journey, and then she goes to the river.",
     ],
     scene: "kumartuli",
+    photo: "sindoor-khela",
     detail: [
       { label: "Mahalaya broadcast", value: "4am, on the radio, since 1931" },
       { label: "Sandhi puja", value: "108 lamps, 108 lotuses" },
@@ -135,6 +141,7 @@ export const pujoChapters: PujoChapter[] = [
       "The Kumartuli lanes are silent in November. By January somebody is binding straw again, for a festival eight months away.",
     ],
     scene: "river",
+    photo: "immersion",
     detail: [
       { label: "Main ghats", value: "Babughat, Bagbazar, Ahiritola" },
       { label: "Runs", value: "Dashami afternoon into the night" },

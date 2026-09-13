@@ -150,8 +150,7 @@ export function DayClock({ className }: { className?: string }) {
               }}
             >
               <CityScene
-                name={moment.scene}
-                instance={`day-${n}`}
+                name={moment.scene} photo={moment.photo}
                 className="h-full w-full"
               />
             </div>

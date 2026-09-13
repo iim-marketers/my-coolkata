@@ -42,6 +42,7 @@ export const east: Neighbourhood[] = [
       { name: "Territi Bazar at six", note: "Twenty minutes of trade on the pavement, then nothing." },
     ],
     plates: ["rooftops", "streetfood", "collegestreet"],
+    photos: ["tangra-food", "tangra", "hand-rickshaw"],
     walk: [
       { stop: "Territi Bazar", minutes: 0, note: "Central Kolkata, 6–8am only." },
       { stop: "Sea Ip Church", minutes: 10, note: "One of the surviving temples in the old quarter." },
@@ -55,6 +56,7 @@ export const east: Neighbourhood[] = [
       "Firecrackers, for about four days in February",
     ],
     scene: "rooftops",
+    photo: "tangra",
   },
   {
     slug: "new-town-salt-lake",
@@ -96,6 +98,7 @@ export const east: Neighbourhood[] = [
     ],
     storySlugs: ["a-city-that-reads-at-midnight"],
     plates: ["river", "rooftops", "collegestreet"],
+    photos: ["kolkata-metro", "kolkata-skyline", "new-town"],
     walk: [
       { stop: "Karunamoyee", minutes: 0, note: "Salt Lake's centre, such as it is." },
       { stop: "Salt Lake Stadium", minutes: 15, note: "Match day only, really." },
@@ -108,5 +111,6 @@ export const east: Neighbourhood[] = [
       "Traffic moving, uninterrupted, which happens nowhere else",
     ],
     scene: "river",
+    photo: "new-town",
   },
 ];

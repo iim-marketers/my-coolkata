@@ -20,6 +20,7 @@ export default function AddaPage() {
         title="Adda"
         lede="Politics. Cinema. Football. Literature. Relationships. Life. Absolutely everything, at length, and nobody has to win."
         scene="collegestreet"
+        photo="coffee-house"
         meta={[
           { label: "Rules", value: String(addaRules.length) },
           { label: "Topics", value: String(addaTopics.length) },

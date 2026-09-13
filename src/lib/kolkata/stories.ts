@@ -12,6 +12,7 @@ const essays: Story[] = [
     readingMinutes: 8,
     tags: ["transport", "loss", "north kolkata"],
     scene: "tram",
+    photo: "tram-grass-track",
     body: [
       {
         kind: "para",
@@ -73,6 +74,7 @@ const essays: Story[] = [
     readingMinutes: 10,
     tags: ["durga puja", "craft", "kumartuli"],
     scene: "kumartuli",
+    photo: "kumartuli-lane",
     body: [
       {
         kind: "para",
@@ -138,6 +140,7 @@ const essays: Story[] = [
     readingMinutes: 7,
     tags: ["adda", "college street", "culture"],
     scene: "collegestreet",
+    photo: "coffee-house",
     body: [
       {
         kind: "para",
@@ -191,6 +194,7 @@ const essays: Story[] = [
     readingMinutes: 9,
     tags: ["river", "geography", "port"],
     scene: "river",
+    photo: "hooghly-ferry",
     body: [
       {
         kind: "para",
@@ -244,6 +248,7 @@ const essays: Story[] = [
     readingMinutes: 6,
     tags: ["books", "boi mela", "culture"],
     scene: "collegestreet",
+    photo: "book-fair",
     body: [
       {
         kind: "para",
@@ -289,6 +294,7 @@ const essays: Story[] = [
     readingMinutes: 4,
     tags: ["night", "essay", "streets"],
     scene: "tram",
+    photo: "park-street-night",
     body: [
       {
         kind: "para",

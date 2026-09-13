@@ -44,6 +44,7 @@ export const central: Neighbourhood[] = [
       { name: "Sunday morning", note: "The offices shut and the square becomes legible." },
     ],
     plates: ["rooftops", "victoria", "collegestreet"],
+    photos: ["writers-building", "gpo", "st-johns-church"],
     walk: [
       { stop: "Mahakaran metro", minutes: 0, note: "Come up into the square." },
       { stop: "Writers' Building", minutes: 4, note: "Exterior only. Walk the length of it." },
@@ -59,6 +60,7 @@ export const central: Neighbourhood[] = [
       "Absolute quiet, on a Sunday",
     ],
     scene: "rooftops",
+    photo: "bbd-bagh",
   },
   {
     slug: "esplanade",
@@ -103,6 +105,7 @@ export const central: Neighbourhood[] = [
     ],
     storySlugs: ["the-last-tram"],
     plates: ["victoria", "tram", "streetfood"],
+    photos: ["shaheed-minar", "tram-esplanade", "maidan"],
     walk: [
       { stop: "Esplanade", minutes: 0, note: "Tram depot, bus terminus, and the top of the Maidan." },
       { stop: "Shaheed Minar", minutes: 6, note: "1828, and older than the Nelson Column reference suggests." },
@@ -117,6 +120,7 @@ export const central: Neighbourhood[] = [
       "The last tram out of Esplanade depot",
     ],
     scene: "victoria",
+    photo: "esplanade",
   },
   {
     slug: "park-street",
@@ -163,6 +167,7 @@ export const central: Neighbourhood[] = [
       { name: "Bow Barracks at Christmas", note: "The older, quieter, better celebration." },
     ],
     plates: ["streetfood", "victoria", "rooftops"],
+    photos: ["park-street-night", "south-park-street-cemetery", "chelo-kebab"],
     walk: [
       { stop: "Park Street metro", minutes: 0, note: "Come up on the north side." },
       { stop: "Flurys", minutes: 3, note: "Breakfast, since 1927." },
@@ -178,6 +183,7 @@ export const central: Neighbourhood[] = [
       "Taxi horns at the Camac Street crossing",
     ],
     scene: "streetfood",
+    photo: "park-street",
   },
   {
     slug: "bowbazar",
@@ -215,6 +221,7 @@ export const central: Neighbourhood[] = [
       { name: "Sea Ip Church", note: "One of the surviving Chinese temples in the old quarter." },
     ],
     plates: ["streetfood", "rooftops", "collegestreet"],
+    photos: ["bowbazar", "sweet-shop", "hand-rickshaw"],
     walk: [
       { stop: "Central metro", minutes: 0, note: "Come up onto Bowbazar." },
       { stop: "Tiretta Bazar", minutes: 6, note: "Before 7:30am or there is nothing to see." },
@@ -228,6 +235,7 @@ export const central: Neighbourhood[] = [
       "Dentists' drills, with the door open",
     ],
     scene: "streetfood",
+    photo: "bowbazar",
   },
   {
     slug: "burrabazar",
@@ -266,6 +274,7 @@ export const central: Neighbourhood[] = [
       { name: "A porter on Cotton Street", note: "Two hundred kilos, on the head, through a crowd." },
     ],
     plates: ["streetfood", "rooftops", "howrah"],
+    photos: ["burrabazar", "nakhoda-masjid", "burrabazar-old"],
     walk: [
       { stop: "Mahatma Gandhi Road metro", minutes: 0, note: "West towards the river." },
       { stop: "Canning Street", minutes: 10, note: "Paper, hardware, and the breakfast stalls." },
@@ -279,5 +288,6 @@ export const central: Neighbourhood[] = [
       "Twine, tape and cardboard, all day",
     ],
     scene: "streetfood",
+    photo: "burrabazar",
   },
 ];

@@ -29,6 +29,7 @@ export const heritageExtra: HeritageSite[] = [
     overlooked:
       "The type of rock Charnock's mausoleum is cut from is called charnockite worldwide because of this building. A Calcutta grave named a global rock classification.",
     scene: "rooftops",
+    photo: "st-johns-church",
   },
   {
     slug: "general-post-office",
@@ -58,6 +59,7 @@ export const heritageExtra: HeritageSite[] = [
     overlooked:
       "The brass lines in the pavement. They mark the Black Hole outline, and there is no sign explaining them.",
     scene: "rooftops",
+    photo: "gpo",
   },
   {
     slug: "calcutta-high-court",
@@ -86,6 +88,7 @@ export const heritageExtra: HeritageSite[] = [
     overlooked:
       "The typists. Rows of them at folding tables outside, still producing affidavits on manual machines, because the court's forms have never stopped requiring them.",
     scene: "rooftops",
+    photo: "high-court",
   },
   {
     slug: "raj-bhavan",
@@ -115,6 +118,7 @@ export const heritageExtra: HeritageSite[] = [
     overlooked:
       "The lions on the north gate hold globes rather than the usual orbs, which was Wellesley's idea of subtlety about what the building was for.",
     scene: "victoria",
+    photo: "raj-bhavan",
   },
   {
     slug: "town-hall",
@@ -143,6 +147,7 @@ export const heritageExtra: HeritageSite[] = [
     overlooked:
       "The basement holds statues removed from public sites after independence, including several viceroys nobody wanted on a plinth any more.",
     scene: "victoria",
+    photo: "town-hall",
   },
   {
     slug: "metcalfe-hall",
@@ -171,6 +176,7 @@ export const heritageExtra: HeritageSite[] = [
     overlooked:
       "The building faces the river, not the road, because it was designed to be arrived at by boat.",
     scene: "howrah",
+    photo: "metcalfe-hall",
   },
   {
     slug: "fort-william",
@@ -199,6 +205,7 @@ export const heritageExtra: HeritageSite[] = [
     overlooked:
       "The Maidan is the fort's field of fire. The largest open space in any Indian city exists because of a sightline for cannon that were never fired.",
     scene: "victoria",
+    photo: "fort-william",
   },
   {
     slug: "jorasanko-thakurbari",
@@ -228,6 +235,7 @@ export const heritageExtra: HeritageSite[] = [
     overlooked:
       "The Hungarian gallery, on Tagore's friendship with the Balatonfüred sanatorium that treated him in 1926. There is a Tagore promenade in Hungary because of it.",
     scene: "rooftops",
+    photo: "jorasanko-thakurbari",
   },
   {
     slug: "armenian-church",
@@ -255,6 +263,7 @@ export const heritageExtra: HeritageSite[] = [
     overlooked:
       "The 1630 gravestone of Rezabeebeh. It is the physical evidence that there was a settled trading community here two generations before the Company.",
     scene: "rooftops",
+    photo: "armenian-church",
   },
   {
     slug: "beth-el-synagogue",
@@ -282,6 +291,7 @@ export const heritageExtra: HeritageSite[] = [
     overlooked:
       "Nahoum & Sons in New Market, founded 1902, is the last of the community's businesses. The plum cake at Christmas is not a tourist thing; the queue is real.",
     scene: "rooftops",
+    photo: "beth-el-synagogue",
   },
   {
     slug: "kumartuli-workshops",
@@ -310,5 +320,6 @@ export const heritageExtra: HeritageSite[] = [
     overlooked:
       "The armature makers. The people who bind the straw are usually not the people whose names are on the studio, and they are the ones who decide whether the figure will stand.",
     scene: "kumartuli",
+    photo: "kumartuli-lane",
   },
 ];

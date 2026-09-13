@@ -18,6 +18,7 @@ export default function MoodPage() {
         title="How do you want to experience Kolkata?"
         lede="Not what do you want to see. Ten moods, each with a day attached, because the same city is a completely different place at six in the morning and eleven at night."
         scene="tram"
+        photo="kolkata-rain"
         meta={[
           { label: "Moods", value: String(moods.length) },
           { label: "Each gives you", value: "Four or five stops, in order" },

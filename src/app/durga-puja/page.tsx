@@ -22,7 +22,6 @@ export default function DurgaPujaPage() {
       <header className="relative flex min-h-[86svh] items-center overflow-hidden">
         <CityScene
           name="pujo"
-          instance="pujo-hero"
           className="absolute inset-0 h-full w-full"
         />
         <div className="scrim-full absolute inset-0" />
@@ -63,8 +62,7 @@ export default function DurgaPujaPage() {
                 <Reveal>
                   <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border">
                     <CityScene
-                      name={chapter.scene}
-                      instance={`pujo-${chapter.slug}`}
+                      name={chapter.scene} photo={chapter.photo}
                       className="h-full w-full"
                     />
                     <div className="scrim-bottom absolute inset-0" />

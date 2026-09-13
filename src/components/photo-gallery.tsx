@@ -2,19 +2,20 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { X } from "lucide-react";
-import { CityScene, scenePalettes } from "@/components/scenes/city-scene";
+import { CityScene, sceneInfo } from "@/components/scenes/city-scene";
+import type { PhotoId } from "@/lib/kolkata/photos";
 import type { SceneName } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
 
 /**
- * A plate gallery. Every plate is vector art rather than a photograph,
- * so the lightbox renders at whatever size the screen allows.
+ * A plate gallery. The lightbox shows each photograph as large as the
+ * screen allows.
  */
 export function PhotoGallery({
   plates,
   className,
 }: {
-  plates: { scene: SceneName; title?: string; caption?: string }[];
+  plates: { scene: SceneName; photo?: PhotoId; title?: string; caption?: string }[];
   className?: string;
 }) {
   const [open, setOpen] = useState<number | null>(null);
@@ -49,7 +50,7 @@ export function PhotoGallery({
     <>
       <ul className={cn("grid gap-3 sm:grid-cols-2 lg:grid-cols-3", className)}>
         {plates.map((plate, i) => {
-          const p = scenePalettes[plate.scene];
+          const p = sceneInfo[plate.scene];
           return (
             <li key={`${plate.scene}-${i}`}>
               <button
@@ -58,8 +59,7 @@ export function PhotoGallery({
                 className="group relative block aspect-[4/3] w-full overflow-hidden rounded-lg border border-border"
               >
                 <CityScene
-                  name={plate.scene}
-                  instance={`gal-${i}`}
+                  name={plate.scene} photo={plate.photo}
                   detail="card"
                   className="h-full w-full transition-transform duration-[1200ms] group-hover:scale-105"
                 />
@@ -82,14 +82,14 @@ export function PhotoGallery({
         <div
           role="dialog"
           aria-modal
-          aria-label={current.title ?? scenePalettes[current.scene].label}
+          aria-label={current.title ?? sceneInfo[current.scene].label}
           className="fixed inset-0 z-50 flex flex-col bg-[oklch(0.1_0.014_50/0.96)] p-4 backdrop-blur sm:p-8"
           onClick={() => setOpen(null)}
         >
           <div className="flex items-start justify-between gap-6">
             <div>
               <p className="font-display text-lg font-semibold text-cream sm:text-2xl">
-                {current.title ?? scenePalettes[current.scene].label}
+                {current.title ?? sceneInfo[current.scene].label}
               </p>
               <p className="mt-1 font-mono text-[0.6rem] tracking-[0.22em] text-marigold/80 uppercase">
                 {open! + 1} / {plates.length}
@@ -110,15 +110,14 @@ export function PhotoGallery({
             onClick={(e) => e.stopPropagation()}
           >
             <CityScene
-              name={current.scene}
-              instance="lightbox"
+              name={current.scene} photo={current.photo}
               className="h-full w-full"
             />
           </div>
 
           <div className="mt-4 flex items-center justify-between gap-6">
             <p className="max-w-xl text-[0.86rem] leading-relaxed text-cream/65">
-              {current.caption ?? scenePalettes[current.scene].caption}
+              {current.caption ?? sceneInfo[current.scene].caption}
             </p>
             <div className="flex shrink-0 gap-2">
               {[-1, 1].map((d) => (
