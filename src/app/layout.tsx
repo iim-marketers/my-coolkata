@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import {
   Bricolage_Grotesque,
+  Galada,
   Geist,
   Geist_Mono,
   Noto_Serif_Bengali,
@@ -33,6 +34,13 @@ const bengali = Noto_Serif_Bengali({
   weight: ["400", "600"],
 });
 
+/** Hand-lettered Bengali, the register of a sweet-shop signboard. Display sizes only. */
+const galada = Galada({
+  variable: "--font-galada",
+  subsets: ["bengali"],
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Cool-kata — Discover the cool side of Kolkata",
@@ -60,7 +68,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} ${bengali.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} ${bengali.variable} ${galada.variable} h-full antialiased`}
     >
       <head>
         {/* Without JavaScript the scroll reveals never fire, so unhide them. */}

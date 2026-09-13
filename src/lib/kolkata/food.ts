@@ -2,6 +2,32 @@ import type { Dish } from "./types";
 
 export const dishes: Dish[] = [
   {
+    slug: "bengali-thali",
+    name: "Bengali Thali",
+    bengali: "বাঙালি থালি",
+    category: "meal",
+    origin: "Bengali home kitchens and wedding feasts",
+    bestIn: "Lunch, and only lunch",
+    price: "₹250–900",
+    summary:
+      "Not a sampler. A meal with a fixed order, bitter to sweet, served on bell metal and eaten with the right hand one course at a time.",
+    body: [
+      "Outside Bengal a thali is a plate of everything at once. In a Bengali house it is a sequence. Rice goes in the middle, a pinch of salt and a wedge of lime sit at the edge, and the courses are eaten in an order that runs from bitter to sweet.",
+      "It opens with something teto, bitter: shukto, or neem leaves fried with aubergine, to wake the palate. Then a bhaja with the first handful of rice and a little ghee. Then dal, then a vegetable, then fish, then meat if there is meat. Chutney resets the mouth, a papor cracks alongside it, and mishti doi or a rosogolla closes the meal.",
+      "The plate is traditionally kansa, bell metal, and the small bowls around it are batis. At a wedding it becomes a banana leaf and clay cups, and the menu is printed on a card so guests can plan their stomachs.",
+      "Restaurants tend to bring everything at once. Eat it in order anyway.",
+    ],
+    eatItAt: [
+      { place: "Kewpie's Kitchen", where: "Elgin Lane, Bhowanipore", note: "A family home turned dining room, and the thali is the point." },
+      { place: "6 Ballygunge Place", where: "Ballygunge", note: "The full spread, with a tablecloth." },
+      { place: "Suruchi", where: "Elliot Road", note: "Run by the All Bengal Women's Union. Cheap, homely and unhurried." },
+      { place: "Kasturi", where: "Marquis Street, New Market", note: "East Bengal leaning and heavy on the fish." },
+    ],
+    scene: "streetfood",
+    photo: "bengali-thali",
+    cutout: "thali",
+  },
+  {
     slug: "kathi-roll",
     name: "Kathi Roll",
     bengali: "কাঠি রোল",
@@ -26,6 +52,7 @@ export const dishes: Dish[] = [
     ],
     scene: "streetfood",
     photo: "kathi-roll",
+    cutout: "kathi-roll",
   },
   {
     slug: "phuchka",
@@ -50,6 +77,7 @@ export const dishes: Dish[] = [
     ],
     scene: "streetfood",
     photo: "phuchka",
+    cutout: "phuchka",
   },
   {
     slug: "kolkata-biryani",
@@ -76,6 +104,7 @@ export const dishes: Dish[] = [
     ],
     scene: "streetfood",
     photo: "kolkata-biryani",
+    cutout: "kolkata-biryani",
   },
   {
     slug: "rosogolla",
@@ -101,6 +130,7 @@ export const dishes: Dish[] = [
     ],
     scene: "streetfood",
     photo: "rosogolla",
+    cutout: "rosogolla",
   },
   {
     slug: "mishti-doi",
@@ -125,6 +155,7 @@ export const dishes: Dish[] = [
     ],
     scene: "streetfood",
     photo: "mishti-doi",
+    cutout: "mishti-doi",
   },
   {
     slug: "kosha-mangsho",
@@ -149,6 +180,7 @@ export const dishes: Dish[] = [
     ],
     scene: "streetfood",
     photo: "kosha-mangsho",
+    cutout: "kosha-mangsho",
   },
   {
     slug: "telebhaja",
@@ -173,6 +205,7 @@ export const dishes: Dish[] = [
     ],
     scene: "collegestreet",
     photo: "telebhaja",
+    cutout: "telebhaja",
   },
   {
     slug: "cha-in-bhaar",
@@ -197,6 +230,7 @@ export const dishes: Dish[] = [
     ],
     scene: "collegestreet",
     photo: "cha-bhaar",
+    cutout: "cha-bhaar",
   },
   {
     slug: "luchi-alur-dom",
@@ -221,6 +255,7 @@ export const dishes: Dish[] = [
     ],
     scene: "collegestreet",
     photo: "luchi-alur-dom",
+    cutout: "luchi-alur-dom",
   },
   {
     slug: "chelo-kebab",
@@ -245,6 +280,7 @@ export const dishes: Dish[] = [
     ],
     scene: "streetfood",
     photo: "chelo-kebab",
+    cutout: "chelo-kebab",
   },
   {
     slug: "nolen-gur",
@@ -270,6 +306,7 @@ export const dishes: Dish[] = [
     ],
     scene: "streetfood",
     photo: "nolen-gur",
+    cutout: "nolen-gur",
   },
   {
     slug: "jhalmuri",
@@ -294,6 +331,34 @@ export const dishes: Dish[] = [
     ],
     scene: "streetfood",
     photo: "jhalmuri",
+    cutout: "jhalmuri",
+  },
+  {
+    slug: "shorshe-ilish",
+    name: "Shorshe Ilish",
+    bengali: "সর্ষে ইলিশ",
+    category: "meal",
+    origin: "The rivers of the delta, and every Bengali kitchen on either side of the border",
+    bestIn: "Home kitchens and Bengali restaurants",
+    season: "The monsoon, roughly June to September",
+    price: "₹400–900",
+    summary:
+      "Hilsa cooked in raw mustard paste, green chilli and mustard oil. Bony, oily, sinus-clearing, and the fish Bengal will argue about longer than football.",
+    body: [
+      "Ilish, the hilsa, lives in the sea and swims up the rivers of the delta to spawn in the monsoon. The fish caught in fresh water are fattier and more prized, and a certain kind of Bengali will tell you which river yours came from by taste. The Padma is the one people boast about.",
+      "The mustard is ground raw with a little salt and green chilli, so it keeps its bite. The fish goes in with it, raw mustard oil is poured over, and it cooks gently. In the bhapa version it steams in a covered tiffin box set inside the rice pot.",
+      "It is extremely bony. There is a technique of working the flesh off the fine bones with the fingers and a little rice, and that technique is the reason nobody eats ilish with a fork.",
+      "The old ghoti and bangal argument, between families from the west of Bengal and those from the east, has a food front: ghotis back chingri, the prawn, and bangals back ilish. After a Kolkata derby, the winning side is said to buy the corresponding fish.",
+    ],
+    eatItAt: [
+      { place: "6 Ballygunge Place", where: "Ballygunge", note: "Order it in season, and ask where the fish came from." },
+      { place: "Kasturi", where: "Marquis Street, New Market", note: "East Bengal style, and generous with the mustard." },
+      { place: "Bhojohori Manna", where: "Multiple branches", note: "The bhapa ilish is the dependable version." },
+      { place: "A Bengali home in August", where: "Wherever you are invited", note: "If you are asked, go." },
+    ],
+    scene: "streetfood",
+    photo: "shorshe-ilish",
+    cutout: "shorshe-ilish",
   },
 ];
 
@@ -302,9 +367,9 @@ export function getDish(slug: string) {
 }
 
 export const foodCategories = [
-  { id: "street", label: "Street" },
-  { id: "sweet", label: "Sweet" },
-  { id: "meal", label: "A whole meal" },
-  { id: "breakfast", label: "Breakfast" },
-  { id: "drink", label: "Drink" },
+  { id: "street", label: "Street", bengali: "রাস্তার খাবার" },
+  { id: "sweet", label: "Sweet", bengali: "মিষ্টি" },
+  { id: "meal", label: "A whole meal", bengali: "ভরপেট" },
+  { id: "breakfast", label: "Breakfast", bengali: "জলখাবার" },
+  { id: "drink", label: "Drink", bengali: "চা" },
 ] as const;

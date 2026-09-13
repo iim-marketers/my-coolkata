@@ -34,19 +34,12 @@ export function Hero() {
   return (
     // Clip sideways only, and sit above the next section, so the search
     // dropdown can hang past the hero's bottom edge instead of being cut off.
-    <section className="relative isolate z-20 overflow-x-clip bg-background pt-22 pb-22 sm:pt-26 lg:pt-30 lg:pb-30">
+    // The bottom padding leaves clear space above the skyline strip.
+    <section className="relative isolate z-20 overflow-x-clip bg-background pt-22 pb-36 sm:pt-26 sm:pb-44 lg:pt-30 lg:pb-44">
       <Backdrop />
 
       <div className="mx-auto grid w-full max-w-352 items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1fr_1.05fr] lg:gap-10">
         <div className="relative z-10">
-          {/* <p className="hero-rise inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3.5 py-1.5 text-[0.8rem] font-medium text-muted-foreground shadow-sm backdrop-blur">
-            <span className="relative flex size-2">
-              <span className="absolute inset-0 animate-ping rounded-full bg-primary/60 motion-reduce:hidden" />
-              <span className="relative size-2 rounded-full bg-primary" />
-            </span>
-            Your cheat sheet to the City of Joy
-          </p> */}
-
           <h1
             className="hero-rise mt-0 md:mt-6 font-display text-[clamp(2.7rem,6.6vw,5.6rem)] leading-[0.98] font-extrabold tracking-[-0.04em] text-balance"
             style={{ animationDelay: "80ms" }}
@@ -93,28 +86,10 @@ export function Hero() {
               </Link>
             ))}
           </div>
-
-          <dl
-            className="hero-rise mt-11 flex flex-wrap gap-x-10 gap-y-5"
-            style={{ animationDelay: "400ms" }}
-          >
-            {stats.map((s) => (
-              <div key={s.label} className="flex flex-col-reverse">
-                <dt className="text-[0.82rem] text-muted-foreground">
-                  {s.label}
-                </dt>
-                <dd className="font-display text-[2rem] leading-none font-extrabold tracking-tight">
-                  {s.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
-        {/* The collage. Each frame arrives from a different direction. */}
-        {/* `isolate` keeps the collage's layers to itself: on phones it sits
-            below the search, and the badge must not cover the dropdown. */}
-        <div className="relative isolate mx-auto w-full max-w-xl lg:max-w-none lg:pl-6">
+        {/* On phones the collage comes first and the pitch follows it. */}
+        <div className="relative isolate order-first mx-auto w-full max-w-xl lg:order-0 lg:max-w-none lg:pl-6">
           <div
             aria-hidden
             className="absolute top-1/2 left-1/2 -z-10 aspect-square w-[85%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-marigold/30 blur-3xl"
@@ -315,11 +290,18 @@ function Squiggle({ className }: { className?: string }) {
 
 function Backdrop() {
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 ">
       <div className="hero-dots absolute inset-0" />
       <div className="absolute -top-48 -left-40 size-144 rounded-full bg-primary/10 blur-3xl" />
       <div className="absolute top-24 -right-48 size-128 rounded-full bg-marigold/20 blur-3xl" />
-      <Skyline className="absolute inset-x-0 bottom-0 h-24 w-full text-foreground/[0.07] sm:h-32" />
+      {/* The skyline drifts right to left, forever. */}
+      <div className="absolute inset-x-0 bottom-0 h-24 overflow-hidden text-foreground/[0.07] sm:h-32">
+        <div className="skyline-marquee flex h-full w-max">
+          {[0, 1, 2, 3].map((i) => (
+            <Skyline key={i} className="aspect-1440/140 h-full w-auto shrink-0" />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
