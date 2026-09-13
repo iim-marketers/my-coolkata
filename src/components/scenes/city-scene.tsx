@@ -1,42 +1,63 @@
-import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { photos, type PhotoId } from "@/lib/kolkata/photos";
 import type { SceneName } from "@/lib/kolkata/types";
-import { scenePalettes } from "./palettes";
-import { sceneFrames } from "./frames";
+import { cn } from "@/lib/utils";
+import { sceneInfo } from "./scene-info";
 
-export { scenePalettes };
+export { sceneInfo };
+
+/** A specific photograph wins; the scene is the generic fallback for it. */
+type Source =
+  | { name: SceneName; photo?: PhotoId }
+  | { name?: undefined; photo: PhotoId };
 
 /**
- * One hand-drawn frame of the city, filling its container.
+ * One photograph of the city, cropped to fill its container.
  *
- * There are no photographs in this project. Every frame is vector art
- * generated at render time, which keeps the hero at a few kilobytes and
- * lets the whole sequence be graded consistently.
+ * The files are statically imported in `@/lib/kolkata/photos`, so Next.js
+ * knows their dimensions, generates a blur placeholder, and serves a resized
+ * srcset rather than the original.
  */
 export function CityScene({
-  name,
   className,
-  instance,
   detail = "full",
-}: {
-  name: SceneName;
+  preload = false,
+  focus = "center",
+  imgClassName,
+  ...source
+}: Source & {
   className?: string;
-  /** Namespaces the SVG gradient ids when a page mounts the same frame twice. */
-  instance?: string;
+  /** Extra classes for the image itself, e.g. a per-breakpoint object position. */
+  imgClassName?: string;
   /**
-   * `card` draws roughly a third of the elements. Use it anywhere the
-   * frame is a thumbnail: a page with twelve full-detail scenes on it
-   * ships several hundred kilobytes of markup for no visible gain.
+   * `card` tells the browser the frame is a thumbnail in a grid, so it picks
+   * a smaller file. Leave it as `full` for anything that spans the viewport.
    */
   detail?: "full" | "card";
+  /** Only for the frame that is the page's largest paint, i.e. the hero. */
+  preload?: boolean;
+  /** `top` keeps faces in frame when a portrait is cropped. */
+  focus?: "center" | "top";
 }) {
-  const Frame = sceneFrames[name];
-  const id = `sc-${name}${instance ? `-${instance}` : ""}`;
+  const photo = photos[source.photo ?? sceneInfo[source.name as SceneName].photo];
   return (
     <div className={cn("scene-frame relative overflow-hidden", className)}>
-      <Frame
-        id={id}
-        p={scenePalettes[name]}
-        q={detail === "card" ? 0.34 : 1}
+      <Image
+        src={photo.image}
+        alt={photo.alt}
+        fill
+        preload={preload}
+        placeholder="blur"
+        sizes={
+          detail === "card"
+            ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            : "100vw"
+        }
+        className={cn(
+          "object-cover",
+          focus === "top" && "object-[50%_22%]",
+          imgClassName,
+        )}
       />
     </div>
   );

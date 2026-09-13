@@ -42,6 +42,7 @@ export const riverside: Neighbourhood[] = [
     ],
     storySlugs: ["what-the-hooghly-carries"],
     plates: ["river", "howrah", "rooftops"],
+    photos: ["hooghly-ferry", "vidyasagar-setu", "kolkata-port"],
     walk: [
       { stop: "Babughat", minutes: 0, note: "Ferries, and the main Dashami immersion point." },
       { stop: "Prinsep Ghat", minutes: 14, note: "1841 Palladian portico. Sunset." },
@@ -55,6 +56,7 @@ export const riverside: Neighbourhood[] = [
       "The bridge, from underneath, continuously",
     ],
     scene: "river",
+    photo: "hooghly-sunset",
   },
   {
     slug: "howrah-bridge-strand",
@@ -95,6 +97,7 @@ export const riverside: Neighbourhood[] = [
       { name: "Sunrise from Armenian Ghat", note: "The bridge silhouetted, with the ferries starting." },
     ],
     plates: ["howrah", "river", "streetfood"],
+    photos: ["howrah-bridge-girders", "mullick-ghat-flower-market", "howrah-bridge-night"],
     walk: [
       { stop: "Mullick Ghat Flower Market", minutes: 0, note: "Arrive by five. Taxi; nothing else runs." },
       { stop: "Armenian Ghat", minutes: 12, note: "The 1873 tram terminus." },
@@ -108,6 +111,7 @@ export const riverside: Neighbourhood[] = [
       "Ferry engines idling at Armenian Ghat",
     ],
     scene: "howrah",
+    photo: "howrah-bridge",
   },
   {
     slug: "prinsep-ghat",
@@ -147,6 +151,7 @@ export const riverside: Neighbourhood[] = [
     ],
     storySlugs: ["what-the-hooghly-carries"],
     plates: ["river", "victoria", "howrah"],
+    photos: ["vidyasagar-setu", "hooghly-ferry", "maidan"],
     walk: [
       { stop: "Prinsep Ghat", minutes: 0, note: "Arrive an hour before sunset." },
       { stop: "The promenade north", minutes: 15, note: "Towards Babughat, along the water." },
@@ -159,6 +164,7 @@ export const riverside: Neighbourhood[] = [
       "A flute seller, most evenings",
     ],
     scene: "river",
+    photo: "prinsep-ghat",
   },
   {
     slug: "babughat",
@@ -196,6 +202,7 @@ export const riverside: Neighbourhood[] = [
       { name: "A ferry to Howrah", note: "Ten minutes, and the bridge from underneath." },
     ],
     plates: ["river", "howrah", "pujo"],
+    photos: ["immersion", "ghat-bathing", "hooghly-ferry"],
     walk: [
       { stop: "Babughat", minutes: 0, note: "The portico, and the ferry jetty." },
       { stop: "Millennium Park", minutes: 12, note: "North along the Strand." },
@@ -208,6 +215,7 @@ export const riverside: Neighbourhood[] = [
       "Water against stone steps",
     ],
     scene: "river",
+    photo: "babughat",
   },
   {
     slug: "millennium-park",
@@ -245,6 +253,7 @@ export const riverside: Neighbourhood[] = [
       { name: "A ferry from Fairlie Place", note: "North to Belur Math and Dakshineswar." },
     ],
     plates: ["howrah", "river", "rooftops"],
+    photos: ["howrah-bridge-night", "hooghly-ferry", "high-court"],
     walk: [
       { stop: "Millennium Park", minutes: 0, note: "Enter from Strand Road." },
       { stop: "Fairlie Place jetty", minutes: 10, note: "Ferries north." },
@@ -257,6 +266,7 @@ export const riverside: Neighbourhood[] = [
       "The bridge over everything",
     ],
     scene: "howrah",
+    photo: "millennium-park",
   },
   {
     slug: "kidderpore",
@@ -297,6 +307,7 @@ export const riverside: Neighbourhood[] = [
       { name: "Kite flying in autumn", note: "A Metiabruz inheritance, and still serious." },
     ],
     plates: ["river", "streetfood", "rooftops"],
+    photos: ["kolkata-port", "fort-william", "kolkata-port"],
     walk: [
       { stop: "Khidirpur Fancy Market", minutes: 0, note: "Busiest late afternoon." },
       { stop: "Kidderpore Docks gate", minutes: 12, note: "Exterior. Still a working port." },
@@ -309,5 +320,6 @@ export const riverside: Neighbourhood[] = [
       "Kite string being glued on a rooftop in autumn",
     ],
     scene: "river",
+    photo: "kidderpore-docks",
   },
 ];

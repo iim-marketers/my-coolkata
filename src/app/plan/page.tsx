@@ -19,6 +19,7 @@ export default function PlanPage() {
         title="Itineraries that work"
         lede="Written on the assumption that you will get up early once, that the afternoon is too hot to do anything in, and that the best hour of the day is between five and seven in the morning."
         scene="collegestreet"
+        photo="yellow-taxi"
         meta={[
           { label: "Itineraries", value: String(itineraries.length) },
           { label: "Best months", value: "November to February" },

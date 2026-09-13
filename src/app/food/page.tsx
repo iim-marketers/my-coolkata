@@ -23,6 +23,7 @@ export default function FoodPage() {
         title="Start with the plate"
         lede="Mustard oil, freshwater fish, fresh curd cheese, and a relationship with sugar that other Indian cuisines find excessive. Click a dish and it opens."
         scene="streetfood"
+        photo="hero-streetfood"
         meta={[
           { label: "Dishes", value: String(dishes.length) },
           { label: "Places mapped", value: String(foodPlaces.length) },

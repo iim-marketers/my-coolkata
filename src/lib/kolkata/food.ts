@@ -25,6 +25,7 @@ export const dishes: Dish[] = [
       { place: "Badshah", where: "New Market", note: "Cheaper, faster, no seating." },
     ],
     scene: "streetfood",
+    photo: "kathi-roll",
   },
   {
     slug: "phuchka",
@@ -48,6 +49,7 @@ export const dishes: Dish[] = [
       { place: "Maddox Square", where: "Ballygunge", note: "During Puja this becomes a small city of its own." },
     ],
     scene: "streetfood",
+    photo: "phuchka",
   },
   {
     slug: "kolkata-biryani",
@@ -73,6 +75,7 @@ export const dishes: Dish[] = [
       { place: "Dada Boudi", where: "Barrackpore", note: "Out of town, enormous portions, cult following." },
     ],
     scene: "streetfood",
+    photo: "kolkata-biryani",
   },
   {
     slug: "rosogolla",
@@ -97,6 +100,7 @@ export const dishes: Dish[] = [
       { place: "Nobin Chandra Das", where: "Bagbazar", note: "The original address." },
     ],
     scene: "streetfood",
+    photo: "rosogolla",
   },
   {
     slug: "mishti-doi",
@@ -120,6 +124,7 @@ export const dishes: Dish[] = [
       { place: "Any para sweet shop", where: "Your nearest lane", note: "Genuinely the best route." },
     ],
     scene: "streetfood",
+    photo: "mishti-doi",
   },
   {
     slug: "kosha-mangsho",
@@ -143,6 +148,7 @@ export const dishes: Dish[] = [
       { place: "6 Ballygunge Place", where: "Ballygunge", note: "The sit-down version with a tablecloth." },
     ],
     scene: "streetfood",
+    photo: "kosha-mangsho",
   },
   {
     slug: "telebhaja",
@@ -166,6 +172,7 @@ export const dishes: Dish[] = [
       { place: "Your nearest corner", where: "After 4:30pm", note: "This food does not travel or keep." },
     ],
     scene: "collegestreet",
+    photo: "telebhaja",
   },
   {
     slug: "cha-in-bhaar",
@@ -189,6 +196,7 @@ export const dishes: Dish[] = [
       { place: "Balwant Singh's Eating House", where: "Bhowanipore", note: "Open all night. Doodh cola for the brave." },
     ],
     scene: "collegestreet",
+    photo: "cha-bhaar",
   },
   {
     slug: "luchi-alur-dom",
@@ -212,6 +220,7 @@ export const dishes: Dish[] = [
       { place: "Sharma Tea House", where: "Bowbazar", note: "Kochuri and cholar dal at dawn." },
     ],
     scene: "collegestreet",
+    photo: "luchi-alur-dom",
   },
   {
     slug: "chelo-kebab",
@@ -235,6 +244,7 @@ export const dishes: Dish[] = [
       { place: "Mocambo", where: "Park Street", note: "Next door, older, and the rivalry is real." },
     ],
     scene: "streetfood",
+    photo: "chelo-kebab",
   },
   {
     slug: "nolen-gur",
@@ -259,6 +269,7 @@ export const dishes: Dish[] = [
       { place: "Mithai", where: "Multiple", note: "Reliable and less of a scrum." },
     ],
     scene: "streetfood",
+    photo: "nolen-gur",
   },
   {
     slug: "jhalmuri",
@@ -282,6 +293,7 @@ export const dishes: Dish[] = [
       { place: "Outside any school at 3pm", where: "Anywhere", note: "Peak demand." },
     ],
     scene: "streetfood",
+    photo: "jhalmuri",
   },
 ];
 

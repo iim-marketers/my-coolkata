@@ -19,6 +19,7 @@ export default function SoundsPage() {
         title="Close your eyes. Listen to Kolkata."
         lede="Eleven sounds, each one lighting its own point on the map. Play several at once and build the corner you want to be standing on."
         scene="tram"
+        photo="dhaki"
         meta={[
           { label: "Sounds", value: String(citySounds.length) },
           { label: "Recordings used", value: "None" },

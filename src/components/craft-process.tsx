@@ -52,8 +52,7 @@ export function CraftProcess() {
                 }}
               >
                 <CityScene
-                  name={s.scene}
-                  instance={`craft-${s.key}`}
+                  name={s.scene} photo={s.photo}
                   className="h-full w-full"
                 />
               </div>
@@ -103,8 +102,7 @@ export function CraftProcess() {
               {/* On narrow screens the frame travels with the text. */}
               <div className="relative mb-7 aspect-[4/3] overflow-hidden rounded-lg border border-border lg:hidden">
                 <CityScene
-                  name={s.scene}
-                  instance={`craft-m-${s.key}`}
+                  name={s.scene} photo={s.photo}
                   detail="card"
                   className="h-full w-full"
                 />

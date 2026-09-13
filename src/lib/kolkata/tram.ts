@@ -1,3 +1,4 @@
+import type { PhotoId } from "./photos";
 import type { Coords, SceneName } from "./types";
 
 export interface TramStop {
@@ -11,6 +12,7 @@ export interface TramStop {
   getOff: string;
   href: string;
   scene: SceneName;
+  photo?: PhotoId;
 }
 
 /**
@@ -30,6 +32,7 @@ export const tramStops: TramStop[] = [
     getOff: "For the Maidan, Eden Gardens, New Market and the Shaheed Minar.",
     href: "/neighbourhoods/esplanade",
     scene: "victoria",
+    photo: "tram-esplanade",
   },
   {
     n: 2,
@@ -42,6 +45,7 @@ export const tramStops: TramStop[] = [
     getOff: "For the Chinese breakfast market at six, and the goldsmiths' lanes.",
     href: "/neighbourhoods/bowbazar",
     scene: "streetfood",
+    photo: "bowbazar",
   },
   {
     n: 3,
@@ -54,6 +58,7 @@ export const tramStops: TramStop[] = [
     getOff: "For the books, the Coffee House, and an argument you did not plan on.",
     href: "/college-street",
     scene: "collegestreet",
+    photo: "tram-college-street",
   },
   {
     n: 4,
@@ -65,6 +70,7 @@ export const tramStops: TramStop[] = [
     getOff: "For Jorasanko, Marble Palace, and the north Kolkata doors.",
     href: "/neighbourhoods/jorasanko",
     scene: "rooftops",
+    photo: "sovabazar-rajbari",
   },
   {
     n: 5,
@@ -77,6 +83,7 @@ export const tramStops: TramStop[] = [
     getOff: "For the Rajbari courtyard and the idol-makers' lanes.",
     href: "/neighbourhoods/sovabazar",
     scene: "pujo",
+    photo: "sovabazar-rajbari",
   },
   {
     n: 6,
@@ -89,6 +96,7 @@ export const tramStops: TramStop[] = [
     getOff: "For the workshops, and the ghat they leave from.",
     href: "/kumartuli",
     scene: "kumartuli",
+    photo: "kumartuli-lane",
   },
   {
     n: 7,
@@ -101,6 +109,7 @@ export const tramStops: TramStop[] = [
     getOff: "For the crossing, the mutton, and Star Theatre on Bidhan Sarani.",
     href: "/neighbourhoods/shyambazar",
     scene: "tram",
+    photo: "tram-shyambazar",
   },
 ];
 

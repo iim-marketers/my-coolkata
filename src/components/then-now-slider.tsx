@@ -6,8 +6,8 @@ import type { ThenNow } from "@/lib/kolkata/then-now";
 import { cn } from "@/lib/utils";
 
 /**
- * Then and now, wiped. The archival side is graded rather than
- * photographed, because there are no photographs on this site.
+ * Then and now, wiped. The archival side is a present-day photograph
+ * graded like an old plate, not a genuine archive image.
  */
 export function ThenNowSlider({ item }: { item: ThenNow }) {
   const [pos, setPos] = useState(48);
@@ -36,8 +36,7 @@ export function ThenNowSlider({ item }: { item: ThenNow }) {
       >
         {/* Now, underneath. */}
         <CityScene
-          name={item.nowScene}
-          instance={`tn-now-${item.slug}`}
+          name={item.nowScene} photo={item.nowPhoto}
           className="absolute inset-0 h-full w-full"
         />
         {/* Then, clipped from the left, graded like a plate. */}
@@ -47,8 +46,7 @@ export function ThenNowSlider({ item }: { item: ThenNow }) {
         >
           <div className="h-full w-full" style={{ filter: item.thenGrade }}>
             <CityScene
-              name={item.thenScene}
-              instance={`tn-then-${item.slug}`}
+              name={item.thenScene} photo={item.thenPhoto}
               className="h-full w-full"
             />
           </div>

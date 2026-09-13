@@ -39,6 +39,7 @@ export const south: Neighbourhood[] = [
       { name: "Kali Puja night", note: "October or November, on the new moon. Enormous, and worth the crush." },
     ],
     plates: ["kumartuli", "pujo", "river"],
+    photos: ["kalighat-painting", "nirmal-hriday", "tram-grass-track"],
     walk: [
       { stop: "Kalighat metro", minutes: 0, note: "Line 1. Come up and follow the crowd." },
       { stop: "The temple", minutes: 6, note: "Ignore the touts. The ordinary queue works." },
@@ -52,6 +53,7 @@ export const south: Neighbourhood[] = [
       "Dhaak on Kali Puja night",
     ],
     scene: "kumartuli",
+    photo: "kalighat-temple",
   },
   {
     slug: "ballygunge",
@@ -94,6 +96,7 @@ export const south: Neighbourhood[] = [
       { name: "Gariahat market", note: "Saris on the pavement, fish inside, and hawking that has survived every clearance." },
     ],
     plates: ["pujo", "rooftops", "streetfood"],
+    photos: ["pandal-night", "sovabazar-rajbari", "sweet-shop"],
     walk: [
       { stop: "Rabindra Sarobar metro", minutes: 0, note: "Or the lake itself at dawn." },
       { stop: "Southern Avenue", minutes: 10, note: "The best tree cover in the city." },
@@ -107,6 +110,7 @@ export const south: Neighbourhood[] = [
       "Dhaak and a sound system playing the same song for nine nights",
     ],
     scene: "pujo",
+    photo: "ballygunge",
   },
   {
     slug: "gariahat",
@@ -146,6 +150,7 @@ export const south: Neighbourhood[] = [
       { name: "Dakshinapan", note: "Handloom from every state, and nobody in a hurry." },
     ],
     plates: ["streetfood", "rooftops", "pujo"],
+    photos: ["puja-crowd", "sweet-shop", "yellow-taxis-traffic"],
     walk: [
       { stop: "Gariahat crossing", minutes: 0, note: "Start under the flyover." },
       { stop: "The fish market", minutes: 5, note: "Inside the formal building. Early or not at all." },
@@ -159,6 +164,7 @@ export const south: Neighbourhood[] = [
       "Traffic on the flyover, above everything",
     ],
     scene: "streetfood",
+    photo: "gariahat",
   },
   {
     slug: "dhakuria",
@@ -196,6 +202,7 @@ export const south: Neighbourhood[] = [
       { name: "Rowing on the Sarobar", note: "Several clubs, some over a century old." },
     ],
     plates: ["river", "rooftops", "collegestreet"],
+    photos: ["dakshinapan", "dakshinapan", "kolkata-metro"],
     walk: [
       { stop: "Rabindra Sarobar metro", minutes: 0, note: "Come up at the lake's northern edge." },
       { stop: "The lake circuit", minutes: 20, note: "About three kilometres all the way round." },
@@ -208,6 +215,7 @@ export const south: Neighbourhood[] = [
       "Suburban trains under the bridge",
     ],
     scene: "river",
+    photo: "dakshinapan",
   },
   {
     slug: "jadavpur",
@@ -247,6 +255,7 @@ export const south: Neighbourhood[] = [
       { name: "The refugee colony street grid", note: "Narrow, unplanned, and legible if you know what it is." },
     ],
     plates: ["collegestreet", "rooftops", "streetfood"],
+    photos: ["book-fair", "kolkata-metro", "tram-grass-track"],
     walk: [
       { stop: "Jadavpur station", minutes: 0, note: "Or the 8B stand, which is the real arrival point." },
       { stop: "The 8B bookstalls", minutes: 5, note: "Little magazines and pamphlets." },
@@ -260,6 +269,7 @@ export const south: Neighbourhood[] = [
       "Buses reversing into the 8B stand",
     ],
     scene: "collegestreet",
+    photo: "jadavpur-university",
   },
   {
     slug: "tollygunge",
@@ -302,6 +312,7 @@ export const south: Neighbourhood[] = [
     ],
     storySlugs: ["the-last-tram"],
     plates: ["tram", "rooftops", "river"],
+    photos: ["nandan", "tram-grass-track", "kolkata-metro"],
     walk: [
       { stop: "Mahanayak Uttam Kumar metro", minutes: 0, note: "Line 1, southern end." },
       { stop: "Tollygunge Club gate", minutes: 8, note: "Members and guests. The exterior is still something." },
@@ -314,5 +325,6 @@ export const south: Neighbourhood[] = [
       "The last tram, once",
     ],
     scene: "tram",
+    photo: "tram-grass-track",
   },
 ];

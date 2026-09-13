@@ -19,6 +19,7 @@ export default function DayPage() {
         title="The city is not its monuments"
         lede="It is a sequence of hours, and each one belongs to somebody different. This opens at whatever time it currently is in Kolkata."
         scene="streetfood"
+        photo="tea-stall"
         meta={[
           { label: "Hours", value: String(dayMoments.length) },
           { label: "Starts", value: "05:30, at the ghats" },

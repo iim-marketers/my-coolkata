@@ -20,6 +20,7 @@ export default function TimelinePage() {
         title="1495 to now"
         lede="Three villages, a trading post, the capital of an empire, a renaissance, a famine, a partition, and a metro. Drag the year and the history below it truncates."
         scene="howrah"
+        photo="calcutta-18th-century"
         meta={[
           { label: "Entries", value: String(timeline.length) },
           { label: "Turning points", value: String(pivots) },

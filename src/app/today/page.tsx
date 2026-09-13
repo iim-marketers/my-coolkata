@@ -25,6 +25,7 @@ export default function TodayPage() {
         title="What is on, and when"
         lede="A living city has a calendar. This is the recurring one: what happens in which month, and where to confirm the actual dates before you book anything."
         scene="pujo"
+        photo="new-town"
         meta={[
           { label: "Entries", value: String(todayEntries.length) },
           { label: "Kinds", value: String(todayKinds.length) },

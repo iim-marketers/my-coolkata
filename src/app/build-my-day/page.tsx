@@ -18,6 +18,7 @@ export default function BuildMyDayPage() {
         title="Your Kolkata"
         lede="Three hours or three days, and any combination of food, history, photography, culture, shopping and architecture. It packs the day forward from dawn and leaves the afternoon alone."
         scene="streetfood"
+        photo="hand-rickshaw"
         meta={[
           { label: "Places in the pool", value: String(planBlocks.length) },
           { label: "Lengths", value: "3 hours to 3 days" },

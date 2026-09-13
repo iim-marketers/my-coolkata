@@ -220,7 +220,10 @@ export function SiteNav() {
             ))}
           </div>
           <div className="mt-10 sm:hidden">
-            <ExploreButton className="w-full justify-center border-border text-muted-foreground" />
+            <ExploreButton
+              shortcut={false}
+              className="w-full justify-center border-border text-muted-foreground"
+            />
           </div>
         </div>
       </div>

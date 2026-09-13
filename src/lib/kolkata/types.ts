@@ -1,3 +1,4 @@
+import type { PhotoId } from "./photos";
 /**
  * Shared shapes for every collection in the city.
  *
@@ -32,8 +33,9 @@ export interface HeritageSite {
   /** Something a guidebook would leave out. */
   overlooked: string;
   scene: SceneName;
+  photo?: PhotoId;
   /** For sites whose story is best told as a sequence of dates. */
-  stages?: { year: string; title: string; body: string; scene: SceneName }[];
+  stages?: { year: string; title: string; body: string; scene: SceneName; photo?: PhotoId }[];
 }
 
 export type FoodCategory =
@@ -57,6 +59,7 @@ export interface Dish {
   body: string[];
   eatItAt: { place: string; where: string; note: string }[];
   scene: SceneName;
+  photo?: PhotoId;
 }
 
 export type PersonGroup =
@@ -72,6 +75,8 @@ export interface Person {
   slug: string;
   name: string;
   bengali?: string;
+  /** A portrait, where a freely licensed one exists. */
+  photo?: PhotoId;
   born: number;
   died?: number;
   field: string;
@@ -130,9 +135,12 @@ export interface Neighbourhood {
   storySlugs?: string[];
   /** Plates for the quarter's gallery. */
   plates: SceneName[];
+  /** Specific photographs for the same plates, in order. */
+  photos?: PhotoId[];
   walk: { stop: string; minutes: number; note: string }[];
   sounds: string[];
   scene: SceneName;
+  photo?: PhotoId;
 }
 
 export interface Story {
@@ -144,6 +152,7 @@ export interface Story {
   readingMinutes: number;
   tags: string[];
   scene: SceneName;
+  photo?: PhotoId;
   body: { kind: "para" | "quote" | "heading"; text: string }[];
 }
 
@@ -210,7 +219,7 @@ export interface QuizQuestion {
   because: string;
 }
 
-/** Each name maps to a hand-drawn SVG frame in `src/components/scenes`. */
+/** Each name maps to a fallback photograph in `scene-info.ts`; the files live in `src/assets/photos`. */
 export type SceneName =
   | "howrah"
   | "tram"
@@ -314,6 +323,7 @@ export interface EraStop {
   sees: { title: string; body: string }[];
   /** Pulled into the era view from the rest of the site. */
   scene: SceneName;
+  photo?: PhotoId;
   soundtrack: string;
   population: string;
   getAround: string;
@@ -367,6 +377,7 @@ export interface PujoChapter {
   standfirst: string;
   body: string[];
   scene: SceneName;
+  photo?: PhotoId;
   detail?: { label: string; value: string }[];
 }
 

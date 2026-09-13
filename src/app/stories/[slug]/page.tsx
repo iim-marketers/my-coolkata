@@ -35,7 +35,7 @@ export default async function StoryPage({ params }: PageProps<"/stories/[slug]">
         eyebrow={story.tags.join(" · ")}
         title={story.title}
         lede={story.standfirst}
-        scene={story.scene}
+        scene={story.scene} photo={story.photo}
         back={{ href: "/stories", label: "Stories" }}
         tall
         meta={[

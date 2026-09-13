@@ -20,6 +20,7 @@ export default function NeighbourhoodsPage() {
         title="The city is a set of paras"
         lede="A para is your few streets: your sweet shop, your tea stall, your Puja, the people who notice if you are away for a week. Ask a Kolkatan where they are from and this is the unit they answer in."
         scene="kumartuli"
+        photo="chitpur-road"
         meta={[
           { label: "Quarters", value: String(neighbourhoods.length) },
           { label: "Zones", value: String(zonesWithQuarters.length) },

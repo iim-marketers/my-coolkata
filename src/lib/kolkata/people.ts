@@ -5,6 +5,7 @@ import { peopleProfiles } from "./people-profiles";
 const core: Omit<Person, "group">[] = [
   {
     slug: "rabindranath-tagore",
+    photo: "person-rabindranath-tagore",
     name: "Rabindranath Tagore",
     bengali: "রবীন্দ্রনাথ ঠাকুর",
     born: 1861,
@@ -35,6 +36,7 @@ const core: Omit<Person, "group">[] = [
   },
   {
     slug: "satyajit-ray",
+    photo: "person-satyajit-ray",
     name: "Satyajit Ray",
     bengali: "সত্যজিৎ রায়",
     born: 1921,
@@ -65,6 +67,7 @@ const core: Omit<Person, "group">[] = [
   },
   {
     slug: "swami-vivekananda",
+    photo: "person-swami-vivekananda",
     name: "Swami Vivekananda",
     bengali: "স্বামী বিবেকানন্দ",
     born: 1863,
@@ -94,6 +97,7 @@ const core: Omit<Person, "group">[] = [
   },
   {
     slug: "ritwik-ghatak",
+    photo: "person-ritwik-ghatak",
     name: "Ritwik Ghatak",
     bengali: "ঋত্বিক ঘটক",
     born: 1925,
@@ -122,6 +126,7 @@ const core: Omit<Person, "group">[] = [
   },
   {
     slug: "begum-rokeya",
+    photo: "person-begum-rokeya",
     name: "Begum Rokeya",
     bengali: "বেগম রোকেয়া",
     born: 1880,
@@ -151,6 +156,7 @@ const core: Omit<Person, "group">[] = [
   },
   {
     slug: "jagadish-chandra-bose",
+    photo: "person-jagadish-chandra-bose",
     name: "Jagadish Chandra Bose",
     bengali: "জগদীশ চন্দ্র বসু",
     born: 1858,
@@ -180,6 +186,7 @@ const core: Omit<Person, "group">[] = [
   },
   {
     slug: "jibanananda-das",
+    photo: "person-jibanananda-das",
     name: "Jibanananda Das",
     bengali: "জীবনানন্দ দাশ",
     born: 1899,
@@ -209,6 +216,7 @@ const core: Omit<Person, "group">[] = [
   },
   {
     slug: "mother-teresa",
+    photo: "person-mother-teresa",
     name: "Mother Teresa",
     born: 1910,
     died: 1997,
@@ -261,6 +269,7 @@ const core: Omit<Person, "group">[] = [
   },
   {
     slug: "amartya-sen",
+    photo: "person-amartya-sen",
     name: "Amartya Sen",
     bengali: "অমর্ত্য সেন",
     born: 1933,

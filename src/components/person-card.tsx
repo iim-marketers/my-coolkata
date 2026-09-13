@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Person } from "@/lib/kolkata/types";
 
-/** Initials stand in for a portrait; there are no photographs in this project. */
+/** Initials stand in for a portrait. */
 function initials(name: string) {
   return name
     .split(" ")

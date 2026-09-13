@@ -20,6 +20,7 @@ export default function TramPage() {
         title="Take the tram"
         lede="Esplanade to Shyambazar, seven stops, forty-six minutes. This is a journey the network could once make and no longer can, so it is offered here instead."
         scene="tram"
+        photo="hero-tram"
         meta={[
           { label: "Stops", value: String(tramStops.length) },
           { label: "Journey", value: `${tramStops[tramStops.length - 1].minutes} minutes` },

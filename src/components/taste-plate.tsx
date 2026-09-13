@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { CityScene } from "@/components/scenes/city-scene";
 import { dishes } from "@/lib/kolkata";
 import { cn, round2 } from "@/lib/utils";
 
 /**
- * The plate. Six dishes arranged around a rim; clicking one opens it.
- * The dishes are drawn as SVG rather than photographed, like everything
- * else here.
+ * The plate. Six dishes arranged around a rim; clicking one opens it with
+ * a photograph of the dish.
  */
 const PLATE: { slug: string; icon: string; label: string }[] = [
   { slug: "kolkata-biryani", icon: "🍚", label: "Biryani" },
@@ -132,6 +132,12 @@ export function TastePlate({ className }: { className?: string }) {
       {/* The dish. */}
       {dish ? (
         <article key={dish.slug} style={{ animation: "rise-in 500ms ease both" }}>
+          <CityScene
+            name={dish.scene}
+            photo={dish.photo}
+            detail="card"
+            className="mb-7 aspect-[16/9] w-full rounded-lg border border-border"
+          />
           <p className="font-mono text-[0.6rem] tracking-[0.26em] text-terracotta uppercase">
             {dish.originYear ? `Since ${dish.originYear}` : dish.category}
           </p>

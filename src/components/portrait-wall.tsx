@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { CityScene } from "@/components/scenes/city-scene";
 import { people } from "@/lib/kolkata";
 import { personGroups } from "@/lib/kolkata/types";
 import type { Person, PersonGroup } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
 
-/** Initials stand in for a portrait; there are no photographs here. */
+/** Initials stand in for anyone without a portrait. */
 function initials(name: string) {
   const words = name.split(" ").filter((w) => w.length > 2);
   return (words[0]?.[0] ?? "") + (words[words.length - 1]?.[0] ?? "");
@@ -89,6 +90,7 @@ export function PortraitWall({ className }: { className?: string }) {
 
 export function PortraitTile({ person }: { person: Person }) {
   const h = tint(person.slug);
+  const photo = person.photo;
   return (
     <Link
       href={`/people/${person.slug}`}
@@ -97,21 +99,33 @@ export function PortraitTile({ person }: { person: Person }) {
         background: `linear-gradient(160deg, oklch(0.42 0.07 ${h} / 0.22), oklch(0.3 0.05 ${(h + 40) % 360} / 0.1))`,
       }}
     >
-      {/* The initials sit behind the name, very large and very faint. */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-3 text-center font-display text-[clamp(3.5rem,11vw,5.5rem)] leading-none font-semibold text-foreground/10 transition-transform duration-700 group-hover:scale-110"
-      >
-        {initials(person.name)}
-      </span>
+      {photo ? (
+        <>
+          <CityScene
+            photo={photo}
+            detail="card"
+            focus="top"
+            className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-105"
+          />
+          <span className="scrim-bottom absolute inset-0" />
+        </>
+      ) : (
+        /* The initials sit behind the name, very large and very faint. */
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-3 text-center font-display text-[clamp(3.5rem,11vw,5.5rem)] leading-none font-semibold text-foreground/10 transition-transform duration-700 group-hover:scale-110"
+        >
+          {initials(person.name)}
+        </span>
+      )}
       <span className="relative">
-        <span className="block font-display text-[0.98rem] leading-tight font-semibold">
+        <span className={cn("block font-display text-[0.98rem] leading-tight font-semibold", photo && "text-cream")}>
           {person.name}
         </span>
-        <span className="mt-1 block font-mono text-[0.54rem] tracking-[0.12em] tabular-nums text-muted-foreground">
+        <span className={cn("mt-1 block font-mono text-[0.54rem] tracking-[0.12em] tabular-nums", photo ? "text-cream/70" : "text-muted-foreground")}>
           {person.died ? `${person.born}–${person.died}` : `b. ${person.born}`}
         </span>
-        <span className="mt-1.5 block text-[0.74rem] leading-snug text-muted-foreground">
+        <span className={cn("mt-1.5 block text-[0.74rem] leading-snug", photo ? "text-cream/80" : "text-muted-foreground")}>
           {person.field}
         </span>
       </span>

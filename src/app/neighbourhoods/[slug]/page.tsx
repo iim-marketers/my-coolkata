@@ -67,7 +67,7 @@ export default async function NeighbourhoodPage({
         eyebrow={zone?.label ?? "Kolkata"}
         title={area.name}
         lede={area.tagline}
-        scene={area.scene}
+        scene={area.scene} photo={area.photo}
         back={{ href: "/neighbourhoods", label: "All quarters" }}
         tall
         meta={[
@@ -97,11 +97,10 @@ export default async function NeighbourhoodPage({
 
           <Facet n="02" title="Photographs">
             <p className="mb-5 max-w-2xl text-[0.9rem] leading-relaxed text-muted-foreground">
-              Drawn plates rather than photographs. Open one to see it full
-              size.
+              Photographs of the quarter. Open one to see it full size.
             </p>
             <PhotoGallery
-              plates={area.plates.map((scene) => ({ scene }))}
+              plates={area.plates.map((scene, i) => ({ scene, photo: area.photos?.[i] }))}
               className="lg:grid-cols-3"
             />
           </Facet>

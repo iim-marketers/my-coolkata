@@ -46,7 +46,7 @@ export default async function HeritageSitePage({
         eyebrow={site.alsoKnownAs ? `Also ${site.alsoKnownAs}` : site.neighbourhood}
         title={site.name}
         lede={site.summary}
-        scene={site.scene}
+        scene={site.scene} photo={site.photo}
         back={{ href: "/heritage", label: "Heritage" }}
         tall
         meta={[

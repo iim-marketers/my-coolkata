@@ -31,6 +31,7 @@ export default function EventsPage() {
         title="Time your visit"
         lede="Almost everything worth planning around happens between late September and February. The rest of the year is hot, wet, or both, and the city does not pretend otherwise."
         scene="pujo"
+        photo="book-fair"
         meta={[
           { label: "In the calendar", value: String(cityEvents.length) },
           { label: "Best window", value: "October to February" },

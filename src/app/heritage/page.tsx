@@ -27,6 +27,7 @@ export default function HeritagePage() {
         title="What was built, and who paid for it"
         lede="A trading post became a capital, and the capital built accordingly: mausoleums for queens who never visited, a mosque copied from Akbar's tomb, and a bridge held together entirely by rivets."
         scene="victoria"
+        photo="victoria-memorial"
         meta={[
           { label: "Sites", value: String(heritageSites.length) },
           { label: "Oldest", value: "Kalighat, rebuilt 1809" },

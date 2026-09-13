@@ -24,8 +24,7 @@ export function HeritageCard({
         )}
       >
         <CityScene
-          name={site.scene}
-          instance={`her-${site.slug}`}
+          name={site.scene} photo={site.photo}
           detail="card"
           className="h-full w-full transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
         />

@@ -10,8 +10,7 @@ export function NeighbourhoodCard({ area }: { area: Neighbourhood }) {
     >
       <div className="relative aspect-[5/4] overflow-hidden">
         <CityScene
-          name={area.scene}
-          instance={`nb-${area.slug}`}
+          name={area.scene} photo={area.photo}
           detail="card"
           className="h-full w-full transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
         />

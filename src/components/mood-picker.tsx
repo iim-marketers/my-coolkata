@@ -55,8 +55,7 @@ export function MoodPicker({ className }: { className?: string }) {
           <div className="relative aspect-[21/9] min-h-[16rem]">
             <div className="h-full w-full" style={{ filter: mood.grade }}>
               <CityScene
-                name={mood.scene}
-                instance={`mood-${mood.id}`}
+                name={mood.scene} photo={mood.photo}
                 className="h-full w-full"
               />
             </div>

@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import { CityScene } from "@/components/scenes/city-scene";
+import type { PhotoId } from "@/lib/kolkata/photos";
 import type { SceneName } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +13,8 @@ import { cn } from "@/lib/utils";
 export function BeforeAfter({
   before,
   after,
+  beforePhoto,
+  afterPhoto,
   beforeLabel,
   afterLabel,
   caption,
@@ -19,6 +22,8 @@ export function BeforeAfter({
 }: {
   before: SceneName;
   after: SceneName;
+  beforePhoto?: PhotoId;
+  afterPhoto?: PhotoId;
   beforeLabel: string;
   afterLabel: string;
   caption?: string;
@@ -53,12 +58,12 @@ export function BeforeAfter({
         onPointerUp={() => (dragging.current = false)}
         onPointerCancel={() => (dragging.current = false)}
       >
-        <CityScene name={after} instance="ba-after" className="absolute inset-0 h-full w-full" />
+        <CityScene name={after} photo={afterPhoto} className="absolute inset-0 h-full w-full" />
         <div
           className="absolute inset-0 overflow-hidden"
           style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         >
-          <CityScene name={before} instance="ba-before" className="h-full w-full" />
+          <CityScene name={before} photo={beforePhoto} className="h-full w-full" />
         </div>
 
         {[

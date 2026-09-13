@@ -20,6 +20,7 @@ export default function MapPage() {
         title="Everything, plotted"
         lede="Real WGS84 coordinates projected onto a drawing. The Hooghly, the East Kolkata Wetlands, the Maidan and the Metro spine are where they actually are; the buildings are not to scale and were never going to be."
         scene="river"
+        photo="kolkata-skyline"
         meta={[
           { label: "Points", value: String(mapPoints.length) },
           {

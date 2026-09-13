@@ -26,6 +26,7 @@ export default function LiteraturePage() {
         title="The City of Words"
         lede="A city that will still buy poetry at scale, which almost no other market anywhere does. Eleven works, the places attached to them, and the excerpts we are allowed to print."
         scene="collegestreet"
+        photo="hero-collegestreet"
         meta={[
           { label: "Works", value: String(literature.length) },
           { label: "Eras", value: String(byEra.length) },

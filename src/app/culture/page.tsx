@@ -21,6 +21,7 @@ export default function CulturePage() {
         title="Adda, song, pandal, jatra"
         lede="Kolkata's reputation is for talking, and the reputation is deserved. What follows is six strands of a culture that treats argument, music and public art as ordinary weekday activities."
         scene="pujo"
+        photo="pandal-night"
         meta={[
           { label: "Strands", value: String(cultureStrands.length) },
           { label: "Songs by one man", value: "≈2,230" },
@@ -81,8 +82,8 @@ export default function CulturePage() {
           <Reveal>
             <SectionHeading
               eyebrow="Plates"
-              title="Nine drawings of the city"
-              lede="Every image on this site is vector art generated in the browser. Open one to see it at full size."
+              title="Nine photographs of the city"
+              lede="Every frame on this site is a photograph from Wikimedia Commons. Open one to see it at full size."
             />
           </Reveal>
           <Reveal delay={100} className="mt-12">

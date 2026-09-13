@@ -25,8 +25,7 @@ export function StoryCard({
         )}
       >
         <CityScene
-          name={story.scene}
-          instance={`st-${story.slug}`}
+          name={story.scene} photo={story.photo}
           detail={featured ? "full" : "card"}
           className="h-full w-full transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
         />

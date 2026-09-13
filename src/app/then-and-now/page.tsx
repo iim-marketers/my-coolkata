@@ -18,6 +18,7 @@ export default function ThenAndNowPage() {
         title="Kolkata vs old Calcutta"
         lede="Drag the handle. The left side is graded like an archival plate, the right is the place today, and underneath each one is the thing that has not changed."
         scene="rooftops"
+        photo="dalhousie-square-old"
         meta={[
           { label: "Places", value: String(thenNow.length) },
           { label: "Earliest", value: "1865, Dalhousie Square" },

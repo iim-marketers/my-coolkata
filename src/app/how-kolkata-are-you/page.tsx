@@ -18,6 +18,7 @@ export default function PersonalityPage() {
         title="How Kolkata are you?"
         lede="Six questions. There are no wrong answers, though there is a Bengali answer, and it is usually both."
         scene="streetfood"
+        photo="yellow-taxis-traffic"
         meta={[
           { label: "Questions", value: String(pQuestions.length) },
           { label: "Results", value: String(Object.keys(pResults).length) },

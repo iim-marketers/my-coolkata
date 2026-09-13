@@ -18,6 +18,7 @@ export default function HiddenPage() {
         title="You probably didn't know this existed"
         lede="Not the famous places. A numbered catalogue of the forgotten buildings, hidden temples, old signs, dead theatres and half-shut bakeries that the guidebooks skip."
         scene="rooftops"
+        photo="north-kolkata-lane"
         meta={[
           { label: "Catalogued", value: String(hiddenPlaces.length) },
           { label: "Categories", value: String(hiddenKinds.length) },
