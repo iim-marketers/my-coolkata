@@ -7,7 +7,7 @@ import { Compass, SearchIcon, X } from "lucide-react";
 import { smartExamples, smartSearch } from "@/lib/smart-search";
 import { cn } from "@/lib/utils";
 
-/** The six things people actually arrive wanting. */
+/** The things people actually arrive wanting. */
 const INTENTS = [
   {
     id: "place",
@@ -41,21 +41,14 @@ const INTENTS = [
     ],
   },
   {
-    id: "history",
-    icon: "🏛️",
-    label: "History",
+    id: "hangouts",
+    icon: "✨",
+    label: "Hangouts",
     links: [
-      { label: "Timeline", href: "/timeline" },
+      { label: "Adda", href: "/adda" },
       { label: "The Tram", href: "/tram" },
-    ],
-  },
-  {
-    id: "people",
-    icon: "👤",
-    label: "People",
-    links: [
-      { label: "Portrait wall", href: "/people" },
       { label: "Football", href: "/football" },
+      { label: "By mood", href: "/mood" },
     ],
   },
   {
@@ -159,7 +152,7 @@ export function ExploreButton({
                     ref={inputRef}
                     value={q}
                     onChange={(e) => setQ(e.target.value)}
-                    placeholder="Search places, food, people…"
+                    placeholder="Search places, food, events…"
                     className="w-full bg-transparent py-4 text-[0.95rem] outline-none placeholder:text-muted-foreground/60"
                   />
                   <button

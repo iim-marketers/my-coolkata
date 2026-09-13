@@ -125,7 +125,6 @@ export const pResults: Record<Trait, PResult> = {
     goNext: [
       { label: "Heritage", href: "/heritage" },
       { label: "Architecture", href: "/architecture" },
-      { label: "Then and now", href: "/then-and-now" },
     ],
   },
   night: {
@@ -135,7 +134,6 @@ export const pResults: Record<Trait, PResult> = {
     body: "Sodium light flattens everything to one amber tone and you will defend that against LEDs to anybody who asks. You know which lanes have not been converted, that Balwant Singh's is open until dawn, and that the bridge is best lit from Millennium Park.",
     share: "I'm The Night Owl. My Kolkata is amber and starts at ten.",
     goNext: [
-      { label: "Kolkata Sounds", href: "/sounds" },
       { label: "A day in Kolkata", href: "/a-day-in-kolkata" },
       { label: "Sodium light", href: "/stories/sodium-light" },
     ],

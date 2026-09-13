@@ -2,13 +2,12 @@ import { searchCity, type SearchRecord } from "@/lib/search-index";
 import { foodPlaces } from "@/lib/kolkata/food-places";
 import { heritageSites } from "@/lib/kolkata/heritage";
 import { neighbourhoods } from "@/lib/kolkata/neighbourhoods";
-import { people } from "@/lib/kolkata/people";
 import { plates } from "@/lib/kolkata/gallery";
 import { dishes } from "@/lib/kolkata/food";
 
 /**
  * A small intent layer over the plain index, so queries phrased as
- * questions do something sensible: "places related to Tagore", "old
+ * questions do something sensible: "where to eat near Park Street", "old
  * buildings near College Street", "Kolkata food under ₹500".
  *
  * This is rule-based, not a model. It recognises a handful of shapes and
@@ -64,31 +63,6 @@ export function smartSearch(query: string): SmartAnswer {
       reading: `Food for ₹${budget} or less`,
       results: cheap,
       note: "Prices are the usual street or restaurant range, not a guarantee.",
-    };
-  }
-
-  // Person: "places related to Tagore"
-  const person = people.find((p) => {
-    const last = p.name.split(" ").pop()!.toLowerCase();
-    return q.includes(last) || q.includes(p.name.toLowerCase());
-  });
-  if (person && /(place|location|relat|connect|where|address|walk)/.test(q)) {
-    const results = [
-      rec(
-        `pp-${person.slug}`,
-        person.name,
-        "People",
-        `/people/${person.slug}`,
-        person.summary,
-      ),
-      ...(person.locations ?? []).map((l) =>
-        rec(`pl-${person.slug}-${l.name}`, l.name, "Place", l.href ?? `/people/${person.slug}`, l.note),
-      ),
-    ];
-    return {
-      reading: `Places connected to ${person.name}`,
-      results,
-      note: `${person.locations?.length ?? 0} addresses you can stand outside.`,
     };
   }
 
@@ -193,7 +167,7 @@ export function smartSearch(query: string): SmartAnswer {
 
 /** The examples the dialog offers, and the ones the brief asked for. */
 export const smartExamples = [
-  "places related to Tagore",
+  "where to eat near Park Street",
   "best places for photography",
   "old buildings near College Street",
   "food under ₹200",

@@ -146,13 +146,13 @@ export interface FilmPerson {
 }
 
 export const filmPeople: FilmPerson[] = [
-  { name: "Satyajit Ray", role: "director", years: "1921–1992", line: "Wrote, drew, scored and directed. Honorary Academy Award in 1992.", href: "/people/satyajit-ray" },
-  { name: "Ritwik Ghatak", role: "director", years: "1925–1976", line: "Eight features, mostly about Partition, mostly commercial failures.", href: "/people/ritwik-ghatak" },
-  { name: "Mrinal Sen", role: "director", years: "1923–2018", line: "Broke the fourth wall and never apologised for it.", href: "/people/mrinal-sen" },
+  { name: "Satyajit Ray", role: "director", years: "1921–1992", line: "Wrote, drew, scored and directed. Honorary Academy Award in 1992." },
+  { name: "Ritwik Ghatak", role: "director", years: "1925–1976", line: "Eight features, mostly about Partition, mostly commercial failures." },
+  { name: "Mrinal Sen", role: "director", years: "1923–2018", line: "Broke the fourth wall and never apologised for it." },
   { name: "Aparna Sen", role: "director", years: "b. 1945", line: "36 Chowringhee Lane in 1981, and a second career better than the first." },
   { name: "Rituparno Ghosh", role: "director", years: "1963–2013", line: "Nineteen films in nineteen years, and the most significant queer figure in Bengali public life." },
-  { name: "Uttam Kumar", role: "actor", years: "1926–1980", line: "The Mahanayak. Seven flops, then thirty years.", href: "/people/uttam-kumar" },
-  { name: "Suchitra Sen", role: "actor", years: "1931–2014", line: "Stopped in 1978 and was never photographed in public again.", href: "/people/suchitra-sen" },
+  { name: "Uttam Kumar", role: "actor", years: "1926–1980", line: "The Mahanayak. Seven flops, then thirty years." },
+  { name: "Suchitra Sen", role: "actor", years: "1931–2014", line: "Stopped in 1978 and was never photographed in public again." },
   { name: "Soumitra Chatterjee", role: "actor", years: "1935–2020", line: "Fourteen films with Ray, and Feluda on screen." },
   { name: "Madhabi Mukherjee", role: "actor", years: "b. 1942", line: "Mahanagar and Charulata, and the face of Ray's best decade." },
   { name: "Utpal Dutt", role: "actor", years: "1929–1993", line: "Marxist playwright, jatra writer, and the finest villain Bengali cinema had." },

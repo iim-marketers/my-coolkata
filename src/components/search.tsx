@@ -94,7 +94,7 @@ export function Search({ className }: { className?: string }) {
                   setCursor(0);
                 }}
                 onKeyDown={onListKey}
-                placeholder="Bridges, biryani, Bagbazar, 1943…"
+                placeholder="Bridges, biryani, Bagbazar…"
                 className="w-full bg-transparent py-4 text-[0.95rem] outline-none placeholder:text-muted-foreground/60"
               />
               <kbd className="shrink-0 rounded border border-border px-1.5 py-0.5 font-mono text-[0.56rem] text-muted-foreground">
@@ -104,8 +104,7 @@ export function Search({ className }: { className?: string }) {
 
             {q.trim().length < 2 ? (
               <p className="px-4 py-8 text-center text-[0.86rem] text-muted-foreground">
-                Search heritage, food, people, neighbourhoods, stories and the
-                timeline.
+                Search landmarks, food, neighbourhoods, events and stories.
               </p>
             ) : results.length === 0 ? (
               <p className="px-4 py-8 text-center text-[0.86rem] text-muted-foreground">

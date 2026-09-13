@@ -7,26 +7,21 @@ import {
   moods,
   plates,
   riverChapters,
-  thenNow,
   todayEntries,
   tramStops,
-  citySounds,
   craftStages,
   dayMoments,
   hiddenPlaces,
   cityEvents,
   cultureStrands,
   dishes,
-  eraStops,
   famousFor,
   foodPlaces,
   heritageSites,
   itineraries,
   neighbourhoods,
-  people,
   pujoChapters,
   stories,
-  timeline,
 } from "@/lib/kolkata";
 
 export interface SearchRecord {
@@ -72,18 +67,6 @@ export const searchIndex: SearchRecord[] = [
       d.category,
       d.origin,
       ...d.eatItAt.map((e) => e.place),
-    ]),
-  ),
-  ...people.map((p) =>
-    record(`p-${p.slug}`, p.name, "People", `/people/${p.slug}`, p.summary, [
-      p.bengali,
-      p.field,
-      p.group,
-      p.address,
-      p.bornAt,
-      p.contribution,
-      ...p.works.map((w) => w.title),
-      ...(p.locations ?? []).map((l) => l.name),
     ]),
   ),
   ...neighbourhoods.map((n) =>
@@ -144,16 +127,6 @@ export const searchIndex: SearchRecord[] = [
       [c.bengali],
     ),
   ),
-  ...eraStops.map((e) =>
-    record(
-      `er-${e.id}`,
-      `${e.label}: ${e.headline}`,
-      "Through time",
-      "/through-time",
-      e.standfirst,
-      e.sees.map((s) => s.title),
-    ),
-  ),
   ...hiddenPlaces.map((h) =>
     record(
       `hd-${h.slug}`,
@@ -163,13 +136,6 @@ export const searchIndex: SearchRecord[] = [
       h.line,
       [h.where, h.note, h.kind],
     ),
-  ),
-  ...citySounds.map((s2) =>
-    record(`sd-${s2.id}`, s2.name, "Sounds", "/sounds", s2.note, [
-      s2.where,
-      s2.when,
-      s2.bengali,
-    ]),
   ),
   ...dayMoments.map((m) =>
     record(`dy-${m.time}`, `${m.time}: ${m.title}`, "A day in Kolkata", "/a-day-in-kolkata", m.body, [
@@ -196,13 +162,6 @@ export const searchIndex: SearchRecord[] = [
       a.body,
       ...a.tells,
       ...a.examples.map((e) => e.name),
-    ]),
-  ),
-  ...thenNow.map((t) =>
-    record(`tn-${t.slug}`, `${t.place}, then and now`, "Then & now", `/then-and-now#${t.slug}`, t.constant, [
-      t.thenYear,
-      t.then,
-      t.now,
     ]),
   ),
   ...films.map((f) =>
@@ -257,15 +216,6 @@ export const searchIndex: SearchRecord[] = [
       t.where,
       t.kind,
     ]),
-  ),
-  ...timeline.map((t) =>
-    record(
-      `t-${t.year}-${t.title}`,
-      `${t.year}: ${t.title}`,
-      "Timeline",
-      "/timeline",
-      t.body,
-    ),
   ),
 ];
 

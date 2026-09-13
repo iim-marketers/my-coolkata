@@ -53,6 +53,7 @@ export function CraftProcess() {
               >
                 <CityScene
                   name={s.scene} photo={s.photo}
+                  sizes="(min-width: 1024px) min(50vw, 640px), 100vw"
                   className="h-full w-full"
                 />
               </div>

@@ -20,7 +20,9 @@ export function FacesGallery({ className }: { className?: string }) {
 
   const step = useCallback(
     (d: number) =>
-      setOpen((i) => (i === null ? null : (i + d + shown.length) % shown.length)),
+      setOpen((i) =>
+        i === null ? null : (i + d + shown.length) % shown.length,
+      ),
     [shown.length],
   );
 
@@ -96,14 +98,20 @@ export function FacesGallery({ className }: { className?: string }) {
               onClick={() => setOpen(i)}
               className={cn(
                 "group relative block w-full overflow-hidden rounded-lg border border-border",
-                i % 7 === 0 ? "aspect-[16/10] lg:h-full" : "aspect-[4/3]",
+                i % 7 === 0 ? "aspect-16/10 lg:h-full" : "aspect-4/3",
               )}
             >
               <div className="h-full w-full" style={{ filter: p.grade }}>
                 <CityScene
-                  name={p.scene} photo={p.photo}
-                  detail={i % 7 === 0 ? "full" : "card"}
-                  className="h-full w-full transition-transform duration-[1400ms] group-hover:scale-105"
+                  name={p.scene}
+                  photo={p.photo}
+                  detail="card"
+                  sizes={
+                    i % 7 === 0
+                      ? "(min-width: 1024px) min(67vw, 896px), 100vw"
+                      : undefined
+                  }
+                  className="h-full w-full transition-transform duration-1400 group-hover:scale-105"
                 />
               </div>
               <span className="scrim-bottom absolute inset-0" />
@@ -158,7 +166,8 @@ export function FacesGallery({ className }: { className?: string }) {
             style={{ filter: current.grade }}
           >
             <CityScene
-              name={current.scene} photo={current.photo}
+              name={current.scene}
+              photo={current.photo}
               className="h-full w-full"
             />
           </div>

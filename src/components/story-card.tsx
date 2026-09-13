@@ -26,7 +26,8 @@ export function StoryCard({
       >
         <CityScene
           name={story.scene} photo={story.photo}
-          detail={featured ? "full" : "card"}
+          detail="card"
+          sizes={featured ? "(min-width: 768px) min(50vw, 672px), 100vw" : undefined}
           className="h-full w-full transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
         />
         <div className="scrim-bottom absolute inset-0 md:opacity-70" />

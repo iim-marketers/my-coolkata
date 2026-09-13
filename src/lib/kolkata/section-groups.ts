@@ -8,7 +8,7 @@ export interface SectionGroup {
   items: Section[];
 }
 
-/** The index, grouped so fifteen pages read as four short lists. */
+/** The index, grouped so the pages read as three short lists. */
 const GROUPS: { label: string; blurb: string; hrefs: string[] }[] = [
   {
     label: "Places",
@@ -17,20 +17,15 @@ const GROUPS: { label: string; blurb: string; hrefs: string[] }[] = [
   },
   {
     label: "Culture",
-    blurb: "Food, festivals, films, football and the people behind them.",
+    blurb: "Food, festivals, films, football and longer reads.",
     hrefs: [
       "/food",
       "/durga-puja",
-      "/people",
       "/cinema",
       "/literature",
       "/football",
+      "/stories",
     ],
-  },
-  {
-    label: "History",
-    blurb: "The years the city turns on, and longer reads.",
-    hrefs: ["/timeline", "/stories"],
   },
   {
     label: "Plan a visit",

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { AudioPlayer } from "@/components/audio-player";
 import { pageShell } from "@/components/page-header";
 import { PhotoGallery } from "@/components/photo-gallery";
 import { PujoCountdown } from "@/components/pujo-countdown";
@@ -63,6 +62,7 @@ export default function DurgaPujaPage() {
                   <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border">
                     <CityScene
                       name={chapter.scene} photo={chapter.photo}
+                      sizes="(min-width: 1024px) min(50vw, 640px), 100vw"
                       className="h-full w-full"
                     />
                     <div className="scrim-bottom absolute inset-0" />
@@ -150,21 +150,13 @@ export default function DurgaPujaPage() {
         </div>
       </section>
 
-      {/* Sound and plates. */}
+      {/* Plates. */}
       <section className="border-t border-border">
-        <div className={`${pageShell} grid gap-12 py-16 sm:py-24 lg:grid-cols-[1fr_1.15fr] lg:gap-16`}>
+        <div className={`${pageShell} py-16 sm:py-24`}>
           <Reveal>
-            <SectionHeading
-              eyebrow="The dhaak"
-              title="Hear it"
-              lede="Synthesised in your browser, because there are no recordings on this site. Press the dhaak."
-            />
-            <AudioPlayer className="mt-8" />
-          </Reveal>
-          <Reveal delay={100}>
             <SectionHeading eyebrow="Plates" title="Five nights" />
             <PhotoGallery
-              className="mt-8 lg:grid-cols-2"
+              className="mt-8 lg:grid-cols-4"
               plates={[
                 { scene: "kumartuli", title: "The workshop", caption: "Straw, river clay, and the eyes painted last." },
                 { scene: "pujo", title: "The pandal", caption: "A commissioned installation, up for ten days." },

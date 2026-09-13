@@ -21,6 +21,7 @@ type Source =
 export function CityScene({
   className,
   detail = "full",
+  sizes,
   preload = false,
   focus = "center",
   imgClassName,
@@ -34,6 +35,8 @@ export function CityScene({
    * a smaller file. Leave it as `full` for anything that spans the viewport.
    */
   detail?: "full" | "card";
+  /** Overrides `detail` for layouts that fit neither, e.g. half a split row. */
+  sizes?: string;
   /** Only for the frame that is the page's largest paint, i.e. the hero. */
   preload?: boolean;
   /** `top` keeps faces in frame when a portrait is cropped. */
@@ -49,9 +52,10 @@ export function CityScene({
         preload={preload}
         placeholder="blur"
         sizes={
-          detail === "card"
+          sizes ??
+          (detail === "card"
             ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            : "100vw"
+            : "100vw")
         }
         className={cn(
           "object-cover",

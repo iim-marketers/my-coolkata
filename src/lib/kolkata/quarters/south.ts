@@ -31,7 +31,7 @@ export const south: Neighbourhood[] = [
     ],
     figures: [
       { name: "Jamini Roy", note: "Took the Kalighat pat style and made a modern Indian painting out of it." },
-      { name: "Mother Teresa", note: "Opened Nirmal Hriday next to the temple in 1952.", href: "/people/mother-teresa" },
+      { name: "Mother Teresa", note: "Opened Nirmal Hriday next to the temple in 1952." },
     ],
     thingsToSee: [
       { name: "The image itself", note: "Three gold eyes and a gold tongue on black stone. Nothing like a pandal Kali." },
@@ -46,11 +46,6 @@ export const south: Neighbourhood[] = [
       { stop: "Nirmal Hriday", minutes: 12, note: "Next door. Visitors are received." },
       { stop: "The Adi Ganga", minutes: 16, note: "The old main channel of the Hooghly, now a drain." },
       { stop: "Keoratala", minutes: 22, note: "The burning ghat, south along the channel." },
-    ],
-    sounds: [
-      "Bells, continuously, from before dawn",
-      "Bargaining over prasad plates",
-      "Dhaak on Kali Puja night",
     ],
     scene: "kumartuli",
     photo: "kalighat-temple",
@@ -86,8 +81,8 @@ export const south: Neighbourhood[] = [
       { name: "Kasturi", where: "Mirza Ghalib Street and Ballygunge", note: "Bangladeshi Bengali. Kochu pata chingri." },
     ],
     figures: [
-      { name: "Satyajit Ray", note: "Lived on Bishop Lefroy Road, and filmed this quarter repeatedly.", href: "/people/satyajit-ray" },
-      { name: "Suchitra Sen", note: "Lived here, and after 1978 was never photographed in public again.", href: "/people/suchitra-sen" },
+      { name: "Satyajit Ray", note: "Lived on Bishop Lefroy Road, and filmed this quarter repeatedly." },
+      { name: "Suchitra Sen", note: "Lived here, and after 1978 was never photographed in public again." },
     ],
     thingsToSee: [
       { name: "Maddox Square on Ashtami", note: "Not the pandal. The field around it." },
@@ -103,11 +98,6 @@ export const south: Neighbourhood[] = [
       { stop: "Deshapriya Park", minutes: 18, note: "Puja, or an ordinary park the rest of the year." },
       { stop: "Gariahat crossing", minutes: 28, note: "Market, and the flyover for the view." },
       { stop: "Maddox Square", minutes: 40, note: "During Puja only. Otherwise a cricket ground." },
-    ],
-    sounds: [
-      "Harmonium practice from a first-floor window",
-      "Fish being cut to order at Gariahat",
-      "Dhaak and a sound system playing the same song for nine nights",
     ],
     scene: "pujo",
     photo: "ballygunge",
@@ -158,11 +148,6 @@ export const south: Neighbourhood[] = [
       { stop: "Triangular Park", minutes: 25, note: "Phuchka." },
       { stop: "Dakshinapan", minutes: 40, note: "South. Quiet, and the handloom." },
     ],
-    sounds: [
-      "Fish being cut to order, at speed",
-      "Sari prices called across a pavement",
-      "Traffic on the flyover, above everything",
-    ],
     scene: "streetfood",
     photo: "gariahat",
   },
@@ -208,11 +193,6 @@ export const south: Neighbourhood[] = [
       { stop: "The lake circuit", minutes: 20, note: "About three kilometres all the way round." },
       { stop: "Nipponzan Myohoji temple", minutes: 30, note: "Southern bank. Shoes off." },
       { stop: "Dhakuria Bridge", minutes: 40, note: "The local landmark, and the roll shops." },
-    ],
-    sounds: [
-      "Oars, before six",
-      "A Japanese temple drum at dusk",
-      "Suburban trains under the bridge",
     ],
     scene: "river",
     photo: "dakshinapan",
@@ -263,11 +243,6 @@ export const south: Neighbourhood[] = [
       { stop: "Milanda's canteen", minutes: 18, note: "Tea, and whatever the argument is today." },
       { stop: "Kasturi", minutes: 30, note: "Lunch, and order the kochu pata chingri." },
     ],
-    sounds: [
-      "A microphone and a slogan, most weeks",
-      "Guitars on the campus lawn after dark",
-      "Buses reversing into the 8B stand",
-    ],
     scene: "collegestreet",
     photo: "jadavpur-university",
   },
@@ -303,7 +278,7 @@ export const south: Neighbourhood[] = [
     figures: [
       { name: "Uttam Kumar", note: "The Mahanayak. The metro station carries his name." },
       { name: "P. C. Barua", note: "Directed and starred in Devdas, 1935, at New Theatres." },
-      { name: "Ritwik Ghatak", note: "Worked in and around these studios, mostly unprofitably.", href: "/people/ritwik-ghatak" },
+      { name: "Ritwik Ghatak", note: "Worked in and around these studios, mostly unprofitably." },
     ],
     thingsToSee: [
       { name: "The studio gates in the afternoon", note: "Technicians' Studio still works. Shoots spill onto the road." },
@@ -318,11 +293,6 @@ export const south: Neighbourhood[] = [
       { stop: "Tollygunge Club gate", minutes: 8, note: "Members and guests. The exterior is still something." },
       { stop: "Technicians' Studio", minutes: 16, note: "A working studio, not a museum." },
       { stop: "Tolly's Nullah", minutes: 24, note: "The canal, and what has become of it." },
-    ],
-    sounds: [
-      "A film unit's generator, running all afternoon",
-      "Golf, improbably, over a wall",
-      "The last tram, once",
     ],
     scene: "tram",
     photo: "tram-grass-track",

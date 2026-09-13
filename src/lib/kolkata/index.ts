@@ -5,24 +5,19 @@ import { CITY_BOUNDS, type Coords, type MapPoint } from "./types";
 export * from "./types";
 export * from "./heritage";
 export * from "./food";
-export * from "./people";
 export * from "./neighbourhoods";
 export * from "./stories";
-export * from "./timeline";
 export * from "./events";
 export * from "./culture";
 export * from "./famous-for";
 export * from "./food-places";
 export * from "./food-quiz";
-export * from "./eras";
 export * from "./pujo";
-export * from "./sounds";
 export * from "./day";
 export * from "./adda";
 export * from "./hidden";
 export * from "./kumartuli";
 export * from "./architecture";
-export * from "./then-now";
 export * from "./cinema";
 export * from "./literature";
 export * from "./football";
@@ -134,8 +129,8 @@ export const sections = [
   },
   {
     href: "/heritage",
-    label: "Heritage",
-    blurb: "Twenty-two buildings, and who paid for them",
+    label: "Landmarks",
+    blurb: "The big sights, worth the trip",
   },
   { href: "/food", label: "Taste Kolkata", blurb: "A plate, a map and a food trail" },
   {
@@ -143,7 +138,6 @@ export const sections = [
     label: "Durga Puja",
     blurb: "Five days when the city stops being a city",
   },
-  { href: "/people", label: "People", blurb: "Twenty-five lives, on one wall" },
   { href: "/plan", label: "Plan", blurb: "Itineraries that work" },
   { href: "/hidden", label: "Hidden Kolkata", blurb: "Forty things you didn't know existed" },
   { href: "/cinema", label: "Cinema", blurb: "Ray, Ghatak, Sen, and the locations" },
@@ -152,6 +146,5 @@ export const sections = [
   { href: "/tram", label: "The Tram", blurb: "Esplanade to Shyambazar, seven stops" },
   { href: "/river", label: "The Hooghly", blurb: "The river that watches Kolkata" },
   { href: "/stories", label: "Stories", blurb: "Longer reads" },
-  { href: "/timeline", label: "Timeline", blurb: "1495 to now" },
   { href: "/events", label: "Events", blurb: "The calendar" },
 ] as const;

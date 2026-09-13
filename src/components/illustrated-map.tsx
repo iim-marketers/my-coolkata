@@ -191,7 +191,6 @@ export function IllustratedMap({
               {[
                 ["Buildings", active.buildings.length, active.buildings[0]?.name],
                 ["Places to eat", active.eats.length, active.eats[0]?.name],
-                ["Figures", active.figures.length, active.figures[0]?.name],
                 ["Things to see", active.thingsToSee.length, active.thingsToSee[0]?.name],
               ].map(([label, count, first]) => (
                 <li key={String(label)} className="flex items-baseline gap-3 text-[0.84rem]">
