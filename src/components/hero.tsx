@@ -26,12 +26,6 @@ const HIGHLIGHTS = [
  * collage of the city that assembles itself on the right.
  */
 export function Hero() {
-  const stats = [
-    { value: dishes.length, label: "dishes to try" },
-    { value: neighbourhoods.length, label: "paras to explore" },
-    { value: hiddenPlaces.length, label: "hidden gems" },
-  ];
-
   return (
     <section className="relative isolate z-20 overflow-x-clip bg-background pt-22 pb-36 sm:pt-26 sm:pb-44 lg:pt-30 lg:pb-44">
       <HeroBackdrop />
@@ -70,9 +64,6 @@ export function Hero() {
             className="hero-rise mt-7 flex flex-wrap items-center gap-2.5"
             style={{ animationDelay: "320ms" }}
           >
-            <span className="mr-1 text-[0.86rem] font-medium text-muted-foreground">
-              Or browse the highlights:
-            </span>
             {HIGHLIGHTS.map(({ label, href, icon: Icon }) => (
               <Link
                 key={href}
