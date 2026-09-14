@@ -85,7 +85,7 @@ const PLANS = [
     line:
       currentSeason.status === "soon"
         ? "Coming soon: a photo and video contest. The best join the crew."
-        : "Shoot the city. The best join the Coolkata crew.",
+        : "Shoot the city. The best join the My Coolkata crew.",
     href: "/events",
   },
 ];

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { NavTram } from "@/components/ambient";
+import { NavTaxi } from "@/components/ambient";
 import { ExploreButton } from "@/components/explore";
 import { Logo } from "@/components/logo";
 import { sections } from "@/lib/kolkata";
@@ -61,8 +61,10 @@ export function SiteNav() {
           menu && "bg-background",
         )}
       >
-        <nav className="mx-auto flex h-16 w-full max-w-352 items-center gap-6 px-5 sm:px-8">
-          <Link href="/" aria-label="Coolkata home" className="shrink-0">
+        <NavTaxi />
+
+        <nav className="relative mx-auto flex h-16 w-full max-w-352 items-center gap-6 px-5 sm:px-8">
+          <Link href="/" aria-label="My Coolkata home" className="shrink-0">
             <Logo />
           </Link>
 
@@ -102,8 +104,6 @@ export function SiteNav() {
             </button>
           </div>
         </nav>
-
-        <NavTram tone="var(--muted-foreground)" />
       </header>
 
       {/* Full index, grouped, and scrollable when the screen is short. */}

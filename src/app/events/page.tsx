@@ -25,7 +25,7 @@ const soon = currentSeason.status === "soon";
 export const metadata: Metadata = {
   title: soon ? "Events: Frame Kolkata (coming soon)" : "Events: Frame Kolkata",
   description:
-    "A recurring photo and video contest for small creators. Shoot a part of Kolkata; the best photographers and videographers are invited to intern with Coolkata.",
+    "A recurring photo and video contest for small creators. Shoot a part of Kolkata; the best photographers and videographers are invited to intern with My Coolkata.",
 };
 
 export default function EventsPage() {
@@ -42,8 +42,8 @@ export default function EventsPage() {
         }
         lede={
           soon
-            ? "A photo and video contest for small creators, run season after season. Season 01 has not started yet, so here is a first look: pick a part of Kolkata, show it the way only you can, and the best photographers and videographers will be invited to intern with Coolkata."
-            : "A photo and video contest for small creators, run season after season. Pick a part of Kolkata, show it the way only you can, and the best photographers and videographers are invited to intern with Coolkata."
+            ? "A photo and video contest for small creators, run season after season. Season 01 has not started yet, so here is a first look: pick a part of Kolkata, show it the way only you can, and the best photographers and videographers will be invited to intern with My Coolkata."
+            : "A photo and video contest for small creators, run season after season. Pick a part of Kolkata, show it the way only you can, and the best photographers and videographers are invited to intern with My Coolkata."
         }
         scene="howrah"
         photo="hero-howrah"
@@ -153,7 +153,7 @@ export default function EventsPage() {
             <SectionHeading
               eyebrow="The prize"
               title="Not a trophy. A seat on the crew."
-              lede={`The best photographers and videographers of each season are invited to intern with Coolkata, for ${season.internship}.`}
+              lede={`The best photographers and videographers of each season are invited to intern with My Coolkata, for ${season.internship}.`}
             />
             <ul className="mt-9 grid gap-4 sm:grid-cols-2">
               {crewPerks.map((perk, i) => (

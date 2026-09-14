@@ -1,9 +1,5 @@
 import { cn } from "@/lib/utils";
 
-/**
- * The ground every hero stands on: a dot grid, two soft pools of pigment,
- * and the skyline drifting along the bottom. `mini` is the page-banner scale.
- */
 export function HeroBackdrop({ size = "full" }: { size?: "full" | "mini" }) {
   const mini = size === "mini";
   return (
@@ -30,7 +26,10 @@ export function HeroBackdrop({ size = "full" }: { size?: "full" | "mini" }) {
       >
         <div className="skyline-marquee flex h-full w-max">
           {Array.from({ length: 8 }, (_, i) => (
-            <Skyline key={i} className="aspect-1440/140 h-full w-auto shrink-0" />
+            <Skyline
+              key={i}
+              className="aspect-1440/140 h-full w-auto shrink-0"
+            />
           ))}
         </div>
       </div>

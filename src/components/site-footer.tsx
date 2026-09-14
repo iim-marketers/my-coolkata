@@ -8,7 +8,11 @@ export function SiteFooter() {
       <div className="mx-auto w-full max-w-352 px-5 pt-12 pb-8 sm:px-8 sm:pt-16 sm:pb-8">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_2.8fr] lg:gap-16">
           <div>
-            <Link href="/" aria-label="Coolkata home" className="inline-block">
+            <Link
+              href="/"
+              aria-label="My Coolkata home"
+              className="inline-block"
+            >
               <Logo />
             </Link>
             <p className="mt-4 max-w-xs text-[0.9rem] leading-relaxed text-muted-foreground">

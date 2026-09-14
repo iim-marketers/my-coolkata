@@ -1,9 +1,9 @@
 import type { PhotoId } from "./photos";
 
 /**
- * Frame Kolkata: Coolkata's recurring photo and video contest for small
+ * Frame Kolkata: My Coolkata's recurring photo and video contest for small
  * creators. The best photographers and videographers of each season are
- * invited to intern with Coolkata.
+ * invited to intern with My Coolkata.
  *
  * Everything a season needs lives in this file, so running the next one is
  * an edit here rather than to the page. Anything not yet decided stays
@@ -86,18 +86,18 @@ export const contestSteps = [
   },
   {
     title: "The shortlist",
-    line: "The Coolkata team picks a shortlist, shown on this site with your name on it.",
+    line: "The My Coolkata team picks a shortlist, shown on this site with your name on it.",
   },
   {
     title: "Join the crew",
-    line: "The best photographers and videographers are invited to intern with Coolkata.",
+    line: "The best photographers and videographers are invited to intern with My Coolkata.",
   },
 ];
 
 export const crewPerks = [
   {
     title: "Real assignments",
-    line: "Shoot parts of the city for Coolkata's own pages.",
+    line: "Shoot parts of the city for My Coolkata's own pages.",
   },
   {
     title: "Your name on your work",
@@ -283,7 +283,7 @@ export const contestFaqs = [
   },
   {
     q: "How is my work credited?",
-    a: "Anything shortlisted and shown on Coolkata carries your name. The full terms are published with each season's entry form.",
+    a: "Anything shortlisted and shown on My Coolkata carries your name. The full terms are published with each season's entry form.",
   },
   {
     q: "When does the next season start?",

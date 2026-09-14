@@ -44,16 +44,16 @@ const galada = Galada({
 
 export const metadata: Metadata = {
   title: {
-    default: "Coolkata — Discover the cool side of Kolkata",
-    template: "%s · Coolkata",
+    default: "My Coolkata — Discover the cool side of Kolkata",
+    template: "%s · My Coolkata",
   },
   description:
     "Street food, Durga Puja, hidden gems, neighbourhoods and weekend plans. Your cheat sheet to Kolkata.",
   openGraph: {
-    title: "Coolkata — Discover the cool side of Kolkata",
+    title: "My Coolkata — Discover the cool side of Kolkata",
     description:
       "Street food, Durga Puja, hidden gems, neighbourhoods and weekend plans. Your cheat sheet to Kolkata.",
-    siteName: "Coolkata",
+    siteName: "My Coolkata",
     type: "website",
   },
 };
@@ -66,8 +66,6 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    // The inline script below sets `data-enter` on this element before
-    // hydration, so its attributes are expected to differ from the server's.
     <html
       lang="en"
       data-scroll-behavior="smooth"
@@ -75,17 +73,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} ${bengali.variable} ${galada.variable} h-full antialiased`}
     >
       <head>
-        {/* Hold the banner choreography until the phone can actually paint
-            it. The animations are pure CSS, so their clock starts the moment
-            the markup is styled — on a cold mobile load that is a second or
-            more before the photographs have arrived, and every frame decoded
-            while they land is a frame of the entrance dropped. This runs
-            before the body exists, marks the document held, and lets go once
-            the fonts have settled, the banner's own photographs have decoded
-            and a run of frames has landed on time. A load too slow for any of
-            that gets `skip`: the page simply appears, whole and still, which
-            is better than stuttering through a sequence nobody can see.
-            See the `data-enter` rules in `globals.css`. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){
