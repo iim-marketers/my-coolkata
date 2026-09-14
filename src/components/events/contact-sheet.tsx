@@ -20,7 +20,7 @@ export function ContactSheet() {
     <div className="sticky-split grid gap-8 lg:grid-cols-[1.55fr_1fr] lg:gap-12">
       <div className="rounded-2xl bg-ink p-3 shadow-[0_30px_60px_-35px_oklch(0.2_0.03_265/0.7)] sm:p-5">
         <div className="mb-3 flex justify-between px-1 font-mono text-[0.54rem] tracking-[0.24em] text-marigold/80 uppercase">
-          <span>Kolkata 400 · Cool-kata</span>
+          <span>Kolkata 400 · Coolkata</span>
           <span>Season {pad(currentSeason.number)}</span>
         </div>
         <ul className="grid grid-cols-2 gap-x-2.5 gap-y-3 sm:grid-cols-3 sm:gap-x-3 lg:grid-cols-4">

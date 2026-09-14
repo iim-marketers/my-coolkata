@@ -41,9 +41,10 @@ export default function DurgaPujaPage() {
                 className={`sticky-split grid gap-10 lg:grid-cols-2 lg:gap-16 ${flip ? "lg:[&>*:first-child]:order-2" : ""}`}
               >
                 <Reveal>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border">
+                  <div className="relative aspect-4/3 overflow-hidden rounded-lg border border-border">
                     <CityScene
-                      name={chapter.scene} photo={chapter.photo}
+                      name={chapter.scene}
+                      photo={chapter.photo}
                       sizes="(min-width: 1024px) min(50vw, 640px), 100vw"
                       className="h-full w-full"
                     />
@@ -62,7 +63,10 @@ export default function DurgaPujaPage() {
                     {chapter.title}
                   </h2>
                   {chapter.bengali ? (
-                    <p className="mt-1 text-base text-muted-foreground" lang="bn">
+                    <p
+                      className="mt-1 text-base text-muted-foreground"
+                      lang="bn"
+                    >
                       {chapter.bengali}
                     </p>
                   ) : null}
@@ -105,10 +109,17 @@ export default function DurgaPujaPage() {
           </Reveal>
           <ol className="relative mt-12 border-l border-border">
             {pujoDays.map((d, i) => (
-              <Reveal as="li" key={d.day} delay={i * 60} className="relative pb-9 pl-8">
-                <span className="absolute top-2 -left-[4.5px] size-2 rounded-full bg-terracotta ring-4 ring-background" />
+              <Reveal
+                as="li"
+                key={d.day}
+                delay={i * 60}
+                className="relative pb-9 pl-8"
+              >
+                <span className="absolute top-2 left-[-4.5px] size-2 rounded-full bg-terracotta ring-4 ring-background" />
                 <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                  <h3 className="font-display text-xl font-semibold">{d.day}</h3>
+                  <h3 className="font-display text-xl font-semibold">
+                    {d.day}
+                  </h3>
                   <p className="text-sm text-muted-foreground" lang="bn">
                     {d.bengali}
                   </p>
@@ -140,10 +151,26 @@ export default function DurgaPujaPage() {
             <PhotoGallery
               className="mt-8 lg:grid-cols-4"
               plates={[
-                { scene: "kumartuli", title: "The workshop", caption: "Straw, river clay, and the eyes painted last." },
-                { scene: "pujo", title: "The pandal", caption: "A commissioned installation, up for ten days." },
-                { scene: "streetfood", title: "The queue", caption: "Rolls, phuchka and biryani beside every pandal." },
-                { scene: "river", title: "The immersion", caption: "Dashami. The clay goes back into the river." },
+                {
+                  scene: "kumartuli",
+                  title: "The workshop",
+                  caption: "Straw, river clay, and the eyes painted last.",
+                },
+                {
+                  scene: "pujo",
+                  title: "The pandal",
+                  caption: "A commissioned installation, up for ten days.",
+                },
+                {
+                  scene: "streetfood",
+                  title: "The queue",
+                  caption: "Rolls, phuchka and biryani beside every pandal.",
+                },
+                {
+                  scene: "river",
+                  title: "The immersion",
+                  caption: "Dashami. The clay goes back into the river.",
+                },
               ]}
             />
           </Reveal>
@@ -154,16 +181,37 @@ export default function DurgaPujaPage() {
       <section className="border-t border-border bg-secondary/40">
         <div className={`${pageShell} py-16 sm:py-24`}>
           <Reveal>
-            <SectionHeading eyebrow="If you are coming" title="Six things nobody tells you" />
+            <SectionHeading
+              eyebrow="If you are coming"
+              title="Six things nobody tells you"
+            />
           </Reveal>
           <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { t: "Go on Panchami", d: "Most pandals are open unofficially and the crowds have not arrived. Ashtami is impassable." },
-              { t: "Do not book a car", d: "Roads close. The metro runs extended hours and walking is faster than anything with wheels." },
-              { t: "Eat the bhog", d: "Khichuri and labra on a leaf plate, free, at most community Pujas. Better than the paid food." },
-              { t: "See a bonedi bari", d: "A household Puja in an old family courtyard is a completely different thing from a street pandal." },
-              { t: "Get up for Mahalaya", d: "Four in the morning, a week before. The radio broadcast, then the eyes being painted in Kumartuli." },
-              { t: "Stay for the carnival", d: "Two days after Dashami, the prize-winning pujas parade down Red Road. Ticketed, and orderly." },
+              {
+                t: "Go on Panchami",
+                d: "Most pandals are open unofficially and the crowds have not arrived. Ashtami is impassable.",
+              },
+              {
+                t: "Do not book a car",
+                d: "Roads close. The metro runs extended hours and walking is faster than anything with wheels.",
+              },
+              {
+                t: "Eat the bhog",
+                d: "Khichuri and labra on a leaf plate, free, at most community Pujas. Better than the paid food.",
+              },
+              {
+                t: "See a bonedi bari",
+                d: "A household Puja in an old family courtyard is a completely different thing from a street pandal.",
+              },
+              {
+                t: "Get up for Mahalaya",
+                d: "Four in the morning, a week before. The radio broadcast, then the eyes being painted in Kumartuli.",
+              },
+              {
+                t: "Stay for the carnival",
+                d: "Two days after Dashami, the prize-winning pujas parade down Red Road. Ticketed, and orderly.",
+              },
             ].map((item, i) => (
               <Reveal key={item.t} delay={(i % 3) * 80}>
                 <div className="border-t border-border pt-4">

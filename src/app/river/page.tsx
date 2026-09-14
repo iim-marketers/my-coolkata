@@ -39,7 +39,7 @@ export default function RiverPage() {
                 className={`sticky-split grid gap-10 lg:grid-cols-2 lg:gap-16 ${flip ? "lg:[&>*:first-child]:order-2" : ""}`}
               >
                 <Reveal>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border">
+                  <div className="relative aspect-4/3 overflow-hidden rounded-lg border border-border">
                     <CityScene
                       name={chapter.scene}
                       photo={chapter.photo}

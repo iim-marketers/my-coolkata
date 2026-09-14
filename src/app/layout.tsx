@@ -44,16 +44,16 @@ const galada = Galada({
 
 export const metadata: Metadata = {
   title: {
-    default: "Cool-kata — Discover the cool side of Kolkata",
-    template: "%s · Cool-kata",
+    default: "Coolkata — Discover the cool side of Kolkata",
+    template: "%s · Coolkata",
   },
   description:
     "Street food, Durga Puja, hidden gems, neighbourhoods and weekend plans. Your cheat sheet to Kolkata.",
   openGraph: {
-    title: "Cool-kata — Discover the cool side of Kolkata",
+    title: "Coolkata — Discover the cool side of Kolkata",
     description:
       "Street food, Durga Puja, hidden gems, neighbourhoods and weekend plans. Your cheat sheet to Kolkata.",
-    siteName: "Cool-kata",
+    siteName: "Coolkata",
     type: "website",
   },
 };

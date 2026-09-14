@@ -13,19 +13,46 @@ import { cn } from "@/lib/utils";
  */
 const CATEGORIES = [
   { id: "all", label: "Everything", href: "/neighbourhoods", prefixes: [] },
-  { id: "food", label: "Food & drinks", href: "/food", prefixes: ["/food", "/famous-for"] },
+  {
+    id: "food",
+    label: "Food & drinks",
+    href: "/food",
+    prefixes: ["/food", "/famous-for"],
+  },
   {
     id: "places",
     label: "Places",
     href: "/neighbourhoods",
-    prefixes: ["/neighbourhoods", "/heritage", "/river", "/tram", "/map", "/college-street", "/kumartuli"],
+    prefixes: [
+      "/neighbourhoods",
+      "/heritage",
+      "/river",
+      "/tram",
+      "/map",
+      "/college-street",
+      "/kumartuli",
+    ],
   },
-  { id: "events", label: "Events & Puja", href: "/events", prefixes: ["/events", "/durga-puja", "/today"] },
+  {
+    id: "events",
+    label: "Events & Puja",
+    href: "/events",
+    prefixes: ["/events", "/durga-puja", "/today"],
+  },
   {
     id: "culture",
     label: "Culture",
     href: "/culture",
-    prefixes: ["/culture", "/cinema", "/literature", "/football", "/adda", "/stories", "/gallery", "/mood"],
+    prefixes: [
+      "/culture",
+      "/cinema",
+      "/literature",
+      "/football",
+      "/adda",
+      "/stories",
+      "/gallery",
+      "/mood",
+    ],
   },
 ] as const;
 
@@ -47,7 +74,8 @@ export function HeroSearch({ className }: { className?: string }) {
     const prefixes: readonly string[] = category.prefixes;
     return smartSearch(q)
       .results.filter(
-        (r) => prefixes.length === 0 || prefixes.some((p) => r.href.startsWith(p)),
+        (r) =>
+          prefixes.length === 0 || prefixes.some((p) => r.href.startsWith(p)),
       )
       .slice(0, 6);
   }, [q, category]);
@@ -75,11 +103,15 @@ export function HeroSearch({ className }: { className?: string }) {
   };
 
   return (
-    <form role="search" onSubmit={onSubmit} className={cn("relative", className)}>
+    <form
+      role="search"
+      onSubmit={onSubmit}
+      className={cn("relative", className)}
+    >
       <div className="flex flex-col gap-1 rounded-3xl border border-border bg-card p-2 shadow-[0_22px_60px_-24px_oklch(0.25_0.04_265/0.35)] sm:flex-row sm:items-center sm:gap-0 sm:rounded-full sm:p-1.5">
         <label className="flex min-w-0 flex-1 items-center gap-3 px-3 sm:pl-5">
           <Search className="size-4 shrink-0 text-muted-foreground" />
-          <span className="sr-only">Search Cool-kata</span>
+          <span className="sr-only">Search Coolkata</span>
           <input
             value={q}
             onChange={(e) => {

@@ -7,7 +7,12 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { PhotoGallery } from "@/components/photo-gallery";
 import { Reveal } from "@/components/reveal";
 import { StoryCard } from "@/components/story-card";
-import { getNeighbourhood, getStory, neighbourhoods, zones } from "@/lib/kolkata";
+import {
+  getNeighbourhood,
+  getStory,
+  neighbourhoods,
+  zones,
+} from "@/lib/kolkata";
 
 export function generateStaticParams() {
   return neighbourhoods.map((n) => ({ slug: n.slug }));
@@ -67,19 +72,27 @@ export default async function NeighbourhoodPage({
         eyebrow={zone?.label ?? "Kolkata"}
         title={area.name}
         lede={area.tagline}
-        scene={area.scene} photo={area.photo}
+        scene={area.scene}
+        photo={area.photo}
         back={{ href: "/neighbourhoods", label: "All quarters" }}
         tall
         meta={[
           { label: "In Bengali", value: area.bengali },
-          ...(area.alsoKnownAs ? [{ label: "Also", value: area.alsoKnownAs }] : []),
+          ...(area.alsoKnownAs
+            ? [{ label: "Also", value: area.alsoKnownAs }]
+            : []),
           { label: "Known for", value: area.knownFor },
           { label: "Best hour", value: area.bestHour },
-          { label: "Walk", value: `${totalWalk} min, ${area.walk.length} stops` },
+          {
+            label: "Walk",
+            value: `${totalWalk} min, ${area.walk.length} stops`,
+          },
         ]}
       />
 
-      <div className={`${pageShell} grid gap-14 py-16 sm:py-24 lg:grid-cols-[1.4fr_1fr] lg:gap-20`}>
+      <div
+        className={`${pageShell} grid gap-14 py-16 sm:py-24 lg:grid-cols-[1.4fr_1fr] lg:gap-20`}
+      >
         <div className="space-y-12">
           <Reveal>
             <p className="max-w-2xl font-display text-[clamp(1.15rem,2.6vw,1.5rem)] leading-snug text-foreground/90">
@@ -92,7 +105,10 @@ export default async function NeighbourhoodPage({
               Photographs of the quarter. Open one to see it full size.
             </p>
             <PhotoGallery
-              plates={area.plates.map((scene, i) => ({ scene, photo: area.photos?.[i] }))}
+              plates={area.plates.map((scene, i) => ({
+                scene,
+                photo: area.photos?.[i],
+              }))}
               className="lg:grid-cols-3"
             />
           </Facet>
@@ -142,7 +158,10 @@ export default async function NeighbourhoodPage({
           <Facet n="04" title="Things to see">
             <ol className="space-y-5">
               {area.thingsToSee.map((t, i) => (
-                <li key={t.name} className="flex gap-5 border-t border-border pt-3.5">
+                <li
+                  key={t.name}
+                  className="flex gap-5 border-t border-border pt-3.5"
+                >
                   <span className="mt-1 font-mono text-[0.58rem] text-muted-foreground/60">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -181,7 +200,7 @@ export default async function NeighbourhoodPage({
               <ol className="relative mt-5 border-l border-border">
                 {area.walk.map((stop) => (
                   <li key={stop.stop} className="relative pb-6 pl-6 last:pb-0">
-                    <span className="absolute top-1.5 -left-[4.5px] size-2 rounded-full bg-terracotta ring-4 ring-card" />
+                    <span className="absolute top-1.5 left-[-4.5px] size-2 rounded-full bg-terracotta ring-4 ring-card" />
                     <div className="flex flex-wrap items-baseline gap-x-3">
                       <p className="text-[0.92rem] font-medium">{stop.stop}</p>
                       <p className="font-mono text-[0.56rem] tabular-nums text-muted-foreground">

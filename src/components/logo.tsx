@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 /**
- * The Cool-kata mark: Howrah Bridge under a sindoor sun, on taxi yellow.
+ * The Coolkata mark: Howrah Bridge under a sindoor sun, on taxi yellow.
  * Drawn inline so it stays crisp at every size and costs no request.
  */
 export function LogoMark({ className }: { className?: string }) {

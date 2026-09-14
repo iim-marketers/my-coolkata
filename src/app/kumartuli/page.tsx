@@ -200,7 +200,7 @@ export default function KumartuliPage() {
                       key={stop.stop}
                       className="relative pb-5 pl-6 last:pb-0"
                     >
-                      <span className="absolute top-1.5 -left-[4.5px] size-2 rounded-full bg-terracotta ring-4 ring-card" />
+                      <span className="absolute top-1.5 left-[-4.5px] size-2 rounded-full bg-terracotta ring-4 ring-card" />
                       <p className="text-[0.9rem] font-medium">{stop.stop}</p>
                       <p className="mt-0.5 text-[0.8rem] leading-snug text-muted-foreground">
                         {stop.note}

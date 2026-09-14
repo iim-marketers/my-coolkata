@@ -62,7 +62,7 @@ export function SiteNav() {
         )}
       >
         <nav className="mx-auto flex h-16 w-full max-w-352 items-center gap-6 px-5 sm:px-8">
-          <Link href="/" aria-label="Cool-kata home" className="shrink-0">
+          <Link href="/" aria-label="Coolkata home" className="shrink-0">
             <Logo />
           </Link>
 
@@ -150,11 +150,8 @@ export function SiteNav() {
               </section>
             ))}
           </div>
-          <div className="mt-10 flex flex-col gap-3 sm:hidden">
-            <ExploreButton
-              shortcut={false}
-              className="w-full justify-center border-border bg-card text-muted-foreground"
-            />
+          <div className="mt-10 border-t border-border pt-6 sm:hidden">
+            <ExploreButton shortcut={false} block />
           </div>
         </div>
       </div>

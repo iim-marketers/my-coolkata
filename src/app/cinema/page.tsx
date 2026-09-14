@@ -48,7 +48,7 @@ export default function CinemaPage() {
               {Array.from({ length: 60 }, (_, i) => (
                 <span
                   key={i}
-                  className="h-2.5 w-4 shrink-0 rounded-[2px] bg-foreground/12"
+                  className="h-2.5 w-4 shrink-0 rounded-xs bg-foreground/12"
                 />
               ))}
             </div>
@@ -67,7 +67,10 @@ export default function CinemaPage() {
                     {f.title}
                   </p>
                   {f.bengali ? (
-                    <p className="mt-0.5 text-[0.78rem] text-muted-foreground" lang="bn">
+                    <p
+                      className="mt-0.5 text-[0.78rem] text-muted-foreground"
+                      lang="bn"
+                    >
                       {f.bengali}
                     </p>
                   ) : null}
@@ -84,11 +87,20 @@ export default function CinemaPage() {
       {/* The films. */}
       <section className={`${pageShell} py-16 sm:py-24`}>
         <Reveal>
-          <SectionHeading eyebrow="Famous films" title="Ten that were made here" />
+          <SectionHeading
+            eyebrow="Famous films"
+            title="Ten that were made here"
+          />
         </Reveal>
         <ul className="mt-12 space-y-12">
           {films.map((f, i) => (
-            <Reveal as="li" key={f.slug} delay={(i % 3) * 60} id={f.slug} className="scroll-mt-24">
+            <Reveal
+              as="li"
+              key={f.slug}
+              delay={(i % 3) * 60}
+              id={f.slug}
+              className="scroll-mt-24"
+            >
               <article className="sticky-split grid gap-6 border-t border-border pt-8 lg:grid-cols-[10rem_1fr]">
                 <div>
                   <p className="font-display text-3xl font-semibold tabular-nums text-terracotta">
@@ -102,7 +114,10 @@ export default function CinemaPage() {
                   <h3 className="font-display text-[clamp(1.3rem,3.2vw,1.9rem)] font-semibold">
                     {f.title}
                     {f.bengali ? (
-                      <span className="ml-3 text-base font-normal text-muted-foreground" lang="bn">
+                      <span
+                        className="ml-3 text-base font-normal text-muted-foreground"
+                        lang="bn"
+                      >
                         {f.bengali}
                       </span>
                     ) : null}
@@ -117,13 +132,19 @@ export default function CinemaPage() {
                     {f.locations.map((l) => (
                       <li key={l.name} className="text-[0.84rem]">
                         {l.href ? (
-                          <Link href={l.href} className="text-terracotta hover:underline">
+                          <Link
+                            href={l.href}
+                            className="text-terracotta hover:underline"
+                          >
                             {l.name}
                           </Link>
                         ) : (
                           <span className="font-medium">{l.name}</span>
                         )}
-                        <span className="text-muted-foreground"> · {l.what}</span>
+                        <span className="text-muted-foreground">
+                          {" "}
+                          · {l.what}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -136,7 +157,9 @@ export default function CinemaPage() {
 
       {/* The map. */}
       <section className="border-t border-border bg-secondary/40">
-        <div className={`${pageShell} grid gap-12 py-16 sm:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16`}>
+        <div
+          className={`${pageShell} grid gap-12 py-16 sm:py-24 lg:grid-cols-[1fr_1.1fr] lg:gap-16`}
+        >
           <Reveal>
             <SectionHeading
               eyebrow="Locations"
@@ -145,20 +168,30 @@ export default function CinemaPage() {
             />
             <ul className="mt-8 space-y-3">
               {allLocations.map((l) => (
-                <li key={`${l.film}-${l.name}`} className="border-t border-border pt-3">
+                <li
+                  key={`${l.film}-${l.name}`}
+                  className="border-t border-border pt-3"
+                >
                   <div className="flex flex-wrap items-baseline gap-x-3">
                     {l.href ? (
-                      <Link href={l.href} className="text-[0.92rem] font-medium hover:text-terracotta">
+                      <Link
+                        href={l.href}
+                        className="text-[0.92rem] font-medium hover:text-terracotta"
+                      >
                         {l.name}
                       </Link>
                     ) : (
-                      <span className="text-[0.92rem] font-medium">{l.name}</span>
+                      <span className="text-[0.92rem] font-medium">
+                        {l.name}
+                      </span>
                     )}
                     <span className="font-mono text-[0.54rem] tracking-[0.14em] text-muted-foreground/60 uppercase">
                       {l.film}, {l.year}
                     </span>
                   </div>
-                  <p className="mt-0.5 text-[0.82rem] text-muted-foreground">{l.what}</p>
+                  <p className="mt-0.5 text-[0.82rem] text-muted-foreground">
+                    {l.what}
+                  </p>
                 </li>
               ))}
             </ul>
@@ -185,7 +218,9 @@ export default function CinemaPage() {
 
       {/* Directors and actors. */}
       <section className="border-t border-border">
-        <div className={`${pageShell} grid gap-12 py-16 sm:py-24 lg:grid-cols-2 lg:gap-16`}>
+        <div
+          className={`${pageShell} grid gap-12 py-16 sm:py-24 lg:grid-cols-2 lg:gap-16`}
+        >
           {[
             { title: "Directors", list: directors },
             { title: "Actors", list: actors },
@@ -206,7 +241,9 @@ export default function CinemaPage() {
                           {p.name} →
                         </Link>
                       ) : (
-                        <p className="font-display text-[1.05rem] font-semibold">{p.name}</p>
+                        <p className="font-display text-[1.05rem] font-semibold">
+                          {p.name}
+                        </p>
                       )}
                       <p className="font-mono text-[0.56rem] tabular-nums text-muted-foreground/70">
                         {p.years}

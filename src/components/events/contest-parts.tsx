@@ -278,7 +278,7 @@ export function CrewPass() {
         <div className="rotate-[-4deg] overflow-hidden rounded-[1.4rem] bg-card shadow-[0_40px_70px_-35px_oklch(0.2_0.04_265/0.6)] ring-1 ring-foreground/10">
           <div className="flex items-center justify-between bg-alta px-5 py-3 text-khadi">
             <span className="font-display text-[0.9rem] font-extrabold tracking-[0.12em] uppercase">
-              Cool-kata crew
+              Coolkata crew
             </span>
             <span className="font-mono text-[0.58rem] tracking-[0.2em] uppercase">
               Season {pad(season.number)}

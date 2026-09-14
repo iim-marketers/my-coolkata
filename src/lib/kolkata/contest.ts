@@ -1,9 +1,9 @@
 import type { PhotoId } from "./photos";
 
 /**
- * Frame Kolkata: Cool-kata's recurring photo and video contest for small
+ * Frame Kolkata: Coolkata's recurring photo and video contest for small
  * creators. The best photographers and videographers of each season are
- * invited to intern with Cool-kata.
+ * invited to intern with Coolkata.
  *
  * Everything a season needs lives in this file, so running the next one is
  * an edit here rather than to the page. Anything not yet decided stays
@@ -48,7 +48,8 @@ export const contestTracks = {
   photo: {
     bengali: "ছবি",
     title: "Photo series",
-    brief: "A short series of photographs about one para. Tell us something about the place, not just what it looks like.",
+    brief:
+      "A short series of photographs about one para. Tell us something about the place, not just what it looks like.",
     specs: [
       "Up to five photographs",
       "Shot in Kolkata, by you",
@@ -59,7 +60,8 @@ export const contestTracks = {
   video: {
     bengali: "ভিডিও",
     title: "Short film",
-    brief: "One short video about one para. A reel, a walk, a portrait of a single stall: the form is up to you.",
+    brief:
+      "One short video about one para. A reel, a walk, a portrait of a single stall: the form is up to you.",
     specs: [
       "One video, 30 to 90 seconds",
       "Vertical or horizontal",
@@ -70,18 +72,45 @@ export const contestTracks = {
 };
 
 export const contestSteps = [
-  { title: "Pick a para", line: "Choose any part of Kolkata, from the sheet or from your own streets." },
-  { title: "Shoot it", line: "Phone or camera. What matters is that it could only be this place." },
-  { title: "Send it in", line: "Enter through the form before the deadline, with a line on where and why." },
-  { title: "The shortlist", line: "The Cool-kata team picks a shortlist, shown on this site with your name on it." },
-  { title: "Join the crew", line: "The best photographers and videographers are invited to intern with Cool-kata." },
+  {
+    title: "Pick a para",
+    line: "Choose any part of Kolkata, from the sheet or from your own streets.",
+  },
+  {
+    title: "Shoot it",
+    line: "Phone or camera. What matters is that it could only be this place.",
+  },
+  {
+    title: "Send it in",
+    line: "Enter through the form before the deadline, with a line on where and why.",
+  },
+  {
+    title: "The shortlist",
+    line: "The Coolkata team picks a shortlist, shown on this site with your name on it.",
+  },
+  {
+    title: "Join the crew",
+    line: "The best photographers and videographers are invited to intern with Coolkata.",
+  },
 ];
 
 export const crewPerks = [
-  { title: "Real assignments", line: "Shoot parts of the city for Cool-kata's own pages." },
-  { title: "Your name on your work", line: "Everything you make for the site is credited to you." },
-  { title: "See how it gets made", line: "From the brief to the published page, alongside the team." },
-  { title: "Something to show for it", line: "Leave with published work for your portfolio." },
+  {
+    title: "Real assignments",
+    line: "Shoot parts of the city for Coolkata's own pages.",
+  },
+  {
+    title: "Your name on your work",
+    line: "Everything you make for the site is credited to you.",
+  },
+  {
+    title: "See how it gets made",
+    line: "From the brief to the published page, alongside the team.",
+  },
+  {
+    title: "Something to show for it",
+    line: "Leave with published work for your portfolio.",
+  },
 ];
 
 /**
@@ -105,7 +134,8 @@ export const contestThemes: ContestTheme[] = [
     name: "College Street",
     bengali: "বইপাড়া",
     photo: "college-street",
-    prompt: "A mile of secondhand book stalls, the Coffee House stairs, and the hour the shutters come down.",
+    prompt:
+      "A mile of secondhand book stalls, the Coffee House stairs, and the hour the shutters come down.",
     photoIdea: "Hands on spines, and stacks taller than the sellers.",
     videoIdea: "One stall from opening to closing, in ninety seconds.",
     href: "/college-street",
@@ -115,7 +145,8 @@ export const contestThemes: ContestTheme[] = [
     name: "Kumartuli",
     bengali: "কুমোরটুলি",
     photo: "kumartuli-lane",
-    prompt: "The potters' quarter, where the goddess is straw and clay for months before she has a face.",
+    prompt:
+      "The potters' quarter, where the goddess is straw and clay for months before she has a face.",
     photoIdea: "Unfinished figures, and the hands working on them.",
     videoIdea: "Straw to clay to paint, sped up.",
     href: "/kumartuli",
@@ -125,7 +156,8 @@ export const contestThemes: ContestTheme[] = [
     name: "Prinsep Ghat",
     bengali: "প্রিন্সেপ ঘাট",
     photo: "prinsep-ghat",
-    prompt: "The river at golden hour, the bridge behind it, and everyone who comes to watch.",
+    prompt:
+      "The river at golden hour, the bridge behind it, and everyone who comes to watch.",
     photoIdea: "Silhouettes against the Hooghly.",
     videoIdea: "The sunset, or the crowd that gathers for it.",
     href: "/neighbourhoods/prinsep-ghat",
@@ -145,7 +177,8 @@ export const contestThemes: ContestTheme[] = [
     name: "Esplanade",
     bengali: "ধর্মতলা",
     photo: "tram-esplanade",
-    prompt: "Trams, buses, hawkers and the edge of the Maidan, all in one frame.",
+    prompt:
+      "Trams, buses, hawkers and the edge of the Maidan, all in one frame.",
     photoIdea: "One corner, many layers.",
     videoIdea: "The crossing at rush hour.",
     href: "/neighbourhoods/esplanade",
@@ -165,7 +198,8 @@ export const contestThemes: ContestTheme[] = [
     name: "Chitpur",
     bengali: "চিতপুর",
     photo: "chitpur-road",
-    prompt: "One of the city's oldest roads, and every trade still carried on along it.",
+    prompt:
+      "One of the city's oldest roads, and every trade still carried on along it.",
     photoIdea: "Shopfronts, hand-painted signs and the trades behind them.",
     videoIdea: "A single block, every shop in it.",
     href: "/neighbourhoods/chitpur",
@@ -249,7 +283,7 @@ export const contestFaqs = [
   },
   {
     q: "How is my work credited?",
-    a: "Anything shortlisted and shown on Cool-kata carries your name. The full terms are published with each season's entry form.",
+    a: "Anything shortlisted and shown on Coolkata carries your name. The full terms are published with each season's entry form.",
   },
   {
     q: "When does the next season start?",

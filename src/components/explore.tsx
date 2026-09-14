@@ -73,10 +73,13 @@ const INTENTS = [
 export function ExploreButton({
   className,
   shortcut = true,
+  block = false,
 }: {
   className?: string;
   /** Only one instance on the page should own ⌘K. */
   shortcut?: boolean;
+  /** Full-width, filled call to action (the mobile menu). */
+  block?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
@@ -119,13 +122,21 @@ export function ExploreButton({
         type="button"
         onClick={() => setOpen(true)}
         className={cn(
-          "inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 transition-colors",
+          "inline-flex items-center gap-2 rounded-full border transition-colors",
+          block
+            ? "h-12 w-full justify-center gap-2.5 border-foreground bg-foreground px-5 text-background shadow-[0_10px_24px_-14px_oklch(0.2_0.02_265/0.6)] hover:bg-foreground/90 active:scale-[0.99]"
+            : "px-3.5 py-1.5",
           className,
         )}
       >
-        <Compass className="size-3.5" />
-        <span className="font-mono text-[0.62rem] tracking-[0.16em] uppercase">
-          Explore
+        <Compass className={block ? "size-4" : "size-3.5"} />
+        <span
+          className={cn(
+            "font-mono tracking-[0.16em] uppercase",
+            block ? "text-[0.74rem] font-medium" : "text-[0.62rem]",
+          )}
+        >
+          {block ? "Explore Kolkata" : "Explore"}
         </span>
         {shortcut ? (
           <kbd className="ml-1 hidden rounded border border-current/25 px-1.5 py-0.5 font-mono text-[0.54rem] opacity-70 sm:inline">

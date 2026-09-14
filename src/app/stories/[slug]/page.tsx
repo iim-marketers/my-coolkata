@@ -22,7 +22,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function StoryPage({ params }: PageProps<"/stories/[slug]">) {
+export default async function StoryPage({
+  params,
+}: PageProps<"/stories/[slug]">) {
   const { slug } = await params;
   const story = getStory(slug);
   if (!story) notFound();
@@ -35,7 +37,8 @@ export default async function StoryPage({ params }: PageProps<"/stories/[slug]">
         eyebrow={story.tags.join(" · ")}
         title={story.title}
         lede={story.standfirst}
-        scene={story.scene} photo={story.photo}
+        scene={story.scene}
+        photo={story.photo}
         back={{ href: "/stories", label: "Stories" }}
         tall
         meta={[
@@ -53,7 +56,7 @@ export default async function StoryPage({ params }: PageProps<"/stories/[slug]">
       />
 
       <article className={`${pageShell} py-16 sm:py-24`}>
-        <div className="mx-auto max-w-[42rem]">
+        <div className="mx-auto max-w-2xl">
           {story.body.map((block, i) => {
             if (block.kind === "heading") {
               return (

@@ -85,7 +85,7 @@ const PLANS = [
     line:
       currentSeason.status === "soon"
         ? "Coming soon: a photo and video contest. The best join the crew."
-        : "Shoot the city. The best join the Cool-kata crew.",
+        : "Shoot the city. The best join the Coolkata crew.",
     href: "/events",
   },
 ];
@@ -126,7 +126,7 @@ export default function Home() {
 
         {/* Pick a vibe. */}
         <section className="border-y border-border bg-secondary/60">
-          <div className={`${shell} py-20 sm:py-28`}>
+          <div className={`${shell} pb-16 pt-12 sm:pb-24 sm:pt-18`}>
             <Reveal>
               <SectionHeading
                 eyebrow="Pick your vibe"
@@ -168,7 +168,7 @@ export default function Home() {
 
         {/* Landmarks. */}
         <section className="border-b border-border">
-          <div className={`${shell} py-20 sm:py-28`}>
+          <div className={`${shell} py-16 sm:py-24`}>
             <Reveal>
               <SectionHeading
                 eyebrow="Must-see"
@@ -195,7 +195,7 @@ export default function Home() {
 
         {/* Taste Kolkata. */}
         <section className="border-b border-border bg-secondary/60">
-          <div className={`${shell} py-20 sm:py-28`}>
+          <div className={`${shell} py-16 sm:py-24`}>
             <Reveal>
               <SectionHeading
                 eyebrow="Taste Kolkata"
@@ -213,7 +213,7 @@ export default function Home() {
 
         {/* The illustrated map. */}
         <section className="border-b border-border">
-          <div className={`${shell} py-20 sm:py-28`}>
+          <div className={`${shell} py-16 sm:py-24`}>
             <Reveal>
               <SectionHeading
                 eyebrow="Neighbourhoods"
@@ -230,7 +230,7 @@ export default function Home() {
 
         {/* Make a plan. */}
         <section className="border-b border-border">
-          <div className={`${shell} py-20 sm:py-28`}>
+          <div className={`${shell} py-16 sm:py-24`}>
             <Reveal>
               <SectionHeading
                 eyebrow="Make a plan"

@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/* Cool-kata is light only. The variant stays so the shadcn primitives
+/* Coolkata is light only. The variant stays so the shadcn primitives
    compile, but nothing ever sets the class. */
 @custom-variant dark (&:is(.dark *));
 

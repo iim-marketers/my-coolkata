@@ -98,7 +98,10 @@ export default function CollegeStreetPage() {
         ]}
       />
 
-      <BookShelf count={18} className="h-24 border-b border-border bg-secondary/40 sm:h-32" />
+      <BookShelf
+        count={18}
+        className="h-24 border-b border-border bg-secondary/40 sm:h-32"
+      />
 
       {CHAPTERS.map((chapter, i) => (
         <section
@@ -153,10 +156,17 @@ export default function CollegeStreetPage() {
             </Reveal>
             <ol className="relative mt-12 border-l border-border">
               {quarter.walk.map((stop, i) => (
-                <Reveal as="li" key={stop.stop} delay={i * 70} className="relative pb-8 pl-8">
-                  <span className="absolute top-2 -left-[4.5px] size-2 rounded-full bg-terracotta ring-4 ring-background" />
+                <Reveal
+                  as="li"
+                  key={stop.stop}
+                  delay={i * 70}
+                  className="relative pb-8 pl-8"
+                >
+                  <span className="absolute top-2 left-[-4.5px] size-2 rounded-full bg-terracotta ring-4 ring-background" />
                   <div className="flex flex-wrap items-baseline gap-x-4">
-                    <p className="font-display text-lg font-medium">{stop.stop}</p>
+                    <p className="font-display text-lg font-medium">
+                      {stop.stop}
+                    </p>
                     <p className="font-mono text-[0.6rem] tabular-nums text-muted-foreground">
                       +{stop.minutes} min
                     </p>

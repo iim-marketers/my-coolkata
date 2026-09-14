@@ -43,13 +43,20 @@ export default function DayPage() {
           </Reveal>
           <ol className="relative mt-12 border-l border-border">
             {dayMoments.map((m, i) => (
-              <Reveal as="li" key={m.time} delay={(i % 5) * 60} className="relative pb-9 pl-8">
-                <span className="absolute top-2 -left-[4.5px] size-2 rounded-full bg-terracotta ring-4 ring-background" />
+              <Reveal
+                as="li"
+                key={m.time}
+                delay={(i % 5) * 60}
+                className="relative pb-9 pl-8"
+              >
+                <span className="absolute top-2 left-[-4.5px] size-2 rounded-full bg-terracotta ring-4 ring-background" />
                 <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                   <p className="font-display text-xl font-semibold tabular-nums text-terracotta">
                     {m.time}
                   </p>
-                  <h3 className="font-display text-lg font-medium">{m.title}</h3>
+                  <h3 className="font-display text-lg font-medium">
+                    {m.title}
+                  </h3>
                 </div>
                 <p className="mt-2 max-w-2xl text-[0.94rem] leading-relaxed text-muted-foreground">
                   {m.body}
