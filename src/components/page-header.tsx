@@ -61,8 +61,11 @@ export function PageHeader({
             </p>
           </div>
 
+          {/* Balanced lines only once the banner splits in two and the
+              column is narrow enough to want them. On a phone the title has
+              the whole screen, and balancing spent barely half of it. */}
           <h1
-            className="hero-rise mt-5 font-display text-[clamp(2.3rem,5.2vw,4.4rem)] leading-[1] font-extrabold tracking-[-0.035em] text-balance"
+            className="hero-rise mt-5 font-display text-[clamp(2.3rem,5.2vw,4.4rem)] leading-none font-extrabold tracking-[-0.035em] text-wrap lg:text-balance"
             style={{ animationDelay: "100ms" }}
           >
             {lead}
