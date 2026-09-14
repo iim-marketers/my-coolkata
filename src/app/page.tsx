@@ -97,7 +97,7 @@ export default function Home() {
 
       <main className="relative z-10 bg-background">
         {/* Durga Puja. */}
-        <section className="relative overflow-hidden border-b border-border">
+        <section className="relative overflow-hidden border-b border-border mt-10">
           <CityScene name="pujo" className="absolute inset-0 h-full w-full" />
           <div className="scrim-full absolute inset-0" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_50%_at_50%_54%,oklch(0.12_0.02_265/0.72),transparent_74%)]" />

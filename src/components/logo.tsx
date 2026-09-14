@@ -43,13 +43,13 @@ export function Logo({
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <LogoMark className={markClassName} />
-      <span className="sr-only">Cool-kata</span>
+      <span className="sr-only">Coolkata</span>
       <span
         aria-hidden
         className="font-display text-[1.4rem] leading-none font-extrabold tracking-[-0.03em] text-foreground"
       >
         Cool
-        <span className="mx-[0.06em] inline-block h-[0.2em] w-[0.42em] -translate-y-[0.2em] rounded-full bg-marigold" />
+        {/* <span className="mx-[0.06em] inline-block h-[0.2em] w-[0.42em] -translate-y-[0.2em] rounded-full bg-marigold" /> */}
         <span className="text-primary">kata</span>
       </span>
     </span>
