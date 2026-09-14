@@ -29,7 +29,7 @@ export function Hero() {
         <div className="relative z-10">
           <h1
             className="hero-rise mt-0 md:mt-6 font-display text-[clamp(2.7rem,6.6vw,5.6rem)] md:text-[min(10.5vw,5.5rem)] lg:text-[clamp(2.7rem,6.6vw,5.6rem)] leading-[0.98] font-extrabold tracking-[-0.04em] text-balance"
-            style={{ animationDelay: "80ms" }}
+            style={{ animationDelay: "50ms" }}
           >
             Discover the <span className="text-primary">cool</span> side of{" "}
             <span className="relative inline-block whitespace-nowrap">

@@ -1,35 +1,65 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import kolkataTaxi from "@/assets/kolkata-taxi.png";
 import { cn } from "@/lib/utils";
 
-/**
- * Ambient motion. Used to tell the story, not to decorate: a tram in the
- * navigation because this city lost its trams, a taxi behind a heading
- * because it is yellow and going somewhere, rain because it rains for
- * four months. All of it stops under prefers-reduced-motion.
- */
+/** Staggered, so the exhaust reads as a stream rather than a blink. */
+const SMOKE_PUFFS = [
+  { size: "0.45rem", bottom: "0.3rem", duration: 1.3, delay: 0 },
+  { size: "0.55rem", bottom: "0.4rem", duration: 1.5, delay: 0.45 },
+  { size: "0.4rem", bottom: "0.25rem", duration: 1.2, delay: 0.9 },
+];
 
-/** A tiny tram that crosses the navigation bar every couple of minutes. */
-export function NavTram({ tone = "currentColor" }: { tone?: string }) {
+/**
+ * A yellow Ambassador taxi driving along the bottom edge of the navigation
+ * bar every half minute. Render it before the nav content so the links and
+ * buttons stay on top.
+ */
+export function NavTaxi() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-x-0 bottom-0 h-4 overflow-hidden motion-reduce:hidden"
+      className="pointer-events-none absolute inset-x-0 bottom-0 h-9 overflow-hidden motion-reduce:hidden"
     >
-      <svg
-        viewBox="0 0 120 26"
-        className="absolute bottom-0 h-4 w-[7.5rem] opacity-0"
-        style={{ animation: "tram-cross 150s linear infinite" }}
-        fill={tone}
+      <div
+        className="absolute bottom-0 left-0"
+        style={{ animation: "taxi-drive 30s linear 1.5s infinite both" }}
       >
-        <rect x="6" y="4" width="94" height="15" rx="3" />
-        <rect x="30" y="0" width="8" height="4" rx="1" />
-        <path d="M30 0 L34 -7 L38 0" fill="none" stroke={tone} strokeWidth="1.4" />
-        <circle cx="24" cy="22" r="3" />
-        <circle cx="82" cy="22" r="3" />
-        <rect x="0" y="24" width="120" height="1.4" opacity="0.45" />
-      </svg>
+        {/* Exhaust: puffs left behind the rear bumper, rising as they thin out. */}
+        {SMOKE_PUFFS.map((p, i) => (
+          <span
+            key={i}
+            className="absolute -left-1 rounded-full opacity-0 blur-[1px]"
+            style={{
+              bottom: p.bottom,
+              width: p.size,
+              height: p.size,
+              background:
+                "radial-gradient(circle, oklch(0.62 0.01 265 / 0.75), oklch(0.62 0.01 265 / 0) 70%)",
+              animation: `taxi-smoke ${p.duration}s ease-out ${p.delay}s infinite`,
+            }}
+          />
+        ))}
+        {/* Road bumps rock the body; the engine keeps it trembling in between. */}
+        <div
+          className="origin-bottom"
+          style={{ animation: "taxi-bump 2.3s ease-in-out infinite" }}
+        >
+          <Image
+            src={kolkataTaxi}
+            alt=""
+            sizes="72px"
+            loading="eager"
+            draggable={false}
+            className="h-8 w-auto select-none drop-shadow-[0_1px_1px_oklch(0.2_0.02_265/0.35)]"
+            style={{
+              animation: "taxi-rumble 0.16s ease-in-out infinite alternate",
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 }
@@ -69,7 +99,10 @@ export function TaxiPass({ className }: { className?: string }) {
         className="h-10 w-40"
         style={
           go
-            ? { animation: "taxi-pass 9s cubic-bezier(0.4, 0, 0.6, 1) 0.4s both" }
+            ? {
+                animation:
+                  "taxi-pass 9s cubic-bezier(0.4, 0, 0.6, 1) 0.4s both",
+              }
             : { transform: "translateX(-40%)", opacity: 0 }
         }
       >
@@ -84,10 +117,31 @@ export function TaxiPass({ className }: { className?: string }) {
           fill="var(--foreground)"
           opacity="0.28"
         />
-        <rect x="8" y="26" width="132" height="5" fill="var(--foreground)" opacity="0.22" />
+        <rect
+          x="8"
+          y="26"
+          width="132"
+          height="5"
+          fill="var(--foreground)"
+          opacity="0.22"
+        />
         <circle cx="36" cy="40" r="5" fill="var(--foreground)" opacity="0.75" />
-        <circle cx="112" cy="40" r="5" fill="var(--foreground)" opacity="0.75" />
-        <rect x="52" y="2" width="26" height="7" rx="2" fill="var(--foreground)" opacity="0.4" />
+        <circle
+          cx="112"
+          cy="40"
+          r="5"
+          fill="var(--foreground)"
+          opacity="0.75"
+        />
+        <rect
+          x="52"
+          y="2"
+          width="26"
+          height="7"
+          rx="2"
+          fill="var(--foreground)"
+          opacity="0.4"
+        />
       </svg>
     </div>
   );

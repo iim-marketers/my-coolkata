@@ -42,7 +42,8 @@ export const tramStops: TramStop[] = [
     minutes: 8,
     line: "Goldsmiths on the first floor, dentists on the ground.",
     body: "The car runs east along a road of jewellers' workshops and, for reasons nobody has satisfactorily explained, dozens of dentists. Territi Bazar is at the western end and holds what is left of the old Chinatown.",
-    getOff: "For the Chinese breakfast market at six, and the goldsmiths' lanes.",
+    getOff:
+      "For the Chinese breakfast market at six, and the goldsmiths' lanes.",
     href: "/neighbourhoods/bowbazar",
     scene: "streetfood",
     photo: "bowbazar",
@@ -55,7 +56,8 @@ export const tramStops: TramStop[] = [
     minutes: 16,
     line: "The stalls close in on both sides.",
     body: "The line used to run down the middle of Boi Para, between two walls of secondhand books stacked three metres high. Presidency is on the left, the Coffee House up a staircase on the right, and Putiram sells out of kochuri by ten.",
-    getOff: "For the books, the Coffee House, and an argument you did not plan on.",
+    getOff:
+      "For the books, the Coffee House, and an argument you did not plan on.",
     href: "/college-street",
     scene: "collegestreet",
     photo: "tram-college-street",
@@ -70,7 +72,7 @@ export const tramStops: TramStop[] = [
     getOff: "For Jorasanko, Marble Palace, and the north Kolkata doors.",
     href: "/neighbourhoods/jorasanko",
     scene: "rooftops",
-    photo: "sovabazar-rajbari",
+    photo: "girish-park",
   },
   {
     n: 5,
@@ -83,7 +85,7 @@ export const tramStops: TramStop[] = [
     getOff: "For the Rajbari courtyard and the idol-makers' lanes.",
     href: "/neighbourhoods/sovabazar",
     scene: "pujo",
-    photo: "sovabazar-rajbari",
+    photo: "sovabazar-crossing",
   },
   {
     n: 6,
@@ -96,7 +98,7 @@ export const tramStops: TramStop[] = [
     getOff: "For the workshops, and the ghat they leave from.",
     href: "/kumartuli",
     scene: "kumartuli",
-    photo: "kumartuli-lane",
+    photo: "kumartuli-tram",
   },
   {
     n: 7,
@@ -114,8 +116,20 @@ export const tramStops: TramStop[] = [
 ];
 
 export const tramFacts = [
-  { v: "1873", t: "The first line", d: "Horse-drawn, Sealdah to Armenian Ghat, and it failed within nine months." },
+  {
+    v: "1873",
+    t: "The first line",
+    d: "Horse-drawn, Sealdah to Armenian Ghat, and it failed within nine months.",
+  },
   { v: "1902", t: "Electrified", d: "The first electric tramway in Asia." },
-  { v: "37", t: "Routes at its height", d: "More than sixty kilometres of track." },
-  { v: "1", t: "Routes now", d: "The state announced in 2024 it would keep a single heritage route. The case is in the High Court." },
+  {
+    v: "37",
+    t: "Routes at its height",
+    d: "More than sixty kilometres of track.",
+  },
+  {
+    v: "1",
+    t: "Routes now",
+    d: "The state announced in 2024 it would keep a single heritage route. The case is in the High Court.",
+  },
 ];
