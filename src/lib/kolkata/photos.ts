@@ -18,7 +18,7 @@ import pCalcutta1900 from "@/assets/photos/history/calcutta-1900.jpg";
 import pCalcutta1940s from "@/assets/photos/history/calcutta-1940s.jpg";
 import pChaBhaar from "@/assets/photos/food/cha-bhaar.jpg";
 import pCheloKebab from "@/assets/photos/food/chelo-kebab.jpg";
-import pChitpurRoad from "@/assets/photos/neighbourhoods/chitpur-road.jpg";
+import pChitpurRoad from "@/assets/photos/neighbourhoods/chitpur-road.png";
 import pChokkhuDaan from "@/assets/photos/durga-puja/chokkhu-daan.jpg";
 import pChowringheeNow from "@/assets/photos/neighbourhoods/chowringhee-now.jpg";
 import pChowringheeOld from "@/assets/photos/history/chowringhee-old.jpg";
