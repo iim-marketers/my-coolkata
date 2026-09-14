@@ -172,8 +172,11 @@ function Frame({
     >
       <CityScene
         photo={photo}
-        detail="card"
         preload={preload}
+        // Two to a row inside a 36rem column, so each frame is about 169px
+        // on a phone. The card default claims the full viewport, and the
+        // browser was fetching a 1200px file to fill it.
+        sizes="(max-width: 640px) 45vw, (max-width: 1024px) 290px, 340px"
         className="h-full w-full"
         imgClassName="transition-transform duration-1400 ease-out group-hover:scale-105"
       />

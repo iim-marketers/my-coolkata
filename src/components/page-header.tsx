@@ -131,7 +131,7 @@ export function PageHeader({
               name={scene}
               photo={photo}
               preload
-              sizes="(max-width: 1024px) 100vw, 40vw"
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 36rem, 40vw"
               className="h-full w-full"
               imgClassName="transition-transform duration-1400 ease-out group-hover:scale-105"
             />

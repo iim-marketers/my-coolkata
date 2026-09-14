@@ -65,7 +65,8 @@ export default function Home() {
                   >
                     <CityScene
                       photo={v.photo}
-                      detail="card"
+                      // Two to a row on a phone, four from `lg`.
+                      sizes="(max-width: 1024px) 48vw, 330px"
                       className="absolute inset-0 h-full w-full transition-transform duration-1200 ease-out group-hover:scale-[1.07]"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-ink/85 via-ink/20 to-transparent" />

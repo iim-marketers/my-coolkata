@@ -6,7 +6,7 @@ import {
   Geist_Mono,
   Noto_Serif_Bengali,
 } from "next/font/google";
-import { ENTER_EVENT } from "@/lib/enter";
+import { ENTER_EVENT, ENTER_GIVE_UP, ENTER_IMAGES } from "@/lib/enter";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteNav } from "@/components/site-nav";
 import { Toaster } from "@/components/ui/sonner";
@@ -72,14 +72,38 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} ${bengali.variable} ${galada.variable} h-full antialiased`}
     >
       <head>
-        {/* Hold the banner choreography until the phone can actually paint it.
-            Runs before the body exists, so nothing has started animating yet;
-            releases on the first frame that lands on time once the fonts have
-            settled and the deferred scripts have run, and in any case within
-            a beat and a half. See the `data-enter` rules in `globals.css`. */}
+        {/* Hold the banner choreography until the phone can actually paint
+            it. The animations are pure CSS, so their clock starts the moment
+            the markup is styled — on a cold mobile load that is a second or
+            more before the photographs have arrived, and every frame decoded
+            while they land is a frame of the entrance dropped. This runs
+            before the body exists, marks the document held, and lets go once
+            the fonts have settled, the banner's own photographs have decoded
+            and a run of frames has landed on time. A load too slow for any of
+            that gets `skip`: the page simply appears, whole and still, which
+            is better than stuttering through a sequence nobody can see.
+            See the `data-enter` rules in `globals.css`. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var r=document.documentElement;try{r.dataset.enter="hold";var d=0;var go=function(){if(d)return;d=1;r.dataset.enter="go";document.dispatchEvent(new Event("${ENTER_EVENT}"))};setTimeout(go,1600);var settle=function(){var l=0;var tick=function(t){if(l&&t-l<50)return go();l=t;requestAnimationFrame(tick)};requestAnimationFrame(tick)};var ready=function(){document.readyState==="loading"?document.addEventListener("DOMContentLoaded",settle,{once:true}):settle()};document.fonts?document.fonts.ready.then(ready,ready):ready()}catch(e){r.dataset.enter="go"}})()`,
+            __html: `(function(){
+var root=document.documentElement;
+try{
+root.dataset.enter="hold";
+var settled=0;
+var end=function(state){if(settled)return;settled=1;root.dataset.enter=state;document.dispatchEvent(new Event(${JSON.stringify(ENTER_EVENT)}))};
+var giveUp=setTimeout(function(){end("skip")},${ENTER_GIVE_UP});
+var go=function(){clearTimeout(giveUp);end("go")};
+var calm=function(){var last=0,run=0;var tick=function(t){if(last)run=t-last<50?run+1:0;last=t;if(run>=5)return go();requestAnimationFrame(tick)};requestAnimationFrame(tick)};
+var start=function(){
+var imgs=[].slice.call(document.querySelectorAll(${JSON.stringify(ENTER_IMAGES)}));
+var left=imgs.length;
+if(!left)return calm();
+var one=function(){if(--left===0)calm()};
+imgs.forEach(function(img){(img.decode?img.decode():Promise.reject()).then(one,one)})};
+var afterDom=function(){document.fonts?document.fonts.ready.then(start,start):start()};
+document.readyState==="loading"?document.addEventListener("DOMContentLoaded",afterDom,{once:true}):afterDom();
+}catch(e){root.dataset.enter="go"}
+})()`,
           }}
         />
         {/* Without JavaScript the scroll reveals never fire, so unhide them. */}
