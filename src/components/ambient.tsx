@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import kolkataTaxi from "@/assets/kolkata-taxi.png";
 import { cn } from "@/lib/utils";
 
@@ -12,12 +12,29 @@ const SMOKE_PUFFS = [
   { size: "0.4rem", bottom: "0.25rem", duration: 1.2, delay: 0.9 },
 ];
 
-/**
- * A yellow Ambassador taxi driving along the bottom edge of the navigation
- * bar every half minute. Render it before the nav content so the links and
- * buttons stay on top.
- */
+const TAXI_SEEN_KEY = "coolkata:nav-taxi-seen";
+
+let taxiDue: boolean | undefined;
+function isTaxiDue() {
+  if (taxiDue === undefined) {
+    try {
+      taxiDue = !sessionStorage.getItem(TAXI_SEEN_KEY);
+    } catch {
+      taxiDue = true; // Storage blocked: show it, just without remembering.
+    }
+  }
+  return taxiDue;
+}
+const noSubscribe = () => () => {};
+
+/** One drive along the nav's bottom edge per browser session. */
 export function NavTaxi() {
+  // Server snapshot is false: sessionStorage only exists on the client.
+  const due = useSyncExternalStore(noSubscribe, isTaxiDue, () => false);
+  const [done, setDone] = useState(false);
+
+  if (!due || done) return null;
+
   return (
     <div
       aria-hidden
@@ -25,7 +42,17 @@ export function NavTaxi() {
     >
       <div
         className="absolute bottom-0 left-0"
-        style={{ animation: "taxi-drive 30s linear 1.5s infinite both" }}
+        style={{ animation: "taxi-drive 30s linear 1.5s 1 both" }}
+        onAnimationStart={(e) => {
+          if (e.animationName !== "taxi-drive") return;
+          try {
+            sessionStorage.setItem(TAXI_SEEN_KEY, "1");
+          } catch {}
+        }}
+        onAnimationEnd={(e) => {
+          // Unmount once it's gone so the smoke and rumble loops stop too.
+          if (e.animationName === "taxi-drive") setDone(true);
+        }}
       >
         {/* Exhaust: puffs left behind the rear bumper, rising as they thin out. */}
         {SMOKE_PUFFS.map((p, i) => (
@@ -172,7 +199,7 @@ export function Rain({
         return (
           <span
             key={i}
-            className="absolute top-0 w-px bg-gradient-to-b from-transparent via-cream/45 to-transparent"
+            className="absolute top-0 w-px bg-linear-to-b from-transparent via-cream/45 to-transparent"
             style={{
               left: `${x}%`,
               height: `${len}px`,
