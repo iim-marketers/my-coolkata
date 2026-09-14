@@ -9,7 +9,6 @@ import {
 import { HeroBackdrop, Squiggle } from "@/components/hero-backdrop";
 import { HeroSearch } from "@/components/hero-search";
 import { CityScene } from "@/components/scenes/city-scene";
-import { dishes, hiddenPlaces, neighbourhoods } from "@/lib/kolkata";
 import type { PhotoId } from "@/lib/kolkata/photos";
 import { cn } from "@/lib/utils";
 
@@ -21,10 +20,6 @@ const HIGHLIGHTS = [
   { label: "Creator contest", href: "/events", icon: Camera },
 ];
 
-/**
- * Light and split: the pitch, a search bar and shortcuts on the left, a
- * collage of the city that assembles itself on the right.
- */
 export function Hero() {
   return (
     <section className="relative isolate z-20 overflow-x-clip bg-background pt-22 pb-36 sm:pt-26 sm:pb-44 lg:pt-30 lg:pb-44">
@@ -51,8 +46,6 @@ export function Hero() {
             plans. Everything worth doing in the city, minus the textbook.
           </p>
 
-          {/* Each animated block is its own stacking context, so the search
-              has to sit above the chips or its dropdown slides under them. */}
           <div
             className="hero-rise relative z-20 mt-9 max-w-2xl"
             style={{ animationDelay: "240ms" }}
@@ -164,9 +157,6 @@ function Frame({
       <CityScene
         photo={photo}
         preload={preload}
-        // Two to a row inside a 36rem column, so each frame is about 169px
-        // on a phone. The card default claims the full viewport, and the
-        // browser was fetching a 1200px file to fill it.
         sizes="(max-width: 640px) 45vw, (max-width: 1024px) 290px, 340px"
         className="h-full w-full"
         imgClassName="transition-transform duration-1400 ease-out group-hover:scale-105"
@@ -239,8 +229,7 @@ function SpinBadge({ className }: { className?: string }) {
               d="M50 50m-35 0a35 35 0 1 1 70 0a35 35 0 1 1-70 0"
             />
           </defs>
-          {/* Spacing sized so the phrase wraps the whole ring (2π × 35) in
-              Geist Bold; the gap after the last dot matches every other gap. */}
+
           <text
             fill="currentColor"
             fontSize="10"
