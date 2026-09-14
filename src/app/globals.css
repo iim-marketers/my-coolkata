@@ -248,9 +248,11 @@
   .skyline-marquee {
     animation: skyline-marquee 80s linear infinite;
   }
+  /* Revealed with a clip rather than stroke dashes: the stroke is
+     non-scaling, so dash lengths are measured in screen pixels and a
+     one-unit dash stops short once the underline is stretched wide. */
   .hero-draw {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
+    clip-path: inset(0 100% 0 0);
     animation: hero-draw 900ms ease-out 700ms forwards;
   }
 }
@@ -268,7 +270,7 @@
   }
   html[data-enter="skip"] .hero-draw {
     animation: none;
-    stroke-dashoffset: 0;
+    clip-path: none;
   }
 }
 
@@ -581,7 +583,7 @@
 
 @keyframes hero-draw {
   to {
-    stroke-dashoffset: 0;
+    clip-path: inset(0 0 0 0);
   }
 }
 

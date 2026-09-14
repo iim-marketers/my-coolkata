@@ -45,7 +45,7 @@ export function Squiggle({ className }: { className?: string }) {
       viewBox="0 0 200 20"
       preserveAspectRatio="none"
       aria-hidden
-      className={className}
+      className={`hero-draw ${className ?? ""}`}
     >
       <path
         d="M3 13C30 4 55 18 82 10s53-7 78 1 30 3 37-4"
@@ -54,8 +54,6 @@ export function Squiggle({ className }: { className?: string }) {
         strokeWidth="7"
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
-        pathLength={1}
-        className="hero-draw"
       />
     </svg>
   );

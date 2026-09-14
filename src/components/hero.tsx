@@ -28,7 +28,7 @@ export function Hero() {
       <div className="mx-auto grid w-full max-w-352 items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1fr_1.05fr] lg:gap-10">
         <div className="relative z-10">
           <h1
-            className="hero-rise mt-0 md:mt-6 font-display text-[clamp(2.7rem,6.6vw,5.6rem)] leading-[0.98] font-extrabold tracking-[-0.04em] text-balance"
+            className="hero-rise mt-0 md:mt-6 font-display text-[clamp(2.7rem,6.6vw,5.6rem)] md:text-[min(10.5vw,5.5rem)] lg:text-[clamp(2.7rem,6.6vw,5.6rem)] leading-[0.98] font-extrabold tracking-[-0.04em] text-balance"
             style={{ animationDelay: "80ms" }}
           >
             Discover the <span className="text-primary">cool</span> side of{" "}
@@ -39,7 +39,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="hero-rise mt-7 max-w-xl text-[1.05rem] leading-relaxed text-muted-foreground sm:text-[1.14rem]"
+            className="hero-rise mt-7 text-[1.05rem] lg:max-w-xl leading-relaxed text-muted-foreground sm:text-[1.14rem]"
             style={{ animationDelay: "160ms" }}
           >
             Phuchka stops, pandal-hopping, sunset ghats, tram rides and weekend
@@ -47,7 +47,7 @@ export function Hero() {
           </p>
 
           <div
-            className="hero-rise relative z-20 mt-9 max-w-2xl"
+            className="hero-rise relative z-20 mt-9 lg:max-w-2xl"
             style={{ animationDelay: "240ms" }}
           >
             <HeroSearch />
