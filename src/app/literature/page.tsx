@@ -75,7 +75,10 @@ export default function LiteraturePage() {
                           {l.work}
                         </h2>
                         {l.bengali ? (
-                          <p className="text-lg text-muted-foreground" lang="bn">
+                          <p
+                            className="text-lg text-muted-foreground"
+                            lang="bn"
+                          >
                             {l.bengali}
                           </p>
                         ) : null}
@@ -143,7 +146,7 @@ export default function LiteraturePage() {
                         <p className="mt-1.5 text-[0.84rem] leading-relaxed text-muted-foreground">
                           {l.place.note}
                         </p>
-                        <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-md border border-border">
+                        <div className="relative mt-4 aspect-4/3 overflow-hidden rounded-md border border-border">
                           <KolkataMap id={`lit-${l.slug}`} />
                           <span
                             className="absolute size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-terracotta ring-2 ring-background"
