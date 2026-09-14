@@ -1,9 +1,5 @@
 import { cn } from "@/lib/utils";
 
-/**
- * The My Coolkata mark: Howrah Bridge under a sindoor sun, on taxi yellow.
- * Drawn inline so it stays crisp at every size and costs no request.
- */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg
@@ -48,8 +44,7 @@ export function Logo({
         aria-hidden
         className="font-display text-[1.4rem] leading-none font-extrabold tracking-[-0.03em] text-foreground"
       >
-        My Cool
-        {/* <span className="mx-[0.06em] inline-block h-[0.2em] w-[0.42em] -translate-y-[0.2em] rounded-full bg-marigold" /> */}
+        <span className="text-[oklch(0.82_0.17_70)]">My</span> Cool
         <span className="text-primary">kata</span>
       </span>
     </span>
