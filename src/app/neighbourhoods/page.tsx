@@ -45,20 +45,20 @@ export default function NeighbourhoodsPage() {
         <section key={zone.id} className="border-t border-border">
           <div className={`${pageShell} py-14 sm:py-20`}>
             <Reveal>
-              <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
                 <span
-                  className="size-2 rounded-full"
+                  className="size-2 lg:size-3.5 rounded-full"
                   style={{ background: zone.tone }}
                 />
                 <h2 className="font-display text-[clamp(1.5rem,3.6vw,2.4rem)] font-semibold">
                   {zone.label}
                 </h2>
-                <p className="text-sm text-muted-foreground" lang="bn">
+                <p className="text-lg mt-2  text-red-500" lang="bn">
                   {zone.bengali}
                 </p>
-                <p className="font-mono text-[0.6rem] tracking-[0.18em] text-muted-foreground/60 uppercase">
+                {/* <p className="font-mono mt-2 text-[0.6rem] tracking-[0.18em] text-muted-foreground/60 uppercase">
                   {zone.quarters.length} quarters
-                </p>
+                </p> */}
               </div>
               <p className="mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-muted-foreground">
                 {zone.blurb}
@@ -66,7 +66,12 @@ export default function NeighbourhoodsPage() {
             </Reveal>
             <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {zone.quarters.map((area, i) => (
-                <Reveal as="li" key={area.slug} delay={(i % 4) * 80} className="h-full">
+                <Reveal
+                  as="li"
+                  key={area.slug}
+                  delay={(i % 4) * 80}
+                  className="h-full"
+                >
                   <NeighbourhoodCard area={area} />
                 </Reveal>
               ))}

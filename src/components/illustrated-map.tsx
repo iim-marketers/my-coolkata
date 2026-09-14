@@ -26,14 +26,22 @@ export function IllustratedMap({
   );
 
   const visible = useMemo(
-    () => (zone === "all" ? neighbourhoods : neighbourhoods.filter((n) => n.zone === zone)),
+    () =>
+      zone === "all"
+        ? neighbourhoods
+        : neighbourhoods.filter((n) => n.zone === zone),
     [zone],
   );
 
   const zoneOf = (id: Zone) => zones.find((z) => z.id === id);
 
   return (
-    <div className={cn("grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:gap-12", className)}>
+    <div
+      className={cn(
+        "grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:gap-12",
+        className,
+      )}
+    >
       <div>
         {/* Zone filter. */}
         <div className="mb-4 flex flex-wrap gap-2">
@@ -80,9 +88,11 @@ export function IllustratedMap({
             const members = neighbourhoods.filter((n) => n.zone === z.id);
             if (members.length === 0) return null;
             const cx =
-              members.reduce((a, n) => a + project(n.coords).x, 0) / members.length;
+              members.reduce((a, n) => a + project(n.coords).x, 0) /
+              members.length;
             const cy =
-              members.reduce((a, n) => a + project(n.coords).y, 0) / members.length;
+              members.reduce((a, n) => a + project(n.coords).y, 0) /
+              members.length;
             const dim = zone !== "all" && zone !== z.id;
             return (
               <button
@@ -144,7 +154,8 @@ export function IllustratedMap({
         </div>
 
         <p className="mt-3 font-mono text-[0.58rem] tracking-[0.14em] text-muted-foreground/60 uppercase">
-          {visible.length} quarters · real coordinates, drawn plate, not to scale
+          {visible.length} quarters · real coordinates, drawn plate, not to
+          scale
         </p>
       </div>
 
@@ -189,11 +200,22 @@ export function IllustratedMap({
             {/* A taste of each facet the quarter page carries. */}
             <ul className="mt-6 grid gap-2.5 border-t border-border pt-5">
               {[
-                ["Buildings", active.buildings.length, active.buildings[0]?.name],
+                [
+                  "Buildings",
+                  active.buildings.length,
+                  active.buildings[0]?.name,
+                ],
                 ["Places to eat", active.eats.length, active.eats[0]?.name],
-                ["Things to see", active.thingsToSee.length, active.thingsToSee[0]?.name],
+                [
+                  "Things to see",
+                  active.thingsToSee.length,
+                  active.thingsToSee[0]?.name,
+                ],
               ].map(([label, count, first]) => (
-                <li key={String(label)} className="flex items-baseline gap-3 text-[0.84rem]">
+                <li
+                  key={String(label)}
+                  className="flex items-baseline gap-3 text-[0.84rem]"
+                >
                   <span className="w-28 shrink-0 font-mono text-[0.54rem] tracking-[0.14em] text-muted-foreground/70 uppercase">
                     {label}
                   </span>
@@ -217,18 +239,20 @@ export function IllustratedMap({
           <div className="rounded-lg border border-dashed border-border p-8 text-center">
             <p className="font-display text-lg font-semibold">Pick a quarter</p>
             <p className="mt-2 text-[0.88rem] leading-relaxed text-muted-foreground">
-              {neighbourhoods.length} of them, in five zones. Hover a dot, or filter
-              by zone to see the names.
+              {neighbourhoods.length} of them, in five zones. Hover a dot, or
+              filter by zone to see the names.
             </p>
             <ul className="mt-6 space-y-2 text-left">
               {zones.map((z) => (
                 <li key={z.id} className="flex gap-3">
                   <span
-                    className="mt-1.5 size-1.5 shrink-0 rounded-full"
+                    className="mt-2.5 size-2 shrink-0 rounded-full"
                     style={{ background: z.tone }}
                   />
                   <span>
-                    <span className="text-[0.86rem] font-medium">{z.label}</span>
+                    <span className="text-[0.86rem] font-medium">
+                      {z.label}
+                    </span>
                     <span className="block text-[0.8rem] leading-snug text-muted-foreground">
                       {z.blurb}
                     </span>

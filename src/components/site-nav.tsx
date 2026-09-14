@@ -64,7 +64,7 @@ export function SiteNav() {
         <NavTaxi />
 
         <nav className="relative mx-auto flex h-16 w-full max-w-352 items-center gap-6 px-5 sm:px-8">
-          <Link href="/" aria-label="Coolkata home" className="shrink-0">
+          <Link href="/" aria-label="My Coolkata home" className="shrink-0">
             <Logo />
           </Link>
 
