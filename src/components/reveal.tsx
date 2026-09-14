@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { onEnter } from "@/lib/enter";
 import { cn } from "@/lib/utils";
 
 /**
@@ -10,6 +11,11 @@ import { cn } from "@/lib/utils";
  * Reduced motion is handled in CSS rather than by branching on
  * `matchMedia`, and the `data-reveal` hook lets the `<noscript>` rule in
  * the root layout force everything visible when JavaScript never runs.
+ *
+ * Observation waits for the entrance signal. Hydration is itself a long
+ * task on a phone, and attaching mid-way through it meant every block
+ * already on screen flipped at once, in the same stalled moment the
+ * banner was flipping — the page arrived rather than unfolded.
  */
 export function Reveal({
   children,
@@ -31,17 +37,23 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShown(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.08 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    let io: IntersectionObserver | undefined;
+    const cancel = onEnter(() => {
+      io = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setShown(true);
+            io?.disconnect();
+          }
+        },
+        { rootMargin: "0px 0px -12% 0px", threshold: 0.08 },
+      );
+      io.observe(el);
+    });
+    return () => {
+      cancel();
+      io?.disconnect();
+    };
   }, []);
 
   return (

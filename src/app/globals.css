@@ -207,7 +207,8 @@
   }
   /* Enough to hold text, not so much that the photograph disappears. */
   .scrim-full {
-    background: radial-gradient(
+    background:
+      radial-gradient(
         135% 100% at 50% 62%,
         transparent 44%,
         oklch(0.12 0.02 265 / 0.45) 100%
@@ -250,9 +251,7 @@
   .hero-spin {
     animation: hero-spin 18s linear infinite;
   }
-  /* The skyline strip holds eight identical copies, enough to cover a wide
-     screen at banner height; moving it an eighth of its width lands exactly
-     on the next copy, so the loop has no seam. */
+
   .skyline-marquee {
     animation: skyline-marquee 80s linear infinite;
   }
@@ -260,6 +259,14 @@
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
     animation: hero-draw 900ms ease-out 700ms forwards;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-enter="hold"]
+    :is(.hero-rise, .hero-down, .hero-zoom, .hero-slide, .hero-pop, .hero-draw),
+  html[data-enter="hold"] :is(.hero-float, .hero-spin, .skyline-marquee) {
+    animation-play-state: paused;
   }
 }
 
@@ -310,7 +317,11 @@
   background-image:
     repeating-linear-gradient(90deg, var(--stitch) 0 9px, transparent 9px 16px),
     repeating-linear-gradient(90deg, var(--stitch) 0 9px, transparent 9px 16px),
-    repeating-linear-gradient(180deg, var(--stitch) 0 9px, transparent 9px 16px),
+    repeating-linear-gradient(
+      180deg,
+      var(--stitch) 0 9px,
+      transparent 9px 16px
+    ),
     repeating-linear-gradient(180deg, var(--stitch) 0 9px, transparent 9px 16px);
   background-size:
     calc(100% - 20px) 1.5px,
@@ -329,7 +340,11 @@
 .kolapata {
   background-color: var(--kolapata);
   background-image:
-    repeating-linear-gradient(97deg, oklch(1 0 0 / 0.05) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(
+      97deg,
+      oklch(1 0 0 / 0.05) 0 1px,
+      transparent 1px 26px
+    ),
     linear-gradient(180deg, oklch(0.58 0.12 148), oklch(0.42 0.1 152));
 }
 
@@ -354,7 +369,11 @@
 
 /* The diagonal bars of a clapperboard. */
 .clapper-stripes {
-  background: repeating-linear-gradient(-45deg, var(--khadi) 0 16px, var(--ink) 16px 32px);
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--khadi) 0 16px,
+    var(--ink) 16px 32px
+  );
 }
 
 /* A viewfinder's rule-of-thirds grid. */
@@ -419,97 +438,193 @@
 /* ---- Motion -------------------------------------------------------- */
 
 @keyframes rec-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.25; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
 }
 
 @keyframes thali-serve {
-  from { opacity: 0; transform: scale(0.55) rotate(-24deg); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: scale(0.55) rotate(-24deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes grain-shift {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(-3%, 2%); }
-  50% { transform: translate(2%, -3%); }
-  75% { transform: translate(-2%, -2%); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-3%, 2%);
+  }
+  50% {
+    transform: translate(2%, -3%);
+  }
+  75% {
+    transform: translate(-2%, -2%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 @keyframes rise-in {
-  from { opacity: 0; transform: translateY(1.6rem); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(1.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes hero-rise {
-  from { opacity: 0; transform: translateY(1.25rem); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes hero-down {
-  from { opacity: 0; transform: translateY(-2.5rem); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(-2.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes hero-zoom {
-  from { opacity: 0; transform: scale(0.82); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes hero-slide {
-  from { opacity: 0; transform: translateX(3.5rem); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateX(3.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes hero-pop {
-  0% { opacity: 0; transform: scale(0.6); }
-  70% { opacity: 1; transform: scale(1.04); }
-  100% { opacity: 1; transform: none; }
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes hero-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes hero-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes skyline-marquee {
-  to { transform: translateX(-12.5%); }
+  to {
+    transform: translateX(-12.5%);
+  }
 }
 
 @keyframes hero-draw {
-  to { stroke-dashoffset: 0; }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 /* A tram crossing the navigation bar, very occasionally. */
 @keyframes tram-cross {
-  0%, 88% { transform: translateX(-8rem); opacity: 0; }
-  90% { opacity: 0.5; }
-  98% { opacity: 0.5; }
-  100% { transform: translateX(102vw); opacity: 0; }
+  0%,
+  88% {
+    transform: translateX(-8rem);
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  98% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(102vw);
+    opacity: 0;
+  }
 }
 
 /* A taxi passing behind a heading. */
 @keyframes taxi-pass {
-  from { transform: translateX(-30%); }
-  to { transform: translateX(130%); }
+  from {
+    transform: translateX(-30%);
+  }
+  to {
+    transform: translateX(130%);
+  }
 }
 
 @keyframes rain-fall {
-  from { transform: translateY(-20%); }
-  to { transform: translateY(120%); }
+  from {
+    transform: translateY(-20%);
+  }
+  to {
+    transform: translateY(120%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
@@ -517,5 +632,7 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .film-grain::after { animation: none; }
+  .film-grain::after {
+    animation: none;
+  }
 }
