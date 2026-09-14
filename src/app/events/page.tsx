@@ -36,7 +36,11 @@ export default function EventsPage() {
     <main className="relative z-10 bg-background">
       <PageHeader
         eyebrow={soon ? "Events · Coming soon" : "Events · Frame Kolkata"}
-        title={soon ? "Frame Kolkata is coming soon" : "Shoot the city. Join the crew."}
+        title={
+          soon
+            ? "Frame Kolkata is coming soon"
+            : "Shoot the city. Join the crew."
+        }
         lede={
           soon
             ? "A photo and video contest for small creators, run season after season. Season 01 has not started yet, so here is a first look: pick a part of Kolkata, show it the way only you can, and the best photographers and videographers will be invited to intern with Cool-kata."
@@ -100,7 +104,7 @@ export default function EventsPage() {
       </section>
 
       {/* The paras to choose from. */}
-      <section className="border-t border-border">
+      {/* <section className="border-t border-border">
         <div className={`${pageShell} py-16 sm:py-24`}>
           <Reveal>
             <SectionHeading
@@ -108,8 +112,8 @@ export default function EventsPage() {
               title="Pick your para"
               lede={
                 soon
-                  ? `${contestThemes.length} parts of the city, laid out like a contact sheet. Mark the one you know best and start scouting it now, before entries open.`
-                  : `${contestThemes.length} parts of the city, laid out like a contact sheet. Mark the one you know best, and it opens with a brief to start from.`
+                  ? `Any neighbourhood of Kolkata counts. Here are ${contestThemes.length} to get you started, laid out like a contact sheet: mark one, or take the idea to your own para and start scouting it now, before entries open.`
+                  : `Any neighbourhood of Kolkata counts. Here are ${contestThemes.length} to get you started, laid out like a contact sheet: mark one and it opens with a brief, or take the idea to your own para.`
               }
             />
           </Reveal>
@@ -117,7 +121,7 @@ export default function EventsPage() {
             <ContactSheet />
           </Reveal>
         </div>
-      </section>
+      </section> */}
 
       {/* How it works. */}
       <section

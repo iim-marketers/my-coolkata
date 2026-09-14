@@ -152,10 +152,6 @@
 }
 
 @layer utilities {
-  /* Two columns of unequal height, side by side. Both columns are sticky, so
-     whichever is shorter holds its place under the nav while the other
-     scrolls past it; once the longer one runs out, both leave together.
-     The taller column fills the row, so its stickiness never moves it. */
   @media (min-width: 64rem) {
     .sticky-split > * {
       position: sticky;
@@ -178,10 +174,7 @@
     background-clip: text;
     color: transparent;
   }
-  /* Film grain. Pure CSS so it costs no request.
-     The texture is oversized and clipped: grain-shift jitters it by a few
-     percent, and at the element's own size that uncovered a flickering
-     strip along the right and bottom edges. */
+
   .film-grain {
     overflow: hidden;
   }
@@ -262,28 +255,13 @@
   }
 }
 
-/* ---- Holding the entrance ----------------------------------------------
-
-   The banner choreography is pure CSS, so its clock starts the moment the
-   markup is styled — a second or more before a phone on a cold load has
-   finished decoding the photographs. Frames painted through that window are
-   dropped, so the sequence used to elapse unseen: it stuck, then arrived all
-   at once. The inline script in the root layout marks the document `hold`
-   before the body exists and settles it once those photographs have decoded
-   and the main thread can paint. Unlayered, so these outrank the utilities
-   above, and keyed on an attribute only JavaScript ever sets. */
 @media (prefers-reduced-motion: no-preference) {
-  /* Held: nothing has started, the ambient loops included — a marquee and
-     two bobbing cards are raster work the load cannot spare. */
   html[data-enter="hold"]
     :is(.hero-rise, .hero-down, .hero-zoom, .hero-slide, .hero-pop, .hero-draw),
   html[data-enter="hold"] :is(.hero-float, .hero-spin, .skyline-marquee) {
     animation-play-state: paused;
   }
 
-  /* Given up on: the photographs were too slow for the sequence to be worth
-     watching, so the banner is shown as it ends rather than danced through at
-     four frames. The ambient loops are no longer held and pick themselves up. */
   html[data-enter="skip"]
     :is(.hero-rise, .hero-down, .hero-zoom, .hero-slide, .hero-pop) {
     animation: none;

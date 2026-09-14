@@ -16,19 +16,69 @@ const shell = "mx-auto w-full max-w-[88rem] px-5 sm:px-8";
 
 /** The ways in, by what you feel like doing rather than by district. */
 const VIBES: { label: string; line: string; href: string; photo: PhotoId }[] = [
-  { label: "Eat everything", line: "Rolls, phuchka, biryani and mishti", href: "/food", photo: "kathi-roll" },
-  { label: "Pandal-hopping", line: "Five days, zero sleep", href: "/durga-puja", photo: "pandal-night" },
-  { label: "Hidden gems", line: "Spots most people walk right past", href: "/hidden", photo: "north-kolkata-lane" },
-  { label: "Sunset by the river", line: "Ghats, ferries and golden hour", href: "/river", photo: "hooghly-sunset" },
-  { label: "Adda & coffee", line: "Where the city talks for hours", href: "/adda", photo: "coffee-house" },
-  { label: "Ride the tram", line: "Slow, rattly and completely worth it", href: "/tram", photo: "tram-esplanade" },
-  { label: "Match day", line: "Mohun Bagan, East Bengal and a lot of noise", href: "/football", photo: "salt-lake-stadium" },
-  { label: "Night out", line: "Park Street after dark", href: "/neighbourhoods/park-street", photo: "park-street-night" },
+  {
+    label: "Eat everything",
+    line: "Rolls, phuchka, biryani and mishti",
+    href: "/food",
+    photo: "kathi-roll",
+  },
+  {
+    label: "Pandal-hopping",
+    line: "Five days, zero sleep",
+    href: "/durga-puja",
+    photo: "pandal-night",
+  },
+  {
+    label: "Hidden gems",
+    line: "Spots most people walk right past",
+    href: "/hidden",
+    photo: "north-kolkata-lane",
+  },
+  {
+    label: "Sunset by the river",
+    line: "Ghats, ferries and golden hour",
+    href: "/river",
+    photo: "hooghly-sunset",
+  },
+  {
+    label: "Adda & coffee",
+    line: "Where the city talks for hours",
+    href: "/adda",
+    photo: "coffee-house",
+  },
+  {
+    label: "Ride the tram",
+    line: "Slow, rattly and completely worth it",
+    href: "/tram",
+    photo: "tram-esplanade",
+  },
+  {
+    label: "Match day",
+    line: "Mohun Bagan, East Bengal and a lot of noise",
+    href: "/football",
+    photo: "salt-lake-stadium",
+  },
+  {
+    label: "Night out",
+    line: "Park Street after dark",
+    href: "/neighbourhoods/park-street",
+    photo: "park-street-night",
+  },
 ];
 
 const PLANS = [
-  { emoji: "🎭", title: "Kolkata by mood", line: "Rainy, bookish, hungry or up all night.", href: "/mood" },
-  { emoji: "🧠", title: "How Kolkata are you?", line: "A quick quiz. No pressure. Some pressure.", href: "/how-kolkata-are-you" },
+  {
+    emoji: "🎭",
+    title: "Kolkata by mood",
+    line: "Rainy, bookish, hungry or up all night.",
+    href: "/mood",
+  },
+  {
+    emoji: "🧠",
+    title: "How Kolkata are you?",
+    line: "A quick quiz. No pressure. Some pressure.",
+    href: "/how-kolkata-are-you",
+  },
   {
     emoji: "📸",
     title: "Frame Kolkata",
@@ -46,6 +96,34 @@ export default function Home() {
       <Hero />
 
       <main className="relative z-10 bg-background">
+        {/* Durga Puja. */}
+        <section className="relative overflow-hidden border-b border-border">
+          <CityScene name="pujo" className="absolute inset-0 h-full w-full" />
+          <div className="scrim-full absolute inset-0" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_50%_at_50%_54%,oklch(0.12_0.02_265/0.72),transparent_74%)]" />
+          <div className="film-grain absolute inset-0" />
+          <div className={`${shell} relative py-24 sm:py-32`}>
+            <Reveal>
+              <p className="text-center font-mono text-[0.62rem] tracking-[0.32em] text-cream/60 uppercase">
+                Kolkata during Puja
+              </p>
+              <h2 className="mx-auto mt-5 max-w-3xl text-center font-display text-[clamp(1.9rem,5.5vw,3.8rem)] leading-[0.98] font-extrabold tracking-tight text-cream text-balance">
+                For five days, the city stops being a city.
+              </h2>
+              <PujoCountdown className="mt-12" />
+              <div className="mt-12 text-center">
+                <Link
+                  href="/durga-puja"
+                  className="group inline-flex items-center gap-2 rounded-full bg-marigold px-6 py-3 text-[0.92rem] font-semibold text-ink transition-transform hover:-translate-y-0.5"
+                >
+                  Enter the Puja
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* Pick a vibe. */}
         <section className="border-y border-border bg-secondary/60">
           <div className={`${shell} py-20 sm:py-28`}>
@@ -102,7 +180,12 @@ export default function Home() {
             </Reveal>
             <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {heritageSites.slice(0, 3).map((site, i) => (
-                <Reveal as="li" key={site.slug} delay={i * 110} className="h-full">
+                <Reveal
+                  as="li"
+                  key={site.slug}
+                  delay={i * 110}
+                  className="h-full"
+                >
                   <HeritageCard site={site} index={i} />
                 </Reveal>
               ))}
@@ -145,34 +228,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Durga Puja. */}
-        <section className="relative overflow-hidden border-b border-border">
-          <CityScene name="pujo" className="absolute inset-0 h-full w-full" />
-          <div className="scrim-full absolute inset-0" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_50%_at_50%_54%,oklch(0.12_0.02_265/0.72),transparent_74%)]" />
-          <div className="film-grain absolute inset-0" />
-          <div className={`${shell} relative py-24 sm:py-32`}>
-            <Reveal>
-              <p className="text-center font-mono text-[0.62rem] tracking-[0.32em] text-cream/60 uppercase">
-                Kolkata during Puja
-              </p>
-              <h2 className="mx-auto mt-5 max-w-3xl text-center font-display text-[clamp(1.9rem,5.5vw,3.8rem)] leading-[0.98] font-extrabold tracking-tight text-cream text-balance">
-                For five days, the city stops being a city.
-              </h2>
-              <PujoCountdown className="mt-12" />
-              <div className="mt-12 text-center">
-                <Link
-                  href="/durga-puja"
-                  className="group inline-flex items-center gap-2 rounded-full bg-marigold px-6 py-3 text-[0.92rem] font-semibold text-ink transition-transform hover:-translate-y-0.5"
-                >
-                  Enter the Puja
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
         {/* Make a plan. */}
         <section className="border-b border-border">
           <div className={`${shell} py-20 sm:py-28`}>
@@ -190,7 +245,10 @@ export default function Home() {
                     href={p.href}
                     className="group flex h-full flex-col rounded-3xl border border-border bg-card p-6 transition-[translate,border-color,box-shadow] hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_24px_50px_-30px_oklch(0.25_0.04_265/0.5)]"
                   >
-                    <span aria-hidden className="grid size-12 place-items-center rounded-2xl bg-accent text-2xl">
+                    <span
+                      aria-hidden
+                      className="grid size-12 place-items-center rounded-2xl bg-accent text-2xl"
+                    >
                       {p.emoji}
                     </span>
                     <p className="mt-6 font-display text-xl font-bold tracking-tight">
@@ -212,7 +270,11 @@ export default function Home() {
 
         {/* Close. */}
         <section className="relative overflow-hidden">
-          <CityScene name="river" photo="mullick-ghat-flower-market" className="absolute inset-0 h-full w-full" />
+          <CityScene
+            name="river"
+            photo="mullick-ghat-flower-market"
+            className="absolute inset-0 h-full w-full"
+          />
           <div className="scrim-full absolute inset-0" />
           <div className="film-grain absolute inset-0" />
           <div className={`${shell} relative py-28 sm:py-40`}>

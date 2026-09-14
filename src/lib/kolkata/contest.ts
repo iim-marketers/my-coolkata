@@ -37,7 +37,7 @@ export const currentSeason: Season = {
   theme: "Paras of Kolkata",
   bengali: "পাড়ার ছবি",
   brief:
-    "Twelve neighbourhoods, one city. Pick the part of Kolkata you know best and show us what the rest of us walk straight past.",
+    "Any neighbourhood, one city. Pick the part of Kolkata you know best and show us what the rest of us walk straight past.",
   status: "soon",
   internship: "1 or 3 months",
 };
@@ -70,7 +70,7 @@ export const contestTracks = {
 };
 
 export const contestSteps = [
-  { title: "Pick a para", line: "Choose one part of the city from the season's theme." },
+  { title: "Pick a para", line: "Choose any part of Kolkata, from the sheet or from your own streets." },
   { title: "Shoot it", line: "Phone or camera. What matters is that it could only be this place." },
   { title: "Send it in", line: "Enter through the form before the deadline, with a line on where and why." },
   { title: "The shortlist", line: "The Cool-kata team picks a shortlist, shown on this site with your name on it." },
@@ -84,6 +84,10 @@ export const crewPerks = [
   { title: "Something to show for it", line: "Leave with published work for your portfolio." },
 ];
 
+/**
+ * Starting points, not a closed list: any neighbourhood of Kolkata can be
+ * entered. These are the ones laid out on the contact sheet, each with a brief.
+ */
 export interface ContestTheme {
   slug: string;
   name: string;
@@ -222,6 +226,10 @@ export const contestFaqs = [
   {
     q: "Who can enter?",
     a: "Small creators, students, hobbyists and influencers. You do not need a big following, a portfolio or an expensive camera.",
+  },
+  {
+    q: "Do I have to pick one of the paras on the sheet?",
+    a: "No. They are starting points, each with a brief. Any neighbourhood of Kolkata counts, from Behala to Baranagar, so shoot the one you know best.",
   },
   {
     q: "Can I shoot on my phone?",

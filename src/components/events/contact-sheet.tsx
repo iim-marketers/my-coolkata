@@ -8,9 +8,9 @@ import { contestThemes, currentSeason, pad } from "@/lib/kolkata/contest";
 import { cn } from "@/lib/utils";
 
 /**
- * The season's paras, laid out like a photographer's contact sheet. Picking
- * a frame rings it in red grease pencil, the way a keeper gets marked, and
- * the brief for that para opens alongside.
+ * Suggested paras, laid out like a photographer's contact sheet. Picking a
+ * frame rings it in red grease pencil, the way a keeper gets marked, and the
+ * brief for that para opens alongside. Any other neighbourhood can be entered.
  */
 export function ContactSheet() {
   const [picked, setPicked] = useState(0);
@@ -82,6 +82,15 @@ export function ContactSheet() {
             );
           })}
         </ul>
+        <p className="mt-4 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-t border-dashed border-khadi/15 px-1 pt-3 text-[0.8rem] text-khadi/70">
+          <span>Not on the sheet? Any para in Kolkata counts.</span>
+          <Link
+            href="/neighbourhoods"
+            className="font-mono text-[0.56rem] tracking-[0.18em] text-marigold uppercase hover:text-khadi"
+          >
+            Browse neighbourhoods →
+          </Link>
+        </p>
       </div>
 
       <div>

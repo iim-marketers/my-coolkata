@@ -66,9 +66,12 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
+    // The inline script below sets `data-enter` on this element before
+    // hydration, so its attributes are expected to differ from the server's.
     <html
       lang="en"
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} ${bengali.variable} ${galada.variable} h-full antialiased`}
     >
       <head>

@@ -138,7 +138,7 @@ export function Hero() {
                   emoji="🍛"
                   title="Biryani o'clock"
                   line="Don't skip the potato"
-                  className="-right-2 bottom-8 sm:-right-6 sm:-bottom-4"
+                  className="-right-2 -bottom-4 sm:-right-6 sm:-bottom-4"
                   delay={950}
                   float="reverse"
                 />

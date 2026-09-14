@@ -93,10 +93,10 @@ export function Viewfinder() {
         className="absolute inset-0 -z-10 h-full w-full opacity-40"
       />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(90%_75%_at_50%_45%,oklch(0.14_0.02_265/0.35),oklch(0.12_0.02_265/0.9))]" />
-      <div
+      {/* <div
         aria-hidden
         className="viewfinder-thirds absolute inset-10 sm:inset-16"
-      />
+      /> */}
       <CropMarks className="border-khadi/80" />
 
       <div className="relative flex items-center justify-between gap-4 px-8 pt-8 font-mono text-[0.6rem] tracking-[0.2em] uppercase sm:px-16 sm:pt-12">
@@ -188,12 +188,12 @@ export function VideoTrack() {
   ];
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-[1.5rem] bg-ink text-khadi shadow-[0_30px_60px_-35px_oklch(0.2_0.03_265/0.7)]">
-      <div aria-hidden className="px-6 pt-6 sm:px-9">
+      <div aria-hidden className="px-6 pt-16 sm:px-9">
         <div className="clapper-stripes h-6 origin-bottom-left -rotate-[5deg] rounded-sm" />
         <div className="clapper-stripes mt-1 h-6 rounded-sm" />
       </div>
       <div className="flex flex-1 flex-col p-7 pt-6 sm:p-9 sm:pt-7">
-        <dl className="grid grid-cols-3 rounded-md border border-khadi/25 font-mono text-[0.54rem] tracking-[0.18em] uppercase">
+        {/* <dl className="grid grid-cols-3 rounded-md border border-khadi/25 font-mono text-[0.54rem] tracking-[0.18em] uppercase">
           {slate.map(([label, value], i) => (
             <div
               key={label}
@@ -205,8 +205,8 @@ export function VideoTrack() {
               </dd>
             </div>
           ))}
-        </dl>
-        <Clapperboard className="mt-8 size-9 text-marigold" strokeWidth={1.6} />
+        </dl> */}
+        <Clapperboard className=" size-9 text-marigold" strokeWidth={1.6} />
         <p
           lang="bn"
           className="mt-4 font-bangla-display text-5xl leading-tight text-marigold"
