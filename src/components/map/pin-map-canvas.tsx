@@ -6,7 +6,6 @@ import { Marker, Polyline, useMap } from "react-leaflet";
 import type { MapPin, PinMapProps } from "@/components/map/pin-map";
 import { CITY_LATLNG_BOUNDS, RealMap } from "@/components/map/real-map";
 
-/** Leaflet half of `PinMap`; load with `ssr: false`. */
 export default function PinMapCanvas({
   pins,
   line,
@@ -27,9 +26,8 @@ export default function PinMapCanvas({
         <Refit frameKey={JSON.stringify(framed ?? null)} maxZoom={maxZoom} />
       ) : null}
       {line && line.length > 1 ? (
-        // Leaflet writes stroke as an attribute and the class wins over it.
-        // It goes on as a prop: Leaflet only reads `className` when it
-        // builds the path, and react-leaflet applies `pathOptions` after.
+        // `className` must be a prop: Leaflet reads it only when building the
+        // path, and react-leaflet applies `pathOptions` afterwards.
         <Polyline
           positions={line}
           className="stroke-terracotta"
@@ -59,7 +57,6 @@ export default function PinMapCanvas({
 
 const PADDING: [number, number] = [32, 32];
 
-/** The points worth framing: undimmed pins and the line. */
 function frame(pins: MapPin[], line?: [number, number][]) {
   const points: LatLngTuple[] = [
     ...pins.filter((p) => !p.dim).map<LatLngTuple>((p) => [p.lat, p.lng]),
@@ -68,11 +65,7 @@ function frame(pins: MapPin[], line?: [number, number][]) {
   return points.length ? points : undefined;
 }
 
-/**
- * Re-frames when the framed points change. Keyed on their serialised form,
- * so a hover that only restyles a pin never moves the map. The first run
- * is skipped: the map already opened on these bounds.
- */
+// Keyed on the serialised frame so restyling a pin (hover) never moves the map.
 function Refit({ frameKey, maxZoom }: { frameKey: string; maxZoom: number }) {
   const map = useMap();
   const opened = useRef(false);
@@ -92,7 +85,6 @@ function handlers(
   onPinActivate?: (id: string) => void,
 ): LeafletEventHandlerFnMap {
   if (!onPinActivate || pin.dim) return {};
-  // Leaflet turns Enter on a focused marker into a click.
   const activate = () => onPinActivate(pin.id);
   return { mouseover: activate, click: activate };
 }
@@ -104,12 +96,6 @@ const escape = (s: string) =>
 
 const icons = new Map<string, L.DivIcon>();
 
-/**
- * Pins are HTML for Leaflet, cached by appearance so react-leaflet only
- * swaps an icon that actually changed. Each pin fills its icon box, which
- * Leaflet centres on the point, so the marker element itself is the hover
- * and focus target.
- */
 function pinIcon(pin: MapPin) {
   const { colour, size = "md", active, dim, label, showLabel, number } = pin;
   const key = JSON.stringify([colour, size, active, dim, label, showLabel, number]);

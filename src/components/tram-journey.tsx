@@ -246,8 +246,6 @@ export function TramJourney({ className }: { className?: string }) {
       </div>
 
       {/* This stop. */}
-      {/* Only the text is keyed to the stop, so its entrance replays while
-          the map stays mounted instead of reloading tiles at every stop. */}
       <div className="sticky-split mt-10 grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:gap-12">
         <div key={stop.name} style={{ animation: "rise-in 500ms ease both" }}>
           <p className="max-w-2xl text-[1rem] leading-[1.75] text-muted-foreground">
@@ -274,7 +272,6 @@ export function TramJourney({ className }: { className?: string }) {
               id: s.name,
               lat: s.coords.lat,
               lng: s.coords.lng,
-              // Ridden stops keep a fainter terracotta; the rest are grey.
               colour:
                 n === i
                   ? "var(--terracotta)"

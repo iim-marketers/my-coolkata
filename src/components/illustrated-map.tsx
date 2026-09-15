@@ -35,9 +35,6 @@ export function IllustratedMap({
 
   const zoneOf = (id: Zone) => zones.find((z) => z.id === id);
 
-  // Every quarter, at its real coordinates. Zone names live in the chips
-  // above: floated over the tiles, they collided with each other and the
-  // pins at city zoom.
   const pins = neighbourhoods.map<MapPin>((n) => {
     const isActive = active?.slug === n.slug;
     return {
@@ -49,7 +46,6 @@ export function IllustratedMap({
       size: isActive ? "xl" : "md",
       active: isActive,
       dim: !visible.includes(n),
-      // Names appear once a zone is chosen, or on hover.
       label: n.name,
       showLabel: zone !== "all" || isActive,
     };

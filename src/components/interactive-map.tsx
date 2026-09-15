@@ -101,7 +101,6 @@ export function InteractiveMap({
           }
         />
 
-        {/* Readout, above the attribution so it never covers the credit. */}
         <div className="pointer-events-none absolute inset-x-3 bottom-7 z-1000">
           <div
             className={cn(
