@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { KolkataMap } from "@/components/kolkata-map";
+import { PinMap } from "@/components/map/pin-map";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { Wordmark } from "@/components/ambient";
-import { project } from "@/lib/kolkata";
 import { litEras, literature } from "@/lib/kolkata/literature";
 
 export const metadata: Metadata = {
@@ -146,14 +145,18 @@ export default function LiteraturePage() {
                         <p className="mt-1.5 text-[0.84rem] leading-relaxed text-muted-foreground">
                           {l.place.note}
                         </p>
-                        <div className="relative mt-4 aspect-4/3 overflow-hidden rounded-md border border-border">
-                          <KolkataMap id={`lit-${l.slug}`} />
-                          <span
-                            className="absolute size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-terracotta ring-2 ring-background"
-                            style={{
-                              left: `${project(l.place.coords).x}%`,
-                              top: `${project(l.place.coords).y}%`,
-                            }}
+                        <div className="relative isolate mt-4 aspect-4/3 overflow-hidden rounded-md border border-border bg-background">
+                          <PinMap
+                            pins={[
+                              {
+                                id: l.slug,
+                                lat: l.place.coords.lat,
+                                lng: l.place.coords.lng,
+                                colour: "var(--terracotta)",
+                                title: l.place.name,
+                                size: "lg",
+                              },
+                            ]}
                           />
                         </div>
                       </div>

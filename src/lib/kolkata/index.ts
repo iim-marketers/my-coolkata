@@ -1,6 +1,6 @@
 import { heritageSites } from "./heritage";
 import { neighbourhoods } from "./neighbourhoods";
-import { CITY_BOUNDS, type Coords, type MapPoint } from "./types";
+import type { MapPoint } from "./types";
 
 export * from "./types";
 export * from "./heritage";
@@ -28,7 +28,7 @@ export * from "./personality";
 export * from "./gallery";
 export * from "./today";
 
-/** Points the stylised map draws that are not heritage sites or quarters. */
+/** Points on the site map that are not heritage sites or quarters. */
 const riverAndRail: MapPoint[] = [
   {
     id: "prinsep-ghat",
@@ -103,18 +103,6 @@ export const mapPoints: MapPoint[] = allPoints.filter(
   (p, i) => allPoints.findIndex((q) => q.id === p.id) === i,
 );
 
-/**
- * Linear equirectangular projection into a 0–100 viewBox space.
- * Good enough over 20km; a tile server would be overkill for a drawing.
- */
-export function project({ lat, lng }: Coords) {
-  const x =
-    ((lng - CITY_BOUNDS.west) / (CITY_BOUNDS.east - CITY_BOUNDS.west)) * 100;
-  const y =
-    ((CITY_BOUNDS.north - lat) / (CITY_BOUNDS.north - CITY_BOUNDS.south)) * 100;
-  return { x, y };
-}
-
 /** 22°34′N 88°22′E — the line the homepage types out. */
 export const CITY_COORDS_DISPLAY = "22°34′N 88°22′E";
 
@@ -123,7 +111,7 @@ export const sections = [
   {
     href: "/neighbourhoods",
     label: "Neighbourhoods",
-    blurb: "Twenty-seven quarters, on an illustrated map",
+    blurb: "Twenty-seven quarters, on a map of the city",
   },
   {
     href: "/heritage",

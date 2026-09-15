@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { KolkataMap } from "@/components/kolkata-map";
+import { PinMap, type MapPin } from "@/components/map/pin-map";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { project } from "@/lib/kolkata";
 import { filmPeople, films } from "@/lib/kolkata/cinema";
 
 export const metadata: Metadata = {
@@ -198,19 +197,16 @@ export default function CinemaPage() {
           </Reveal>
 
           <Reveal delay={100} className="lg:sticky lg:top-24 lg:self-start">
-            <div className="relative aspect-square overflow-hidden rounded-lg border border-border bg-background">
-              <KolkataMap id="cinema-map" />
-              {allLocations.map((l) => {
-                const { x, y } = project(l.coords);
-                return (
-                  <span
-                    key={`${l.film}-${l.name}`}
-                    title={`${l.name} · ${l.film}`}
-                    style={{ left: `${x}%`, top: `${y}%` }}
-                    className="absolute size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-terracotta ring-2 ring-background"
-                  />
-                );
-              })}
+            <div className="relative isolate aspect-square overflow-hidden rounded-lg border border-border bg-background">
+              <PinMap
+                pins={allLocations.map<MapPin>((l) => ({
+                  id: `${l.film}-${l.name}`,
+                  lat: l.coords.lat,
+                  lng: l.coords.lng,
+                  colour: "var(--terracotta)",
+                  title: `${l.name} · ${l.film}`,
+                }))}
+              />
             </div>
           </Reveal>
         </div>

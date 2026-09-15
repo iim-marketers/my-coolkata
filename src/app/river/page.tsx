@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { KolkataMap } from "@/components/kolkata-map";
+import { PinMap, type MapPin } from "@/components/map/pin-map";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { CityScene } from "@/components/scenes/city-scene";
 import { SectionHeading } from "@/components/section-heading";
-import { project } from "@/lib/kolkata";
 import { riverChapters } from "@/lib/kolkata/river";
 
 export const metadata: Metadata = {
@@ -165,22 +164,20 @@ export default function RiverPage() {
           </Reveal>
 
           <Reveal delay={100} className="lg:sticky lg:top-24 lg:self-start">
-            <div className="relative aspect-square overflow-hidden rounded-lg border border-border bg-background">
-              <KolkataMap id="river-map" />
-              {pins.map((c) => (
-                <span
-                  key={c.slug}
-                  title={c.title}
-                  style={{
-                    left: `${project(c.coords!).x}%`,
-                    top: `${project(c.coords!).y}%`,
-                  }}
-                  className="absolute size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo ring-2 ring-background"
-                />
-              ))}
+            <div className="relative isolate aspect-square overflow-hidden rounded-lg border border-border bg-background">
+              <PinMap
+                pins={pins.map<MapPin>((c) => ({
+                  id: c.slug,
+                  lat: c.coords!.lat,
+                  lng: c.coords!.lng,
+                  colour: "var(--indigo)",
+                  title: c.title,
+                  size: "lg",
+                }))}
+              />
             </div>
             <p className="mt-4 text-[0.84rem] leading-relaxed text-muted-foreground">
-              The Hooghly runs down the western edge of the plate. Everything
+              The Hooghly runs down the western edge of the map. Everything
               this page describes is within a few hundred metres of it.
             </p>
           </Reveal>

@@ -18,7 +18,7 @@ export default function MapPage() {
       <PageHeader
         eyebrow="Map"
         title="Everything, plotted"
-        lede="Real WGS84 coordinates projected onto a drawing. The Hooghly, the East Kolkata Wetlands, the Maidan and the Metro spine are where they actually are; the buildings are not to scale and were never going to be."
+        lede="Every heritage site, neighbourhood, ghat and station on this site, pinned at its real WGS84 coordinates on an OpenStreetMap base. Zoom in and the street is right there."
         scene="river"
         photo="kolkata-skyline"
         meta={[
@@ -27,7 +27,7 @@ export default function MapPage() {
             label: "Bounds",
             value: `${CITY_BOUNDS.south}–${CITY_BOUNDS.north}° N`,
           },
-          { label: "Projection", value: "Equirectangular" },
+          { label: "Base", value: "OpenStreetMap" },
         ]}
       />
 
@@ -55,25 +55,25 @@ export default function MapPage() {
       <section className="border-t border-border">
         <div className={`${pageShell} py-16 sm:py-24`}>
           <Reveal>
-            <SectionHeading eyebrow="How to read it" title="What the drawing shows" />
+            <SectionHeading eyebrow="How to read it" title="What to look for" />
           </Reveal>
           <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 t: "The Hooghly",
-                d: "A western distributary of the Ganga. The city sits on the east bank because the water there was deep enough for ships and the marshes made it defensible.",
+                d: "The river along the western edge, a distributary of the Ganga. The city sits on the east bank because the water there was deep enough for ships and the marshes made it defensible.",
               },
               {
                 t: "The wetlands",
-                d: "Hatched, to the east. A Ramsar site where sunlight and algae treat a large share of the city's sewage for nothing, and produce ten thousand tonnes of fish a year.",
+                d: "The patchwork of water to the east. A Ramsar site where sunlight and algae treat a large share of the city's sewage for nothing, and produce ten thousand tonnes of fish a year.",
               },
               {
                 t: "The Maidan",
                 d: "Cleared in 1758 to give the guns of Fort William a field of fire, never built on, and now a thousand acres of grass in the middle of the city.",
               },
               {
-                t: "The dashed line",
-                d: "Metro Line 1, north to south, opened in 1984 as the first underground railway in India.",
+                t: "The pins",
+                d: "Terracotta for heritage, marigold for neighbourhoods, verdigris for the river and indigo for stations. Hover or tap one for a note and a link.",
               },
             ].map((item, i) => (
               <Reveal as="li" key={item.t} delay={i * 80} className="h-full">

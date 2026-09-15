@@ -4,7 +4,7 @@ import { InteractiveMap } from "@/components/interactive-map";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { heritageSites, mapPoints } from "@/lib/kolkata";
+import { heritageSites } from "@/lib/kolkata";
 
 export const metadata: Metadata = {
   title: "Landmarks",
@@ -80,9 +80,7 @@ export default function HeritagePage() {
           </Reveal>
 
           <Reveal delay={120} className="self-start lg:sticky lg:top-24">
-            <InteractiveMap
-              points={mapPoints.filter((p) => p.kind === "heritage")}
-            />
+            <InteractiveMap />
           </Reveal>
         </div>
       </section>

@@ -6,8 +6,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { ArrowRight, Pause, Play } from "lucide-react";
 import kolkataTram from "@/assets/kolkata-tram.png";
 import { CityScene } from "@/components/scenes/city-scene";
-import { KolkataMap } from "@/components/kolkata-map";
-import { project } from "@/lib/kolkata";
+import { PinMap, type MapPin } from "@/components/map/pin-map";
 import { tramStops } from "@/lib/kolkata/tram";
 import { cn } from "@/lib/utils";
 
@@ -247,11 +246,10 @@ export function TramJourney({ className }: { className?: string }) {
       </div>
 
       {/* This stop. */}
-      <div
-        key={stop.name}
-        className="sticky-split mt-10 grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:gap-12"
-      >
-        <div style={{ animation: "rise-in 500ms ease both" }}>
+      {/* Only the text is keyed to the stop, so its entrance replays while
+          the map stays mounted instead of reloading tiles at every stop. */}
+      <div className="sticky-split mt-10 grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:gap-12">
+        <div key={stop.name} style={{ animation: "rise-in 500ms ease both" }}>
           <p className="max-w-2xl text-[1rem] leading-[1.75] text-muted-foreground">
             {stop.body}
           </p>
@@ -270,46 +268,26 @@ export function TramJourney({ className }: { className?: string }) {
           </div>
         </div>
 
-        <div className="relative aspect-square overflow-hidden rounded-lg border border-border">
-          <KolkataMap id="tram-map" />
-          <svg
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            className="absolute inset-0 h-full w-full"
-            aria-hidden
-          >
-            <polyline
-              points={tramStops
-                .map((s) => {
-                  const { x, y } = project(s.coords);
-                  return `${x},${y}`;
-                })
-                .join(" ")}
-              fill="none"
-              stroke="var(--terracotta)"
-              strokeWidth="0.7"
-              strokeLinejoin="round"
-              vectorEffect="non-scaling-stroke"
-              opacity="0.5"
-            />
-          </svg>
-          {tramStops.map((s, n) => {
-            const { x, y } = project(s.coords);
-            return (
-              <span
-                key={s.name}
-                style={{ left: `${x}%`, top: `${y}%` }}
-                className={cn(
-                  "absolute -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-background transition-all duration-700",
-                  n === i
-                    ? "size-4 bg-terracotta"
-                    : n < i
-                      ? "size-2 bg-terracotta/60"
-                      : "size-2 bg-muted-foreground/40",
-                )}
-              />
-            );
-          })}
+        <div className="relative isolate aspect-square overflow-hidden rounded-lg border border-border bg-background">
+          <PinMap
+            pins={tramStops.map<MapPin>((s, n) => ({
+              id: s.name,
+              lat: s.coords.lat,
+              lng: s.coords.lng,
+              // Ridden stops keep a fainter terracotta; the rest are grey.
+              colour:
+                n === i
+                  ? "var(--terracotta)"
+                  : n < i
+                    ? "color-mix(in oklch, var(--terracotta) 60%, transparent)"
+                    : "color-mix(in oklch, var(--muted-foreground) 40%, transparent)",
+              title: s.name,
+              size: n === i ? "xl" : "sm",
+              active: n === i,
+            }))}
+            line={tramStops.map<[number, number]>((s) => [s.coords.lat, s.coords.lng])}
+            lineOpacity={0.5}
+          />
         </div>
       </div>
     </div>

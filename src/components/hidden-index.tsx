@@ -1,8 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { KolkataMap } from "@/components/kolkata-map";
-import { project } from "@/lib/kolkata";
+import { PinMap } from "@/components/map/pin-map";
 import { hiddenKinds, hiddenPlaces } from "@/lib/kolkata/hidden";
 import type { HiddenKind, HiddenPlace } from "@/lib/kolkata/hidden";
 import { cn } from "@/lib/utils";
@@ -138,14 +137,18 @@ export function HiddenIndex({ className }: { className?: string }) {
                   </div>
                 ))}
               </dl>
-              <div className="relative aspect-square overflow-hidden rounded-md border border-border">
-                <KolkataMap id="hidden-modal" />
-                <span
-                  className="absolute size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-terracotta ring-2 ring-background"
-                  style={{
-                    left: `${project(open.coords).x}%`,
-                    top: `${project(open.coords).y}%`,
-                  }}
+              <div className="relative isolate aspect-square overflow-hidden rounded-md border border-border bg-background">
+                <PinMap
+                  pins={[
+                    {
+                      id: open.slug,
+                      lat: open.coords.lat,
+                      lng: open.coords.lng,
+                      colour: "var(--terracotta)",
+                      title: open.name,
+                      size: "lg",
+                    },
+                  ]}
                 />
               </div>
             </div>

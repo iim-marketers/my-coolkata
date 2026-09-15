@@ -3,15 +3,15 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { KolkataMap } from "@/components/kolkata-map";
-import { neighbourhoods, project, zones } from "@/lib/kolkata";
+import { PinMap, type MapPin } from "@/components/map/pin-map";
+import { neighbourhoods, zones } from "@/lib/kolkata";
 import type { Neighbourhood, Zone } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
 
 /**
- * The signature map: the city divided into five quarters, drawn rather
- * than tiled, with every neighbourhood pinned at its real coordinates.
- * Hovering a zone lifts its pins; clicking a pin opens the quarter.
+ * The signature map: the city divided into five quarters, with every
+ * neighbourhood pinned at its real coordinates. Choosing a zone frames its
+ * pins; hovering or tapping a pin opens the quarter.
  */
 export function IllustratedMap({
   className,
@@ -34,6 +34,26 @@ export function IllustratedMap({
   );
 
   const zoneOf = (id: Zone) => zones.find((z) => z.id === id);
+
+  // Every quarter, at its real coordinates. Zone names live in the chips
+  // above: floated over the tiles, they collided with each other and the
+  // pins at city zoom.
+  const pins = neighbourhoods.map<MapPin>((n) => {
+    const isActive = active?.slug === n.slug;
+    return {
+      id: n.slug,
+      lat: n.coords.lat,
+      lng: n.coords.lng,
+      colour: zoneOf(n.zone)?.tone ?? "var(--terracotta)",
+      title: n.name,
+      size: isActive ? "xl" : "md",
+      active: isActive,
+      dim: !visible.includes(n),
+      // Names appear once a zone is chosen, or on hover.
+      label: n.name,
+      showLabel: zone !== "all" || isActive,
+    };
+  });
 
   return (
     <div
@@ -80,82 +100,18 @@ export function IllustratedMap({
           ))}
         </div>
 
-        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-background sm:aspect-[5/4]">
-          <KolkataMap id="illus" />
-
-          {/* Zone captions, floated over the plate. */}
-          {zones.map((z) => {
-            const members = neighbourhoods.filter((n) => n.zone === z.id);
-            if (members.length === 0) return null;
-            const cx =
-              members.reduce((a, n) => a + project(n.coords).x, 0) /
-              members.length;
-            const cy =
-              members.reduce((a, n) => a + project(n.coords).y, 0) /
-              members.length;
-            const dim = zone !== "all" && zone !== z.id;
-            return (
-              <button
-                key={z.id}
-                type="button"
-                onClick={() => setZone(zone === z.id ? "all" : z.id)}
-                style={{ left: `${cx}%`, top: `${cy - 18}%`, color: z.tone }}
-                className={cn(
-                  "absolute -translate-x-1/2 -translate-y-1/2 font-mono text-[0.52rem] tracking-[0.26em] whitespace-nowrap uppercase transition-opacity sm:text-[0.6rem]",
-                  dim ? "opacity-20" : "opacity-70 hover:opacity-100",
-                )}
-              >
-                {z.label}
-              </button>
-            );
-          })}
-
-          {/* Every quarter, at its real coordinates. */}
-          {neighbourhoods.map((n) => {
-            const { x, y } = project(n.coords);
-            const shown = visible.includes(n);
-            const isActive = active?.slug === n.slug;
-            const tone = zoneOf(n.zone)?.tone ?? "var(--terracotta)";
-            return (
-              <button
-                key={n.slug}
-                type="button"
-                style={{ left: `${x}%`, top: `${y}%` }}
-                onMouseEnter={() => shown && setActive(n)}
-                onFocus={() => shown && setActive(n)}
-                onClick={() => setActive(n)}
-                aria-label={n.name}
-                className={cn(
-                  "group absolute -translate-x-1/2 -translate-y-1/2 p-2 transition-opacity focus:outline-none",
-                  shown ? "opacity-100" : "pointer-events-none opacity-15",
-                )}
-              >
-                <span
-                  className={cn(
-                    "block rounded-full ring-2 ring-background transition-all duration-200",
-                    isActive ? "size-4" : "size-2.5 group-hover:size-3.5",
-                  )}
-                  style={{ background: tone }}
-                />
-                {/* Names appear once a zone is chosen, or on hover. */}
-                <span
-                  className={cn(
-                    "pointer-events-none absolute top-full left-1/2 mt-0.5 -translate-x-1/2 font-mono text-[0.5rem] tracking-[0.08em] whitespace-nowrap text-foreground transition-opacity sm:text-[0.56rem]",
-                    zone !== "all" || isActive
-                      ? "opacity-90"
-                      : "opacity-0 group-hover:opacity-90",
-                  )}
-                >
-                  {n.name}
-                </span>
-              </button>
-            );
-          })}
+        <div className="relative isolate aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-background sm:aspect-[5/4]">
+          <PinMap
+            pins={pins}
+            refit
+            onPinActivate={(id) =>
+              setActive(neighbourhoods.find((n) => n.slug === id) ?? null)
+            }
+          />
         </div>
 
         <p className="mt-3 font-mono text-[0.58rem] tracking-[0.14em] text-muted-foreground/60 uppercase">
-          {visible.length} quarters · real coordinates, drawn plate, not to
-          scale
+          {visible.length} quarters · pinch or use + / − to zoom
         </p>
       </div>
 

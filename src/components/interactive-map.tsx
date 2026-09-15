@@ -2,25 +2,25 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { KolkataMap } from "@/components/kolkata-map";
-import { CITY_BOUNDS, mapPoints, project } from "@/lib/kolkata";
+import { PinMap, type MapPin } from "@/components/map/pin-map";
+import { mapPoints } from "@/lib/kolkata";
 import type { MapPoint } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
 
-const KINDS = [
-  { id: "heritage", label: "Heritage", dot: "bg-terracotta" },
-  { id: "neighbourhood", label: "Neighbourhoods", dot: "bg-marigold" },
-  { id: "river", label: "On the river", dot: "bg-verdigris" },
-  { id: "station", label: "Stations", dot: "bg-alta" },
-] as const;
-
-const DOT: Record<MapPoint["kind"], string> = {
-  heritage: "bg-terracotta",
-  neighbourhood: "bg-marigold",
-  river: "bg-verdigris",
-  station: "bg-alta",
-  food: "bg-alta",
+const COLOUR: Record<MapPoint["kind"], string> = {
+  heritage: "var(--terracotta)",
+  neighbourhood: "var(--marigold)",
+  river: "var(--verdigris)",
+  station: "var(--indigo)",
+  food: "var(--alta)",
 };
+
+const KINDS = [
+  { id: "heritage", label: "Heritage" },
+  { id: "neighbourhood", label: "Neighbourhoods" },
+  { id: "river", label: "On the river" },
+  { id: "station", label: "Stations" },
+] as const;
 
 export function InteractiveMap({
   points = mapPoints,
@@ -68,7 +68,10 @@ export function InteractiveMap({
                     : "border-border text-muted-foreground/60 hover:text-foreground",
                 )}
               >
-                <span className={cn("size-1.5 rounded-full", k.dot, !on && "opacity-30")} />
+                <span
+                  className={cn("size-1.5 rounded-full", !on && "opacity-30")}
+                  style={{ background: COLOUR[k.id] }}
+                />
                 {k.label}
               </button>
             );
@@ -78,57 +81,32 @@ export function InteractiveMap({
 
       <div
         className={cn(
-          "relative w-full overflow-hidden rounded-lg border border-border bg-background",
+          "relative isolate w-full overflow-hidden rounded-lg border border-border bg-background",
           compact ? "aspect-square" : "aspect-[4/5] sm:aspect-[4/3]",
         )}
         onMouseLeave={() => setActive(null)}
       >
-        <KolkataMap />
+        <PinMap
+          pins={visible.map<MapPin>((p) => ({
+            id: p.id,
+            lat: p.coords.lat,
+            lng: p.coords.lng,
+            colour: COLOUR[p.kind],
+            title: p.name,
+            size: active?.id === p.id ? "lg" : "md",
+            active: active?.id === p.id,
+          }))}
+          onPinActivate={(id) =>
+            setActive(visible.find((p) => p.id === id) ?? null)
+          }
+        />
 
-        {/* Compass and scale, because a map should say which way is up. */}
-        <div className="pointer-events-none absolute top-4 right-4 text-right">
-          <p className="font-mono text-[0.6rem] tracking-[0.24em] text-muted-foreground/60">
-            N ↑
-          </p>
-          <p className="mt-1 font-mono text-[0.55rem] text-muted-foreground/40">
-            {CITY_BOUNDS.south}°–{CITY_BOUNDS.north}° N
-          </p>
-        </div>
-
-        {visible.map((point) => {
-          const { x, y } = project(point.coords);
-          const isActive = active?.id === point.id;
-          return (
-            <button
-              key={point.id}
-              type="button"
-              style={{ left: `${x}%`, top: `${y}%` }}
-              onMouseEnter={() => setActive(point)}
-              onFocus={() => setActive(point)}
-              onClick={() => setActive(point)}
-              aria-label={point.name}
-              className="absolute -translate-x-1/2 -translate-y-1/2 p-2 focus:outline-none"
-            >
-              <span
-                className={cn(
-                  "block rounded-full ring-2 ring-background transition-all duration-200",
-                  DOT[point.kind],
-                  isActive ? "size-3.5" : "size-2 group-hover:size-3",
-                )}
-              />
-              {isActive ? (
-                <span className={cn("absolute inset-0 -z-10 m-auto size-8 animate-ping rounded-full opacity-30", DOT[point.kind])} />
-              ) : null}
-            </button>
-          );
-        })}
-
-        {/* Readout, pinned to the corner so it never covers the point. */}
-        <div className="pointer-events-none absolute inset-x-3 bottom-3">
+        {/* Readout, above the attribution so it never covers the credit. */}
+        <div className="pointer-events-none absolute inset-x-3 bottom-7 z-1000">
           <div
             className={cn(
-              "pointer-events-auto rounded-md border border-border bg-card/95 p-3.5 backdrop-blur transition-opacity duration-200",
-              active ? "opacity-100" : "opacity-0",
+              "rounded-md border border-border bg-card/95 p-3.5 backdrop-blur transition-opacity duration-200",
+              active ? "pointer-events-auto opacity-100" : "opacity-0",
             )}
           >
             {active ? (
@@ -155,7 +133,7 @@ export function InteractiveMap({
               </>
             ) : (
               <p className="text-[0.82rem] text-muted-foreground">
-                Hover a point.
+                Hover or tap a point.
               </p>
             )}
           </div>
@@ -163,7 +141,7 @@ export function InteractiveMap({
       </div>
 
       <p className="mt-3 font-mono text-[0.6rem] tracking-[0.16em] text-muted-foreground/60 uppercase">
-        {visible.length} points · equirectangular sketch, not to scale
+        {visible.length} points · pinch or use + / − to zoom
       </p>
     </div>
   );
