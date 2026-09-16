@@ -75,7 +75,6 @@ export default async function NeighbourhoodPage({
         scene={area.scene}
         photo={area.photo}
         back={{ href: "/neighbourhoods", label: "All quarters" }}
-        tall
         meta={[
           { label: "In Bengali", value: area.bengali },
           ...(area.alsoKnownAs
