@@ -25,7 +25,6 @@ export default function KumartuliPage() {
         lede="Not a monument. A few lanes two metres wide where several thousand goddesses are built out of river mud every autumn, and then put back in the river."
         scene="kumartuli"
         photo="hero-kumartuli"
-        tall
         meta={[
           { label: "In Bengali", value: "কুমোরটুলি" },
           { label: "In use since", value: "Early eighteenth century" },

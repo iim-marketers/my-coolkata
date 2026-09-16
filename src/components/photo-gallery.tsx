@@ -17,7 +17,12 @@ export function PhotoGallery({
   plates,
   className,
 }: {
-  plates: { scene: SceneName; photo?: PhotoId; title?: string; caption?: string }[];
+  plates: {
+    scene: SceneName;
+    photo?: PhotoId;
+    title?: string;
+    caption?: string;
+  }[];
   className?: string;
 }) {
   const [open, setOpen] = useState<number | null>(null);
@@ -68,12 +73,13 @@ export function PhotoGallery({
               <button
                 type="button"
                 onClick={() => setOpen(i)}
-                className="group relative block aspect-[4/3] w-full overflow-hidden rounded-lg border border-border"
+                className="group relative block aspect-4/3 w-full overflow-hidden rounded-lg border border-border"
               >
                 <CityScene
-                  name={plate.scene} photo={plate.photo}
+                  name={plate.scene}
+                  photo={plate.photo}
                   detail="card"
-                  className="h-full w-full transition-transform duration-[1200ms] group-hover:scale-105"
+                  className="h-full w-full transition-transform duration-1200 group-hover:scale-105"
                 />
                 <span className="scrim-bottom absolute inset-0" />
                 <span className="absolute inset-x-0 bottom-0 p-4 text-left">
@@ -162,7 +168,11 @@ export function PhotoGallery({
                         aria-label={d < 0 ? "Previous plate" : "Next plate"}
                         className="grid h-10 w-14 place-items-center rounded-full border border-cream/25 text-cream transition-colors hover:bg-cream/10"
                       >
-                        {d < 0 ? <ArrowLeft className="size-4" /> : <ArrowRight className="size-4" />}
+                        {d < 0 ? (
+                          <ArrowLeft className="size-4" />
+                        ) : (
+                          <ArrowRight className="size-4" />
+                        )}
                       </button>
                     ))}
                   </div>

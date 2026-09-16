@@ -15,13 +15,13 @@ export function StoryCard({
       href={`/stories/${story.slug}`}
       className={cn(
         "group grid overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-terracotta/60",
-        featured ? "md:grid-cols-2" : "grid-cols-1",
+        featured ? "md:grid-cols-2" : "h-full grid-cols-1 grid-rows-[auto_1fr]",
       )}
     >
       <div
         className={cn(
           "relative overflow-hidden",
-          featured ? "aspect-[16/10] md:aspect-auto md:min-h-[22rem]" : "aspect-[16/9]",
+          featured ? "aspect-[16/10] md:aspect-auto md:min-h-[22rem]" : "h-36 sm:h-40",
         )}
       >
         <CityScene
@@ -33,7 +33,7 @@ export function StoryCard({
         <div className="scrim-bottom absolute inset-0 md:opacity-70" />
       </div>
 
-      <div className={cn("flex flex-col justify-center p-5 sm:p-7", featured && "md:p-10")}>
+      <div className={cn("flex flex-col", featured ? "justify-center p-5 sm:p-7 md:p-10" : "p-4 sm:p-5")}>
         <p className="font-mono text-[0.6rem] tracking-[0.26em] text-primary uppercase">
           {story.tags[0]}
           <span className="mx-2 text-border">/</span>
@@ -42,15 +42,25 @@ export function StoryCard({
         <h3
           className={cn(
             "mt-3 font-display leading-tight font-semibold text-balance",
-            featured ? "text-[clamp(1.5rem,3.4vw,2.4rem)]" : "text-xl",
+            featured ? "text-[clamp(1.5rem,3.4vw,2.4rem)]" : "line-clamp-2 text-lg",
           )}
         >
           {story.title}
         </h3>
-        <p className="mt-3 text-[0.92rem] leading-relaxed text-muted-foreground">
+        <p
+          className={cn(
+            "text-muted-foreground",
+            featured ? "mt-3 text-[0.92rem] leading-relaxed" : "mt-2 line-clamp-2 text-sm leading-snug",
+          )}
+        >
           {story.standfirst}
         </p>
-        <p className="mt-5 font-mono text-[0.6rem] tracking-[0.2em] text-muted-foreground/70 uppercase">
+        <p
+          className={cn(
+            "font-mono text-[0.6rem] tracking-[0.2em] text-muted-foreground/70 uppercase",
+            featured ? "mt-5" : "mt-auto pt-3",
+          )}
+        >
           {new Date(story.published).toLocaleDateString("en-GB", {
             day: "numeric",
             month: "long",

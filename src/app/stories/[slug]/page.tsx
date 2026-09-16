@@ -40,7 +40,6 @@ export default async function StoryPage({
         scene={story.scene}
         photo={story.photo}
         back={{ href: "/stories", label: "Stories" }}
-        tall
         meta={[
           { label: "By", value: story.author },
           {
@@ -56,7 +55,7 @@ export default async function StoryPage({
       />
 
       <article className={`${pageShell} py-16 sm:py-24`}>
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto">
           {story.body.map((block, i) => {
             if (block.kind === "heading") {
               return (
