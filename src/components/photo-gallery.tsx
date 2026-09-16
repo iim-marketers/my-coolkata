@@ -1,9 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import { X } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import Image from "next/image";
+import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import { CityScene, sceneInfo } from "@/components/scenes/city-scene";
-import type { PhotoId } from "@/lib/kolkata/photos";
+import { photos, type PhotoId } from "@/lib/kolkata/photos";
 import type { SceneName } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
 
@@ -19,6 +21,8 @@ export function PhotoGallery({
   className?: string;
 }) {
   const [open, setOpen] = useState<number | null>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const touchX = useRef<number | null>(null);
 
   const step = useCallback(
     (d: number) =>
@@ -28,8 +32,11 @@ export function PhotoGallery({
     [plates.length],
   );
 
+  const isOpen = open !== null;
   useEffect(() => {
-    if (open === null) return;
+    if (!isOpen) return;
+    const trigger = document.activeElement as HTMLElement | null;
+    closeRef.current?.focus();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(null);
       if (e.key === "ArrowRight") step(1);
@@ -41,10 +48,15 @@ export function PhotoGallery({
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
+      trigger?.focus();
     };
-  }, [open, step]);
+  }, [isOpen, step]);
 
   const current = open === null ? null : plates[open];
+  const photo = current
+    ? photos[current.photo ?? sceneInfo[current.scene].photo]
+    : null;
+  const many = plates.length > 1;
 
   return (
     <>
@@ -78,66 +90,88 @@ export function PhotoGallery({
         })}
       </ul>
 
-      {current ? (
-        <div
-          role="dialog"
-          aria-modal
-          aria-label={current.title ?? sceneInfo[current.scene].label}
-          className="fixed inset-0 z-50 flex flex-col bg-[oklch(0.1_0.014_50/0.96)] p-4 backdrop-blur sm:p-8"
-          onClick={() => setOpen(null)}
-        >
-          <div className="flex items-start justify-between gap-6">
-            <div>
-              <p className="font-display text-lg font-semibold text-cream sm:text-2xl">
-                {current.title ?? sceneInfo[current.scene].label}
-              </p>
-              <p className="mt-1 font-mono text-[0.6rem] tracking-[0.22em] text-marigold/80 uppercase">
-                {open! + 1} / {plates.length}
-              </p>
-            </div>
-            <button
-              type="button"
+      {/* Portal so a transformed ancestor (Reveal) can't trap the fixed overlay. */}
+      {current && photo
+        ? createPortal(
+            <div
+              role="dialog"
+              aria-modal
+              aria-label={current.title ?? sceneInfo[current.scene].label}
+              className="fixed inset-0 z-90 flex flex-col overscroll-contain bg-[oklch(0.1_0.014_50/0.96)] px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] backdrop-blur sm:px-8 sm:py-6"
               onClick={() => setOpen(null)}
-              aria-label="Close"
-              className="rounded-full border border-cream/25 p-2 text-cream transition-colors hover:bg-cream/10"
             >
-              <X className="size-4" />
-            </button>
-          </div>
-
-          <div
-            className="mt-5 min-h-0 flex-1 overflow-hidden rounded-lg"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <CityScene
-              name={current.scene} photo={current.photo}
-              className="h-full w-full"
-            />
-          </div>
-
-          <div className="mt-4 flex items-center justify-between gap-6">
-            <p className="max-w-xl text-[0.86rem] leading-relaxed text-cream/65">
-              {current.caption ?? sceneInfo[current.scene].caption}
-            </p>
-            <div className="flex shrink-0 gap-2">
-              {[-1, 1].map((d) => (
+              <div className="mx-auto flex w-full max-w-7xl items-start justify-between gap-4">
+                <div className="min-w-0">
+                  <p className="font-display text-lg font-semibold text-cream sm:text-2xl">
+                    {current.title ?? sceneInfo[current.scene].label}
+                  </p>
+                  <p className="mt-1 font-mono text-[0.6rem] tracking-[0.22em] text-marigold/80 uppercase">
+                    {open! + 1} / {plates.length}
+                  </p>
+                </div>
                 <button
-                  key={d}
+                  ref={closeRef}
                   type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    step(d);
-                  }}
-                  aria-label={d < 0 ? "Previous plate" : "Next plate"}
-                  className="rounded-full border border-cream/25 px-4 py-2 font-mono text-xs text-cream transition-colors hover:bg-cream/10"
+                  onClick={() => setOpen(null)}
+                  aria-label="Close"
+                  className="grid size-10 shrink-0 place-items-center rounded-full border border-cream/25 text-cream transition-colors hover:bg-cream/10"
                 >
-                  {d < 0 ? "←" : "→"}
+                  <X className="size-4" />
                 </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      ) : null}
+              </div>
+
+              <div
+                className="relative mt-4 min-h-0 flex-1 sm:mt-6"
+                onTouchStart={(e) => {
+                  touchX.current = e.touches[0].clientX;
+                }}
+                onTouchEnd={(e) => {
+                  if (touchX.current === null || !many) return;
+                  const dx = e.changedTouches[0].clientX - touchX.current;
+                  touchX.current = null;
+                  if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
+                }}
+              >
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Image
+                    key={open}
+                    src={photo.image}
+                    alt={photo.alt}
+                    placeholder="blur"
+                    sizes="100vw"
+                    onClick={(e) => e.stopPropagation()}
+                    className="h-auto max-h-full w-auto max-w-full rounded-lg object-contain shadow-2xl"
+                  />
+                </div>
+              </div>
+
+              <div className="mx-auto mt-4 flex w-full max-w-7xl flex-col gap-3 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+                <p className="max-w-xl text-[0.86rem] leading-relaxed text-cream/65">
+                  {current.caption ?? sceneInfo[current.scene].caption}
+                </p>
+                {many ? (
+                  <div className="flex shrink-0 justify-end gap-2">
+                    {[-1, 1].map((d) => (
+                      <button
+                        key={d}
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          step(d);
+                        }}
+                        aria-label={d < 0 ? "Previous plate" : "Next plate"}
+                        className="grid h-10 w-14 place-items-center rounded-full border border-cream/25 text-cream transition-colors hover:bg-cream/10"
+                      >
+                        {d < 0 ? <ArrowLeft className="size-4" /> : <ArrowRight className="size-4" />}
+                      </button>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
     </>
   );
 }
