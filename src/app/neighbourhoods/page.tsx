@@ -9,7 +9,7 @@ import { neighbourhoods, zonesWithQuarters } from "@/lib/kolkata";
 export const metadata: Metadata = {
   title: "Neighbourhoods",
   description:
-    "An illustrated map of Kolkata in five zones and twenty-seven quarters, from Kumartuli to Tollygunge, each with its history, buildings, food and people.",
+    "A map of Kolkata in five zones and twenty-seven quarters, from Kumartuli to Tollygunge, each with its history, buildings, food and people.",
 };
 
 export default function NeighbourhoodsPage() {
@@ -33,7 +33,7 @@ export default function NeighbourhoodsPage() {
           <SectionHeading
             eyebrow="The map"
             title="Twenty-seven quarters, five zones"
-            lede="Every dot sits at its real coordinates on a drawn plate. Filter by zone to see the names, or hover a dot to read the quarter."
+            lede="Every dot sits at its real coordinates. Filter by zone to see the names, or hover a dot to read the quarter."
           />
         </Reveal>
         <Reveal delay={100} className="mt-12">

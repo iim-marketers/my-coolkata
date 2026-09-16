@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Plus, Route, X } from "lucide-react";
-import { KolkataMap } from "@/components/kolkata-map";
-import { mapPoints, project } from "@/lib/kolkata";
+import { PinMap } from "@/components/map/pin-map";
+import { mapPoints } from "@/lib/kolkata";
 import type { Coords, MapPoint } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
 
@@ -141,48 +141,24 @@ export function RoutePlanner({ className }: { className?: string }) {
       </div>
 
       <div>
-        <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-border bg-background">
-          <KolkataMap id="rp" />
-
-          <svg
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            className="absolute inset-0 h-full w-full"
-            aria-hidden
-          >
-            {route.length > 1 ? (
-              <polyline
-                points={route
-                  .map((p) => {
-                    const { x, y } = project(p.coords);
-                    return `${x},${y}`;
-                  })
-                  .join(" ")}
-                fill="none"
-                stroke="var(--terracotta)"
-                strokeWidth="0.7"
-                strokeDasharray="2 1.4"
-                strokeLinejoin="round"
-                vectorEffect="non-scaling-stroke"
-              />
-            ) : null}
-          </svg>
-
-          {route.map((p, i) => {
-            const { x, y } = project(p.coords);
-            return (
-              <span
-                key={p.id}
-                style={{ left: `${x}%`, top: `${y}%` }}
-                className="absolute grid size-6 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-terracotta font-mono text-[0.58rem] font-semibold text-white ring-2 ring-background"
-              >
-                {i + 1}
-              </span>
-            );
-          })}
+        <div className="relative isolate aspect-square w-full overflow-hidden rounded-lg border border-border bg-background">
+          <PinMap
+            pins={route.map((p, i) => ({
+              id: p.id,
+              lat: p.coords.lat,
+              lng: p.coords.lng,
+              colour: "var(--terracotta)",
+              title: p.name,
+              number: i + 1,
+            }))}
+            line={route.map<[number, number]>((p) => [p.coords.lat, p.coords.lng])}
+            lineDashed
+            maxZoom={16}
+            refit
+          />
 
           {route.length === 0 ? (
-            <p className="absolute inset-0 grid place-items-center px-8 text-center text-[0.86rem] text-muted-foreground">
+            <p className="pointer-events-none absolute inset-x-6 top-1/2 z-1000 -translate-y-1/2 rounded-md bg-card/90 px-4 py-3 text-center text-[0.86rem] text-muted-foreground backdrop-blur">
               Pick a stop to start a route.
             </p>
           ) : null}

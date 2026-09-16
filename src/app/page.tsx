@@ -211,7 +211,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* The illustrated map. */}
+        {/* The neighbourhood map. */}
         <section className="border-b border-border">
           <div className={`${shell} py-16 sm:py-24`}>
             <Reveal>

@@ -1,8 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { KolkataMap } from "@/components/kolkata-map";
-import { project } from "@/lib/kolkata";
+import { PinMap, type MapPin } from "@/components/map/pin-map";
 import { foodPlaceKinds, foodPlaces } from "@/lib/kolkata/food-places";
 import type { FoodPlace, FoodPlaceKind } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
@@ -56,37 +55,26 @@ export function FoodMap({ className }: { className?: string }) {
         </ul>
 
         <div
-          className="relative aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-background sm:aspect-square"
+          className="relative isolate aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-background sm:aspect-square"
           onMouseLeave={() => setActive(null)}
         >
-          <KolkataMap id="foodmap" />
-          {visible.map((p) => {
-            const { x, y } = project(p.coords);
-            const isActive = active?.id === p.id;
-            return (
-              <button
-                key={p.id}
-                type="button"
-                style={{ left: `${x}%`, top: `${y}%` }}
-                onMouseEnter={() => setActive(p)}
-                onFocus={() => setActive(p)}
-                onClick={() => setActive(p)}
-                aria-label={p.name}
-                className="group absolute -translate-x-1/2 -translate-y-1/2 p-2 focus:outline-none"
-              >
-                <span
-                  className={cn(
-                    "block rounded-full ring-2 ring-background transition-all duration-200",
-                    isActive ? "size-3.5" : "size-2 group-hover:size-3",
-                  )}
-                  style={{ background: kindOf(p.kind)?.dot }}
-                />
-              </button>
-            );
-          })}
+          <PinMap
+            pins={visible.map<MapPin>((p) => ({
+              id: p.id,
+              lat: p.coords.lat,
+              lng: p.coords.lng,
+              colour: kindOf(p.kind)?.dot ?? "var(--terracotta)",
+              title: p.name,
+              size: active?.id === p.id ? "lg" : "sm",
+              active: active?.id === p.id,
+            }))}
+            onPinActivate={(id) =>
+              setActive(visible.find((p) => p.id === id) ?? null)
+            }
+          />
         </div>
         <p className="mt-3 font-mono text-[0.58rem] tracking-[0.14em] text-muted-foreground/60 uppercase">
-          {visible.length} places · real coordinates, drawn plate
+          {visible.length} places · pinch or use + / − to zoom
         </p>
       </div>
 

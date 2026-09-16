@@ -3,9 +3,8 @@ import type { PhotoId } from "./photos";
 /**
  * Shared shapes for every collection in the city.
  *
- * `coords` are real WGS84 degrees. They drive the stylised map, which
- * projects them linearly inside `CITY_BOUNDS` rather than using a tile
- * server, so nothing here needs a network call at runtime.
+ * `coords` are real WGS84 degrees, pinned straight onto the tile maps in
+ * `src/components/map`.
  */
 export type Coords = { lat: number; lng: number };
 
@@ -159,8 +158,8 @@ export type SceneName =
   | "river"
   | "rooftops";
 
-/** Tightened to the extent of the points actually plotted, so the drawing
- *  is not mostly empty margin. */
+/** Tightened to the extent of the points actually plotted. Maps open on it
+ *  when they have no pins to frame. */
 export const CITY_BOUNDS = {
   north: 22.67,
   south: 22.505,
