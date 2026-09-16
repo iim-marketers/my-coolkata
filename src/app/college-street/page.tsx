@@ -90,7 +90,6 @@ export default function CollegeStreetPage() {
         lede="Books, students, adda, ideas. A mile and a half of secondhand stalls running past four universities and one very loud room on a first floor."
         scene="collegestreet"
         photo="college-street"
-        tall
         meta={[
           { label: "Length", value: "About 2.5 km of stalls" },
           { label: "Oldest institution", value: "Hare School, 1818" },

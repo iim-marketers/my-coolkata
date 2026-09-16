@@ -42,26 +42,37 @@ export default async function HeritageSitePage({
   return (
     <main className="relative z-10 bg-background">
       <PageHeader
-        eyebrow={site.alsoKnownAs ? `Also ${site.alsoKnownAs}` : site.neighbourhood}
+        eyebrow={
+          site.alsoKnownAs ? `Also ${site.alsoKnownAs}` : site.neighbourhood
+        }
         title={site.name}
         lede={site.summary}
-        scene={site.scene} photo={site.photo}
+        scene={site.scene}
+        photo={site.photo}
         back={{ href: "/heritage", label: "Heritage" }}
-        tall
         meta={[
           { label: "Built", value: site.built },
           { label: "Style", value: site.style },
-          ...(site.architect ? [{ label: "Architect", value: site.architect }] : []),
+          ...(site.architect
+            ? [{ label: "Architect", value: site.architect }]
+            : []),
           { label: "Where", value: site.neighbourhood },
         ]}
       />
 
-      <div className={`${pageShell} grid gap-14 py-16 sm:py-24 lg:grid-cols-[1.35fr_1fr] lg:gap-20`}>
+      <div
+        className={`${pageShell} grid gap-14 py-16 sm:py-24 lg:grid-cols-[1.35fr_1fr] lg:gap-20`}
+      >
         <article>
           <Reveal>
             <div className="max-w-2xl space-y-5 text-[1.02rem] leading-[1.75] text-foreground/85">
               {site.body.map((para, i) => (
-                <p key={i} className={i === 0 ? "text-[1.14rem] leading-[1.7]" : undefined}>
+                <p
+                  key={i}
+                  className={
+                    i === 0 ? "text-[1.14rem] leading-[1.7]" : undefined
+                  }
+                >
                   {para}
                 </p>
               ))}
@@ -72,7 +83,9 @@ export default async function HeritageSitePage({
             <p className="font-mono text-[0.6rem] tracking-[0.24em] text-terracotta uppercase">
               What the guidebook leaves out
             </p>
-            <p className="mt-3 text-[0.98rem] leading-relaxed">{site.overlooked}</p>
+            <p className="mt-3 text-[0.98rem] leading-relaxed">
+              {site.overlooked}
+            </p>
           </Reveal>
         </article>
 
@@ -84,11 +97,16 @@ export default async function HeritageSitePage({
               </p>
               <dl className="mt-4 space-y-3">
                 {site.detail.map((d) => (
-                  <div key={d.label} className="flex justify-between gap-6 border-t border-border pt-3">
+                  <div
+                    key={d.label}
+                    className="flex justify-between gap-6 border-t border-border pt-3"
+                  >
                     <dt className="shrink-0 text-[0.82rem] text-muted-foreground">
                       {d.label}
                     </dt>
-                    <dd className="text-right text-[0.86rem] font-medium">{d.value}</dd>
+                    <dd className="text-right text-[0.86rem] font-medium">
+                      {d.value}
+                    </dd>
                   </div>
                 ))}
               </dl>

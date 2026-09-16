@@ -162,12 +162,13 @@ export default function DurgaPujaPage() {
                   caption: "A commissioned installation, up for ten days.",
                 },
                 {
-                  scene: "streetfood",
+                  scene: "pandalqueue",
                   title: "The queue",
-                  caption: "Rolls, phuchka and biryani beside every pandal.",
+                  caption:
+                    "The queue of people waiting for witness the pandal.",
                 },
                 {
-                  scene: "river",
+                  scene: "immersion",
                   title: "The immersion",
                   caption: "Dashami. The clay goes back into the river.",
                 },

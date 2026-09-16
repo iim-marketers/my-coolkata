@@ -36,12 +36,7 @@ export interface HeritageSite {
   photo?: PhotoId;
 }
 
-export type FoodCategory =
-  | "street"
-  | "sweet"
-  | "meal"
-  | "drink"
-  | "breakfast";
+export type FoodCategory = "street" | "sweet" | "meal" | "drink" | "breakfast";
 
 export interface Dish {
   slug: string;
@@ -156,7 +151,9 @@ export type SceneName =
   | "streetfood"
   | "collegestreet"
   | "river"
-  | "rooftops";
+  | "rooftops"
+  | "pandalqueue"
+  | "immersion";
 
 /** Tightened to the extent of the points actually plotted. Maps open on it
  *  when they have no pins to frame. */
@@ -189,35 +186,40 @@ export const zones: ZoneMeta[] = [
     id: "north",
     label: "North Kolkata",
     bengali: "উত্তর কলকাতা",
-    blurb: "The old city. Courtyard houses, the oldest Pujas, and the trades that named the lanes.",
+    blurb:
+      "The old city. Courtyard houses, the oldest Pujas, and the trades that named the lanes.",
     tone: "var(--terracotta)",
   },
   {
     id: "central",
     label: "Central Kolkata",
     bengali: "মধ্য কলকাতা",
-    blurb: "The colonial core and the commercial one, a few hundred metres apart and nothing alike.",
+    blurb:
+      "The colonial core and the commercial one, a few hundred metres apart and nothing alike.",
     tone: "var(--marigold)",
   },
   {
     id: "south",
     label: "South Kolkata",
     bengali: "দক্ষিণ কলকাতা",
-    blurb: "Where the professional middle class went, and where the city argues about itself now.",
+    blurb:
+      "Where the professional middle class went, and where the city argues about itself now.",
     tone: "var(--verdigris)",
   },
   {
     id: "riverside",
     label: "Riverside",
     bengali: "গঙ্গার ধার",
-    blurb: "The ghats, the bridges and the docks. Everything here arrived by water first.",
+    blurb:
+      "The ghats, the bridges and the docks. Everything here arrived by water first.",
     tone: "var(--indigo)",
   },
   {
     id: "east",
     label: "The east",
     bengali: "পূর্ব কলকাতা",
-    blurb: "Tanneries, a Chinatown, and two planned cities built on drained marsh.",
+    blurb:
+      "Tanneries, a Chinatown, and two planned cities built on drained marsh.",
     tone: "var(--alta)",
   },
 ];

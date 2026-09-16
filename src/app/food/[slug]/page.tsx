@@ -42,7 +42,6 @@ export default async function DishPage({ params }: PageProps<"/food/[slug]">) {
         scene={dish.scene}
         photo={dish.photo}
         back={{ href: "/food", label: "Taste Kolkata" }}
-        tall
         meta={[
           { label: "In Bengali", value: dish.bengali },
           { label: "Origin", value: dish.origin },
@@ -54,7 +53,9 @@ export default async function DishPage({ params }: PageProps<"/food/[slug]">) {
         ]}
       />
 
-      <div className={`${pageShell} grid gap-14 py-16 sm:py-24 lg:grid-cols-[1.35fr_1fr] lg:gap-20`}>
+      <div
+        className={`${pageShell} grid gap-14 py-16 sm:py-24 lg:grid-cols-[1.35fr_1fr] lg:gap-20`}
+      >
         <article>
           <Reveal>
             <div className="max-w-2xl space-y-5 text-[1.02rem] leading-[1.75] text-foreground/85">
@@ -89,11 +90,16 @@ export default async function DishPage({ params }: PageProps<"/food/[slug]">) {
                     key={place.place}
                     className="flex gap-4 border-t border-dashed border-alta/25 pt-4 first:border-0 first:pt-0"
                   >
-                    <span lang="bn" className="w-6 shrink-0 font-bangla-display text-[1.7rem] leading-none text-alta/70">
+                    <span
+                      lang="bn"
+                      className="w-6 shrink-0 font-bangla-display text-[1.7rem] leading-none text-alta/70"
+                    >
                       {toBanglaDigits(i + 1)}
                     </span>
                     <div>
-                      <p className="font-display text-base font-semibold">{place.place}</p>
+                      <p className="font-display text-base font-semibold">
+                        {place.place}
+                      </p>
                       <p className="mt-0.5 font-mono text-[0.58rem] tracking-[0.16em] text-kansa-deep uppercase">
                         {place.where}
                       </p>
@@ -112,7 +118,10 @@ export default async function DishPage({ params }: PageProps<"/food/[slug]">) {
       {alsoTry.length > 0 ? (
         <section className="paper border-t border-border">
           <div className={`${pageShell} relative py-16 sm:py-24`}>
-            <p lang="bn" className="font-bangla-display text-[clamp(2.2rem,5vw,3.2rem)] leading-[1.1] text-alta">
+            <p
+              lang="bn"
+              className="font-bangla-display text-[clamp(2.2rem,5vw,3.2rem)] leading-[1.1] text-alta"
+            >
               এটাও খান
             </p>
             <h2 className="font-display text-2xl font-semibold sm:text-3xl">

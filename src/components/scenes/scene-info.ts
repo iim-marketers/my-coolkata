@@ -54,4 +54,14 @@ export const sceneInfo: Record<
     caption: "A rajbari courtyard in Shobhabazar, and the brickwork around it",
     photo: "sovabazar-rajbari",
   },
+  pandalqueue: {
+    label: "Pandal Queue",
+    caption: "The queue of people waiting to witness the pandal",
+    photo: "puja-crowd",
+  },
+  immersion: {
+    label: "The Immersion",
+    caption: "Dashami. The clay goes back into the river.",
+    photo: "immersion",
+  },
 };
