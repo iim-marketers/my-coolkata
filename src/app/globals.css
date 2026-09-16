@@ -137,6 +137,12 @@
     @apply font-sans;
     scroll-behavior: smooth;
   }
+  /* Desktop renders at the 90% scale the layout was tuned for. */
+  @media (min-width: 64rem) {
+    html {
+      font-size: 90%;
+    }
+  }
   /* Bengali needs a face with the conjuncts, and a little more line. */
   :lang(bn),
   [lang="bn"] {
