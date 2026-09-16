@@ -9,13 +9,22 @@ import { cn } from "@/lib/utils";
 
 // Leaflet reads `window` on import: load this only via `next/dynamic` with `ssr: false`.
 
-// The live domain must be registered on the Stadia account; localhost works without one.
-const TILES = {
-  url: "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
-  attribution:
-    '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  maxZoom: 20,
-};
+const STADIA_KEY = process.env.NEXT_PUBLIC_STADIA_API_KEY;
+
+const TILES = STADIA_KEY
+  ? {
+      url: `https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=${STADIA_KEY}`,
+      attribution:
+        '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 20,
+    }
+  : {
+      url: "https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+      attribution:
+        'Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, DeLorme, NAVTEQ',
+      maxNativeZoom: 16,
+      maxZoom: 20,
+    };
 
 export const CITY_LATLNG_BOUNDS: LatLngBoundsExpression = [
   [CITY_BOUNDS.south, CITY_BOUNDS.west],
@@ -46,7 +55,10 @@ export function RealMap({
       scrollWheelZoom={false}
       dragging={!coarse}
       // `!` because leaflet.css is unlayered and would beat these utilities.
-      className={cn("absolute inset-0 h-full w-full bg-background! font-sans!", className)}
+      className={cn(
+        "absolute inset-0 h-full w-full bg-background! font-sans!",
+        className,
+      )}
     >
       <TileLayer {...TILES} />
       <KeepSized />
