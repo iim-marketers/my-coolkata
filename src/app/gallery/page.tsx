@@ -3,12 +3,15 @@ import { FacesGallery } from "@/components/faces-gallery";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { plateCategories, plates } from "@/lib/kolkata/gallery";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Faces of Kolkata",
   description:
     "Twenty-seven plates across ten categories: people, streets, architecture, food, rain, Puja, night, river, trams and para, each with the story behind the frame.",
-};
+  path: "/gallery",
+  photo: "mullick-ghat-flower-market",
+});
 
 export default function GalleryPage() {
   return (

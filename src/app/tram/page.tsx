@@ -4,12 +4,15 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { TramJourney } from "@/components/tram-journey";
 import { tramFacts, tramStops } from "@/lib/kolkata/tram";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "The Tram",
   description:
     "A virtual journey from Esplanade to Shyambazar, stopping at College Street, Girish Park, Sovabazar and Kumartuli, on a network that has effectively stopped running.",
-};
+  path: "/tram",
+  photo: "hero-tram",
+});
 
 export default function TramPage() {
   return (

@@ -3,12 +3,15 @@ import { HiddenIndex } from "@/components/hidden-index";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { hiddenKinds, hiddenPlaces } from "@/lib/kolkata/hidden";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Hidden Kolkata",
   description:
     "Forty things in Kolkata you probably did not know existed: a grave older than the city, a Kali temple where the prasad is noodles, and the brass lines nobody notices outside the GPO.",
-};
+  path: "/hidden",
+  photo: "north-kolkata-lane",
+});
 
 export default function HiddenPage() {
   return (

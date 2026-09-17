@@ -5,12 +5,15 @@ import { Quiz } from "@/components/quiz";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { cultureStrands } from "@/lib/kolkata";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Culture",
   description:
     "Adda, Rabindrasangeet, pandal art, Bengali cinema, jatra and football: six strands of what the city actually does.",
-};
+  path: "/culture",
+  photo: "pandal-night",
+});
 
 export default function CulturePage() {
   return (

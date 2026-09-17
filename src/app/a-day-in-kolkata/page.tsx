@@ -4,12 +4,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { dayMoments } from "@/lib/kolkata/day";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "A Day in Kolkata",
   description:
     "From the ghats at half past five to the all-night stalls at two. Ten hours of an ordinary day, on a dial that opens at whatever time it actually is in Kolkata.",
-};
+  path: "/a-day-in-kolkata",
+  photo: "tea-stall",
+});
 
 export default function DayPage() {
   return (

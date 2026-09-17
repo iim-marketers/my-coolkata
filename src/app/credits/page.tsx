@@ -4,12 +4,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { CityScene } from "@/components/scenes/city-scene";
 import { cutouts, type CutoutId } from "@/lib/kolkata/cutouts";
 import { photos, type Photo, type PhotoId } from "@/lib/kolkata/photos";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Photo credits",
   description:
     "The photographers whose work appears on this site, and the licences it is used under.",
-};
+  path: "/credits",
+  photo: "howrah-bridge-night",
+});
 
 function Credit({ credit }: { credit: Photo["credit"] }) {
   return (

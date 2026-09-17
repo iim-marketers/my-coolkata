@@ -7,12 +7,15 @@ import { Reveal } from "@/components/reveal";
 import { CityScene } from "@/components/scenes/city-scene";
 import { SectionHeading } from "@/components/section-heading";
 import { pujoChapters, pujoDays } from "@/lib/kolkata/pujo";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Kolkata During Puja",
   description:
     "Durga Puja as an experience rather than a listing: the making, the pandal, the food, the dhaak, the crowd, the rituals and the immersion.",
-};
+  path: "/durga-puja",
+  photo: "hero-pujo",
+});
 
 export default function DurgaPujaPage() {
   return (

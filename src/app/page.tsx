@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Hero } from "@/components/hero";
@@ -11,6 +12,12 @@ import { TastePlate } from "@/components/taste-plate";
 import { heritageSites } from "@/lib/kolkata";
 import { currentSeason } from "@/lib/kolkata/contest";
 import type { PhotoId } from "@/lib/kolkata/photos";
+import { pageMetadata, SITE_DESCRIPTION } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  description: SITE_DESCRIPTION,
+  path: "/",
+});
 
 const shell = "mx-auto w-full max-w-[88rem] px-5 sm:px-8";
 

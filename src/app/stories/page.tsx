@@ -3,12 +3,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { StoryCard } from "@/components/story-card";
 import { stories } from "@/lib/kolkata";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Stories",
   description:
     "Longer reads on the trams, Kumartuli, the Coffee House, the Hooghly, the book fair and sodium light.",
-};
+  path: "/stories",
+  photo: "sovabazar-rajbari",
+});
 
 export default function StoriesPage() {
   const [lead, ...rest] = stories;

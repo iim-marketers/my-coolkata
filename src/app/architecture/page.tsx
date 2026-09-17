@@ -5,12 +5,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { archStyles } from "@/lib/kolkata/architecture";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Kolkata Architecture",
   description:
     "Seven styles, from curved Bengali cornices to Indo-Saracenic domes and Deco corners, and a game that asks whether you can tell them apart.",
-};
+  path: "/architecture",
+  photo: "writers-building",
+});
 
 export default function ArchitecturePage() {
   return (

@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { StoryCard } from "@/components/story-card";
+import { sceneInfo } from "@/components/scenes/scene-info";
 import { getStory, stories } from "@/lib/kolkata";
+import { JsonLd, pageMetadata, photoUrl, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return stories.map((s) => ({ slug: s.slug }));
@@ -15,11 +17,17 @@ export async function generateMetadata({
   const { slug } = await params;
   const story = getStory(slug);
   if (!story) return { title: "Not found" };
-  return {
+  return pageMetadata({
     title: story.title,
     description: story.standfirst,
-    openGraph: { type: "article", publishedTime: story.published },
-  };
+    path: `/stories/${story.slug}`,
+    photo: story.photo ?? sceneInfo[story.scene].photo,
+    article: {
+      publishedTime: story.published,
+      authors: [story.author],
+      tags: story.tags,
+    },
+  });
 }
 
 export default async function StoryPage({
@@ -33,6 +41,27 @@ export default async function StoryPage({
 
   return (
     <main className="relative z-10 bg-background">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: story.title,
+          description: story.standfirst,
+          image: photoUrl(story.photo ?? sceneInfo[story.scene].photo),
+          datePublished: story.published,
+          author:
+            story.author === "Editorial"
+              ? { "@type": "Organization", name: SITE_NAME }
+              : { "@type": "Person", name: story.author },
+          publisher: {
+            "@type": "Organization",
+            name: SITE_NAME,
+            url: SITE_URL.toString(),
+          },
+          keywords: story.tags.join(", "),
+          mainEntityOfPage: `${SITE_URL.origin}/stories/${story.slug}`,
+        }}
+      />
       <PageHeader
         eyebrow={story.tags.join(" · ")}
         title={story.title}

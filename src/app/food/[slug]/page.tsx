@@ -5,6 +5,8 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { dishes, foodCategories, getDish } from "@/lib/kolkata";
 import { toBanglaDigits } from "@/lib/kolkata/bangla";
+import { sceneInfo } from "@/components/scenes/scene-info";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return dishes.map((d) => ({ slug: d.slug }));
@@ -16,7 +18,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const dish = getDish(slug);
   if (!dish) return { title: "Not found" };
-  return { title: dish.name, description: dish.summary };
+  return pageMetadata({
+    title: dish.name,
+    description: dish.summary,
+    path: `/food/${dish.slug}`,
+    photo: dish.photo ?? sceneInfo[dish.scene].photo,
+  });
 }
 
 export default async function DishPage({ params }: PageProps<"/food/[slug]">) {

@@ -5,12 +5,15 @@ import { Reveal } from "@/components/reveal";
 import { RoutePlanner } from "@/components/route-planner";
 import { SectionHeading } from "@/components/section-heading";
 import { CITY_BOUNDS, mapPoints } from "@/lib/kolkata";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Map",
   description:
     "Every heritage site, neighbourhood, ghat and station on this site, plotted at its real coordinates, plus a route planner.",
-};
+  path: "/map",
+  photo: "kolkata-skyline",
+});
 
 export default function MapPage() {
   return (

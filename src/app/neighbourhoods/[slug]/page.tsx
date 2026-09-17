@@ -13,6 +13,8 @@ import {
   neighbourhoods,
   zones,
 } from "@/lib/kolkata";
+import { sceneInfo } from "@/components/scenes/scene-info";
+import { JsonLd, pageMetadata, photoUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
   return neighbourhoods.map((n) => ({ slug: n.slug }));
@@ -24,7 +26,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const area = getNeighbourhood(slug);
   if (!area) return { title: "Not found" };
-  return { title: area.name, description: `${area.tagline} ${area.summary}` };
+  return pageMetadata({
+    title: area.name,
+    description: `${area.tagline} ${area.summary}`,
+    path: `/neighbourhoods/${area.slug}`,
+    photo: area.photo ?? sceneInfo[area.scene].photo,
+  });
 }
 
 /** A titled block with a rule, used for each of the quarter's facets. */
@@ -68,6 +75,22 @@ export default async function NeighbourhoodPage({
 
   return (
     <main className="relative z-10 bg-background">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Place",
+          name: area.name,
+          ...(area.alsoKnownAs && { alternateName: area.alsoKnownAs }),
+          description: area.summary,
+          image: photoUrl(area.photo ?? sceneInfo[area.scene].photo),
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: area.coords.lat,
+            longitude: area.coords.lng,
+          },
+          containedInPlace: { "@type": "City", name: "Kolkata" },
+        }}
+      />
       <PageHeader
         eyebrow={zone?.label ?? "Kolkata"}
         title={area.name}

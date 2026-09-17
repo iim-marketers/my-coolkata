@@ -7,12 +7,15 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { craftStages } from "@/lib/kolkata/kumartuli";
 import { getNeighbourhood } from "@/lib/kolkata";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Kumartuli",
   description:
     "Bamboo, straw, clay, paint, the eyes, and the goddess. Three hundred years of idol makers in a few lanes of north Kolkata, told as the process it is.",
-};
+  path: "/kumartuli",
+  photo: "hero-kumartuli",
+});
 
 export default function KumartuliPage() {
   const quarter = getNeighbourhood("kumartuli");

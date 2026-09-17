@@ -10,6 +10,14 @@ import { ENTER_EVENT, ENTER_GIVE_UP, ENTER_IMAGES } from "@/lib/enter";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteNav } from "@/components/site-nav";
 import { Toaster } from "@/components/ui/sonner";
+import {
+  JsonLd,
+  pageMetadata,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+} from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -42,20 +50,41 @@ const galada = Galada({
   weight: "400",
 });
 
+const siteDefaults = pageMetadata({ description: SITE_DESCRIPTION, path: "/" });
+
 export const metadata: Metadata = {
+  metadataBase: SITE_URL,
   title: {
-    default: "My Coolkata — Discover the cool side of Kolkata",
-    template: "%s · My Coolkata",
+    default: SITE_TITLE,
+    template: `%s · ${SITE_NAME}`,
   },
-  description:
-    "Street food, Durga Puja, hidden gems, neighbourhoods and weekend plans. Your cheat sheet to Kolkata.",
-  openGraph: {
-    title: "My Coolkata — Discover the cool side of Kolkata",
-    description:
-      "Street food, Durga Puja, hidden gems, neighbourhoods and weekend plans. Your cheat sheet to Kolkata.",
-    siteName: "My Coolkata",
-    type: "website",
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: [
+    "My Cool Kata",
+    "cool kata",
+    "coolkata",
+    "my coolkata",
+    "Bengali culture",
+    "Bengali food",
+    "Bengali festivals",
+    "Bengali literature",
+    "Kolkata",
+    "Calcutta",
+    "Kolkata travel guide",
+    "Kolkata street food",
+    "Durga Puja",
+    "Kolkata heritage",
+    "Kolkata neighbourhoods",
+    "things to do in Kolkata",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
+  openGraph: siteDefaults.openGraph,
+  twitter: siteDefaults.twitter,
 };
 
 /** Light only, whatever the device prefers. */
@@ -67,7 +96,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} ${bengali.variable} ${galada.variable} h-full antialiased`}
@@ -102,6 +131,17 @@ document.readyState==="loading"?document.addEventListener("DOMContentLoaded",aft
         </noscript>
       </head>
       <body className="min-h-full">
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: SITE_NAME,
+            url: SITE_URL.toString(),
+            description: SITE_DESCRIPTION,
+            inLanguage: "en-IN",
+            about: { "@type": "City", name: "Kolkata" },
+          }}
+        />
         <SiteNav />
         {children}
         <SiteFooter />

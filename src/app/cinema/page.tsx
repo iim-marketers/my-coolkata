@@ -5,12 +5,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { filmPeople, films } from "@/lib/kolkata/cinema";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Kolkata in Cinema",
   description:
     "Ray, Ghatak and Mrinal Sen, the films they made here, the people who were in them, and a map of where it was shot.",
-};
+  path: "/cinema",
+  photo: "nandan",
+});
 
 export default function CinemaPage() {
   const directors = filmPeople.filter((p) => p.role === "director");

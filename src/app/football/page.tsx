@@ -5,12 +5,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { clubs, fanCulture, footballFacts } from "@/lib/kolkata/football";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Football Kolkata",
   description:
     "Mohun Bagan, East Bengal and Mohammedan Sporting; the Maidan, the derby, and a rivalry that carries Partition inside it.",
-};
+  path: "/football",
+  photo: "salt-lake-stadium",
+});
 
 export default function FootballPage() {
   return (

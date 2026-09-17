@@ -5,12 +5,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { neighbourhoods, zonesWithQuarters } from "@/lib/kolkata";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Neighbourhoods",
   description:
     "A map of Kolkata in five zones and twenty-seven quarters, from Kumartuli to Tollygunge, each with its history, buildings, food and people.",
-};
+  path: "/neighbourhoods",
+  photo: "chitpur-road",
+});
 
 export default function NeighbourhoodsPage() {
   return (

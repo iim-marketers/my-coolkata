@@ -3,12 +3,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { PersonalityQuiz } from "@/components/personality-quiz";
 import { Reveal } from "@/components/reveal";
 import { pQuestions, pResults } from "@/lib/kolkata/personality";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "How Kolkata Are You?",
   description:
     "Six questions about evenings, hundred-rupee notes, fish, football and where you would rather be, and one result you can share.",
-};
+  path: "/how-kolkata-are-you",
+  photo: "yellow-taxis-traffic",
+});
 
 export default function PersonalityPage() {
   return (

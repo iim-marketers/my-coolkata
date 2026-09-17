@@ -4,12 +4,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { famousFor } from "@/lib/kolkata";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Famous For",
   description:
     "Food, books, football, cinema, theatre, art, music and festivals: eight things Kolkata is known for, and what is actually in each of them.",
-};
+  path: "/famous-for",
+  photo: "rosogolla",
+});
 
 export default function FamousForPage() {
   const total = famousFor.reduce((n, f) => n + f.items.length, 0);

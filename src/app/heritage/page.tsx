@@ -5,12 +5,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { heritageSites } from "@/lib/kolkata";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Landmarks",
   description:
     "Kolkata's must-see landmarks, from Victoria Memorial to Howrah Bridge, with what to look for and where they are.",
-};
+  path: "/heritage",
+  photo: "victoria-memorial",
+});
 
 export default function HeritagePage() {
   // Grouped by where they are, so a day can take in a cluster at once.

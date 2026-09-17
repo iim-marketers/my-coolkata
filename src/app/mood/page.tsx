@@ -3,12 +3,15 @@ import { MoodPicker } from "@/components/mood-picker";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { moods } from "@/lib/kolkata/moods";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Kolkata by Mood",
   description:
     "Rainy, romantic, bookish, foodie, heritage, artistic, football, night, Puja or slow. Pick how you want the day to feel and get a sequence you could follow.",
-};
+  path: "/mood",
+  photo: "kolkata-rain",
+});
 
 export default function MoodPage() {
   return (

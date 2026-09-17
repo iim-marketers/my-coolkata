@@ -5,7 +5,9 @@ import { HeritageCard } from "@/components/heritage-card";
 import { InteractiveMap } from "@/components/interactive-map";
 import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
+import { sceneInfo } from "@/components/scenes/scene-info";
 import { getHeritageSite, heritageSites } from "@/lib/kolkata";
+import { JsonLd, pageMetadata, photoUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
   return heritageSites.map((s) => ({ slug: s.slug }));
@@ -17,7 +19,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const site = getHeritageSite(slug);
   if (!site) return { title: "Not found" };
-  return { title: site.name, description: site.summary };
+  return pageMetadata({
+    title: site.name,
+    description: site.summary,
+    path: `/heritage/${site.slug}`,
+    photo: site.photo ?? sceneInfo[site.scene].photo,
+  });
 }
 
 export default async function HeritageSitePage({
@@ -41,6 +48,27 @@ export default async function HeritageSitePage({
 
   return (
     <main className="relative z-10 bg-background">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "TouristAttraction",
+          name: site.name,
+          ...(site.alsoKnownAs && { alternateName: site.alsoKnownAs }),
+          description: site.summary,
+          image: photoUrl(site.photo ?? sceneInfo[site.scene].photo),
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: site.coords.lat,
+            longitude: site.coords.lng,
+          },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Kolkata",
+            addressRegion: "West Bengal",
+            addressCountry: "IN",
+          },
+        }}
+      />
       <PageHeader
         eyebrow={
           site.alsoKnownAs ? `Also ${site.alsoKnownAs}` : site.neighbourhood

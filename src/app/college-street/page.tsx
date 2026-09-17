@@ -6,12 +6,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { getNeighbourhood } from "@/lib/kolkata";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "College Street",
   description:
     "Boi Para: a mile and a half of secondhand bookstalls, four universities, the Coffee House, and sixty years of student movements.",
-};
+  path: "/college-street",
+  photo: "college-street",
+});
 
 const CHAPTERS = [
   {

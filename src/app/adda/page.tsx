@@ -5,12 +5,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { addaRules, addaTopics } from "@/lib/kolkata/adda";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Adda",
   description:
     "The long, unproductive, argumentative conversation that is close to Kolkata's actual religion. Six rules, six topics, and the positions people take on each.",
-};
+  path: "/adda",
+  photo: "coffee-house",
+});
 
 export default function AddaPage() {
   return (

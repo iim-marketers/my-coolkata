@@ -4,12 +4,15 @@ import { PageHeader, pageShell } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { monthNames, todayEntries, todayKinds } from "@/lib/kolkata/today";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Kolkata Today",
   description:
     "What is on and when: festivals, exhibitions, theatre, music, sport, seasons and notices, month by month, with where to check the real dates.",
-};
+  path: "/today",
+  photo: "new-town",
+});
 
 export default function TodayPage() {
   const byMonth = monthNames.map((m, i) => ({

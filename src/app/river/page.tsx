@@ -6,12 +6,15 @@ import { Reveal } from "@/components/reveal";
 import { CityScene } from "@/components/scenes/city-scene";
 import { SectionHeading } from "@/components/section-heading";
 import { riverChapters } from "@/lib/kolkata/river";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "The River That Watches Kolkata",
   description:
     "The Hooghly: why the city is here, Howrah Bridge, Prinsep Ghat, the ghats, immersion, trade, silt and what is in the water now.",
-};
+  path: "/river",
+  photo: "hooghly-sunset",
+});
 
 export default function RiverPage() {
   const pins = riverChapters.filter((c) => c.coords);

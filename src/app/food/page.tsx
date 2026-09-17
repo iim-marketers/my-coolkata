@@ -9,12 +9,15 @@ import { dishes } from "@/lib/kolkata";
 import { toBanglaDigits } from "@/lib/kolkata/bangla";
 import { foodPlaces } from "@/lib/kolkata/food-places";
 import { cn } from "@/lib/utils";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Taste Kolkata",
   description:
     "The foods Kolkata is famous for and where to find them, a food map of thirty-five places, and a quiz that builds you a food trail.",
-};
+  path: "/food",
+  photo: "bengali-thali",
+});
 
 const RULES = [
   {

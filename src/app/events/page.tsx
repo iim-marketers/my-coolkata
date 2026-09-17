@@ -19,14 +19,17 @@ import {
   pad,
   statusLabel,
 } from "@/lib/kolkata/contest";
+import { pageMetadata } from "@/lib/seo";
 
 const soon = currentSeason.status === "soon";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: soon ? "Events: Frame Kolkata (coming soon)" : "Events: Frame Kolkata",
   description:
     "A recurring photo and video contest for small creators. Shoot a part of Kolkata; the best photographers and videographers are invited to intern with My Coolkata.",
-};
+  path: "/events",
+  photo: "hero-howrah",
+});
 
 export default function EventsPage() {
   const season = currentSeason;

@@ -6,12 +6,15 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { Wordmark } from "@/components/ambient";
 import { litEras, literature } from "@/lib/kolkata/literature";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "The City of Words",
   description:
     "Kolkata through its literature: Tagore, Bankim, Madhusudan, Sarat Chandra, Jibanananda and Begum Rokeya, with the places attached to each.",
-};
+  path: "/literature",
+  photo: "hero-collegestreet",
+});
 
 export default function LiteraturePage() {
   const byEra = litEras
