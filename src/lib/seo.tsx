@@ -13,8 +13,6 @@ export const SITE_URL = new URL(
       : "http://localhost:3000"),
 );
 
-const DEFAULT_PHOTO: PhotoId = "hero-howrah";
-
 export function absoluteUrl(path: string) {
   return new URL(path, SITE_URL).toString();
 }
@@ -28,7 +26,6 @@ export function pageMetadata({
   title,
   description,
   path,
-  photo = DEFAULT_PHOTO,
   article,
 }: {
   title?: string;
@@ -37,9 +34,8 @@ export function pageMetadata({
   photo?: PhotoId;
   article?: { publishedTime: string; authors?: string[]; tags?: string[] };
 }): Metadata {
-  const { image, alt } = photos[photo];
   const images = [
-    { url: image.src, width: image.width, height: image.height, alt },
+    { url: "/opengraph-image", width: 1200, height: 630, alt: SITE_NAME },
   ];
   const shareTitle = title ? `${title} · ${SITE_NAME}` : SITE_TITLE;
 
@@ -54,9 +50,7 @@ export function pageMetadata({
       siteName: SITE_NAME,
       locale: "en_IN",
       images,
-      ...(article
-        ? { type: "article", ...article }
-        : { type: "website" }),
+      ...(article ? { type: "article", ...article } : { type: "website" }),
     },
     twitter: {
       card: "summary_large_image",
