@@ -36,13 +36,11 @@ export default function DurgaPujaPage() {
       <PujoFestiveSwitch />
       <DropHash />
 
-      {/* Panchami to Dashami: a pandal at night. */}
       <div className="pujo-festive">
         <PujoNightHero year={year} />
         <LaalPaar />
       </div>
 
-      {/* The Bijoya days after Dashami. */}
       <div className="pujo-bijoya">
         <PujoBijoya year={year} />
         <LaalPaar />
@@ -66,7 +64,7 @@ export default function DurgaPujaPage() {
         </PageHeader>
       </div>
 
-      {/* The seven chapters, put away while the festival is on. */}
+      {/* The seven chapters. */}
       <div className="pujo-regular">
         {pujoChapters.map((chapter, i) => {
           const flip = i % 2 === 1;

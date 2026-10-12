@@ -107,7 +107,7 @@ export default function Home() {
       <Hero />
 
       <main className="relative z-10 bg-background">
-        {/* Durga Puja: a pandal at night from Panchami to Dashami, the ghat at dusk for Bijoya, a countdown otherwise. */}
+        {/* Durga Puja. */}
         <PujoFestiveSwitch />
         <div className="pujo-festive mt-10">
           <LaalPaar />

@@ -37,11 +37,7 @@ function mark(season: PujoSeason) {
   if (season.kind === "festive") root.dataset.pujoDay = String(season.night);
 }
 
-/**
- * Dresses the page for Panchami to Dashami, then the Bijoya days, by marking
- * `<html>`. The inline script does it before first paint on a full load; the
- * effect covers client navigations, midnight, and leaving the page.
- */
+// The script marks <html> before first paint; the effect covers client navigations.
 export function PujoFestiveSwitch() {
   useLayoutEffect(() => {
     const update = () => mark(pujoSeason(pujoNow()));
@@ -73,7 +69,6 @@ function useTonight() {
   return night;
 }
 
-/** One clay diya per night, lit up to tonight. */
 export function NightLamps({ className }: { className?: string }) {
   const tonight = useTonight();
 
@@ -191,14 +186,9 @@ const noSubscribe = () => () => {};
 const isLiveNight = () => pujoNightIndex(pujoNow()) >= 0;
 const GESTURES = ["pointerdown", "pointerup", "keydown"] as const;
 
-/**
- * The dhak, Panchami to Dashami. One burst on arrival, or on the first tap
- * where the browser holds sound back; the button keeps it going or stops it.
- */
 export function DhakPlayer() {
   const audio = useRef<HTMLAudioElement>(null);
   const button = useRef<HTMLButtonElement>(null);
-  // Server snapshot is false: the clock is the browser's.
   const live = useSyncExternalStore(noSubscribe, isLiveNight, () => false);
   const [playing, setPlaying] = useState(false);
   const [waiting, setWaiting] = useState(false);

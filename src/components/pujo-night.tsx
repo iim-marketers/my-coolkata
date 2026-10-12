@@ -27,10 +27,6 @@ const MANTRA = [
   "নমস্তস্যৈ নমস্তস্যৈ নমস্তস্যৈ নমো নমঃ",
 ];
 
-/**
- * Panchami to Dashami: a pandal at night. `page` is the Puja page's banner;
- * `home` is the same scene as a band further down the home page.
- */
 export function PujoNightHero({
   year,
   variant = "page",
@@ -39,7 +35,6 @@ export function PujoNightHero({
   variant?: "page" | "home";
 }) {
   const home = variant === "home";
-  // Below the fold the entrance has long finished, so the band reveals on scroll.
   const rise = home ? "" : "hero-rise";
   const Root = home ? "section" : "header";
   const Title = home ? "h2" : "h1";
@@ -163,7 +158,6 @@ export function PujoNightHero({
   );
 }
 
-/** The goddess in a temple arch, the chalchitra halo turning behind her. */
 function PandalArch({ home }: { home: boolean }) {
   return (
     <div className="relative mx-auto w-full max-w-[25rem] lg:max-w-[27rem]">
@@ -211,7 +205,6 @@ function PandalArch({ home }: { home: boolean }) {
   );
 }
 
-/** Smoke from the dhunuchi, coconut husk and resin, rising past the frame. */
 function Dhunuchi() {
   return (
     <div
@@ -241,7 +234,6 @@ function Dhunuchi() {
   );
 }
 
-/** A marigold garland with mango leaves, strung across the top. */
 function Toran({ className }: { className?: string }) {
   const swag = 240;
   const beads: { x: number; y: number; c: string }[] = [];
@@ -311,7 +303,6 @@ const BULB_COLOURS = [
   "#9be564",
 ];
 
-/** Chandannagar fairy lights, in loose swags. */
 function StringLights({ className }: { className?: string }) {
   const strands = [
     { width: 300, y0: 70, sag: 70, opacity: 0.9 },
@@ -364,7 +355,6 @@ function StringLights({ className }: { className?: string }) {
   );
 }
 
-/** Shiuli, the night jasmine of autumn, falling as it does in October. */
 function Shiuli() {
   return (
     <div
@@ -442,12 +432,10 @@ function MantraBand() {
   );
 }
 
-/** The red border of a laal-paar sari, with white alpona along it. */
 export function LaalPaar({ className }: { className?: string }) {
   return <div aria-hidden className={cn("laal-paar", className)} />;
 }
 
-/** What the city chants as the idols go into the river. */
 export function AschheBochor() {
   return (
     <section className="pujo-night relative isolate overflow-hidden text-center text-cream">
@@ -471,10 +459,6 @@ export function AschheBochor() {
   );
 }
 
-/**
- * The Bijoya days after Dashami: dusk at the ghat, sindoor in the air, lamps
- * on the river, and the count to next year. Same `variant`s as the night hero.
- */
 export function PujoBijoya({
   year,
   variant = "page",
@@ -569,7 +553,6 @@ export function PujoBijoya({
   );
 }
 
-/** Sindoor and abir hanging in the air after the khela. */
 function Abir() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -595,13 +578,13 @@ function Abir() {
   );
 }
 
+// Periods must divide 1200 so the half-width slide loops seamlessly.
 const RIVER_LAYERS = [
   { y: 46, amp: 6, period: 400, fill: "oklch(0.32 0.07 248)", duration: 46 },
   { y: 84, amp: 5, period: 300, fill: "oklch(0.25 0.06 252)", duration: 32 },
   { y: 126, amp: 4, period: 600, fill: "oklch(0.19 0.05 256)", duration: 22 },
 ];
 
-/** A wave across two 1200-wide tiles, so sliding by half loops seamlessly. */
 function wave(y: number, amp: number, period: number) {
   let d = `M0 ${y}`;
   for (let x = 20; x <= 2400; x += 20) {
@@ -610,7 +593,6 @@ function wave(y: number, amp: number, period: number) {
   return `${d}L2400 200L0 200Z`;
 }
 
-/** The Hooghly at dusk, with lamps floated on it. */
 function River() {
   return (
     <div

@@ -677,9 +677,7 @@
 
 /* ---- Durga Puja, Panchami to Dashami ---------------------------------- */
 
-/* `data-pujo` ("festive", then "bijoya") is set on <html> by PujoFestiveSwitch
-   before first paint. `pujo-regular` steps aside for the festival only;
-   `pujo-ordinary` for the Bijoya days too. */
+/* `data-pujo` is set on <html> by PujoFestiveSwitch. */
 html:not([data-pujo="festive"]) .pujo-festive,
 html:not([data-pujo="bijoya"]) .pujo-bijoya,
 html[data-pujo="festive"] .pujo-regular,
@@ -695,7 +693,6 @@ html:not([data-pujo-day="5"]) [data-pujo-only="5"] {
   display: none;
 }
 
-/* The rest of the page in the colours of a laal-paar sari. */
 html[data-pujo="festive"] .pujo-dress {
   --background: oklch(0.975 0.022 82);
   --secondary: oklch(0.95 0.035 78);
@@ -714,8 +711,7 @@ html[data-pujo="festive"] .pujo-dress {
     linear-gradient(to bottom, oklch(0.2 0.065 22), oklch(0.15 0.045 18));
 }
 
-/* Galada's vowel signs climb past the line box, and a text-clipped
-   background only paints inside the box, so the box is padded out. */
+/* Galada's vowel signs rise past the line box, beyond a text-clipped background. */
 .pujo-gold {
   padding: 0.3em 0.15em 0.05em;
   margin-inline: -0.15em;
@@ -732,7 +728,6 @@ html[data-pujo="festive"] .pujo-dress {
     repeat-x center / auto 30px;
 }
 
-/* The chalchitra: the painted halo behind the idol, turning slowly. */
 .pujo-halo {
   background: repeating-conic-gradient(
     oklch(0.86 0.13 85 / 0.5) 0 2.2deg,
@@ -874,7 +869,6 @@ html[data-dhak="on"] .pujo-bulb {
   }
 }
 
-/* Bijoya: dusk at the ghat, sindoor in the air, the river below. */
 .pujo-dusk {
   background:
     radial-gradient(70% 55% at 50% 0%, oklch(0.6 0.2 32 / 0.5), transparent 70%),

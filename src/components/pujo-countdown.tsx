@@ -29,7 +29,6 @@ export function PujoCountdown({
   className?: string;
   /** `light` sits on a pale banner: ink numbers, aligned to the left. */
   tone?: "dark" | "light";
-  /** Smaller dark numbers, for when the countdown is one part of a scene. */
   compact?: boolean;
 }) {
   const state = usePujoPhase(1000);

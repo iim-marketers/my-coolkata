@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 
-/** Scrolls to a section on this page without writing `#id` into the URL. */
 export function SectionLink({
   to,
   className,
@@ -28,14 +27,13 @@ export function SectionLink({
   );
 }
 
-/** Arriving at `/page#id`: land on the section, then drop the `#id` from the address bar. */
 export function DropHash() {
   useEffect(() => {
     let frame = 0;
     const drop = () => {
       const { hash, pathname, search } = window.location;
       if (!hash) return;
-      // A frame later, or the router writes its first URL back over ours on a full load.
+      // On a full load the router rewrites the URL after mount, so wait a frame.
       frame = requestAnimationFrame(() => {
         window.history.replaceState(null, "", pathname + search);
         document

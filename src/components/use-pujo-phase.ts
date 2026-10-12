@@ -12,7 +12,6 @@ function clockOffset() {
   return Number.isNaN(at.getTime()) ? 0 : at.getTime() - Date.now();
 }
 
-/** Now, as the Puja pages see it. Client only. */
 export function pujoNow() {
   return new Date(Date.now() + clockOffset());
 }

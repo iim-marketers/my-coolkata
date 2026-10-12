@@ -299,13 +299,9 @@ export function pujoPhase(now = new Date()): PujoPhase {
   return { kind: "countdown", year, start: date, deviPaksha: false };
 }
 
-/** Panchami to Dashami: the nights the Puja page dresses up for. */
 export const pujoNights = pujoDays.filter((d) => d.offset >= -1);
 
-/**
- * Each year's dressed-up stretch as [from, bijoya, to) in ms between Kolkata
- * midnights: `pujoNights` from `from`, then the Bijoya days until `to`.
- */
+/** [festive start, Bijoya start, end) per year, in ms at Kolkata midnights. */
 export function pujoSeasonWindows(): [number, number, number][] {
   return pujoYears.map((year) => {
     const from =
@@ -318,7 +314,6 @@ export function pujoSeasonWindows(): [number, number, number][] {
 export type PujoSeason =
   { kind: "festive"; night: number } | { kind: "bijoya" } | null;
 
-/** Panchami to Dashami, the Bijoya days after, or neither. */
 export function pujoSeason(now = new Date()): PujoSeason {
   const t = now.getTime();
   for (const [from, bijoya, to] of pujoSeasonWindows()) {
@@ -330,7 +325,6 @@ export function pujoSeason(now = new Date()): PujoSeason {
   return null;
 }
 
-/** Which of `pujoNights` it is in Kolkata, or -1 outside them. */
 export function pujoNightIndex(now = new Date()): number {
   const season = pujoSeason(now);
   return season?.kind === "festive" ? season.night : -1;
