@@ -12,6 +12,11 @@ function clockOffset() {
   return Number.isNaN(at.getTime()) ? 0 : at.getTime() - Date.now();
 }
 
+/** Now, as the Puja pages see it. Client only. */
+export function pujoNow() {
+  return new Date(Date.now() + clockOffset());
+}
+
 /**
  * The current moment and Puja phase, or `null` until mounted so the server
  * markup matches. Pass `tick` to keep it moving.

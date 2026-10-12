@@ -294,3 +294,23 @@ export function pujoPhase(now = new Date()): PujoPhase {
   const { date, year } = nextPujoStart(now);
   return { kind: "countdown", year, start: date, deviPaksha: false };
 }
+
+/** Panchami to Dashami: the nights the Puja page dresses up for. */
+export const pujoNights = pujoDays.filter((d) => d.offset >= -1);
+
+/** Each year's run of `pujoNights`, as [from, to) in ms between Kolkata midnights. */
+export function pujoNightWindows(): [number, number][] {
+  return pujoYears.map((year) => {
+    const from = (istDay(startOf(year)) + pujoNights[0].offset) * DAY_MS - IST_MS;
+    return [from, from + pujoNights.length * DAY_MS];
+  });
+}
+
+/** Which of `pujoNights` it is in Kolkata, or -1 outside them. */
+export function pujoNightIndex(now = new Date()): number {
+  const t = now.getTime();
+  for (const [from, to] of pujoNightWindows()) {
+    if (t >= from && t < to) return Math.floor((t - from) / DAY_MS);
+  }
+  return -1;
+}
