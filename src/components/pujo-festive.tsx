@@ -13,7 +13,9 @@ import { pujoNow } from "@/components/use-pujo-phase";
 import {
   pujoNightIndex,
   pujoNights,
-  pujoNightWindows,
+  pujoSeason,
+  pujoSeasonWindows,
+  type PujoSeason,
 } from "@/lib/kolkata/pujo";
 import { cn } from "@/lib/utils";
 
@@ -22,32 +24,32 @@ const DEV_CLOCK =
     ? ""
     : `var q=new URLSearchParams(location.search).get("pujoNow");if(q){var a=new Date(/[zZ]|[+-]\\d\\d:?\\d\\d$/.test(q)?q:q+"+05:30").getTime();if(a===a)t=a}`;
 
-const MARK_SCRIPT = `(function(){try{var t=Date.now();${DEV_CLOCK}var w=${JSON.stringify(pujoNightWindows())};for(var i=0;i<w.length;i++)if(t>=w[i][0]&&t<w[i][1]){var r=document.documentElement;r.dataset.pujo="festive";r.dataset.pujoDay=Math.floor((t-w[i][0])/864e5);return}}catch(e){}})()`;
+const MARK_SCRIPT = `(function(){try{var t=Date.now();${DEV_CLOCK}var w=${JSON.stringify(pujoSeasonWindows())};for(var i=0;i<w.length;i++){var x=w[i];if(t<x[0]||t>=x[2])continue;var r=document.documentElement;if(t<x[1]){r.dataset.pujo="festive";r.dataset.pujoDay=Math.floor((t-x[0])/864e5)}else r.dataset.pujo="bijoya";return}}catch(e){}})()`;
 
-function mark(night: number) {
+function mark(season: PujoSeason) {
   const root = document.documentElement;
-  if (night < 0) {
+  delete root.dataset.pujoDay;
+  if (!season) {
     delete root.dataset.pujo;
-    delete root.dataset.pujoDay;
     return;
   }
-  root.dataset.pujo = "festive";
-  root.dataset.pujoDay = String(night);
+  root.dataset.pujo = season.kind;
+  if (season.kind === "festive") root.dataset.pujoDay = String(season.night);
 }
 
 /**
- * Dresses the page for Panchami to Dashami by marking `<html>`. The inline
- * script does it before first paint on a full load; the effect covers client
- * navigations, midnight, and leaving the page.
+ * Dresses the page for Panchami to Dashami, then the Bijoya days, by marking
+ * `<html>`. The inline script does it before first paint on a full load; the
+ * effect covers client navigations, midnight, and leaving the page.
  */
 export function PujoFestiveSwitch() {
   useLayoutEffect(() => {
-    const update = () => mark(pujoNightIndex(pujoNow()));
+    const update = () => mark(pujoSeason(pujoNow()));
     update();
     const id = setInterval(update, 60000);
     return () => {
       clearInterval(id);
-      mark(-1);
+      mark(null);
     };
   }, []);
 
@@ -118,7 +120,7 @@ export function NightLamps({ className }: { className?: string }) {
   );
 }
 
-function Diya({
+export function Diya({
   lit,
   today,
   delay,

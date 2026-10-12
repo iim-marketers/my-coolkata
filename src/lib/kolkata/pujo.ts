@@ -289,7 +289,11 @@ export function pujoPhase(now = new Date()): PujoPhase {
       };
     }
     const next = nextPujoStart(now);
-    return { kind: "bijoya", year, next: { year: next.year, start: next.date } };
+    return {
+      kind: "bijoya",
+      year,
+      next: { year: next.year, start: next.date },
+    };
   }
   const { date, year } = nextPujoStart(now);
   return { kind: "countdown", year, start: date, deviPaksha: false };
@@ -298,19 +302,36 @@ export function pujoPhase(now = new Date()): PujoPhase {
 /** Panchami to Dashami: the nights the Puja page dresses up for. */
 export const pujoNights = pujoDays.filter((d) => d.offset >= -1);
 
-/** Each year's run of `pujoNights`, as [from, to) in ms between Kolkata midnights. */
-export function pujoNightWindows(): [number, number][] {
+/**
+ * Each year's dressed-up stretch as [from, bijoya, to) in ms between Kolkata
+ * midnights: `pujoNights` from `from`, then the Bijoya days until `to`.
+ */
+export function pujoSeasonWindows(): [number, number, number][] {
   return pujoYears.map((year) => {
-    const from = (istDay(startOf(year)) + pujoNights[0].offset) * DAY_MS - IST_MS;
-    return [from, from + pujoNights.length * DAY_MS];
+    const from =
+      (istDay(startOf(year)) + pujoNights[0].offset) * DAY_MS - IST_MS;
+    const bijoya = from + pujoNights.length * DAY_MS;
+    return [from, bijoya, bijoya + BIJOYA_DAYS * DAY_MS];
   });
+}
+
+export type PujoSeason =
+  { kind: "festive"; night: number } | { kind: "bijoya" } | null;
+
+/** Panchami to Dashami, the Bijoya days after, or neither. */
+export function pujoSeason(now = new Date()): PujoSeason {
+  const t = now.getTime();
+  for (const [from, bijoya, to] of pujoSeasonWindows()) {
+    if (t < from || t >= to) continue;
+    return t < bijoya
+      ? { kind: "festive", night: Math.floor((t - from) / DAY_MS) }
+      : { kind: "bijoya" };
+  }
+  return null;
 }
 
 /** Which of `pujoNights` it is in Kolkata, or -1 outside them. */
 export function pujoNightIndex(now = new Date()): number {
-  const t = now.getTime();
-  for (const [from, to] of pujoNightWindows()) {
-    if (t >= from && t < to) return Math.floor((t - from) / DAY_MS);
-  }
-  return -1;
+  const season = pujoSeason(now);
+  return season?.kind === "festive" ? season.night : -1;
 }

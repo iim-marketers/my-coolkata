@@ -6,7 +6,12 @@ import { PandalRoutes } from "@/components/pandal-routes";
 import { PujoCountdown } from "@/components/pujo-countdown";
 import { DhakPlayer, PujoFestiveSwitch } from "@/components/pujo-festive";
 import { PujoTodayBadge } from "@/components/pujo-live";
-import { AschheBochor, LaalPaar, PujoNightHero } from "@/components/pujo-night";
+import {
+  AschheBochor,
+  LaalPaar,
+  PujoBijoya,
+  PujoNightHero,
+} from "@/components/pujo-night";
 import { Reveal } from "@/components/reveal";
 import { DropHash, SectionLink } from "@/components/section-link";
 import { CityScene } from "@/components/scenes/city-scene";
@@ -37,8 +42,14 @@ export default function DurgaPujaPage() {
         <LaalPaar />
       </div>
 
+      {/* The Bijoya days after Dashami. */}
+      <div className="pujo-bijoya">
+        <PujoBijoya year={year} />
+        <LaalPaar />
+      </div>
+
       {/* Countdown hero. */}
-      <div className="pujo-regular">
+      <div className="pujo-ordinary">
         <PageHeader
           eyebrow="Kolkata during Puja"
           title="For five days, the city stops being a city."

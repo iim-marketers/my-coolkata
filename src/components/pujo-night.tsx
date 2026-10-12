@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { pageShell } from "@/components/page-header";
-import { NightLamps } from "@/components/pujo-festive";
+import { PujoCountdown } from "@/components/pujo-countdown";
+import { Diya, NightLamps } from "@/components/pujo-festive";
 import { Reveal } from "@/components/reveal";
 import { CityScene } from "@/components/scenes/city-scene";
 import { SectionLink } from "@/components/section-link";
@@ -467,5 +468,183 @@ export function AschheBochor() {
         </p>
       </div>
     </section>
+  );
+}
+
+/**
+ * The Bijoya days after Dashami: dusk at the ghat, sindoor in the air, lamps
+ * on the river, and the count to next year. Same `variant`s as the night hero.
+ */
+export function PujoBijoya({
+  year,
+  variant = "page",
+}: {
+  year: number;
+  variant?: "page" | "home";
+}) {
+  const home = variant === "home";
+  const rise = home ? "" : "hero-rise";
+  const Root = home ? "section" : "header";
+  const Title = home ? "h2" : "h1";
+  const Copy = home ? Reveal : "div";
+
+  return (
+    <Root
+      className={cn(
+        "pujo-dusk relative isolate overflow-hidden text-center text-cream",
+        !home && "pt-16",
+      )}
+    >
+      <Abir />
+      <Shiuli />
+
+      <Copy
+        className={cn(pageShell, "relative z-10 pt-12 pb-40 sm:pt-14 sm:pb-48")}
+      >
+        <p
+          className={cn(
+            rise,
+            "inline-flex items-center gap-2 rounded-full border border-[#e8c36a]/45 bg-[#e8c36a]/10 px-3.5 py-1 font-mono text-[0.6rem] tracking-[0.24em] text-[#f6d77e] uppercase",
+          )}
+        >
+          Durga Puja {year} · After the bisarjan
+        </p>
+        <Title
+          lang="bn"
+          className={cn(
+            rise,
+            "pujo-gold mt-2 font-bangla-display text-[clamp(3.6rem,12vw,7.5rem)] leading-[1.15]",
+          )}
+          style={{ animationDelay: "90ms" }}
+        >
+          শুভ বিজয়া
+        </Title>
+        <p
+          className={cn(
+            rise,
+            "mt-1 font-mono text-[0.68rem] tracking-[0.34em] text-[#f6d77e]/80 uppercase",
+          )}
+          style={{ animationDelay: "150ms" }}
+        >
+          Shubho Bijoya
+        </p>
+        <p
+          lang="bn"
+          className={cn(
+            rise,
+            "mt-5 font-bangla-display text-[clamp(1.7rem,4.6vw,2.8rem)] leading-snug text-cream/90",
+          )}
+          style={{ animationDelay: "210ms" }}
+        >
+          আসছে বছর আবার হবে
+        </p>
+        <p
+          className={cn(
+            rise,
+            "mx-auto mt-2 max-w-lg text-[0.95rem] leading-relaxed text-balance text-cream/65",
+          )}
+          style={{ animationDelay: "250ms" }}
+        >
+          Aschhe bochor abar hobe: she comes again next year. Until then the
+          city visits its elders, touches their feet and hands round the mishti.
+        </p>
+
+        <PujoCountdown compact className={cn(rise, "mt-9")} />
+
+        <div className="mt-8 flex justify-center">
+          {home ? (
+            <Link href="/durga-puja" className={PRIMARY}>
+              Enter the Puja
+            </Link>
+          ) : (
+            <SectionLink to="the-making" className={PRIMARY}>
+              Relive the five days
+            </SectionLink>
+          )}
+        </div>
+      </Copy>
+
+      <River />
+    </Root>
+  );
+}
+
+/** Sindoor and abir hanging in the air after the khela. */
+function Abir() {
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+      {[
+        { left: "-6%", top: "4%", size: "26rem", delay: 0 },
+        { left: "62%", top: "-10%", size: "30rem", delay: -7 },
+        { left: "28%", top: "30%", size: "22rem", delay: -13 },
+        { left: "80%", top: "38%", size: "18rem", delay: -4 },
+      ].map((b, i) => (
+        <span
+          key={i}
+          className="pujo-abir absolute rounded-full"
+          style={{
+            left: b.left,
+            top: b.top,
+            width: b.size,
+            height: b.size,
+            animationDelay: `${b.delay}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+const RIVER_LAYERS = [
+  { y: 46, amp: 6, period: 400, fill: "oklch(0.32 0.07 248)", duration: 46 },
+  { y: 84, amp: 5, period: 300, fill: "oklch(0.25 0.06 252)", duration: 32 },
+  { y: 126, amp: 4, period: 600, fill: "oklch(0.19 0.05 256)", duration: 22 },
+];
+
+/** A wave across two 1200-wide tiles, so sliding by half loops seamlessly. */
+function wave(y: number, amp: number, period: number) {
+  let d = `M0 ${y}`;
+  for (let x = 20; x <= 2400; x += 20) {
+    d += `L${x} ${(y + amp * Math.sin((x / period) * 2 * Math.PI)).toFixed(1)}`;
+  }
+  return `${d}L2400 200L0 200Z`;
+}
+
+/** The Hooghly at dusk, with lamps floated on it. */
+function River() {
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-x-0 bottom-0 h-36 overflow-hidden sm:h-44"
+    >
+      {RIVER_LAYERS.map((l) => (
+        <svg
+          key={l.y}
+          viewBox="0 0 2400 200"
+          preserveAspectRatio="none"
+          className="pujo-river absolute bottom-0 left-0 h-full w-[200%]"
+          style={{ animationDuration: `${l.duration}s` }}
+        >
+          <path d={wave(l.y, l.amp, l.period)} fill={l.fill} />
+        </svg>
+      ))}
+      {[
+        { left: "12%", bottom: "48%", delay: 0 },
+        { left: "34%", bottom: "22%", delay: -1.6 },
+        { left: "63%", bottom: "40%", delay: -3.1 },
+        { left: "85%", bottom: "18%", delay: -0.8 },
+      ].map((f) => (
+        <div
+          key={f.left}
+          className="absolute"
+          style={{ left: f.left, bottom: f.bottom }}
+        >
+          <span className="absolute top-[85%] left-1/2 h-12 w-2.5 -translate-x-1/2 bg-linear-to-b from-[#ffb347]/45 to-transparent blur-[3px]" />
+          <div className="pujo-float" style={{ animationDelay: `${f.delay}s` }}>
+            <Diya lit today={false} delay={0} />
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }

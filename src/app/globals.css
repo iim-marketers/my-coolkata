@@ -677,9 +677,13 @@
 
 /* ---- Durga Puja, Panchami to Dashami ---------------------------------- */
 
-/* `data-pujo` is set on <html> by PujoFestiveSwitch before first paint. */
+/* `data-pujo` ("festive", then "bijoya") is set on <html> by PujoFestiveSwitch
+   before first paint. `pujo-regular` steps aside for the festival only;
+   `pujo-ordinary` for the Bijoya days too. */
 html:not([data-pujo="festive"]) .pujo-festive,
-html[data-pujo="festive"] .pujo-regular {
+html:not([data-pujo="bijoya"]) .pujo-bijoya,
+html[data-pujo="festive"] .pujo-regular,
+html[data-pujo] .pujo-ordinary {
   display: none !important;
 }
 html:not([data-pujo-day="0"]) [data-pujo-only="0"],
@@ -867,6 +871,51 @@ html[data-dhak="on"] .pujo-bulb {
   to {
     transform: scale(1.7);
     opacity: 0;
+  }
+}
+
+/* Bijoya: dusk at the ghat, sindoor in the air, the river below. */
+.pujo-dusk {
+  background:
+    radial-gradient(70% 55% at 50% 0%, oklch(0.6 0.2 32 / 0.5), transparent 70%),
+    linear-gradient(
+      to bottom,
+      oklch(0.37 0.15 26),
+      oklch(0.27 0.1 22) 48%,
+      oklch(0.2 0.05 255) 100%
+    );
+}
+.pujo-abir {
+  background: radial-gradient(closest-side, oklch(0.62 0.22 28 / 0.55), transparent);
+  filter: blur(24px);
+  animation: abir-drift 22s ease-in-out infinite alternate;
+}
+.pujo-river {
+  animation: river-drift linear infinite;
+}
+.pujo-float {
+  animation: diya-bob 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes abir-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(3rem, 1.5rem) scale(1.15);
+  }
+}
+@keyframes river-drift {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes diya-bob {
+  from {
+    transform: translateY(0) rotate(-3deg);
+  }
+  to {
+    transform: translateY(-5px) rotate(3deg);
   }
 }
 

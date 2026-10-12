@@ -24,21 +24,29 @@ function split(ms: number) {
 export function PujoCountdown({
   className,
   tone = "dark",
+  compact = false,
 }: {
   className?: string;
   /** `light` sits on a pale banner: ink numbers, aligned to the left. */
   tone?: "dark" | "light";
+  /** Smaller dark numbers, for when the countdown is one part of a scene. */
+  compact?: boolean;
 }) {
   const state = usePujoPhase(1000);
   const light = tone === "light";
 
   if (state?.phase.kind === "festival") {
-    return <FestivalDay phase={state.phase} light={light} className={className} />;
+    return (
+      <FestivalDay phase={state.phase} light={light} className={className} />
+    );
   }
 
   const phase = state?.phase as Phase<"countdown" | "bijoya"> | undefined;
   const target = phase?.kind === "bijoya" ? phase.next : phase;
-  const left = state && target ? split(target.start.getTime() - state.now.getTime()) : null;
+  const left =
+    state && target
+      ? split(target.start.getTime() - state.now.getTime())
+      : null;
 
   const eyebrow = !phase
     ? "Until Mahasasthi"
@@ -65,13 +73,18 @@ export function PujoCountdown({
       <div
         className={cn(
           "flex items-start",
-          light ? "mt-4 justify-start gap-3 sm:gap-5" : "mt-6 justify-center gap-4 sm:gap-8",
+          light
+            ? "mt-4 justify-start gap-3 sm:gap-5"
+            : "mt-6 justify-center gap-4 sm:gap-8",
         )}
       >
         {units.map(([label, value], i) => (
           <div
             key={label}
-            className={cn("flex items-start", light ? "gap-3 sm:gap-5" : "gap-4 sm:gap-8")}
+            className={cn(
+              "flex items-start",
+              light ? "gap-3 sm:gap-5" : "gap-4 sm:gap-8",
+            )}
           >
             <div>
               <p
@@ -79,7 +92,9 @@ export function PujoCountdown({
                   "font-display leading-none font-semibold tabular-nums",
                   light
                     ? "text-[clamp(2rem,6vw,3.4rem)] text-foreground"
-                    : "text-[clamp(2.4rem,10vw,5.5rem)] text-cream",
+                    : compact
+                      ? "text-[clamp(2rem,7vw,3.6rem)] text-cream"
+                      : "text-[clamp(2.4rem,10vw,5.5rem)] text-cream",
                 )}
                 suppressHydrationWarning
               >
@@ -100,7 +115,9 @@ export function PujoCountdown({
                   "font-display leading-none",
                   light
                     ? "text-[clamp(1.6rem,5vw,2.8rem)] text-foreground/20"
-                    : "text-[clamp(2rem,8vw,4.5rem)] text-cream/20",
+                    : compact
+                      ? "text-[clamp(1.6rem,5.5vw,3rem)] text-cream/20"
+                      : "text-[clamp(2rem,8vw,4.5rem)] text-cream/20",
                 )}
               >
                 :
@@ -110,7 +127,9 @@ export function PujoCountdown({
         ))}
       </div>
 
-      <Closing light={light}>{closing}</Closing>
+      <Closing light={light} compact={compact}>
+        {closing}
+      </Closing>
     </div>
   );
 }
@@ -212,7 +231,13 @@ function FestivalDay({
   );
 }
 
-function Eyebrow({ light, children }: { light: boolean; children: React.ReactNode }) {
+function Eyebrow({
+  light,
+  children,
+}: {
+  light: boolean;
+  children: React.ReactNode;
+}) {
   return (
     <p
       className={cn(
@@ -226,14 +251,24 @@ function Eyebrow({ light, children }: { light: boolean; children: React.ReactNod
   );
 }
 
-function Closing({ light, children }: { light: boolean; children: React.ReactNode }) {
+function Closing({
+  light,
+  compact = false,
+  children,
+}: {
+  light: boolean;
+  compact?: boolean;
+  children: React.ReactNode;
+}) {
   return (
     <p
       className={cn(
         "max-w-2xl font-display text-balance italic",
         light
           ? "mt-5 text-[1.1rem] text-foreground/70"
-          : "mx-auto mt-8 text-[clamp(1.1rem,3vw,1.8rem)] text-cream/80",
+          : compact
+            ? "mx-auto mt-5 text-[clamp(1rem,2.4vw,1.25rem)] text-cream/75"
+            : "mx-auto mt-8 text-[clamp(1.1rem,3vw,1.8rem)] text-cream/80",
       )}
     >
       {children}
