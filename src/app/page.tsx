@@ -8,8 +8,12 @@ import { Reveal } from "@/components/reveal";
 import { CityScene } from "@/components/scenes/city-scene";
 import { SectionHeading } from "@/components/section-heading";
 import { PujoCountdown } from "@/components/pujo-countdown";
+import { PujoFestiveSwitch } from "@/components/pujo-festive";
+import { PujoCta } from "@/components/pujo-live";
+import { LaalPaar, PujoBijoya, PujoNightHero } from "@/components/pujo-night";
 import { TastePlate } from "@/components/taste-plate";
 import { heritageSites } from "@/lib/kolkata";
+import { pujoPhase } from "@/lib/kolkata/pujo";
 import { currentSeason } from "@/lib/kolkata/contest";
 import type { PhotoId } from "@/lib/kolkata/photos";
 import { pageMetadata, SITE_DESCRIPTION } from "@/lib/seo";
@@ -104,7 +108,18 @@ export default function Home() {
 
       <main className="relative z-10 bg-background">
         {/* Durga Puja. */}
-        <section className="relative overflow-hidden border-b border-border mt-10">
+        <PujoFestiveSwitch />
+        <div className="pujo-festive mt-10">
+          <LaalPaar />
+          <PujoNightHero year={pujoPhase().year} variant="home" />
+          <LaalPaar />
+        </div>
+        <div className="pujo-bijoya mt-10">
+          <LaalPaar />
+          <PujoBijoya year={pujoPhase().year} variant="home" />
+          <LaalPaar />
+        </div>
+        <section className="pujo-ordinary relative overflow-hidden border-b border-border mt-10">
           <CityScene name="pujo" className="absolute inset-0 h-full w-full" />
           <div className="scrim-full absolute inset-0" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(58%_50%_at_50%_54%,oklch(0.12_0.02_265/0.72),transparent_74%)]" />
@@ -119,13 +134,7 @@ export default function Home() {
               </h2>
               <PujoCountdown className="mt-12" />
               <div className="mt-12 text-center">
-                <Link
-                  href="/durga-puja"
-                  className="group inline-flex items-center gap-2 rounded-full bg-marigold px-6 py-3 text-[0.92rem] font-semibold text-ink transition-transform hover:-translate-y-0.5"
-                >
-                  Enter the Puja
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                <PujoCta />
               </div>
             </Reveal>
           </div>

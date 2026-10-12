@@ -675,6 +675,251 @@
   }
 }
 
+/* ---- Durga Puja, Panchami to Dashami ---------------------------------- */
+
+/* `data-pujo` is set on <html> by PujoFestiveSwitch. */
+html:not([data-pujo="festive"]) .pujo-festive,
+html:not([data-pujo="bijoya"]) .pujo-bijoya,
+html[data-pujo="festive"] .pujo-regular,
+html[data-pujo] .pujo-ordinary {
+  display: none !important;
+}
+html:not([data-pujo-day="0"]) [data-pujo-only="0"],
+html:not([data-pujo-day="1"]) [data-pujo-only="1"],
+html:not([data-pujo-day="2"]) [data-pujo-only="2"],
+html:not([data-pujo-day="3"]) [data-pujo-only="3"],
+html:not([data-pujo-day="4"]) [data-pujo-only="4"],
+html:not([data-pujo-day="5"]) [data-pujo-only="5"] {
+  display: none;
+}
+
+html[data-pujo="festive"] .pujo-dress {
+  --background: oklch(0.975 0.022 82);
+  --secondary: oklch(0.95 0.035 78);
+  --card: oklch(0.993 0.01 85);
+  --border: oklch(0.86 0.05 60);
+  --primary: oklch(0.5 0.2 27);
+  --terracotta: oklch(0.5 0.2 27);
+  --muted-foreground: oklch(0.45 0.04 40);
+  background-color: var(--background);
+}
+
+.pujo-night {
+  background:
+    radial-gradient(55% 55% at 78% 42%, oklch(0.55 0.16 55 / 0.32), transparent 70%),
+    radial-gradient(50% 60% at 10% 85%, oklch(0.45 0.18 25 / 0.4), transparent 70%),
+    linear-gradient(to bottom, oklch(0.2 0.065 22), oklch(0.15 0.045 18));
+}
+
+/* Galada's vowel signs rise past the line box, beyond a text-clipped background. */
+.pujo-gold {
+  padding: 0.3em 0.15em 0.05em;
+  margin-inline: -0.15em;
+  background-image: linear-gradient(to bottom, #fff2c4, #f4c24f 48%, #e0862c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 28px oklch(0.75 0.16 70 / 0.35));
+}
+
+.laal-paar {
+  height: 30px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='30' viewBox='0 0 40 30'%3E%3Crect width='40' height='30' fill='%23a3201c'/%3E%3Crect y='2.5' width='40' height='1.4' fill='%23e8c36a'/%3E%3Crect y='26.1' width='40' height='1.4' fill='%23e8c36a'/%3E%3Cg fill='%23fdf6e3'%3E%3Cpath d='M20 7.5c2.8 2.6 2.8 6.6 0 9.2c-2.8-2.6-2.8-6.6 0-9.2z'/%3E%3Cpath d='M20 17.6c-1.9-3.4-5.7-4.3-8.5-2.6c1.9 3.4 5.7 4.3 8.5 2.6z'/%3E%3Cpath d='M20 17.6c1.9-3.4 5.7-4.3 8.5-2.6c-1.9 3.4-5.7 4.3-8.5 2.6z'/%3E%3Ccircle cx='20' cy='21' r='1.4'/%3E%3Ccircle cx='0' cy='15' r='1.6'/%3E%3Ccircle cx='40' cy='15' r='1.6'/%3E%3Ccircle cx='5' cy='10' r='0.9'/%3E%3Ccircle cx='35' cy='10' r='0.9'/%3E%3Ccircle cx='5' cy='20' r='0.9'/%3E%3Ccircle cx='35' cy='20' r='0.9'/%3E%3C/g%3E%3C/svg%3E")
+    repeat-x center / auto 30px;
+}
+
+.pujo-halo {
+  background: repeating-conic-gradient(
+    oklch(0.86 0.13 85 / 0.5) 0 2.2deg,
+    transparent 2.2deg 7.5deg
+  );
+  mask: radial-gradient(closest-side, transparent 60%, #000 61% 94%, transparent 95%);
+  animation: hero-spin 120s linear infinite;
+}
+.pujo-halo-dots {
+  border: 3px dotted oklch(0.86 0.13 85 / 0.55);
+  animation: hero-spin 80s linear infinite reverse;
+}
+.pujo-glow {
+  background: radial-gradient(closest-side, oklch(0.72 0.17 55 / 0.45), transparent);
+}
+html[data-dhak="on"] .pujo-glow {
+  animation: dhak-pulse 460ms ease-in-out infinite alternate;
+}
+
+.pujo-toran {
+  transform-origin: top center;
+  animation: toran-sway 7s ease-in-out infinite alternate;
+}
+.pujo-bulb {
+  animation: bulb-twinkle 2.4s ease-in-out infinite alternate;
+}
+html[data-dhak="on"] .pujo-bulb {
+  animation-duration: 0.92s;
+}
+.pujo-shiuli {
+  animation: shiuli-fall linear infinite both;
+}
+.pujo-smoke {
+  background: radial-gradient(closest-side, oklch(0.95 0.01 80 / 0.22), transparent);
+  filter: blur(10px);
+  animation: dhunuchi-smoke ease-out infinite both;
+}
+.pujo-marquee {
+  animation: pujo-marquee 70s linear infinite;
+}
+.diya-flame {
+  transform-origin: 20px 22px;
+  animation: diya-flicker 1.3s ease-in-out infinite alternate;
+}
+.dhak-beat {
+  animation: dhak-hit 460ms ease-in-out infinite alternate;
+}
+.dhak-ring {
+  animation: dhak-ring 1.4s ease-out infinite;
+}
+
+@keyframes toran-sway {
+  from {
+    transform: rotate(-0.25deg) translateY(0);
+  }
+  to {
+    transform: rotate(0.25deg) translateY(2px);
+  }
+}
+@keyframes bulb-twinkle {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes shiuli-fall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(2.5rem, 55vh, 0) rotate(200deg);
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(-1rem, 115vh, 0) rotate(420deg);
+    opacity: 0;
+  }
+}
+@keyframes dhunuchi-smoke {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-1.5rem, -22rem) scale(2.2);
+    opacity: 0;
+  }
+}
+@keyframes pujo-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes diya-flicker {
+  from {
+    transform: scale(1, 1) rotate(-2deg);
+  }
+  to {
+    transform: scale(0.92, 1.08) rotate(2deg);
+  }
+}
+@keyframes dhak-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+@keyframes dhak-hit {
+  from {
+    transform: rotate(-4deg) scale(1);
+  }
+  to {
+    transform: rotate(4deg) scale(1.06);
+  }
+}
+@keyframes dhak-ring {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+.pujo-dusk {
+  background:
+    radial-gradient(70% 55% at 50% 0%, oklch(0.6 0.2 32 / 0.5), transparent 70%),
+    linear-gradient(
+      to bottom,
+      oklch(0.37 0.15 26),
+      oklch(0.27 0.1 22) 48%,
+      oklch(0.2 0.05 255) 100%
+    );
+}
+.pujo-abir {
+  background: radial-gradient(closest-side, oklch(0.62 0.22 28 / 0.55), transparent);
+  filter: blur(24px);
+  animation: abir-drift 22s ease-in-out infinite alternate;
+}
+.pujo-river {
+  animation: river-drift linear infinite;
+}
+.pujo-float {
+  animation: diya-bob 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes abir-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(3rem, 1.5rem) scale(1.15);
+  }
+}
+@keyframes river-drift {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes diya-bob {
+  from {
+    transform: translateY(0) rotate(-3deg);
+  }
+  to {
+    transform: translateY(-5px) rotate(3deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pujo-shiuli,
+  .pujo-smoke {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

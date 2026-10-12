@@ -126,7 +126,7 @@ export function HeroSearch({ className }: { className?: string }) {
             aria-expanded={showList}
             aria-controls={listId}
             aria-autocomplete="list"
-            placeholder="Phuchka, pandals, sunset spots…"
+            placeholder="Explore Kolkata: food, places, events..."
             className="h-11 w-full min-w-0 bg-transparent text-[0.95rem] outline-none placeholder:text-muted-foreground/70"
           />
         </label>

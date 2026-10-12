@@ -282,3 +282,31 @@ export interface PujoDay {
   what: string;
   where: string;
 }
+
+export type PandalZone = "north" | "central" | "south" | "east" | "bonedi";
+
+export type PandalTag = "theme" | "traditional" | "big-budget" | "crowded" | "heritage";
+
+export interface Pandal {
+  slug: string;
+  name: string;
+  area: string;
+  zone: PandalZone;
+  coords: Coords;
+  /** The year the Puja was first held, where it is on record. */
+  since?: number;
+  note: string;
+  tags?: PandalTag[];
+  /** Themes change every year; only those that have been announced. */
+  themes?: Partial<Record<number, { theme?: string; artist?: string }>>;
+}
+
+export interface PandalRoute {
+  slug: string;
+  title: string;
+  best: string;
+  note: string;
+  duration: string;
+  /** Pandal slugs, in walking order. */
+  stops: string[];
+}
