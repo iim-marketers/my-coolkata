@@ -4,21 +4,10 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Plus, Route, X } from "lucide-react";
 import { PinMap } from "@/components/map/pin-map";
+import { distanceKm } from "@/lib/geo";
 import { mapPoints } from "@/lib/kolkata";
-import type { Coords, MapPoint } from "@/lib/kolkata/types";
+import type { MapPoint } from "@/lib/kolkata/types";
 import { cn } from "@/lib/utils";
-
-/** Haversine, in kilometres. Straight-line, so the real walk is longer. */
-function distanceKm(a: Coords, b: Coords) {
-  const R = 6371;
-  const toRad = (d: number) => (d * Math.PI) / 180;
-  const dLat = toRad(b.lat - a.lat);
-  const dLng = toRad(b.lng - a.lng);
-  const h =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
-  return 2 * R * Math.asin(Math.sqrt(h));
-}
 
 /** Nearest-neighbour from the first pick. Not optimal, but legible. */
 function order(points: MapPoint[]) {

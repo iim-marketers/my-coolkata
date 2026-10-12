@@ -216,14 +216,81 @@ export const pujoDates: Record<number, string> = {
   2030: "2030-10-02",
 };
 
+const DAY_MS = 86400000;
+const IST_MS = 5.5 * 3600000;
+const BIJOYA_DAYS = 5;
+
+const pujoYears = Object.keys(pujoDates)
+  .map(Number)
+  .sort((a, b) => a - b);
+
+const startOf = (year: number) => new Date(`${pujoDates[year]}T06:00:00+05:30`);
+
+/** Whole days since the epoch on a Kolkata wall calendar. */
+const istDay = (d: Date) => Math.floor((d.getTime() + IST_MS) / DAY_MS);
+
+export const festivalDays = pujoDays.filter((d) => d.offset >= 0);
+
 export function nextPujoStart(now = new Date()): { date: Date; year: number } {
-  const years = Object.keys(pujoDates)
-    .map(Number)
-    .sort((a, b) => a - b);
-  for (const y of years) {
-    const d = new Date(`${pujoDates[y]}T06:00:00+05:30`);
+  for (const y of pujoYears) {
+    const d = startOf(y);
     if (d.getTime() > now.getTime()) return { date: d, year: y };
   }
-  const last = years[years.length - 1];
-  return { date: new Date(`${pujoDates[last]}T06:00:00+05:30`), year: last };
+  const last = pujoYears[pujoYears.length - 1];
+  return { date: startOf(last), year: last };
+}
+
+export type PujoPhase =
+  | {
+      kind: "countdown";
+      year: number;
+      start: Date;
+      /** Mahalaya has passed: the fortnight of the goddess has begun. */
+      deviPaksha: boolean;
+      /** Set on a named day before Shashthi, such as Panchami. */
+      today?: PujoDay;
+    }
+  | {
+      kind: "festival";
+      year: number;
+      today: PujoDay;
+      index: number;
+      tomorrow?: PujoDay;
+    }
+  | { kind: "bijoya"; year: number; next: { year: number; start: Date } };
+
+/**
+ * Where the city is in the Puja year. The festival begins at the moment the
+ * countdown reaches zero and runs by Kolkata calendar day to Dashami.
+ */
+export function pujoPhase(now = new Date()): PujoPhase {
+  for (const year of pujoYears) {
+    const start = startOf(year);
+    const diff = istDay(now) - istDay(start);
+    if (diff >= festivalDays.length + BIJOYA_DAYS) continue;
+
+    if (now < start) {
+      const mahalaya = pujoDays[0].offset;
+      return {
+        kind: "countdown",
+        year,
+        start,
+        deviPaksha: diff >= mahalaya,
+        today: pujoDays.find((d) => d.offset === diff && d.offset < 0),
+      };
+    }
+    if (diff < festivalDays.length) {
+      return {
+        kind: "festival",
+        year,
+        today: festivalDays[diff],
+        index: diff,
+        tomorrow: festivalDays[diff + 1],
+      };
+    }
+    const next = nextPujoStart(now);
+    return { kind: "bijoya", year, next: { year: next.year, start: next.date } };
+  }
+  const { date, year } = nextPujoStart(now);
+  return { kind: "countdown", year, start: date, deviPaksha: false };
 }

@@ -8,6 +8,7 @@ import { Reveal } from "@/components/reveal";
 import { CityScene } from "@/components/scenes/city-scene";
 import { SectionHeading } from "@/components/section-heading";
 import { PujoCountdown } from "@/components/pujo-countdown";
+import { PujoCta } from "@/components/pujo-live";
 import { TastePlate } from "@/components/taste-plate";
 import { heritageSites } from "@/lib/kolkata";
 import { currentSeason } from "@/lib/kolkata/contest";
@@ -119,13 +120,7 @@ export default function Home() {
               </h2>
               <PujoCountdown className="mt-12" />
               <div className="mt-12 text-center">
-                <Link
-                  href="/durga-puja"
-                  className="group inline-flex items-center gap-2 rounded-full bg-marigold px-6 py-3 text-[0.92rem] font-semibold text-ink transition-transform hover:-translate-y-0.5"
-                >
-                  Enter the Puja
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                <PujoCta />
               </div>
             </Reveal>
           </div>

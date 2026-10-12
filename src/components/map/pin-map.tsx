@@ -21,6 +21,8 @@ export type MapPin = {
   label?: string;
   showLabel?: boolean;
   number?: number;
+  /** Drawn as a badge above the point while the pin is active. */
+  glyph?: "pandal";
 };
 
 export type PinMapProps = {
