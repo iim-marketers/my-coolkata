@@ -689,7 +689,8 @@ html:not([data-pujo-day="1"]) [data-pujo-only="1"],
 html:not([data-pujo-day="2"]) [data-pujo-only="2"],
 html:not([data-pujo-day="3"]) [data-pujo-only="3"],
 html:not([data-pujo-day="4"]) [data-pujo-only="4"],
-html:not([data-pujo-day="5"]) [data-pujo-only="5"] {
+html:not([data-pujo-day="5"]) [data-pujo-only="5"],
+html:not([data-pujo-day="6"]) [data-pujo-only="6"] {
   display: none;
 }
 

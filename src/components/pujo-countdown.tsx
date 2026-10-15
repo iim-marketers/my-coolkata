@@ -224,7 +224,11 @@ function FestivalDay({
         )}
       >
         {today.where}
-        {tomorrow ? ` · Tomorrow, ${tomorrow.day}` : " · Bisarjan tonight"}
+        {!tomorrow
+          ? " · Bisarjan tonight"
+          : tomorrow === today
+            ? ` · ${today.day} again tomorrow`
+            : ` · Tomorrow, ${tomorrow.day}`}
       </p>
     </div>
   );

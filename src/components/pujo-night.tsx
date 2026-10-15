@@ -5,7 +5,7 @@ import { Diya, NightLamps } from "@/components/pujo-festive";
 import { Reveal } from "@/components/reveal";
 import { CityScene } from "@/components/scenes/city-scene";
 import { SectionLink } from "@/components/section-link";
-import { pujoNights } from "@/lib/kolkata/pujo";
+import { pujoCalendar } from "@/lib/kolkata/pujo";
 import { cn } from "@/lib/utils";
 
 const SHUBHO: Record<string, { bn: string; en: string }> = {
@@ -61,11 +61,11 @@ export function PujoNightHero({
         )}
       >
         <Copy className={cn("relative z-10", home && "lg:order-last")}>
-          {pujoNights.map((d, i) => {
+          {pujoCalendar(year).map((d, i, nights) => {
             const shubho = SHUBHO[d.day];
-            const next = pujoNights[i + 1];
+            const next = nights[i + 1];
             return (
-              <div key={d.day} data-pujo-only={i}>
+              <div key={i} data-pujo-only={i}>
                 <p
                   className={cn(
                     rise,
@@ -114,9 +114,11 @@ export function PujoNightHero({
                   style={{ animationDelay: "250ms" }}
                 >
                   Tonight: {d.where}
-                  {next
-                    ? ` · Tomorrow, ${next.day}`
-                    : " · Bisarjan at the ghats"}
+                  {!next
+                    ? " · Bisarjan at the ghats"
+                    : next === d
+                      ? ` · ${d.day} again tomorrow`
+                      : ` · Tomorrow, ${next.day}`}
                 </p>
               </div>
             );

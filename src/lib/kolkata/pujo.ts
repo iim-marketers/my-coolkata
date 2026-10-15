@@ -209,11 +209,16 @@ export const pujoDays: PujoDay[] = [
  */
 export const pujoDates: Record<number, string> = {
   2025: "2025-09-28",
-  2026: "2026-10-17",
+  2026: "2026-10-16",
   2027: "2027-10-07",
   2028: "2028-09-25",
   2029: "2029-10-13",
   2030: "2030-10-02",
+};
+
+/** Years where one tithi holds two sunrises in the Kolkata panjika. */
+const doubleTithi: Partial<Record<number, string>> = {
+  2026: "Saptami",
 };
 
 const DAY_MS = 86400000;
@@ -230,6 +235,13 @@ const startOf = (year: number) => new Date(`${pujoDates[year]}T06:00:00+05:30`);
 const istDay = (d: Date) => Math.floor((d.getTime() + IST_MS) / DAY_MS);
 
 export const festivalDays = pujoDays.filter((d) => d.offset >= 0);
+
+export const pujoNights = pujoDays.filter((d) => d.offset >= -1);
+
+/** Panchami to Dashami by calendar day; a tithi holding two sunrises appears twice. */
+export function pujoCalendar(year: number): PujoDay[] {
+  return pujoNights.flatMap((d) => (d.day === doubleTithi[year] ? [d, d] : [d]));
+}
 
 export function nextPujoStart(now = new Date()): { date: Date; year: number } {
   for (const y of pujoYears) {
@@ -267,7 +279,8 @@ export function pujoPhase(now = new Date()): PujoPhase {
   for (const year of pujoYears) {
     const start = startOf(year);
     const diff = istDay(now) - istDay(start);
-    if (diff >= festivalDays.length + BIJOYA_DAYS) continue;
+    const days = pujoCalendar(year).filter((d) => d.offset >= 0);
+    if (diff >= days.length + BIJOYA_DAYS) continue;
 
     if (now < start) {
       const mahalaya = pujoDays[0].offset;
@@ -279,13 +292,13 @@ export function pujoPhase(now = new Date()): PujoPhase {
         today: pujoDays.find((d) => d.offset === diff && d.offset < 0),
       };
     }
-    if (diff < festivalDays.length) {
+    if (diff < days.length) {
       return {
         kind: "festival",
         year,
-        today: festivalDays[diff],
-        index: diff,
-        tomorrow: festivalDays[diff + 1],
+        today: days[diff],
+        index: festivalDays.indexOf(days[diff]),
+        tomorrow: days[diff + 1],
       };
     }
     const next = nextPujoStart(now);
@@ -299,33 +312,36 @@ export function pujoPhase(now = new Date()): PujoPhase {
   return { kind: "countdown", year, start: date, deviPaksha: false };
 }
 
-export const pujoNights = pujoDays.filter((d) => d.offset >= -1);
-
 /** [festive start, Bijoya start, end) per year, in ms at Kolkata midnights. */
 export function pujoSeasonWindows(): [number, number, number][] {
   return pujoYears.map((year) => {
     const from =
       (istDay(startOf(year)) + pujoNights[0].offset) * DAY_MS - IST_MS;
-    const bijoya = from + pujoNights.length * DAY_MS;
+    const bijoya = from + pujoCalendar(year).length * DAY_MS;
     return [from, bijoya, bijoya + BIJOYA_DAYS * DAY_MS];
   });
 }
 
 export type PujoSeason =
-  { kind: "festive"; night: number } | { kind: "bijoya" } | null;
+  | { kind: "festive"; night: number; day: PujoDay }
+  | { kind: "bijoya" }
+  | null;
 
 export function pujoSeason(now = new Date()): PujoSeason {
   const t = now.getTime();
-  for (const [from, bijoya, to] of pujoSeasonWindows()) {
+  const windows = pujoSeasonWindows();
+  for (let i = 0; i < windows.length; i++) {
+    const [from, bijoya, to] = windows[i];
     if (t < from || t >= to) continue;
-    return t < bijoya
-      ? { kind: "festive", night: Math.floor((t - from) / DAY_MS) }
-      : { kind: "bijoya" };
+    if (t >= bijoya) return { kind: "bijoya" };
+    const night = Math.floor((t - from) / DAY_MS);
+    return { kind: "festive", night, day: pujoCalendar(pujoYears[i])[night] };
   }
   return null;
 }
 
+/** Tonight's place in `pujoNights`, or -1 outside the festive nights. */
 export function pujoNightIndex(now = new Date()): number {
   const season = pujoSeason(now);
-  return season?.kind === "festive" ? season.night : -1;
+  return season?.kind === "festive" ? pujoNights.indexOf(season.day) : -1;
 }
