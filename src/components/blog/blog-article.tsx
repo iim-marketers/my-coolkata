@@ -88,7 +88,7 @@ export function BlogArticle({ post }: { post: BlogPost }) {
                 section.title ? `${section.id}-title` : undefined
               }
               className={cn(
-                "scroll-mt-28 py-16 sm:py-24",
+                "scroll-mt-28 py-16 sm:py-20",
                 section.tone === "tint" &&
                   "border-y border-border bg-secondary/50",
               )}
