@@ -7,7 +7,6 @@ import {
   Gift,
   Hand,
   MapPin,
-  Plus,
   Shirt,
   TrainFront,
   UserRound,
@@ -28,6 +27,7 @@ import {
 import { photos } from "@/lib/kolkata/photos";
 import { absoluteUrl } from "@/lib/seo";
 import { cn } from "@/lib/utils";
+import { Faq } from "./faq";
 import { ReadingBar } from "./reading-bar";
 import { RichText } from "./rich-text";
 import { ShareActions } from "./share-actions";
@@ -364,27 +364,7 @@ function Block({ block }: { block: BlogBlock }) {
     case "faq":
       return (
         <div className="mx-auto w-full max-w-3xl px-5 sm:px-8">
-          {block.items.map((item, i) => (
-            <Reveal key={item.q} delay={i * 50}>
-              <details
-                name="faq"
-                className="group border-b border-border py-1 first:border-t"
-                open={i === 0}
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 [&::-webkit-details-marker]:hidden">
-                  <h3 className="font-display text-[1.12rem] leading-snug font-semibold transition-colors group-hover:text-terracotta sm:text-[1.24rem]">
-                    {item.q}
-                  </h3>
-                  <span className="grid size-8 shrink-0 place-items-center rounded-full border border-border bg-card transition-[transform,background-color,color] duration-300 group-open:rotate-45 group-open:bg-terracotta group-open:text-cream">
-                    <Plus className="size-4" />
-                  </span>
-                </summary>
-                <p className="pr-12 pb-6 text-[1rem] leading-relaxed text-muted-foreground">
-                  {item.a}
-                </p>
-              </details>
-            </Reveal>
-          ))}
+          <Faq items={block.items} />
         </div>
       );
   }

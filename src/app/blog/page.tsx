@@ -17,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function BlogPage() {
   const posts = [...blogPosts].sort((a, b) => b.published.localeCompare(a.published));
+  const [latest] = posts;
 
   return (
     <main className="relative z-10 bg-background">
@@ -26,14 +27,35 @@ export default function BlogPage() {
         lede="Guides you can follow on foot, and the people and work behind the city we love."
         scene="kumartuli"
         photo="kumartuli-idol-row"
-        meta={[
-          { label: "Updated", value: formatDate(posts[0].published) },
-          { label: "Posts", value: String(posts.length) },
-          { label: "Latest walk", value: posts[0].title.split(":")[0] },
-        ]}
+        meta={
+          latest
+            ? [
+                { label: "Updated", value: formatDate(latest.published) },
+                { label: "Posts", value: String(posts.length) },
+                { label: "Latest walk", value: latest.title.split(":")[0] },
+              ]
+            : undefined
+        }
       />
 
       <section className={`${pageShell} py-16 sm:py-24`}>
+        {posts.length === 0 ? (
+          <div className="mx-auto max-w-xl rounded-3xl border border-dashed border-border bg-card px-6 py-14 text-center">
+            <p className="font-display text-2xl font-extrabold tracking-[-0.02em]">
+              The first walk is on its way
+            </p>
+            <p className="mt-3 text-[0.98rem] leading-relaxed text-muted-foreground">
+              Until then, the longer reads are worth your time.
+            </p>
+            <Link
+              href="/stories"
+              className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-[0.9rem] font-semibold text-cream transition-colors hover:bg-terracotta"
+            >
+              Read the stories
+              <ArrowUpRight className="size-4" />
+            </Link>
+          </div>
+        ) : null}
         <ul className="grid gap-6">
           {posts.map((post, i) => (
             <Reveal as="li" key={post.slug} delay={i * 90}>

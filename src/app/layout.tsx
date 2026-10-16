@@ -127,7 +127,7 @@ document.readyState==="loading"?document.addEventListener("DOMContentLoaded",aft
         />
         {/* Without JavaScript the scroll reveals never fire, so unhide them. */}
         <noscript>
-          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+          <style>{`[data-reveal],[data-faq-panel] p{opacity:1!important;transform:none!important}[data-faq-panel]{grid-template-rows:1fr!important}`}</style>
         </noscript>
       </head>
       <body className="min-h-full">

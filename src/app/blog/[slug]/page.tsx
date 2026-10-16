@@ -5,8 +5,6 @@ import { blogFaqs, blogPath, blogPosts, getBlogPost, plainText } from "@/lib/kol
 import { photos } from "@/lib/kolkata/photos";
 import { absoluteUrl, JsonLd, photoUrl, SITE_NAME, SITE_URL } from "@/lib/seo";
 
-export const dynamicParams = false;
-
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
 }
@@ -15,7 +13,7 @@ export async function generateMetadata({
   params,
 }: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const post = getBlogPost((await params).slug);
-  if (!post) return {};
+  if (!post) return { title: "Not found" };
   const path = blogPath(post.slug);
   const cover = photos[post.cover];
   const images = [
