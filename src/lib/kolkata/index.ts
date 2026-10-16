@@ -159,4 +159,5 @@ export const sections = [
     blurb: "The river that watches Kolkata",
   },
   { href: "/stories", label: "Stories", blurb: "Longer reads" },
+  { href: "/blog", label: "Blog", blurb: "Walks, guides and field notes" },
 ] as const;

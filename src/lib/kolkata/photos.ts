@@ -75,6 +75,22 @@ import pKumartuliLane from "@/assets/photos/durga-puja/kumartuli-lane.jpg";
 import pKumartuliTram from "@/assets/photos/trams-and-taxis/kumartuli-tram.png";
 import pKumartuliPainting from "@/assets/photos/durga-puja/kumartuli-painting.jpg";
 import pKumartuliStraw from "@/assets/photos/durga-puja/kumartuli-straw.jpg";
+import pKwHandsFace from "@/assets/photos/kumartuli-walk/kumartuli-hands-face.jpg";
+import pKwStreetWorkshop from "@/assets/photos/kumartuli-walk/kumartuli-street-workshop.jpg";
+import pKwIdolRow from "@/assets/photos/kumartuli-walk/kumartuli-idol-row.jpg";
+import pKwStrawBinding from "@/assets/photos/kumartuli-walk/kumartuli-straw-binding.jpg";
+import pKwFirstClay from "@/assets/photos/kumartuli-walk/kumartuli-first-clay.jpg";
+import pKwClayTexture from "@/assets/photos/kumartuli-walk/kumartuli-clay-texture.jpg";
+import pKwMonsoon from "@/assets/photos/kumartuli-walk/kumartuli-monsoon.jpg";
+import pKwClayHeads from "@/assets/photos/kumartuli-walk/kumartuli-clay-heads.jpg";
+import pKwPaintingAsura from "@/assets/photos/kumartuli-walk/kumartuli-painting-asura.jpg";
+import pKwCrown from "@/assets/photos/kumartuli-walk/kumartuli-crown.jpg";
+import pKwChokkhudan from "@/assets/photos/kumartuli-walk/kumartuli-chokkhudan.jpg";
+import pKwFinishedIdol from "@/assets/photos/kumartuli-walk/kumartuli-finished-idol.jpg";
+import pKwSleepingArtisan from "@/assets/photos/kumartuli-walk/kumartuli-sleeping-artisan.jpg";
+import pKwLunch from "@/assets/photos/kumartuli-walk/kumartuli-lunch.jpg";
+import pKwGhat from "@/assets/photos/kumartuli-walk/kumartuli-ghat.jpg";
+import pKwMotherInMaking from "@/assets/photos/kumartuli-walk/kumartuli-mother-in-making.jpg";
 import pLuchiAlurDom from "@/assets/photos/food/luchi-alur-dom.jpg";
 import pMaidan from "@/assets/photos/neighbourhoods/maidan.jpg";
 import pMarblePalace from "@/assets/photos/heritage/marble-palace.jpg";
@@ -1036,6 +1052,198 @@ export const photos = {
       license: "CC BY-SA 4.0",
       licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
       source: "https://commons.wikimedia.org/wiki/File:From_Straw_to_Form.jpg",
+    },
+  },
+  "kumartuli-hands-face": {
+    image: pKwHandsFace,
+    alt: "Kumartuli artisan shaping the face of a Durga idol with wet clay in a North Kolkata workshop",
+    credit: {
+      title: "Durga Idol Making",
+      author: "Indrajit Das",
+      license: "CC BY-SA 3.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Durga_Idol_Making.jpg",
+    },
+  },
+  "kumartuli-street-workshop": {
+    image: pKwStreetWorkshop,
+    alt: "Unpainted clay idols standing in the open lane outside a Kumartuli workshop",
+    credit: {
+      title: "Sculpture workshop in Kumortuli, Kolkata 02",
+      author: "Bernard Gagnon",
+      license: "CC BY-SA 3.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Sculpture_workshop_in_Kumortuli,_Kolkata_02.jpg",
+    },
+  },
+  "kumartuli-idol-row": {
+    image: pKwIdolRow,
+    alt: "A row of half-made clay figures lined up against an old red house in Kumartuli",
+    credit: {
+      title: "Kumortuli",
+      author: "Phelubabu",
+      license: "CC BY 3.0",
+      licenseUrl: "https://creativecommons.org/licenses/by/3.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Kumortuli.jpg",
+    },
+  },
+  "kumartuli-straw-binding": {
+    image: pKwStrawBinding,
+    alt: "An artisan binding straw onto a bamboo frame in a Kumartuli workshop",
+    credit: {
+      title: "Crafting the Divine",
+      author: "Pritviswa",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Crafting_the_Divine.jpg",
+    },
+  },
+  "kumartuli-first-clay": {
+    image: pKwFirstClay,
+    alt: "An artisan pressing and smoothing clay over figures by hand in Kumartuli",
+    credit: {
+      title: "Festivals Always Come Before the Date",
+      author: "Pritviswa",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Festivals_Always_Come_Before_the_Date.jpg",
+    },
+  },
+  "kumartuli-clay-texture": {
+    image: pKwClayTexture,
+    alt: "Close-up of the rough first coat of straw-mixed clay on a Kumartuli lion figure",
+    credit: {
+      title: "Durga Idol at Kumartuli (16186570610)",
+      author: "Mike Prince from Bangalore, India",
+      license: "CC BY 2.0",
+      licenseUrl: "https://creativecommons.org/licenses/by/2.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Durga_Idol_at_Kumartuli_(16186570610).jpg",
+    },
+  },
+  "kumartuli-monsoon": {
+    image: pKwMonsoon,
+    alt: "A clay idol sheltered under an umbrella as rain reaches a Kumartuli workshop",
+    credit: {
+      title: "An Unexpected Monsoon",
+      author: "Pritviswa",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:An_Unexpected_Monsoon.jpg",
+    },
+  },
+  "kumartuli-clay-heads": {
+    image: pKwClayHeads,
+    alt: "Four unpainted clay heads resting on a wooden bench in a Kumartuli workshop",
+    credit: {
+      title: "Heads- getting ready to find a body",
+      author: "Pritviswa",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Heads-_getting_ready_to_find_a_body.jpg",
+    },
+  },
+  "kumartuli-painting-asura": {
+    image: pKwPaintingAsura,
+    alt: "An artisan painting the Asura and the lion of a Durga idol in a Kumartuli workshop",
+    credit: {
+      title: "Making of God",
+      author: "Simu75",
+      license: "CC BY 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Making_of_God.jpg",
+    },
+  },
+  "kumartuli-crown": {
+    image: pKwCrown,
+    alt: "A young artisan fitting the crown and ornaments on a Durga idol in Kumartuli",
+    credit: {
+      title: "Son Preparing Maa",
+      author: "Pritviswa",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Son_Preparing_Maa.jpg",
+    },
+  },
+  "kumartuli-chokkhudan": {
+    image: pKwChokkhudan,
+    alt: "An artisan painting the eyes of a Durga idol under a single bulb during chokkhu daan in Kolkata",
+    credit: {
+      title: "Chokkhudaan,Kolkata, West Bengal, DSC7212",
+      author: "Kiran Guha",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Chokkhudaan,Kolkata,_West_Bengal,_DSC7212.jpg",
+    },
+  },
+  "kumartuli-finished-idol": {
+    image: pKwFinishedIdol,
+    alt: "A finished and fully dressed Durga idol group in a Kumartuli workshop",
+    credit: {
+      title: "Idol of Maa Durga at Kumortuli",
+      author: "DK Rupayan",
+      license: "CC0 1.0",
+      licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Idol_of_Maa_Durga_at_Kumortuli.jpg",
+    },
+  },
+  "kumartuli-sleeping-artisan": {
+    image: pKwSleepingArtisan,
+    alt: "A tired artisan asleep on a bench between half-finished idols in a Kumartuli workshop",
+    credit: {
+      title: "Tired- Craftsman Sleeping on Bench",
+      author: "Pritviswa",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Tired-_Craftsman_Sleeping_on_Bench.jpg",
+    },
+  },
+  "kumartuli-lunch": {
+    image: pKwLunch,
+    alt: "A labourer eating on the clay-dusted floor of a Kumartuli workshop beneath unfinished idols",
+    credit: {
+      title: "Eating at Her Feet- A Moment Inside Workshop",
+      author: "Pritviswa",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Eating_at_Her_Feet-_A_Moment_Inside_Workshop.jpg",
+    },
+  },
+  "kumartuli-ghat": {
+    image: pKwGhat,
+    alt: "The old pavilion of Kumartuli Ghat on the Hooghly in North Kolkata",
+    credit: {
+      title: "Kumartuli Ghat 08",
+      author: "Indrajit Das",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Kumartuli_Ghat_08.jpg",
+    },
+  },
+  "kumartuli-mother-in-making": {
+    image: pKwMotherInMaking,
+    alt: "An unpainted clay Durga in the half-light of a Kumartuli workshop, before her eyes are given",
+    credit: {
+      title: "Mother in the Making",
+      author: "Chandrava Sinha",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      source:
+        "https://commons.wikimedia.org/wiki/File:Mother_in_the_Making.jpg",
     },
   },
   "luchi-alur-dom": {
