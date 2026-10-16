@@ -12,7 +12,10 @@ import { sectionGroups } from "@/lib/kolkata/section-groups";
 import { cn } from "@/lib/utils";
 
 /** Six in the bar; the full index is behind the menu. */
-const PRIMARY = sections.slice(0, 6);
+const PRIMARY = [
+  ...sections.slice(0, 5),
+  sections.find((s) => s.href === "/blog")!,
+];
 
 export function SiteNav() {
   const pathname = usePathname();
@@ -86,7 +89,7 @@ export function SiteNav() {
           </Link>
 
           <ul className="ml-auto hidden items-center gap-1 xl:flex">
-            {PRIMARY.slice(0, 5).map((s) => {
+            {PRIMARY.map((s) => {
               const active = pathname.startsWith(s.href);
               return (
                 <li key={s.href}>

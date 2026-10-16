@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { sceneInfo } from "@/components/scenes/scene-info";
 import { dishes, heritageSites, neighbourhoods, stories } from "@/lib/kolkata";
+import { blogPath, blogPosts } from "@/lib/kolkata/blog";
 import { absoluteUrl, photoUrl } from "@/lib/seo";
 
 const SECTIONS = [
@@ -9,6 +10,7 @@ const SECTIONS = [
   "/neighbourhoods",
   "/durga-puja",
   "/stories",
+  "/blog",
   "/hidden",
   "/map",
   "/famous-for",
@@ -59,6 +61,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: s.published,
       images: [photoUrl(s.photo ?? sceneInfo[s.scene].photo)],
       priority: 0.6,
+    })),
+    ...blogPosts.map((p) => ({
+      url: absoluteUrl(blogPath(p.slug)),
+      lastModified: p.updated ?? p.published,
+      images: [photoUrl(p.cover)],
+      priority: 0.8,
     })),
   ];
 }

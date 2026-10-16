@@ -46,7 +46,8 @@ export function Reveal({
             io?.disconnect();
           }
         },
-        { rootMargin: "0px 0px -12% 0px", threshold: 0.08 },
+        // Any pixel on screen counts; 32px covers the hidden-state offset.
+        { rootMargin: "0px 0px 32px 0px", threshold: 0 },
       );
       io.observe(el);
     });

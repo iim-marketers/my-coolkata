@@ -22,6 +22,7 @@ import {
   pujoChapters,
   stories,
 } from "@/lib/kolkata";
+import { blogPath, blogPosts } from "@/lib/kolkata/blog";
 
 export interface SearchRecord {
   id: string;
@@ -80,6 +81,12 @@ export const searchIndex: SearchRecord[] = [
   ),
   ...stories.map((s) =>
     record(`s-${s.slug}`, s.title, "Story", `/stories/${s.slug}`, s.standfirst, s.tags),
+  ),
+  ...blogPosts.map((p) =>
+    record(`b-${p.slug}`, p.title, "Blog", blogPath(p.slug), p.standfirst, [
+      ...p.keywords,
+      ...p.glossary.map((g) => g.roman),
+    ]),
   ),
   ...cultureStrands.map((c) =>
     record(`c-${c.slug}`, c.name, "Culture", `/culture#${c.slug}`, c.summary, [c.bengali]),

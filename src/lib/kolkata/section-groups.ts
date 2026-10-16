@@ -25,6 +25,7 @@ const GROUPS: { label: string; blurb: string; hrefs: string[] }[] = [
       "/literature",
       "/football",
       "/stories",
+      "/blog",
     ],
   },
   {

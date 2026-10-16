@@ -230,6 +230,12 @@ export default function KumartuliPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-5">
               <Link
+                href="/blog/kumartuli-how-durga-idols-are-made"
+                className="font-mono text-[0.64rem] tracking-[0.2em] text-terracotta uppercase hover:underline"
+              >
+                Walk through Kumartuli →
+              </Link>
+              <Link
                 href="/stories/nine-days-in-kumartuli"
                 className="font-mono text-[0.64rem] tracking-[0.2em] text-terracotta uppercase hover:underline"
               >
